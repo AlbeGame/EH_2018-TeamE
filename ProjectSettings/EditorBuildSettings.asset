@@ -4,4 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Start Game.unity
+    guid: eeb267702963f904fb5e065792331912
+  - enabled: 1
+    path: "Assets/SceneDifficolt\xE0.unity"
+    guid: 110d3ed16eee245468833543c0966cd0
+  - enabled: 1
+    path: Assets/Inizia Partita.unity
+    guid: eedaf012e65d87f4882471ef3d85f57c
