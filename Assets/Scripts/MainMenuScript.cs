@@ -11,18 +11,12 @@ public class MainMenuScript : MonoBehaviour {
 	public int index = 0; 
 	public Color normalColor,lockedColor;
 
-
 	public MenuVoice[] voices;
-
-
 	
 	void Start () {
 	
 		InitMenu();
 	}
-	
-	
-
 	
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.UpArrow)){
