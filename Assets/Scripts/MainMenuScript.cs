@@ -11,18 +11,12 @@ public class MainMenuScript : MonoBehaviour {
 	public int index = 0; 
 	public Color normalColor,lockedColor;
 
-
 	public MenuVoice[] voices;
-
-
 	
 	void Start () {
 	
 		InitMenu();
 	}
-	
-	
-
 	
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.UpArrow)){
@@ -48,8 +42,8 @@ public class MainMenuScript : MonoBehaviour {
 		}
 	}
 
-	
-	void InitMenu(){
+	//funzione messa public 
+	public void InitMenu(){
 
 		
 		for(int i = 0; i<voices.Length; i++){ 
@@ -74,13 +68,13 @@ public class MainMenuScript : MonoBehaviour {
 		}
 	}
 
-	
-	void changeIndex(int _newindex){
+	//funzione messa public
+    public void changeIndex(int _newindex){
 		voices[index].option.arrow.gameObject.SetActive(false);
 		voices[_newindex].option.arrow.gameObject.SetActive(true);
 		index = _newindex;
 	}
-
+    //guardare riga 101
 	void ExecuteFunction(int _index){
 		if(voices[_index].isLocked){
 			print("Questa funzione è bloccata!");
@@ -97,6 +91,14 @@ public class MainMenuScript : MonoBehaviour {
 	public void ExitGame(){
 		Application.Quit();
 	}
+
+    //funzioni che vengono chiamate..ti ho fatto una funzione in questo modo, per capire se la vuoi cosi o solo aggiungendo "public" alle mie funzioni private.
+    public void Select(int _index)
+    {
+        ExecuteFunction(index);
+    }
+
+
 }
 [System.Serializable]
 public class MenuVoice{
