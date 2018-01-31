@@ -1,62 +1,55 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Interactable : Button
 {
-    public KeyCode key;
+    public Material SelectedMat;
+    public Material UnselectedMat;
+    MeshRenderer meshRenderer;
 
-    Graphic targetGraphic;
-    Color normalColor;
-
-    void Awake()
+    public void Interact()
     {
-        targetGraphic = GetComponent<Graphic>();
-    }
-
-    void Start()
-    {
-        Realease();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(key))
-        {
-            Press();
-        }
-        else if (Input.GetKeyUp(key))
-        {
-            Realease();
-        }
-    }
-
-    void Realease()
-    {
-        StartColorTween(colors.normalColor, false);
-    }
-
-    void Press()
-    {
-        StartColorTween(colors.pressedColor, false);
         onClick.Invoke();
     }
 
-    void StartColorTween(Color targetColor, bool instant)
+    public void HighLight()
     {
-        if (targetGraphic == null)
-            return;
+        DoStateTransition(SelectionState.Highlighted, true);
+    }
 
-        targetGraphic.CrossFadeColor(targetColor, instant ? 0f : colors.fadeDuration, true, true);
+    public void NormalState()
+    {
+        DoStateTransition(SelectionState.Normal, true);
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        transition = Transition.None;
+        meshRenderer = GetComponent<MeshRenderer>();
+    }
+
+    private void OnMouseUpAsButton()
+    {
+        onClick.Invoke();   
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        NormalState();
+    }
+
+    protected override void DoStateTransition(SelectionState state, bool instant)
+    {
+        base.DoStateTransition(state, instant);
+        if(state == SelectionState.Highlighted)
+            meshRenderer.material.Lerp(SelectedMat, UnselectedMat, 0);
     }
 
     void OnApplicationFocus(bool focus)
     {
-        Realease();
-    }
-
-    public void LogOnClick()
-    {
-        Debug.Log("LogOnClick() - " + GetComponentInChildren<Text>().text);
+        NormalState();
     }
 }
