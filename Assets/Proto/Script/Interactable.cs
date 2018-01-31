@@ -44,8 +44,15 @@ public class Interactable : Button
     protected override void DoStateTransition(SelectionState state, bool instant)
     {
         base.DoStateTransition(state, instant);
+
+        if (currentSelectionState == state)
+            return;
+
         if(state == SelectionState.Highlighted)
-            meshRenderer.material.Lerp(SelectedMat, UnselectedMat, 0);
+            meshRenderer.material.Lerp(meshRenderer.material, UnselectedMat, 0);
+        else if(state != SelectionState.Disabled)
+            meshRenderer.material.Lerp(meshRenderer.material, SelectedMat, 0);
+
     }
 
     void OnApplicationFocus(bool focus)
