@@ -13,8 +13,17 @@ public class InteractableEditor : ButtonEditor
         EditorGUILayout.BeginHorizontal();
         targetInteractable.SelectedMat = EditorGUILayout.ObjectField("Selected Material", targetInteractable.SelectedMat, typeof(Material), true) as Material;
         EditorGUILayout.EndHorizontal();
+
         EditorGUILayout.BeginHorizontal();
         targetInteractable.UnselectedMat = EditorGUILayout.ObjectField("Unselected Material", targetInteractable.UnselectedMat, typeof(Material), true) as Material;
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.BeginHorizontal();
+        targetInteractable.InteractedMat = EditorGUILayout.ObjectField("Interacted Material", targetInteractable.InteractedMat, typeof(Material), true) as Material;
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.BeginHorizontal();
+        targetInteractable.DisabledMat = EditorGUILayout.ObjectField("Disabled Material", targetInteractable.DisabledMat, typeof(Material), true) as Material;
         EditorGUILayout.EndHorizontal();
 
         base.OnInspectorGUI();
