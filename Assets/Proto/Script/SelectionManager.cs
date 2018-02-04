@@ -3,16 +3,15 @@ using UnityEngine;
 
 public class SelectionManager : MonoBehaviour
 {
+    List<SelectableItem> selectables = new List<SelectableItem>();
 
-    List<ISelectable> selectables = new List<ISelectable>();
-
-    ISelectable _currentSelected;
-    public ISelectable currentSelected
+    SelectableItem _currentSelected;
+    public SelectableItem CurrentSelected
     {
         get { return _currentSelected; }
         set
         {
-            if (currentSelected == value)
+            if (CurrentSelected == value)
                 return;
 
             OnCurrentSelectedChange(value, _currentSelected);
@@ -25,15 +24,21 @@ public class SelectionManager : MonoBehaviour
     private void Start()
     {
         camCtrl = Camera.main.GetComponent<CameraController>();
+        //TODO: da rimuovere quando verrà creato un sistema di ceazione dinamica dei puzzle
+        foreach (SelectableItem selectItem in FindObjectsOfType<SelectableItem>())
+        {
+            selectItem.Init(this);
+        }
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonUp(1))
-            currentSelected = null;
+            if(!CurrentSelected.HasMouseOver)
+                CurrentSelected = null;
     }
 
-    void OnCurrentSelectedChange(ISelectable _newSel, ISelectable _oldSel)
+    void OnCurrentSelectedChange(SelectableItem _newSel, SelectableItem _oldSel)
     {
         if (_oldSel != null)
             _oldSel.State = SelectionState.Normal;
@@ -43,7 +48,7 @@ public class SelectionManager : MonoBehaviour
     }
 
     #region API
-    public void AddSelectable(ISelectable _selectable)
+    public void AddSelectable(SelectableItem _selectable)
     {
         selectables.Add(_selectable);
     }

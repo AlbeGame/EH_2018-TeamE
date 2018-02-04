@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 
-public class SelectableItem : MonoBehaviour, ISelectable
+/// <summary>
+/// Class that share the common behaviour of selectable items:
+/// Switch states and can be "Selected".
+/// Have to be injected on Init() with a SelectionManager
+/// </summary>
+public abstract class SelectableItem : MonoBehaviour
 {
-
-    public Transform CamFocusPosition;
-
     SelectionState _state;
     public SelectionState State
     {
@@ -19,22 +21,11 @@ public class SelectableItem : MonoBehaviour, ISelectable
                 return;
 
             _state = value;
-            OnStateChange(State);
+            OnStateSwitch(State);
         }
     }
-
-    ItemGraphicController graphicCtrl;
-    SelectionManager selectMng;
-    CameraController camCtrl;
-
-    private void Start()
-    {
-        Init(FindObjectOfType<SelectionManager>());
-        camCtrl = Camera.main.GetComponent<CameraController>();
-        graphicCtrl = GetComponentInChildren<ItemGraphicController>();
-
-        State = SelectionState.Normal;
-    }
+    public bool HasMouseOver { get; protected set; }
+    public SelectionManager SelectMng { get; private set; }
 
     private void OnMouseUpAsButton()
     {
@@ -43,49 +34,72 @@ public class SelectableItem : MonoBehaviour, ISelectable
 
     private void OnMouseEnter()
     {
+        HasMouseOver = true;
+
         if (State == SelectionState.Normal)
             State = SelectionState.Highlighted;
     }
 
     private void OnMouseExit()
     {
+        HasMouseOver = false;
+
         if (State == SelectionState.Highlighted)
             State = SelectionState.Normal;
     }
 
-    void OnStateChange(SelectionState _state)
+    void OnStateSwitch(SelectionState _state)
     {
         if (State == SelectionState.Pressed)
-            selectMng.currentSelected = this;
+            SelectMng.CurrentSelected = this;
 
-        switch (_state)
-        {
-            case SelectionState.Normal:
-                if (graphicCtrl)
-                    graphicCtrl.PaintNormal();
-                break;
-            case SelectionState.Highlighted:
-                if (graphicCtrl)
-                    graphicCtrl.PaintHighlight();
-                break;
-            case SelectionState.Pressed:
-                if (graphicCtrl)
-                    graphicCtrl.PaintPressed();
-                break;
-        }
+        OnStateChange(_state);
     }
 
     #region API
-    public void Init(SelectionManager _selectMng)
+    /// <summary>
+    /// Initialize the class
+    /// </summary>
+    /// <param name="_selectMng"></param>
+    public void Init(SelectionManager _selectMng, SelectionState _state = SelectionState.Normal)
     {
-        selectMng = _selectMng;
-        selectMng.AddSelectable(this);
-    }
+        SelectMng = _selectMng;
+        SelectMng.AddSelectable(this);
+        State = _state;
 
+        OnInit(_selectMng);
+    }
+    /// <summary>
+    /// Initialize the class
+    /// </summary>
+    /// <param name="_selectMng"></param>
+    public void Init(SelectableItem _previousGerarcic, SelectionState _state = SelectionState.Normal)
+    {
+        SelectMng = _previousGerarcic.SelectMng;
+        SelectMng.AddSelectable(this);
+        State = _state;
+
+        OnInit(_previousGerarcic);
+    }
+    /// <summary>
+    /// Call the reaction on selection;
+    /// </summary>
     public void Select()
     {
         State = SelectionState.Pressed;
-        camCtrl.FocusAt(CamFocusPosition);
+        OnSelect();
     }
+
+    protected virtual void OnInit(SelectionManager _selectMng) { }
+    protected virtual void OnInit(SelectableItem _previousGerarcic) { }
+    protected virtual void OnStateChange(SelectionState _newState) { }
+    protected virtual void OnSelect() { }
     #endregion
+}
+
+public enum SelectionState
+{
+    Normal,
+    Highlighted,
+    Pressed
 }
