@@ -1,16 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Puzzle1Controller : MonoBehaviour {
-
-    public List<ButtonTagController> TaggedButtons = new List<ButtonTagController>();
-    public List<SliderController> Sliders = new List<SliderController>();
+public class Puzzle1Controller : MonoBehaviour
+{
 
     public Vector4 EVales = new Vector4(30, 70, 20, 90);
 
+    public Material BrokenMat;
+    public Material SolvedMat;
+
+    public ButtonReset ResetButton;
+    public List<ButtonTagController> TaggedButtons = new List<ButtonTagController>();
+    public List<SliderController> Sliders = new List<SliderController>();
+
+
     private void Start()
     {
+        ResetButton = GetComponentInChildren<ButtonReset>();
+        ResetButton.puzzleCtrl = this;
+
         foreach (ButtonTagController button in GetComponentsInChildren<ButtonTagController>())
         {
             TaggedButtons.Add(button);
@@ -18,7 +26,7 @@ public class Puzzle1Controller : MonoBehaviour {
         }
     }
 
-    public void SetEValues (int _E1, int _E2, int _E3, int _E4)
+    public void SetEValues(int _E1, int _E2, int _E3, int _E4)
     {
         EVales.x += _E1;
         EVales.y += _E2;
@@ -52,8 +60,20 @@ public class Puzzle1Controller : MonoBehaviour {
         }
     }
 
-    void DoWinningThings() { }
-    void DoBreakThings() { }
+    void DoWinningThings()
+    {
+        foreach (MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>())
+        {
+            renderer.material = SolvedMat;
+        }
+    }
+    void DoBreakThings()
+    {
+        foreach (MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>())
+        {
+            renderer.material = BrokenMat;
+        }
+    }
 
     void UpdateSliderValues()
     {
