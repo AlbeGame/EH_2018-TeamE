@@ -14,7 +14,7 @@ public class SliderController : MonoBehaviour {
 
     LineRenderer lineRenderer;
 
-    private void Start()
+    private void OnEnable()
     {
         lineRenderer = GetComponentInChildren<LineRenderer>();
         lineRenderer.SetPosition(0, LineBegin.position);

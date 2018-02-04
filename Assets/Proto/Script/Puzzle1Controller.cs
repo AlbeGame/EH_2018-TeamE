@@ -3,12 +3,11 @@ using UnityEngine;
 
 public class Puzzle1Controller : MonoBehaviour
 {
-
     public Vector4 EVales = new Vector4(30, 70, 20, 90);
 
     public Material BrokenMat;
     public Material SolvedMat;
-
+    public PuzzleContainer container;
     public ButtonReset ResetButton;
     public List<ButtonTagController> TaggedButtons = new List<ButtonTagController>();
     public List<SliderController> Sliders = new List<SliderController>();
@@ -73,14 +72,24 @@ public class Puzzle1Controller : MonoBehaviour
     {
         foreach (MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>())
         {
-            renderer.material = SolvedMat;
+            if(!renderer.GetComponent<TextMesh>())
+                renderer.material = SolvedMat;
         }
+
+        foreach (var item in TaggedButtons)
+        {
+            item.GetComponent<MeshCollider>().enabled = false;
+        }
+        ResetButton.GetComponent<MeshCollider>().enabled = false;
+
+        container.SpegniStoCoso();
     }
     void DoBreakThings()
     {
         foreach (MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>())
         {
-            renderer.material = BrokenMat;
+            if(!renderer.GetComponent<TextMesh>())
+                renderer.material = BrokenMat;
         }
     }
 

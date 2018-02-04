@@ -3,12 +3,19 @@
 public class PuzzleContainer : SelectableItem
 {
     public Transform CamFocusPosition;
-
+    Puzzle1Controller PuzzleController;
     CameraController camCtrl;
     ItemGraphicController graphicCtrl;
 
+    public void SpegniStoCoso()
+    {
+        graphicCtrl = null;
+        enabled = false;
+    }
+
     protected override void OnInit(SelectionManager _selectMng)
     {
+        PuzzleController = GetComponentInChildren<Puzzle1Controller>();
         camCtrl = Camera.main.GetComponent<CameraController>();
         graphicCtrl = GetComponentInChildren<ItemGraphicController>();
     }
