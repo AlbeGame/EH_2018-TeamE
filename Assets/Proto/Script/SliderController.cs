@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SliderController : MonoBehaviour {
 
-    public float SmallerValue = -0.085f;
-    public float HigherValue = 0.085f;
-    float maxLenght { get { return HigherValue - SmallerValue; } }
+    public Transform LineBegin;
+    public Transform LineEnd;
+    Vector3 maxLenght { get { return LineEnd.position - LineBegin.position; } }
 
     public Material PositiveColor;
     public Material NeutralColor;
@@ -17,13 +17,15 @@ public class SliderController : MonoBehaviour {
     private void Start()
     {
         lineRenderer = GetComponentInChildren<LineRenderer>();
+        lineRenderer.SetPosition(0, LineBegin.position);
+        lineRenderer.SetPosition(1, LineEnd.position);
     }
 
     public void SetFillAmount(float _percentage)
     {
-        Vector3 newLineHead = lineRenderer.GetPosition(lineRenderer.positionCount - 1);
+        Vector3 newLineHead;
 
-        newLineHead.y = SmallerValue + maxLenght * _percentage / 100;
+        newLineHead = LineBegin.position + maxLenght * _percentage / 100;
 
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, newLineHead);
 

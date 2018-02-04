@@ -24,14 +24,23 @@ public class Puzzle1Controller : MonoBehaviour
             TaggedButtons.Add(button);
             button.puzzleCtrl = this;
         }
+        foreach (SliderController slider in GetComponentsInChildren<SliderController>())
+        {
+            Sliders.Add(slider);
+        }
+        UpdateSliderValues();
     }
 
-    public void SetEValues(int _E1, int _E2, int _E3, int _E4)
+    public void SetEValues(Vector4 _eValues)
     {
-        EVales.x += _E1;
-        EVales.y += _E2;
-        EVales.z += _E3;
-        EVales.w += _E4;
+        EVales += _eValues;
+        for (int i = 0; i < 4; i++)
+        {
+            if (EVales[i] < 0)
+                EVales[i] = 0;
+            if (EVales[i] > 100)
+                EVales[i] = 100;
+        }
 
         UpdateSliderValues();
         CheckBreackDown();
