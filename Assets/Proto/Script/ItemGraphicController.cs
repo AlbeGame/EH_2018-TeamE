@@ -12,6 +12,11 @@ public class ItemGraphicController : MonoBehaviour {
     private void Start()
     {
         meshRenderers = GetComponentsInChildren<MeshRenderer>().ToList();
+        for (int i = 0; i < meshRenderers.Count; i++)
+        {
+            if (meshRenderers[i].GetComponent<TextMesh>())
+                meshRenderers.RemoveAt(i);
+        }
     }
 
     public void PaintNormal()
