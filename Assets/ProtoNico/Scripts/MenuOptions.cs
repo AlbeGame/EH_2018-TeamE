@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class MenuOption : MonoBehaviour {
+
+public class MenuOptions : MonoBehaviour {
 	public Text menuName;
 	public Image arrow;
 }
