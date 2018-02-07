@@ -43,7 +43,16 @@ public abstract class SelectableItem : MonoBehaviour
         }
     }
     public List<SelectableItem> Children = new List<SelectableItem>();
-    public List<SelectableItem> Siblings { get { return Parent.GetSiblings(this); } }
+    public List<SelectableItem> Siblings
+    {
+        get
+        {
+            if (Parent)
+                return GetSiblings(this);
+            else
+                return new List<SelectableItem>();
+        }
+    }
 
     //not state dependend conditionals
     public bool HasMouseOver { get; protected set; }
@@ -106,7 +115,6 @@ public abstract class SelectableItem : MonoBehaviour
                 if (Parent)
                 {
                     Parent.SelectedScion = this;
-                    Parent.State = SelectionState.Passive;
                 }
 
                 foreach (SelectableItem child in Children)
@@ -125,16 +133,16 @@ public abstract class SelectableItem : MonoBehaviour
     /// <param name="_oldScion"></param>
     void OnSelectedScionSet(SelectableItem _newScion, SelectableItem _oldScion)
     {
-        if (Parent)
-        {
-            Parent.SelectedScion = _newScion;
-        }
         if (_oldScion)
         {
-            if(Siblings.Contains(_oldScion))
+            if(_newScion.Siblings.Contains(_oldScion))
                 _oldScion.State = SelectionState.Normal;
             else
                 _oldScion.State = SelectionState.Passive;
+        }
+        if (Parent)
+        {
+            Parent.SelectedScion = _newScion;
         }
     }
     /// <summary>
