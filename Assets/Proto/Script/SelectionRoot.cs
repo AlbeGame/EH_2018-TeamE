@@ -20,7 +20,7 @@ public class SelectionRoot : SelectableItem
     {
         if (Input.GetMouseButtonUp(1))
             if(hasASelectedChild)
-                Select();
+                Select(true);
     }
 
     protected override void OnSelect()

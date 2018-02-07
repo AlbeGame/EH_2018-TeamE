@@ -7,7 +7,7 @@ public class ButtonReset : SelectableItem {
 
     private void Start()
     {
-        Init(GetComponentInParent<SelectableItem>());
+        Init(null);
     }
 
     protected override void OnSelect()

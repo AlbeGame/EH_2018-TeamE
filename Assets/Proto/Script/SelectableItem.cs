@@ -33,7 +33,8 @@ public abstract class SelectableItem : MonoBehaviour
     public SelectableItem SelectedScion
     {
         get { return _selectedScion; }
-        set {
+        set
+        {
             if (value == SelectedScion)
                 return;
             SelectableItem _oldScion = _selectedScion;
@@ -43,7 +44,7 @@ public abstract class SelectableItem : MonoBehaviour
     }
     public List<SelectableItem> Children = new List<SelectableItem>();
     public List<SelectableItem> Siblings { get { return Parent.GetSiblings(this); } }
-    
+
     //not state dependend conditionals
     public bool HasMouseOver { get; protected set; }
     protected bool hasASelectedChild { get { return Children.Contains(SelectedScion); } }
@@ -85,7 +86,8 @@ public abstract class SelectableItem : MonoBehaviour
                         sibling.State = SelectionState.Normal;
                     }
                 }
-                else {
+                else
+                {
                     foreach (SelectableItem child in Children)
                     {
                         child.State = SelectionState.Passive;
@@ -121,7 +123,8 @@ public abstract class SelectableItem : MonoBehaviour
     /// </summary>
     /// <param name="_newScion"></param>
     /// <param name="_oldScion"></param>
-    void OnSelectedScionSet(SelectableItem _newScion, SelectableItem _oldScion) {
+    void OnSelectedScionSet(SelectableItem _newScion, SelectableItem _oldScion)
+    {
         if (Parent)
         {
             Parent.SelectedScion = _newScion;
@@ -161,26 +164,42 @@ public abstract class SelectableItem : MonoBehaviour
     {
         OnInitBegin(_parent);
 
-        if (_parent)
+        //Workaround a GetParent di Unity (ritorna anche se stesso. Versione manuale di GetParent)
+        SelectableItem parent = _parent;
+        if (!parent)
+            for (Transform p = transform.parent; p != null; p = p.parent)
+            {
+                SelectableItem firstParentFound = p.GetComponent<SelectableItem>();
+                if (firstParentFound != null)
+                {
+                    parent = firstParentFound;
+                    break;
+                }
+            }
+
+        if (parent)
         {
-            Parent = _parent;
+            Parent = parent;
             Parent.Children.Add(this);
         }
 
         State = _state;
 
-        OnInitEnd(_parent);
+        OnInitEnd(parent);
     }
     /// <summary>
     /// Call the reaction on selection;
     /// </summary>
-    public void Select()
+    public void Select(bool ignoreState = false)
     {
-        State = SelectionState.Selected;
-        OnSelect();
+        if (ignoreState || State != SelectionState.Passive)
+        {
+            State = SelectionState.Selected;
+            OnSelect();
+        }
     }
     #endregion
-    
+
     #region Virtual Methods
     protected virtual void OnInitBegin(SelectableItem _parent) { }
     protected virtual void OnInitEnd(SelectableItem _parent) { }
