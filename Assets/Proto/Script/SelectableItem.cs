@@ -131,7 +131,10 @@ public abstract class SelectableItem : MonoBehaviour
         }
         if (_oldScion)
         {
-            _oldScion.State = SelectionState.Passive;
+            if(Siblings.Contains(_oldScion))
+                _oldScion.State = SelectionState.Normal;
+            else
+                _oldScion.State = SelectionState.Passive;
         }
     }
     /// <summary>
