@@ -271,7 +271,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4385274347026998}
-  - component: {fileID: 114811330554255968}
   - component: {fileID: 64656321114278634}
   m_Layer: 0
   m_Name: PuzzleGeneric 1
@@ -1338,15 +1337,3 @@ MonoBehaviour:
   NormalMat: {fileID: 2100000, guid: db45bdb529efebc4b889c5a058cd9e7c, type: 2}
   HighlightedMat: {fileID: 2100000, guid: 42faddb2e59f5004e892136b59a2c905, type: 2}
   PressedMat: {fileID: 2100000, guid: 4201e4398a04d3f4e90e98425a24d486, type: 2}
---- !u!114 &114811330554255968
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1704924192270638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e262f0b1e84d6ee4783345fa2e0671a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CamFocusPosition: {fileID: 4018978644323176}

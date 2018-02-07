@@ -8,14 +8,12 @@ public class CameraController : MonoBehaviour
     public float MovementSpeed = 0.2f;
     Quaternion originalRotation;
     Vector3 originalPosition;
-    Camera cam;
 
     // Use this for initialization
     void Start()
     {
         originalRotation = transform.rotation;
         originalPosition = transform.position;
-        cam = GetComponent<Camera>();
     }
 
     #region API

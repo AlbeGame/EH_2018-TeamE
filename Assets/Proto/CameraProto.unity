@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 2018674700}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -526,6 +527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 211815931}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -702,6 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7982f00c72f71724db80e1d2f38ee05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
 --- !u!64 &72189326
@@ -916,6 +919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7982f00c72f71724db80e1d2f38ee05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
 --- !u!64 &102242277
@@ -1279,6 +1283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 211815931}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -1643,6 +1648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 876922336}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -2073,6 +2079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5a596f91bc73d4383df45e64fe9fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   CamFocusPosition: {fileID: 1746206888}
 --- !u!64 &211815933
 MeshCollider:
@@ -2815,6 +2822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 2076693273}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -3244,6 +3252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 626437600}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -3385,6 +3394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 211815931}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -3496,6 +3506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 211815931}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -3962,6 +3973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 2018674700}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -4073,6 +4085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 211815931}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -4804,6 +4817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 876922336}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -4965,6 +4979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5a596f91bc73d4383df45e64fe9fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   CamFocusPosition: {fileID: 602057054}
 --- !u!64 &626437602
 MeshCollider:
@@ -5861,6 +5876,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae273375ce007ca458d562e56db2b016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
+  puzzles:
+  - {fileID: 876922335}
+  - {fileID: 626437601}
+  - {fileID: 2076693274}
+  - {fileID: 2018674701}
+  - {fileID: 211815932}
 --- !u!4 &749068594
 Transform:
   m_ObjectHideFlags: 0
@@ -6446,6 +6468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 2018674700}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -6632,6 +6655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 2076693273}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -7031,6 +7055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5a596f91bc73d4383df45e64fe9fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   CamFocusPosition: {fileID: 639572872}
 --- !u!114 &876922336
 MonoBehaviour:
@@ -7593,6 +7618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 626437600}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -7717,6 +7743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7982f00c72f71724db80e1d2f38ee05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
 --- !u!64 &960178284
@@ -7883,6 +7910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 876922336}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -8810,6 +8838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 2076693273}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -9870,6 +9899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 876922336}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -10782,6 +10812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7982f00c72f71724db80e1d2f38ee05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
 --- !u!64 &1383418202
@@ -12020,6 +12051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 2076693273}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -12662,6 +12694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 2076693273}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -12848,6 +12881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 626437600}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -13801,6 +13835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 876922336}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -14189,6 +14224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 2018674700}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -14429,6 +14465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 626437600}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -14615,6 +14652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 626437600}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -14875,6 +14913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5a596f91bc73d4383df45e64fe9fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   CamFocusPosition: {fileID: 268041992}
 --- !u!64 &2018674702
 MeshCollider:
@@ -15089,6 +15128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 2018674700}
   Label: {fileID: 0}
   ButtonGraphic: {fileID: 0}
@@ -15203,6 +15243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5a596f91bc73d4383df45e64fe9fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   CamFocusPosition: {fileID: 186106917}
 --- !u!64 &2076693275
 MeshCollider:
@@ -15531,6 +15572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7982f00c72f71724db80e1d2f38ee05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Children: []
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
 --- !u!64 &2104813225

@@ -9,13 +9,18 @@ public class ButtonTagController : SelectableItem {
     Vector3 originalPos;
     public Vector4 ValuesModifier = new Vector4();
 
+    private void Start()
+    {
+        Init(GetComponentInParent<SelectableItem>());
+    }
+
     protected override void OnSelect()
     {
         if (puzzleCtrl != null)
             puzzleCtrl.SetEValues(ValuesModifier);
     }
 
-    protected override void OnInit(SelectionManager _selectMng)
+    protected override void OnInitEnd(SelectableItem _parent)
     {
         originalPos = transform.position;
         if(Label != null)

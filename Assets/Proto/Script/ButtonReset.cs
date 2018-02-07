@@ -5,9 +5,9 @@ public class ButtonReset : SelectableItem {
     public Puzzle1Controller puzzleCtrl;
     public GameObject ButtonGraphic;
 
-    protected override void OnInit(SelectableItem _previousGerarcic)
+    private void Start()
     {
-
+        Init(GetComponentInParent<SelectableItem>());
     }
 
     protected override void OnSelect()

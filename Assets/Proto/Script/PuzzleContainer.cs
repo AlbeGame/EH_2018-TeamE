@@ -3,7 +3,6 @@
 public class PuzzleContainer : SelectableItem
 {
     public Transform CamFocusPosition;
-    Puzzle1Controller PuzzleController;
     CameraController camCtrl;
     ItemGraphicController graphicCtrl;
 
@@ -13,9 +12,8 @@ public class PuzzleContainer : SelectableItem
         enabled = false;
     }
 
-    protected override void OnInit(SelectionManager _selectMng)
+    protected override void OnInitEnd(SelectableItem _parent)
     {
-        PuzzleController = GetComponentInChildren<Puzzle1Controller>();
         camCtrl = Camera.main.GetComponent<CameraController>();
         graphicCtrl = GetComponentInChildren<ItemGraphicController>();
     }
@@ -38,7 +36,7 @@ public class PuzzleContainer : SelectableItem
                 if (graphicCtrl)
                     graphicCtrl.PaintHighlight();
                 break;
-            case SelectionState.Pressed:
+            case SelectionState.Selected:
                 if (graphicCtrl)
                     graphicCtrl.PaintPressed();
                 break;
