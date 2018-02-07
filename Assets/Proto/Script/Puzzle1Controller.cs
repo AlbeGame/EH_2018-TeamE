@@ -82,7 +82,7 @@ public class Puzzle1Controller : MonoBehaviour
         }
         ResetButton.GetComponent<MeshCollider>().enabled = false;
 
-        container.SpegniStoCoso();
+        container.Parent.Select();
     }
     void DoBreakThings()
     {
