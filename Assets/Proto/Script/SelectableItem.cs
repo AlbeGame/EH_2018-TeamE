@@ -68,7 +68,7 @@ public abstract class SelectableItem : MonoBehaviour
     {
         HasMouseOver = true;
 
-        if (State == SelectionState.Normal)
+        if (State == SelectionState.Neutral)
             State = SelectionState.Highlighted;
     }
     private void OnMouseExit()
@@ -76,7 +76,7 @@ public abstract class SelectableItem : MonoBehaviour
         HasMouseOver = false;
 
         if (State == SelectionState.Highlighted)
-            State = SelectionState.Normal;
+            State = SelectionState.Neutral;
     }
 
     /// <summary>
@@ -91,36 +91,26 @@ public abstract class SelectableItem : MonoBehaviour
                 if (hasASelectedChild)
                 {
                     foreach (SelectableItem sibling in GetSiblings(SelectedScion))
-                    {
-                        sibling.State = SelectionState.Normal;
-                    }
+                        sibling.State = SelectionState.Neutral;
                 }
                 else
                 {
                     foreach (SelectableItem child in Children)
-                    {
                         child.State = SelectionState.Passive;
-                    }
                 }
                 break;
-            case SelectionState.Normal:
+            case SelectionState.Neutral:
                 foreach (SelectableItem child in Children)
-                {
                     child.State = SelectionState.Passive;
-                }
                 break;
             case SelectionState.Highlighted:
                 break;
             case SelectionState.Selected:
                 if (Parent)
-                {
                     Parent.SelectedScion = this;
-                }
 
                 foreach (SelectableItem child in Children)
-                {
-                    child.State = SelectionState.Normal;
-                }
+                    child.State = SelectionState.Neutral;
                 break;
         }
 
@@ -133,17 +123,17 @@ public abstract class SelectableItem : MonoBehaviour
     /// <param name="_oldScion"></param>
     void OnSelectedScionSet(SelectableItem _newScion, SelectableItem _oldScion)
     {
-        if (_oldScion)
-        {
-            if(_newScion.Siblings.Contains(_oldScion))
-                _oldScion.State = SelectionState.Normal;
-            else
-                _oldScion.State = SelectionState.Passive;
-        }
+        //if (_oldScion)
+        //{
+        //    if(_newScion.Siblings.Contains(_oldScion))
+        //        _oldScion.State = SelectionState.Neutral;
+        //    else
+        //        _oldScion.State = SelectionState.Passive;
+        //}
+        State = SelectionState.Passive;
         if (Parent)
-        {
             Parent.SelectedScion = _newScion;
-        }
+
     }
     /// <summary>
     /// Return all the children except _child
@@ -171,7 +161,7 @@ public abstract class SelectableItem : MonoBehaviour
     /// Initialize the class
     /// </summary>
     /// <param name="_parent"></param>
-    public void Init(SelectableItem _parent, SelectionState _state = SelectionState.Normal)
+    public void Init(SelectableItem _parent, SelectionState _state = SelectionState.Neutral)
     {
         OnInitBegin(_parent);
 
@@ -222,7 +212,7 @@ public abstract class SelectableItem : MonoBehaviour
 public enum SelectionState
 {
     Passive = -1,
-    Normal,
+    Neutral,
     Highlighted,
     Selected
 }

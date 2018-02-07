@@ -114,6 +114,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &129997213 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114705494843765498, guid: fe78394b621638447b4ee7c4e1fbdcaa,
+    type: 2}
+  m_PrefabInternal: {fileID: 1592642777}
+  m_Script: {fileID: 11500000, guid: ff5a596f91bc73d4383df45e64fe9fa4, type: 3}
+--- !u!114 &218826008 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114926355721390994, guid: fe78394b621638447b4ee7c4e1fbdcaa,
+    type: 2}
+  m_PrefabInternal: {fileID: 1592642777}
+  m_Script: {fileID: 11500000, guid: ff5a596f91bc73d4383df45e64fe9fa4, type: 3}
 --- !u!1 &326217710
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +465,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 562996789}
+--- !u!114 &671531917 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114880609012579354, guid: fe78394b621638447b4ee7c4e1fbdcaa,
+    type: 2}
+  m_PrefabInternal: {fileID: 1592642777}
+  m_Script: {fileID: 11500000, guid: ff5a596f91bc73d4383df45e64fe9fa4, type: 3}
 --- !u!1 &732940501
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,6 +683,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 839769200}
+--- !u!114 &936435718 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114658210912585024, guid: fe78394b621638447b4ee7c4e1fbdcaa,
+    type: 2}
+  m_PrefabInternal: {fileID: 1592642777}
+  m_Script: {fileID: 11500000, guid: ff5a596f91bc73d4383df45e64fe9fa4, type: 3}
 --- !u!1001 &1592642777
 Prefab:
   m_ObjectHideFlags: 0
@@ -672,6 +696,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114094057045273076, guid: fe78394b621638447b4ee7c4e1fbdcaa,
+        type: 2}
+      propertyPath: puzzles.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4235955679618402, guid: fe78394b621638447b4ee7c4e1fbdcaa, type: 2}
       propertyPath: m_LocalPosition.x
       value: 2.7968864
@@ -704,9 +733,40 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114094057045273076, guid: fe78394b621638447b4ee7c4e1fbdcaa,
+        type: 2}
+      propertyPath: puzzles.Array.data[0]
+      value: 
+      objectReference: {fileID: 1654179717}
+    - target: {fileID: 114094057045273076, guid: fe78394b621638447b4ee7c4e1fbdcaa,
+        type: 2}
+      propertyPath: puzzles.Array.data[1]
+      value: 
+      objectReference: {fileID: 129997213}
+    - target: {fileID: 114094057045273076, guid: fe78394b621638447b4ee7c4e1fbdcaa,
+        type: 2}
+      propertyPath: puzzles.Array.data[2]
+      value: 
+      objectReference: {fileID: 218826008}
+    - target: {fileID: 114094057045273076, guid: fe78394b621638447b4ee7c4e1fbdcaa,
+        type: 2}
+      propertyPath: puzzles.Array.data[3]
+      value: 
+      objectReference: {fileID: 671531917}
+    - target: {fileID: 114094057045273076, guid: fe78394b621638447b4ee7c4e1fbdcaa,
+        type: 2}
+      propertyPath: puzzles.Array.data[4]
+      value: 
+      objectReference: {fileID: 936435718}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe78394b621638447b4ee7c4e1fbdcaa, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1654179717 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114767828926068558, guid: fe78394b621638447b4ee7c4e1fbdcaa,
+    type: 2}
+  m_PrefabInternal: {fileID: 1592642777}
+  m_Script: {fileID: 11500000, guid: ff5a596f91bc73d4383df45e64fe9fa4, type: 3}
 --- !u!1 &1726374295
 GameObject:
   m_ObjectHideFlags: 0

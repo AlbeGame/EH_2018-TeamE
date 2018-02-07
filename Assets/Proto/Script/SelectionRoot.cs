@@ -11,7 +11,7 @@ public class SelectionRoot : SelectableItem
         camCtrl = Camera.main.GetComponent<CameraController>();
         foreach (PuzzleContainer puzzle in puzzles)
         {
-            puzzle.Init(this, SelectionState.Normal);
+            puzzle.Init(this, SelectionState.Neutral);
         }
         State = SelectionState.Selected;
     }

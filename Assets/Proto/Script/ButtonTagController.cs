@@ -18,6 +18,8 @@ public class ButtonTagController : SelectableItem {
     {
         if (puzzleCtrl != null)
             puzzleCtrl.SetEValues(ValuesModifier);
+
+        Parent.Select();
     }
 
     protected override void OnInitEnd(SelectableItem _parent)

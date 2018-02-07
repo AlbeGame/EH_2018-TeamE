@@ -28,7 +28,7 @@ public class PuzzleContainer : SelectableItem
     {
         switch (_state)
         {
-            case SelectionState.Normal:
+            case SelectionState.Neutral:
                 if (graphicCtrl)
                     graphicCtrl.PaintNormal();
                 break;
