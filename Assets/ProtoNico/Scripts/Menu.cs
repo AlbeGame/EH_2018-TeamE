@@ -8,8 +8,9 @@ public class Menu : MonoBehaviour {
 	public MenuOptions menuOptionPrefab;
 	public GameObject container;
 
-	public int index = 0; 
+    int index = 0; 
 	public Color normalColor,lockedColor;
+    
 
 
 	public MenuVoice[] voices;
@@ -23,11 +24,25 @@ public class Menu : MonoBehaviour {
 
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.UpArrow)){
-            Forward();
-		}
+            if (index == 0)
+            {
+                SelectionOptions(voices.Length - 1);
+            }
+            else
+            {
+                SelectionOptions(index - 1);
+            }
+        }
 		if(Input.GetKeyDown(KeyCode.DownArrow)){
-            Backward();
-		}
+            if (index == voices.Length - 1)
+            {
+                SelectionOptions(0);
+            }
+            else
+            {
+                SelectionOptions(index + 1);
+            }
+        }
 
 
 		if(Input.GetKeyDown(KeyCode.Return)){
@@ -35,65 +50,54 @@ public class Menu : MonoBehaviour {
 		}
 	}
 
-    public void Forward()
+
+
+
+
+
+
+    void VewMenuInGame()
     {
-        if (index == 0)
+
+
+        for (int i = 0; i < voices.Length; i++)
         {
-            SelectionOptions(voices.Length - 1);
-        }
-        else
-        {
-            SelectionOptions(index - 1);
+            MenuOptions options = Instantiate(menuOptionPrefab, container.transform);
+            options.menuName.text = voices[i].text;
+            /*if (voices[i].isLocked)
+            {
+                options.arrow.color = lockedColor; 
+                options.menuName.color = lockedColor;
+            }
+            else
+            //{
+                options.arrow.color = normalColor;
+                options.menuName.color = normalColor;
+                */
+                voices[i].option = options;
+
+                if (i == index)
+                {
+                    voices[i].option.arrow.gameObject.SetActive(true);
+                }
+                else
+                {
+                    voices[i].option.arrow.gameObject.SetActive(false);
+                }
+            //}
         }
     }
 
 
 
-    public void Backward()
-    {
-        if (index == voices.Length - 1)
-        {
-            SelectionOptions(0);
-        }
-        else
-        {
-            SelectionOptions(index + 1);
-        }
-    }
+  
 
-	
-	 void VewMenuInGame()
-    {
-
-	
-		for(int i = 0; i<voices.Length; i++){
-			MenuOptions options = Instantiate(menuOptionPrefab,container.transform); 
-			options.menuName.text = voices[i].text; 
-			if(voices[i].isLocked){ 
-				options.arrow.color = lockedColor; 
-				options.menuName.color = lockedColor;
-			}
-			else{ 
-				options.arrow.color = normalColor;
-				options.menuName.color = normalColor;
-			}
-			voices[i].option = options; 
-
-			if(i == index){ 
-				voices[i].option.arrow.gameObject.SetActive(true);
-			}
-			else{ 
-				voices[i].option.arrow.gameObject.SetActive(false);
-			}
-		}
-	}
-
-	
-	public void SelectionOptions(int _newindex){
+     public void SelectionOptions(int _newindex)
+     {
 		voices[index].option.arrow.gameObject.SetActive(false);
 		voices[_newindex].option.arrow.gameObject.SetActive(true);
 		index = _newindex;
-	}
+	 }
 
 	public void ActionOptions(int _index){
 		if(voices[_index].isLocked){

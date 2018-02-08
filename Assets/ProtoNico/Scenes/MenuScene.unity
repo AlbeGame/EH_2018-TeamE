@@ -336,10 +336,10 @@ MonoBehaviour:
     type: 2}
   container: {fileID: 765044450}
   index: 0
-  normalColor: {r: 1, g: 0.76470596, b: 0, a: 1}
-  lockedColor: {r: 1, g: 0.76470596, b: 0, a: 0.472}
+  normalColor: {r: 1, g: 0.7647059, b: 0, a: 1}
+  lockedColor: {r: 0.43382353, g: 0.40830448, b: 0.32536763, a: 1}
   voices:
-  - text: Nuovo gioco
+  - text: New Game
     isLocked: 0
     option: {fileID: 0}
     Azione:
@@ -358,7 +358,7 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-  - text: Continua
+  - text: Continue
     isLocked: 1
     option: {fileID: 0}
     Azione:
@@ -377,7 +377,7 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-  - text: Esci dal Gioco
+  - text: Exit Game
     isLocked: 0
     option: {fileID: 0}
     Azione:

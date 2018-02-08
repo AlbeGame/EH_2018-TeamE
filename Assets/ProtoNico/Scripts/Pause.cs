@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour {
 	public GameObject pauseMenu,exitMenu;
-    bool timer;
+    
 
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.Escape) && !exitMenu.activeInHierarchy){ 
+		if(Input.GetKeyDown(KeyCode.Escape)&& !exitMenu.activeInHierarchy)
+        { 
 			ToggleMenu(pauseMenu);
 		}
 	}
