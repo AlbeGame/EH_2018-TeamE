@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class ButtonReset : SelectableItem {
+public class Puzzle1ButtonReset : SelectableItem {
 
-    public Puzzle1Controller puzzleCtrl;
+    public PuzzleTurbine puzzleCtrl;
     public GameObject ButtonGraphic;
 
     private void Start()

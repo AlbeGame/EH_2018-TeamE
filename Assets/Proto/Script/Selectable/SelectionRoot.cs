@@ -4,12 +4,12 @@ using UnityEngine;
 public class SelectionRoot : SelectableItem
 {
     CameraController camCtrl;
-    public List<PuzzleContainer> puzzles = new List<PuzzleContainer>();
+    public List<PuzzleGeneric> puzzles = new List<PuzzleGeneric>();
 
     private void Start()
     {
         camCtrl = Camera.main.GetComponent<CameraController>();
-        foreach (PuzzleContainer puzzle in puzzles)
+        foreach (PuzzleGeneric puzzle in puzzles)
         {
             puzzle.Init(this, SelectionState.Neutral);
         }

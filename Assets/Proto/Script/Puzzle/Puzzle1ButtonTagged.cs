@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 
-public class ButtonTagController : SelectableItem {
+public class Puzzle1ButtonTagged : SelectableItem {
 
-    public Puzzle1Controller puzzleCtrl;
-    public TextMesh Label;
+    public PuzzleTurbine puzzleCtrl;
     public GameObject ButtonGraphic;
     public float PushOffSet = .002f;
     Vector3 originalPos;
@@ -25,8 +24,6 @@ public class ButtonTagController : SelectableItem {
     protected override void OnInitEnd(SelectableItem _parent)
     {
         originalPos = transform.position;
-        if(Label != null)
-            Label = GetComponentInChildren<TextMesh>();
     }
 
     private void OnMouseDown()
@@ -37,11 +34,5 @@ public class ButtonTagController : SelectableItem {
     private void OnMouseUp()
     {
         transform.position = originalPos;
-    }
-
-    public void OverrideLabel(string _text)
-    {
-        if(Label != null)
-            Label.text = _text;
     }
 }

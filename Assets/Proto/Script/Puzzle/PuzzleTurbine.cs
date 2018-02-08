@@ -1,24 +1,21 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Puzzle1Controller : MonoBehaviour
+public class PuzzleTurbine : PuzzleGeneric
 {
     public Vector4 EVales = new Vector4(30, 70, 20, 90);
 
-    public Material BrokenMat;
-    public Material SolvedMat;
-    public PuzzleContainer container;
-    public ButtonReset ResetButton;
-    public List<ButtonTagController> TaggedButtons = new List<ButtonTagController>();
+    public Puzzle1ButtonReset ResetButton;
+    public List<Puzzle1ButtonTagged> TaggedButtons = new List<Puzzle1ButtonTagged>();
     public List<SliderController> Sliders = new List<SliderController>();
 
 
     private void Start()
     {
-        ResetButton = GetComponentInChildren<ButtonReset>();
+        ResetButton = GetComponentInChildren<Puzzle1ButtonReset>();
         ResetButton.puzzleCtrl = this;
 
-        foreach (ButtonTagController button in GetComponentsInChildren<ButtonTagController>())
+        foreach (Puzzle1ButtonTagged button in GetComponentsInChildren<Puzzle1ButtonTagged>())
         {
             TaggedButtons.Add(button);
             button.puzzleCtrl = this;
@@ -70,11 +67,7 @@ public class Puzzle1Controller : MonoBehaviour
 
     void DoWinningThings()
     {
-        foreach (MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>())
-        {
-            if(!renderer.GetComponent<TextMesh>())
-                renderer.material = SolvedMat;
-        }
+        SolutionState = PuzzleState.Solved;
 
         foreach (var item in TaggedButtons)
         {
@@ -82,15 +75,11 @@ public class Puzzle1Controller : MonoBehaviour
         }
         ResetButton.GetComponent<MeshCollider>().enabled = false;
 
-        container.Parent.Select();
+        Parent.Select();
     }
     void DoBreakThings()
     {
-        foreach (MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>())
-        {
-            if(!renderer.GetComponent<TextMesh>())
-                renderer.material = BrokenMat;
-        }
+        SolutionState = PuzzleState.Broken;
     }
 
     void UpdateSliderValues()

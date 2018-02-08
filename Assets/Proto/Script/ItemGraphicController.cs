@@ -2,42 +2,56 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemGraphicController : MonoBehaviour {
-
-    public Material NormalMat;
+[RequireComponent(typeof(MeshRenderer))]
+public class ItemGraphicController : MonoBehaviour
+{
+    public Material PassiveMat;
+    public Material NeutralMat;
     public Material HighlightedMat;
-    public Material PressedMat;
-    List<MeshRenderer> meshRenderers = new List<MeshRenderer>();
+    public Material SelectedMat;
+    public Material BrokenMat;
+    public Material SolvedMat;
+
+    MeshRenderer meshRenderer;
 
     private void Start()
     {
-        meshRenderers = GetComponentsInChildren<MeshRenderer>().ToList();
-        for (int i = 0; i < meshRenderers.Count; i++)
+        meshRenderer = GetComponent<MeshRenderer>();
+    }
+
+    public void Paint(SelectionState _state)
+    {
+        switch (_state)
         {
-            if (meshRenderers[i].GetComponent<TextMesh>())
-                meshRenderers.RemoveAt(i);
+            case SelectionState.Passive:
+                meshRenderer.material = PassiveMat;
+                break;
+            case SelectionState.Neutral:
+                meshRenderer.material = NeutralMat;
+                break;
+            case SelectionState.Highlighted:
+                meshRenderer.material = HighlightedMat;
+                break;
+            case SelectionState.Selected:
+                meshRenderer.material = SelectedMat;
+                break;
         }
     }
 
-    public void PaintNormal()
+    public void Paint(PuzzleState _state)
     {
-        foreach (MeshRenderer renderer in meshRenderers)
+        switch (_state)
         {
-            renderer.material = NormalMat;
-        }
-    }
-    public void PaintHighlight()
-    {
-        foreach (MeshRenderer renderer in meshRenderers)
-        {
-            renderer.material = HighlightedMat;
-        }
-    }
-    public void PaintPressed()
-    {
-        foreach (MeshRenderer renderer in meshRenderers)
-        {
-            renderer.material = PressedMat;
+            case PuzzleState.Unsolved:;
+            break;
+            case PuzzleState.Broken:
+                meshRenderer.material = BrokenMat;
+                break;
+            case PuzzleState.Solved:
+                meshRenderer.material = SolvedMat;
+                break;
+            default:
+                break;
         }
     }
 }
