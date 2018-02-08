@@ -10,7 +10,7 @@ public class PuzzleTurbine : PuzzleGeneric
     public List<SliderController> Sliders = new List<SliderController>();
 
 
-    private void Start()
+    protected override void OnStartEnd()
     {
         ResetButton = GetComponentInChildren<Puzzle1ButtonReset>();
         ResetButton.puzzleCtrl = this;

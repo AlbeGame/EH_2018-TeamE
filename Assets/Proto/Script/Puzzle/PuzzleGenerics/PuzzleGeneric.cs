@@ -27,6 +27,7 @@ public class PuzzleGeneric : SelectableItem
     {
         camCtrl = Camera.main.GetComponent<CameraController>();
         graphicCtrl = GetComponent<ItemGraphicController>();
+        OnStartEnd();
     }
 
     protected override void OnSelect()
@@ -46,6 +47,8 @@ public class PuzzleGeneric : SelectableItem
     {
         graphicCtrl.Paint(_newState);
     }
+
+    protected virtual void OnStartEnd() { }
 }
 
 public enum PuzzleState
