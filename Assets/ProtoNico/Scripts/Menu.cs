@@ -58,22 +58,20 @@ public class Menu : MonoBehaviour {
 
     void VewMenuInGame()
     {
-
-
         for (int i = 0; i < voices.Length; i++)
         {
             MenuOptions options = Instantiate(menuOptionPrefab, container.transform);
             options.menuName.text = voices[i].text;
-            /*if (voices[i].isLocked)
+            if (voices[i].isLocked)
             {
-                options.arrow.color = lockedColor; 
+                options.arrow.color = lockedColor;
                 options.menuName.color = lockedColor;
             }
             else
-            //{
+            {
                 options.arrow.color = normalColor;
                 options.menuName.color = normalColor;
-                */
+
                 voices[i].option = options;
 
                 if (i == index)
@@ -84,7 +82,7 @@ public class Menu : MonoBehaviour {
                 {
                     voices[i].option.arrow.gameObject.SetActive(false);
                 }
-            //}
+            }
         }
     }
 
