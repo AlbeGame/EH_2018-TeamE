@@ -5,12 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/ProtoNico/Scenes/MenuScene.unity
     guid: 7ac22cb6459f2014b807492df3b1544a
-  - enabled: 1
+  - enabled: 0
     path: "Assets/ProtoNico/Scenes/SceneDifficolt\xE0.unity"
     guid: 110d3ed16eee245468833543c0966cd0
-  - enabled: 1
+  - enabled: 0
     path: Assets/ProtoNico/Scenes/Inizia Partita.unity
     guid: eedaf012e65d87f4882471ef3d85f57c
+  - enabled: 1
+    path: Assets/Proto/Menu Scene.unity
+    guid: 77d8d6791320c4b43ac9863c8dc757fa
+  - enabled: 1
+    path: Assets/Proto/CameraProto.unity
+    guid: f5db94867781eb648a86ed0d9998de00
