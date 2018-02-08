@@ -123,13 +123,13 @@ public abstract class SelectableItem : MonoBehaviour
     /// <param name="_oldScion"></param>
     void OnSelectedScionSet(SelectableItem _newScion, SelectableItem _oldScion)
     {
-        //if (_oldScion)
-        //{
-        //    if(_newScion.Siblings.Contains(_oldScion))
-        //        _oldScion.State = SelectionState.Neutral;
-        //    else
-        //        _oldScion.State = SelectionState.Passive;
-        //}
+        if (_oldScion)
+        {
+            if (_newScion.Siblings.Contains(_oldScion))
+                _oldScion.State = SelectionState.Neutral;
+            else
+                _oldScion.State = SelectionState.Passive;
+        }
         State = SelectionState.Passive;
         if (Parent)
             Parent.SelectedScion = _newScion;
