@@ -18,7 +18,7 @@ public class Puzzle1ButtonTagged : SelectableItem {
         if (puzzleCtrl != null)
             puzzleCtrl.SetEValues(ValuesModifier);
 
-        Parent.Select();
+        Parent.Select(true);
     }
 
     protected override void OnInitEnd(SelectableItem _parent)

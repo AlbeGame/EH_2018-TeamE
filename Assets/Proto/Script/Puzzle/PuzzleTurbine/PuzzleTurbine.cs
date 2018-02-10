@@ -75,7 +75,7 @@ public class PuzzleTurbine : PuzzleGeneric
         }
         ResetButton.GetComponent<MeshCollider>().enabled = false;
 
-        Parent.Select();
+        Parent.Select(true);
     }
     void DoBreakThings()
     {

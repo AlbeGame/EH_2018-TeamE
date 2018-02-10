@@ -32,14 +32,26 @@ public abstract class SelectableItem : MonoBehaviour
     SelectableItem _selectedScion;
     public SelectableItem SelectedScion
     {
-        get { return _selectedScion; }
+        get {
+            if (Parent)
+                return GetRoot().SelectedScion;
+            else
+                return _selectedScion;
+        }
         set
         {
             if (value == SelectedScion)
                 return;
-            SelectableItem _oldScion = _selectedScion;
-            _selectedScion = value;
-            OnSelectedScionSet(SelectedScion, _oldScion);
+
+            if (Parent != null)
+            {
+                GetRoot().SelectedScion = value;
+            }
+            else
+            {
+                _selectedScion = value;
+                OnSelectedScionSet();
+            }
         }
     }
     public List<SelectableItem> Children = new List<SelectableItem>();
@@ -48,7 +60,7 @@ public abstract class SelectableItem : MonoBehaviour
         get
         {
             if (Parent)
-                return GetSiblings(this);
+                return GetSiblings();
             else
                 return new List<SelectableItem>();
         }
@@ -57,8 +69,6 @@ public abstract class SelectableItem : MonoBehaviour
     //not state dependend conditionals
     public bool HasMouseOver { get; protected set; }
     protected bool hasASelectedChild { get { return Children.Contains(SelectedScion); } }
-
-
 
     private void OnMouseUpAsButton()
     {
@@ -90,7 +100,7 @@ public abstract class SelectableItem : MonoBehaviour
             case SelectionState.Passive:
                 if (hasASelectedChild)
                 {
-                    foreach (SelectableItem sibling in GetSiblings(SelectedScion))
+                    foreach (SelectableItem sibling in SelectedScion.GetSiblings())
                         sibling.State = SelectionState.Neutral;
                 }
                 else
@@ -106,9 +116,12 @@ public abstract class SelectableItem : MonoBehaviour
             case SelectionState.Highlighted:
                 break;
             case SelectionState.Selected:
+                //No one can be selected without being the SelectedScion of itself
+                SelectedScion = this;
+                //Give the parent this information
                 if (Parent)
                     Parent.SelectedScion = this;
-
+                //Unlock neutral state for children
                 foreach (SelectableItem child in Children)
                     child.State = SelectionState.Neutral;
                 break;
@@ -121,26 +134,16 @@ public abstract class SelectableItem : MonoBehaviour
     /// </summary>
     /// <param name="_newScion"></param>
     /// <param name="_oldScion"></param>
-    void OnSelectedScionSet(SelectableItem _newScion, SelectableItem _oldScion)
+    void OnSelectedScionSet()
     {
-        if (_oldScion)
-        {
-            if (_newScion.Siblings.Contains(_oldScion))
-                _oldScion.State = SelectionState.Neutral;
-            else
-                _oldScion.State = SelectionState.Passive;
-        }
         State = SelectionState.Passive;
-        if (Parent)
-            Parent.SelectedScion = _newScion;
-
     }
     /// <summary>
     /// Return all the children except _child
     /// </summary>
     /// <param name="_child"></param>
     /// <returns></returns>
-    private List<SelectableItem> GetSiblings(SelectableItem _child)
+    protected List<SelectableItem> GetSiblings()
     {
         if (Parent == null)
             return new List<SelectableItem>();
@@ -154,6 +157,20 @@ public abstract class SelectableItem : MonoBehaviour
         }
 
         return siblings;
+    }
+    /// <summary>
+    /// Return the Root
+    /// </summary>
+    /// <returns></returns>
+    protected SelectableItem GetRoot()
+    {
+        SelectableItem root = this;
+        while (root.Parent)
+        {
+            root = root.Parent;
+        }
+
+        return root;
     }
 
     #region API
