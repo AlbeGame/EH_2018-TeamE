@@ -67,16 +67,18 @@ public class PuzzleTurbine : PuzzleGeneric
 
     void DoWinningThings()
     {
-        SolutionState = PuzzleState.Solved;
 
-        foreach (var item in TaggedButtons)
-        {
-            item.GetComponent<MeshCollider>().enabled = false;
-        }
-        ResetButton.GetComponent<MeshCollider>().enabled = false;
+        //foreach (var item in TaggedButtons)
+        //{
+        //    item.GetComponent<MeshCollider>().enabled = false;
+        //}
+        //ResetButton.GetComponent<MeshCollider>().enabled = false;
 
         Parent.Select(true);
+        SolutionState = PuzzleState.Solved;
+        State = SelectionState.Unselectable;
     }
+
     void DoBreakThings()
     {
         SolutionState = PuzzleState.Broken;

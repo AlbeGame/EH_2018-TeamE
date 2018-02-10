@@ -97,16 +97,10 @@ public abstract class SelectableItem : MonoBehaviour
     {
         switch (State)
         {
-            case SelectionState.Passive:
-                if (hasASelectedChild)
+            case SelectionState.Unselectable:
+                foreach (SelectableItem child in Children)
                 {
-                    foreach (SelectableItem sibling in SelectedScion.GetSiblings())
-                        sibling.State = SelectionState.Neutral;
-                }
-                else
-                {
-                    foreach (SelectableItem child in Children)
-                        child.State = SelectionState.Passive;
+                    child.State = SelectionState.Unselectable;
                 }
                 break;
             case SelectionState.Neutral:
@@ -124,6 +118,18 @@ public abstract class SelectableItem : MonoBehaviour
                 //Unlock neutral state for children
                 foreach (SelectableItem child in Children)
                     child.State = SelectionState.Neutral;
+                break;
+            case SelectionState.Passive:
+                if (hasASelectedChild)
+                {
+                    foreach (SelectableItem sibling in SelectedScion.GetSiblings())
+                        sibling.State = SelectionState.Neutral;
+                }
+                else
+                {
+                    foreach (SelectableItem child in Children)
+                        child.State = SelectionState.Passive;
+                }
                 break;
         }
 
@@ -210,6 +216,9 @@ public abstract class SelectableItem : MonoBehaviour
     /// </summary>
     public void Select(bool ignoreState = false)
     {
+        if (State == SelectionState.Unselectable)
+            return;
+
         if (ignoreState || State != SelectionState.Passive)
         {
             State = SelectionState.Selected;
@@ -228,8 +237,9 @@ public abstract class SelectableItem : MonoBehaviour
 
 public enum SelectionState
 {
-    Passive = -1,
+    Unselectable = -1,
     Neutral,
     Highlighted,
-    Selected
+    Selected,
+    Passive
 }

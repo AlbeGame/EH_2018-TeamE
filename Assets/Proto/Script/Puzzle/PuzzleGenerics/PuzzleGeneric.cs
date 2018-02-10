@@ -40,7 +40,6 @@ public class PuzzleGeneric : SelectableItem
     {
         if (graphicCtrl)
             graphicCtrl.Paint(_state);
-
     }
 
     protected virtual void OnSolutionStateChange(PuzzleState _newState)
