@@ -71,18 +71,18 @@ public class Menu : MonoBehaviour {
             {
                 options.arrow.color = normalColor;
                 options.menuName.color = normalColor;
-
-                voices[i].option = options;
-
-                if (i == index)
-                {
-                    voices[i].option.arrow.gameObject.SetActive(true);
-                }
-                else
-                {
-                    voices[i].option.arrow.gameObject.SetActive(false);
-                }
             }
+                voices[i].option = options;
+            
+            if (i == index)
+            {
+              voices[i].option.arrow.gameObject.SetActive(true);
+            }
+            else
+            {
+              voices[i].option.arrow.gameObject.SetActive(false);
+            }
+            
         }
     }
 
