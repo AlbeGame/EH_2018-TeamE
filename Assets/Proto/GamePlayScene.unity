@@ -586,8 +586,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f537f4f06c7301b478d498dad161a909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countText: {fileID: 513520052}
-  gameOver: {fileID: 10246901}
+  timerText: {fileID: 513520052}
+  gameOverText: {fileID: 10246901}
 --- !u!114 &513520052
 MonoBehaviour:
   m_ObjectHideFlags: 0
