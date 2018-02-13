@@ -2,28 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Altimetro : MonoBehaviour {
 
+     const float degreeForSecond = 10f;
+     public Transform freccia_Altimetro;
 
-    /*public GameObject altimetro;
+    private float time = 1;
 
-    public float angleMin = 1;
-    public float angleMax = 10;
-    public float actualAltitude;
-    public float altitudeHigh = 20;
-    public float altitudeLow = 2;
-    */
-
-
-
-
-    private void Update()
-    {
-       
-    }
+  
+     private void Update()
+     {
+         MoveFreccia();
+     }
 
 
+     public void MoveFreccia()
+     {
+         time += Time.deltaTime;
+         freccia_Altimetro.localRotation = Quaternion.Euler(0, 0, time * degreeForSecond);
 
+     }
 
 
 

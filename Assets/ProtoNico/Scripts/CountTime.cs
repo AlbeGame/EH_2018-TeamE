@@ -4,22 +4,29 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CountTime : MonoBehaviour {
-
+    
     public Text timerText;
     public Text gameOverText;
+    public float timer = 30f;
+    
 
-    private float timer = 5f; 
-   
+    
 
     private void Start()
     {
         gameOverText.text = "";
         timerText = GetComponent<Text>();  
+        
     }
 
 
 
     private void Update()
+    {
+        TimeTime();
+    }
+
+    public void TimeTime()
     {
         timer -= Time.deltaTime;
         {
@@ -29,6 +36,8 @@ public class CountTime : MonoBehaviour {
             {
                 gameOverText.text = "GAMER OVER";
                 timerText.text = null;
+                Time.timeScale = 0;
+
             }
 
 
@@ -36,9 +45,12 @@ public class CountTime : MonoBehaviour {
         }
     }
 
-
-
    
 }
+
+
+
+
+
 
 
