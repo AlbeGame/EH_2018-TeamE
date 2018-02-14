@@ -43,6 +43,7 @@ public abstract class SelectableItem : MonoBehaviour
             _selectedScion = value;
         }
     }
+    [HideInInspector]
     public List<SelectableItem> Children = new List<SelectableItem>();
     public List<SelectableItem> Siblings
     {

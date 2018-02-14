@@ -651,7 +651,6 @@ GameObject:
   - component: {fileID: 23491715663067780}
   - component: {fileID: 33451620608859114}
   - component: {fileID: 114768383046823872}
-  - component: {fileID: 114991916188147164}
   m_Layer: 0
   m_Name: PuzzleTurbine
   m_TagString: Untagged
@@ -2472,7 +2471,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Children: []
-  CamFocusPosition: {fileID: 4438769942652814}
+  GraphicData:
+    DoNotPaintItems: []
+    PassiveMat: {fileID: 2100000, guid: 42faddb2e59f5004e892136b59a2c905, type: 2}
+    NeutralMat: {fileID: 2100000, guid: db45bdb529efebc4b889c5a058cd9e7c, type: 2}
+    HighlightedMat: {fileID: 2100000, guid: 4201e4398a04d3f4e90e98425a24d486, type: 2}
+    SelectedMat: {fileID: 2100000, guid: db45bdb529efebc4b889c5a058cd9e7c, type: 2}
+    BrokenMat: {fileID: 2100000, guid: 3059fe99a3be62544aa67e9d18acf351, type: 2}
+    SolvedMat: {fileID: 2100000, guid: 6b0c076e3e965064fbc27aab65390d03, type: 2}
+  InteractionData:
+    CameraFocusPosition: {fileID: 0}
   EVales: {x: 30, y: 70, z: 20, w: 90}
   ResetButton: {fileID: 0}
   TaggedButtons: []
@@ -2525,23 +2533,6 @@ MonoBehaviour:
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
   ValuesModifier: {x: -60, y: 30, z: 60, w: 0}
---- !u!114 &114991916188147164
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1941073875350614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad9400ebd581fd4ea0d0dab38582f46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PassiveMat: {fileID: 2100000, guid: 93904388430fd1b4493ff7acafb12606, type: 2}
-  NeutralMat: {fileID: 2100000, guid: 4201e4398a04d3f4e90e98425a24d486, type: 2}
-  HighlightedMat: {fileID: 2100000, guid: 42faddb2e59f5004e892136b59a2c905, type: 2}
-  SelectedMat: {fileID: 2100000, guid: db45bdb529efebc4b889c5a058cd9e7c, type: 2}
-  BrokenMat: {fileID: 2100000, guid: 25635a94fe2e289419801b1a263db0cf, type: 2}
-  SolvedMat: {fileID: 2100000, guid: 6b0c076e3e965064fbc27aab65390d03, type: 2}
 --- !u!120 &120491669533681618
 LineRenderer:
   m_ObjectHideFlags: 1

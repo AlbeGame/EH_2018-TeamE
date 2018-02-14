@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(ItemGraphicController))]
 public class PuzzleGeneric : SelectableItem
 {
-    public Transform CamFocusPosition;
-    CameraController camCtrl;
-    ItemGraphicController graphicCtrl;
+    public PuzzleGraphicData GraphicData;
+    PuzzleGraphic graphicCtrl;
+
+    public PuzzleInteractionData InteractionData;
+    PuzzleInteraction interactionCtrl;
 
     PuzzleState _solutionState = PuzzleState.Unsolved;
     protected PuzzleState SolutionState
@@ -25,15 +26,24 @@ public class PuzzleGeneric : SelectableItem
     
     void Start()
     {
-        camCtrl = Camera.main.GetComponent<CameraController>();
-        graphicCtrl = GetComponent<ItemGraphicController>();
+        //Graphic Controller
+        graphicCtrl = GetComponent<PuzzleGraphic>();
+        if (graphicCtrl == null)
+            graphicCtrl = gameObject.AddComponent<PuzzleGraphic>();
+        graphicCtrl.Init(GraphicData);
+
+        //Interaction Controller
+        interactionCtrl = GetComponent<PuzzleInteraction>();
+        if (interactionCtrl == null)
+            interactionCtrl = gameObject.AddComponent<PuzzleInteraction>();
+        interactionCtrl.Init(InteractionData);
+
         OnStartEnd();
     }
 
     protected override void OnSelect()
     {
-        if (CamFocusPosition)
-            camCtrl.FocusAt(CamFocusPosition);
+        interactionCtrl.CameraFocusCall();
     }
 
     protected override void OnStateChange(SelectionState _state)
