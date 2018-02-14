@@ -19,9 +19,6 @@ public abstract class SelectableItem : MonoBehaviour
 
         set
         {
-            if (State == value)
-                return;
-
             _state = value;
             OnStateSwitch(State);
         }
@@ -43,15 +40,7 @@ public abstract class SelectableItem : MonoBehaviour
             if (value == SelectedScion)
                 return;
 
-            if (Parent != null)
-            {
-                GetRoot().SelectedScion = value;
-            }
-            else
-            {
-                _selectedScion = value;
-                OnSelectedScionSet();
-            }
+            _selectedScion = value;
         }
     }
     public List<SelectableItem> Children = new List<SelectableItem>();
@@ -95,13 +84,10 @@ public abstract class SelectableItem : MonoBehaviour
     /// <param name="_state"></param>
     void OnStateSwitch(SelectionState _state)
     {
-        switch (State)
+        switch (_state)
         {
             case SelectionState.Unselectable:
-                foreach (SelectableItem child in Children)
-                {
-                    child.State = SelectionState.Unselectable;
-                }
+                Parent.Children.Remove(this);
                 break;
             case SelectionState.Neutral:
                 foreach (SelectableItem child in Children)
@@ -111,10 +97,12 @@ public abstract class SelectableItem : MonoBehaviour
                 break;
             case SelectionState.Selected:
                 //No one can be selected without being the SelectedScion of itself
-                SelectedScion = this;
+                GetRoot().SelectedScion = this;
+                if (Parent != null)
+                    GetRoot().State = SelectionState.Passive;
                 //Give the parent this information
-                if (Parent)
-                    Parent.SelectedScion = this;
+                //if (Parent)
+                //    Parent.SelectedScion = this;
                 //Unlock neutral state for children
                 foreach (SelectableItem child in Children)
                     child.State = SelectionState.Neutral;
@@ -135,15 +123,7 @@ public abstract class SelectableItem : MonoBehaviour
 
         OnStateChange(_state);
     }
-    /// <summary>
-    /// Reaction on SelectedScion set
-    /// </summary>
-    /// <param name="_newScion"></param>
-    /// <param name="_oldScion"></param>
-    void OnSelectedScionSet()
-    {
-        State = SelectionState.Passive;
-    }
+
     /// <summary>
     /// Return all the children except _child
     /// </summary>
