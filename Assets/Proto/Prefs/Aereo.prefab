@@ -10844,10 +10844,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: -60, y: 30, z: 60, w: 0}
 --- !u!114 &114087097714800080
 MonoBehaviour:
@@ -10860,10 +10866,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: -10, y: 20, z: -40, w: 20}
 --- !u!114 &114096704826667204
 MonoBehaviour:
@@ -10876,10 +10888,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: -60, y: 30, z: 60, w: 0}
 --- !u!114 &114121145714734790
 MonoBehaviour:
@@ -10892,10 +10910,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: 80, y: -40, z: 0, w: -30}
 --- !u!114 &114225209265983668
 MonoBehaviour:
@@ -10908,10 +10932,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: 0, y: -30, z: 70, w: -50}
 --- !u!114 &114243524256430568
 MonoBehaviour:
@@ -10938,10 +10968,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: -10, y: 20, z: -40, w: 20}
 --- !u!114 &114256427872599366
 MonoBehaviour:
@@ -11011,6 +11047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   freccia_Altimetro: {fileID: 4773334504579120}
+  gameOverText: {fileID: 0}
 --- !u!114 &114327468215430732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11070,10 +11107,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: -10, y: 20, z: -40, w: 20}
 --- !u!114 &114381672681989776
 MonoBehaviour:
@@ -11118,10 +11161,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: 50, y: 40, z: -10, w: 30}
 --- !u!114 &114426849157010274
 MonoBehaviour:
@@ -11134,10 +11183,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: -10, y: 20, z: -40, w: 20}
 --- !u!114 &114434353995636880
 MonoBehaviour:
@@ -11166,10 +11221,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: 50, y: 40, z: -10, w: 30}
 --- !u!114 &114443814467866854
 MonoBehaviour:
@@ -11198,10 +11259,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: 80, y: -40, z: 0, w: -30}
 --- !u!114 &114538743660995020
 MonoBehaviour:
@@ -11246,10 +11313,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: 0, y: -30, z: 70, w: -50}
 --- !u!114 &114555005171441776
 MonoBehaviour:
@@ -11289,10 +11362,7 @@ MonoBehaviour:
     SolvedMat: {fileID: 2100000, guid: 6b0c076e3e965064fbc27aab65390d03, type: 2}
   InteractionData:
     CameraFocusPosition: {fileID: 4530155371790540}
-  EVales: {x: 30, y: 70, z: 20, w: 90}
-  ResetButton: {fileID: 0}
-  TaggedButtons: []
-  Sliders: []
+  Data: {fileID: 0}
 --- !u!114 &114581396909130748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11315,10 +11385,7 @@ MonoBehaviour:
     SolvedMat: {fileID: 2100000, guid: 6b0c076e3e965064fbc27aab65390d03, type: 2}
   InteractionData:
     CameraFocusPosition: {fileID: 4254771891897938}
-  EVales: {x: 30, y: 70, z: 20, w: 90}
-  ResetButton: {fileID: 0}
-  TaggedButtons: []
-  Sliders: []
+  Data: {fileID: 0}
 --- !u!114 &114601502996037250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11330,10 +11397,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: 0, y: -30, z: 70, w: -50}
 --- !u!114 &114614469256914330
 MonoBehaviour:
@@ -11357,10 +11430,7 @@ MonoBehaviour:
     SolvedMat: {fileID: 2100000, guid: 6b0c076e3e965064fbc27aab65390d03, type: 2}
   InteractionData:
     CameraFocusPosition: {fileID: 4690964524475488}
-  EVales: {x: 30, y: 70, z: 20, w: 90}
-  ResetButton: {fileID: 0}
-  TaggedButtons: []
-  Sliders: []
+  Data: {fileID: 0}
 --- !u!114 &114655939788455124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11407,10 +11477,7 @@ MonoBehaviour:
     SolvedMat: {fileID: 2100000, guid: 6b0c076e3e965064fbc27aab65390d03, type: 2}
   InteractionData:
     CameraFocusPosition: {fileID: 4383103740515684}
-  EVales: {x: 30, y: 70, z: 20, w: 90}
-  ResetButton: {fileID: 0}
-  TaggedButtons: []
-  Sliders: []
+  Data: {fileID: 0}
 --- !u!114 &114693829080481976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11422,10 +11489,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: 0, y: -30, z: 70, w: -50}
 --- !u!114 &114717560212435740
 MonoBehaviour:
@@ -11438,10 +11511,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: 80, y: -40, z: 0, w: -30}
 --- !u!114 &114731162000271674
 MonoBehaviour:
@@ -11470,10 +11549,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: 50, y: 40, z: -10, w: 30}
 --- !u!114 &114755779160313124
 MonoBehaviour:
@@ -11502,10 +11587,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: 80, y: -40, z: 0, w: -30}
 --- !u!114 &114800155306455444
 MonoBehaviour:
@@ -11534,10 +11625,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: -60, y: 30, z: 60, w: 0}
 --- !u!114 &114805414866161012
 MonoBehaviour:
@@ -11550,10 +11647,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: 50, y: 40, z: -10, w: 30}
 --- !u!114 &114857580884125814
 MonoBehaviour:
@@ -11566,10 +11669,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
+  <Parent>k__BackingField: {fileID: 0}
+  _selectedScion: {fileID: 0}
   Children: []
+  <HasMouseOver>k__BackingField: 0
   puzzleCtrl: {fileID: 0}
   ButtonGraphic: {fileID: 0}
   PushOffSet: 0.002
+  originalPos: {x: 0, y: 0, z: 0}
+  valueModifier: 00000000000000000000000000000000
   ValuesModifier: {x: -60, y: 30, z: 60, w: 0}
 --- !u!114 &114901264746142636
 MonoBehaviour:

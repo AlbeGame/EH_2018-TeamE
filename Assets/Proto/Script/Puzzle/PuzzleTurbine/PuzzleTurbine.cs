@@ -1,25 +1,59 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class PuzzleTurbine : PuzzleGeneric
+public class PuzzleTurbine : SelectableGeneric, IPuzzle
 {
-    public Vector4 EVales = new Vector4(30, 70, 20, 90);
+    public PuzzleTurbineData Data;
 
-    public Puzzle1ButtonReset ResetButton;
-    public List<Puzzle1ButtonTagged> TaggedButtons = new List<Puzzle1ButtonTagged>();
-    public List<SliderController> Sliders = new List<SliderController>();
+    SelectableButton ResetButton;
+    List<SliderController> Sliders = new List<SliderController>();
 
+    PuzzleState _solutionState = PuzzleState.Unsolved;
+    public PuzzleState SolutionState
+    {
+        get { return _solutionState; }
+        set
+        {
+            if (SolutionState == value)
+                return;
+
+            _solutionState = value;
+            OnSolutionStateChange(SolutionState);
+        }
+    }
 
     protected override void OnStartEnd()
     {
-        ResetButton = GetComponentInChildren<Puzzle1ButtonReset>();
-        ResetButton.puzzleCtrl = this;
+        InitPrivate();
+    }
 
-        foreach (Puzzle1ButtonTagged button in GetComponentsInChildren<Puzzle1ButtonTagged>())
+    public void Setup(IPuzzleData _data) {
+
+        Data = _data as PuzzleTurbineData;
+        InitPrivate();
+    }
+
+    private void InitPrivate()
+    {
+        foreach (SelectableButton button in GetComponentsInChildren<SelectableButton>())
         {
-            TaggedButtons.Add(button);
-            button.puzzleCtrl = this;
+            if (button.Puzzle != PuzzleType.Turbine)
+                continue;
+
+            switch (button.Type)
+            {
+                case ButtonType.Untagged:
+                    ResetButton = button;
+                    break;
+                case ButtonType.Tagged:
+                    button.specificBehaviour = new PuzzleTurbineButtonTagged(this);
+                    button.Init();
+                    break;
+                default:
+                    break;
+            }
         }
+
         foreach (SliderController slider in GetComponentsInChildren<SliderController>())
         {
             Sliders.Add(slider);
@@ -27,26 +61,29 @@ public class PuzzleTurbine : PuzzleGeneric
         UpdateSliderValues();
     }
 
-    public void SetEValues(Vector4 _eValues)
+    public void SetEValues(int E1, int E2, int E3, int E4)
     {
-        EVales += _eValues;
-        for (int i = 0; i < 4; i++)
+        Data.EValues[0] += E1;
+        Data.EValues[1] += E2;
+        Data.EValues[2] += E3;
+        Data.EValues[3] += E4;
+
+        for (int i = 0; i < Data.EValues.Length; i++)
         {
-            if (EVales[i] < 0)
-                EVales[i] = 0;
-            if (EVales[i] > 100)
-                EVales[i] = 100;
+            if (Data.EValues[i] < 0)
+                Data.EValues[i] = 0;
+            if (Data.EValues[i] > 100)
+                Data.EValues[i] = 100;
         }
 
         UpdateSliderValues();
         CheckBreackDown();
     }
-
     public void CheckSolution()
     {
         for (int i = 0; i < 4; i++)
         {
-            if (EVales[i] >= 70 && EVales[i] <= 80)
+            if (Data.EValues[i] >= 70 && Data.EValues[i] <= 80)
                 continue;
 
             DoBreakThings();
@@ -60,7 +97,7 @@ public class PuzzleTurbine : PuzzleGeneric
     {
         for (int i = 0; i < 4; i++)
         {
-            if (EVales[i] <= 0 && EVales[i] >= 100)
+            if (Data.EValues[i] <= 0 && Data.EValues[i] >= 100)
                 DoBreakThings();
         }
     }
@@ -88,7 +125,12 @@ public class PuzzleTurbine : PuzzleGeneric
     {
         for (int i = 0; i < Sliders.Count; i++)
         {
-            Sliders[i].SetFillAmount(EVales[i]);
+            Sliders[i].SetFillAmount(Data.EValues[i]);
         }
+    }
+
+    void OnSolutionStateChange(PuzzleState _solutionState)
+    {
+        graphicCtrl.Paint(_solutionState);
     }
 }
