@@ -10,16 +10,9 @@ public class Altimetro : MonoBehaviour
     const float degreeForSecond = 10f;
 
     public Transform freccia_Altimetro;
-    public Text gameOverText;
 
     private float timePos = -40.0f;
     private float timer = 35;
-
-    void Start()
-    {
-        gameOverText.text = "";
-    }
-
 
     private void Update()
     {
@@ -27,7 +20,6 @@ public class Altimetro : MonoBehaviour
         DecreaseTime();
 
     }
-
 
     public void GetCurrentTime()
     {
@@ -39,19 +31,5 @@ public class Altimetro : MonoBehaviour
     public void DecreaseTime()
     {
         timer -= Time.deltaTime;
-        {
-
-
-            if (timer <= 0f)
-            {
-                gameOverText.text = "GAMER OVER";
-                Time.timeScale = 0;
-
-            }
-
-
-
-        }
     }
-
 }

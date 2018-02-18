@@ -4,7 +4,6 @@ using UnityEngine;
 /// <summary>
 /// Gestore della grafica del puzzle. Cambia il materiale a tutti i renderder in parentela, esclusi specifici.
 /// </summary>
-[RequireComponent(typeof(MeshRenderer))]
 public class PuzzleGraphic : MonoBehaviour
 {
     PuzzleGraphicData data;

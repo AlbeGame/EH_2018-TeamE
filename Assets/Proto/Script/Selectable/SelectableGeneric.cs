@@ -10,7 +10,7 @@ public class SelectableGeneric : SelectableItem
     public PuzzleInteractionData InteractionData;
     protected PuzzleInteraction interactionCtrl;
 
-    void Start()
+    protected override void OnInitBegin(SelectableItem _parent)
     {
         //Graphic Controller
         graphicCtrl = GetComponent<PuzzleGraphic>();
@@ -23,8 +23,6 @@ public class SelectableGeneric : SelectableItem
         if (interactionCtrl == null)
             interactionCtrl = gameObject.AddComponent<PuzzleInteraction>();
         interactionCtrl.Init(InteractionData);
-
-        OnStartEnd();
     }
 
     protected override void OnSelect()
@@ -37,8 +35,6 @@ public class SelectableGeneric : SelectableItem
         if (graphicCtrl)
             graphicCtrl.Paint(_state);
     }
-
-    protected virtual void OnStartEnd() { }
 }
 
 public enum PuzzleType

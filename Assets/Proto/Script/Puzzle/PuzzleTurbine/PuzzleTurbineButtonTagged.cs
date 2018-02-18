@@ -8,11 +8,11 @@ public class PuzzleTurbineButtonTagged : ISelectableBehaviour {
     float PushOffSet = .002f;
     Vector3 originalPos;
     int[] valueModifier = new int[4];
-    public Vector4 ValuesModifier = new Vector4();
 
-    public PuzzleTurbineButtonTagged(PuzzleTurbine _puzzleOwner)
+    public PuzzleTurbineButtonTagged(PuzzleTurbine _puzzleOwner, TurbineButtonData _specifiData)
     {
         puzzleOwner = _puzzleOwner;
+        valueModifier = _specifiData.EModifiers;
     }
 
     public void OnSelect()
@@ -37,4 +37,15 @@ public class PuzzleTurbineButtonTagged : ISelectableBehaviour {
     {
         ButtonGraphic.transform.position = originalPos;
     }
+}
+
+[System.Serializable]
+public class TurbineButtonData
+{
+    public string Label;
+    public int[] EModifiers { get { return new int[] { E1Modifier, E2Modifier, E3Modifier, E4Modifier }; } }
+    public int E1Modifier;
+    public int E2Modifier;
+    public int E3Modifier;
+    public int E4Modifier;
 }
