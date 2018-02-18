@@ -6,52 +6,51 @@ using UnityEngine.UI;
 
 public class Altimetro : MonoBehaviour
 {
-
-    const float degreeForSecond = 10f;
-
-    public Transform freccia_Altimetro;
     public Text gameOverText;
+    
+    float speedAngle = 1.0f;
+    
 
-    private float timePos = -40.0f;
-    private float timer = 35;
+
 
     void Start()
     {
         gameOverText.text = "";
+     
     }
 
 
     private void Update()
     {
-        GetCurrentTime();
-        DecreaseTime();
 
+        GetMoveAltimeter();
     }
 
 
-    public void GetCurrentTime()
+    public void GetMoveAltimeter()
     {
-        timePos += Time.deltaTime;
-        freccia_Altimetro.localRotation = Quaternion.Euler(0, 0, timePos * degreeForSecond);
-
+        speedAngle += Time.deltaTime * 10;
+        speedAngle = Mathf.Clamp(speedAngle, 50, 400);
+        transform.localRotation = Quaternion.AngleAxis(speedAngle, Vector3.back);
     }
+   
 
-    public void DecreaseTime()
+
+   
+   /* void BlockPos()
     {
-        timer -= Time.deltaTime;
+
+        if (speedAngle <= -40)
         {
-
-
-            if (timer <= 0f)
-            {
-                gameOverText.text = "GAMER OVER";
-                Time.timeScale = 0;
-
-            }
-
-
+            gameOverText.text = "GAMER OVER";
 
         }
-    }
+    }*/
+            
+            
+            
+
+        
+    
 
 }
