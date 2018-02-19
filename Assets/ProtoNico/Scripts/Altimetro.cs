@@ -1,35 +1,44 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-
+﻿using UnityEngine;
 
 public class Altimetro : MonoBehaviour
 {
+    public GameObject ArrowToMove;
+    public float DropSpeed = 1.0f;
+    public float MaxAltitude = 1000;
+    float currentAltitude;
 
-    const float degreeForSecond = 10f;
-
-    public Transform freccia_Altimetro;
-
-    private float timePos = -40.0f;
-    private float timer = 35;
+    private void Start()
+    {
+        currentAltitude = MaxAltitude;
+        if (ArrowToMove == null)
+            ArrowToMove = this.gameObject;
+    }
 
     private void Update()
     {
-        GetCurrentTime();
-        DecreaseTime();
-
+        UpdateAltitude();
+        GetMoveAltimeter();
     }
 
-    public void GetCurrentTime()
+    void UpdateAltitude()
     {
-        timePos += Time.deltaTime;
-        freccia_Altimetro.localRotation = Quaternion.Euler(0, 0, timePos * degreeForSecond);
+        if (currentAltitude <= 0)
+        {
+            currentAltitude = 0;
+            return;
+        }
 
+        currentAltitude -= Time.deltaTime * DropSpeed;
     }
 
-    public void DecreaseTime()
+
+    void GetMoveAltimeter()
     {
-        timer -= Time.deltaTime;
+        float currentAngle = (360 * currentAltitude) / MaxAltitude;
+        if (currentAltitude == 0)
+            currentAngle = 0;
+
+        ArrowToMove.transform.localRotation = Quaternion.AngleAxis(currentAngle, Vector3.forward);
     }
 }
+
