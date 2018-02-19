@@ -881,7 +881,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4590000801331614}
   m_Layer: 0
-  m_Name: Puzzle_02_gps
+  m_Name: Puzzle_02_GPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
