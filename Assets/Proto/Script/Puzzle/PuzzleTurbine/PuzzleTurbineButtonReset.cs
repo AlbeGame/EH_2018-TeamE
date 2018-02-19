@@ -18,8 +18,4 @@ public class PuzzleTurbineButtonReset : ISelectableBehaviour {
 
         puzzleCtrl.Select(true);
     }
-
-    public void OnMouseUp() { }
-
-    public void OnMouseDown() { }
 }

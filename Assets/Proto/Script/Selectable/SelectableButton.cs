@@ -8,8 +8,12 @@ public class SelectableButton : SelectableAbstract
     public PuzzleType Puzzle;
     public ButtonType Type;
 
+    float PushOffSet = .002f;
+    Vector3 originalPos;
+
     protected override void OnInitEnd(SelectableAbstract _parent)
     {
+        originalPos = transform.position;
         specificBehaviour.OnInit(this);
     }
 
@@ -20,12 +24,12 @@ public class SelectableButton : SelectableAbstract
 
     private void OnMouseUp()
     {
-        specificBehaviour.OnMouseUp();
+        transform.position = originalPos;
     }
 
     private void OnMouseDown()
     {
-        specificBehaviour.OnMouseDown();
+        transform.position = new Vector3(originalPos.x, originalPos.y - PushOffSet, originalPos.z);
     }
 }
 

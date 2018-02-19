@@ -7,8 +7,6 @@ public class PuzzleTurbineButtonTagged : ISelectableBehaviour {
 
     GameObject ButtonGraphic;
     string label;
-    float PushOffSet = .002f;
-    Vector3 originalPos;
     int[] valueModifier = new int[4];
 
     public PuzzleTurbineButtonTagged(PuzzleTurbine _puzzleOwner, TurbineButtonData _specifiData)
@@ -29,17 +27,6 @@ public class PuzzleTurbineButtonTagged : ISelectableBehaviour {
     {
         ButtonGraphic = _older.gameObject;
         ButtonGraphic.GetComponentInChildren<TextMesh>().text = label;
-        originalPos = ButtonGraphic.transform.position;
-    }
-
-    public void OnMouseDown()
-    {
-        ButtonGraphic.transform.position = new Vector3(originalPos.x, originalPos.y - PushOffSet, originalPos.z);
-    }
-
-    public void OnMouseUp()
-    {
-        ButtonGraphic.transform.position = originalPos;
     }
 }
 
