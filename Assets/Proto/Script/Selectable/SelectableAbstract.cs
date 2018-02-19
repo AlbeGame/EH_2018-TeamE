@@ -64,6 +64,7 @@ public abstract class SelectableAbstract : MonoBehaviour
     {
         Select();
     }
+
     private void OnMouseEnter()
     {
         HasMouseOver = true;
@@ -71,6 +72,7 @@ public abstract class SelectableAbstract : MonoBehaviour
         if (State == SelectionState.Neutral)
             State = SelectionState.Highlighted;
     }
+
     private void OnMouseExit()
     {
         HasMouseOver = false;

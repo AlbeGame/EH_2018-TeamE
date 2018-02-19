@@ -31,7 +31,6 @@ public class Altimetro : MonoBehaviour
         currentAltitude -= Time.deltaTime * DropSpeed;
     }
 
-
     void GetMoveAltimeter()
     {
         float currentAngle = (360 * currentAltitude) / MaxAltitude;

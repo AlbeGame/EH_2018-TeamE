@@ -15,6 +15,8 @@ public class PuzzleTurbineButtonReset : ISelectableBehaviour {
     {
         if (puzzleCtrl != null)
             puzzleCtrl.CheckSolution();
+
+        puzzleCtrl.Select(true);
     }
 
     public void OnMouseUp() { }

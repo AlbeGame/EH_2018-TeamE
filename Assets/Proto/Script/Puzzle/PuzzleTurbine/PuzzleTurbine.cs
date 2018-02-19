@@ -203,6 +203,12 @@ public class PuzzleTurbine : SelectableItem, IPuzzle
     {
         graphicCtrl.Paint(_solutionState);
     }
+    protected override void OnStateChange(SelectionState _state)
+    {
+
+        if (graphicCtrl && SolutionState == PuzzleState.Unsolved)
+            graphicCtrl.Paint(_state);
+    }
 
     /// <summary>
     /// Values setup of the puzzle.
