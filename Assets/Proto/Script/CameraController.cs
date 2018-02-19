@@ -6,11 +6,11 @@ public class CameraController : MonoBehaviour
 {
 
     public float MovementSpeed = 0.2f;
-    public float speedH = 2.0f;
-    public float speedV = 2.0f;
+    //public float speedH = 2.0f;
+   // public float speedV = 2.0f;
 
-    private float yaw = 90f;
-    private float pitch = 0.0f;
+   // private float yaw = 90f;
+    //private float pitch = 0.0f;
     Quaternion originalRotation;
     Vector3 originalPosition;
 
@@ -23,16 +23,16 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        RotateCamera();
+        //RotateCamera();
     }
 
-    void RotateCamera()
+    /*void RotateCamera()
     {
         yaw += speedH * Input.GetAxis("Mouse X");
         pitch -= speedV * Input.GetAxis("Mouse Y");
 
         transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
-    }
+    }*/
 
     #region API
     /// <summary>

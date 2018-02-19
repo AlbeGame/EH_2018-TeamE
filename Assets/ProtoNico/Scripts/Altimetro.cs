@@ -6,51 +6,39 @@ using UnityEngine.UI;
 
 public class Altimetro : MonoBehaviour
 {
-    public Text gameOverText;
-    
-    float speedAngle = 1.0f;
-    
+    public float DropSpeed = 1.0f;
+    public float MaxAltitude = 1000;
+    float currentAltitude;
 
-
-
-    void Start()
+    private void Start()
     {
-        gameOverText.text = "";
-     
+        currentAltitude = MaxAltitude;
     }
-
 
     private void Update()
     {
-
+        UpdateAltitude();
         GetMoveAltimeter();
     }
 
-
-    public void GetMoveAltimeter()
+    void UpdateAltitude()
     {
-        speedAngle += Time.deltaTime * 10;
-        speedAngle = Mathf.Clamp(speedAngle, 50, 400);
-        transform.localRotation = Quaternion.AngleAxis(speedAngle, Vector3.back);
-    }
-   
-
-
-   
-   /* void BlockPos()
-    {
-
-        if (speedAngle <= -40)
+        if(currentAltitude <= 0)
         {
-            gameOverText.text = "GAMER OVER";
-
+            currentAltitude = 0;
+            return;
         }
-    }*/
-            
-            
-            
 
-        
-    
+        currentAltitude -= Time.deltaTime * DropSpeed;
+    }
 
+
+    void GetMoveAltimeter()
+    {
+        float currentAngle = (360*currentAltitude) / MaxAltitude;
+        if (currentAltitude == 0)
+            currentAngle = 0;
+
+        transform.localRotation = Quaternion.AngleAxis(currentAngle, Vector3.forward);
+    }
 }
