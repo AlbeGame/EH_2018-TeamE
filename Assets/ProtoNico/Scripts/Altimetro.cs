@@ -6,39 +6,30 @@ using UnityEngine.UI;
 
 public class Altimetro : MonoBehaviour
 {
-    public float DropSpeed = 1.0f;
-    public float MaxAltitude = 1000;
-    float currentAltitude;
 
-    private void Start()
-    {
-        currentAltitude = MaxAltitude;
-    }
+    const float degreeForSecond = 10f;
+
+    public Transform freccia_Altimetro;
+
+    private float timePos = -40.0f;
+    private float timer = 35;
 
     private void Update()
     {
-        UpdateAltitude();
-        GetMoveAltimeter();
+        GetCurrentTime();
+        DecreaseTime();
+
     }
 
-    void UpdateAltitude()
+    public void GetCurrentTime()
     {
-        if(currentAltitude <= 0)
-        {
-            currentAltitude = 0;
-            return;
-        }
+        timePos += Time.deltaTime;
+        freccia_Altimetro.localRotation = Quaternion.Euler(0, 0, timePos * degreeForSecond);
 
-        currentAltitude -= Time.deltaTime * DropSpeed;
     }
 
-
-    void GetMoveAltimeter()
+    public void DecreaseTime()
     {
-        float currentAngle = (360*currentAltitude) / MaxAltitude;
-        if (currentAltitude == 0)
-            currentAngle = 0;
-
-        transform.localRotation = Quaternion.AngleAxis(currentAngle, Vector3.forward);
+        timer -= Time.deltaTime;
     }
 }

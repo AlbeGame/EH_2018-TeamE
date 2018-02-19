@@ -159,6 +159,23 @@ public abstract class SelectableItem : MonoBehaviour
 
         return root;
     }
+    /// <summary>
+    /// Return the parent of this SelectableItem (climbing the transform hierarchy
+    /// </summary>
+    /// <returns></returns>
+    protected SelectableItem GetParent()
+    {
+        for (Transform p = transform.parent; p != null; p = p.parent)
+        {
+            SelectableItem firstParentFound = p.GetComponent<SelectableItem>();
+            if (firstParentFound != null)
+            {
+                return firstParentFound;
+            }
+        }
+
+        return null;
+    }
 
     #region API
     /// <summary>
@@ -169,18 +186,31 @@ public abstract class SelectableItem : MonoBehaviour
     {
         OnInitBegin(_parent);
 
-        //Workaround a GetParent di Unity (ritorna anche se stesso. Versione manuale di GetParent)
-        SelectableItem parent = _parent;
-        if (!parent)
-            for (Transform p = transform.parent; p != null; p = p.parent)
-            {
-                SelectableItem firstParentFound = p.GetComponent<SelectableItem>();
-                if (firstParentFound != null)
-                {
-                    parent = firstParentFound;
-                    break;
-                }
-            }
+        if (_parent)
+        {
+            Parent = _parent;
+            Parent.Children.Add(this);
+        }
+
+        State = _state;
+
+        OnInitEnd(_parent);
+    }
+
+    /// <summary>
+    /// Initialize the class
+    /// </summary>
+    /// <param name="_parent"></param>
+    public void Init(bool _searchParent = true, SelectionState _state = SelectionState.Neutral)
+    {
+        SelectableItem parent;
+        if (_searchParent)
+            parent = GetParent();
+        else
+            parent = null;
+
+        OnInitBegin(parent);
+
 
         if (parent)
         {
@@ -192,6 +222,7 @@ public abstract class SelectableItem : MonoBehaviour
 
         OnInitEnd(parent);
     }
+
     /// <summary>
     /// Call the reaction on selection;
     /// </summary>

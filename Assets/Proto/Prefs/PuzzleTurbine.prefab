@@ -2389,14 +2389,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1260758944780484}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a3eaa4e18f85a44fa7bbe5468a3b205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Children: []
-  puzzleCtrl: {fileID: 0}
-  ButtonGraphic: {fileID: 0}
-  PushOffSet: 0.002
-  ValuesModifier: {x: 80, y: -40, z: 0, w: -30}
+  Puzzle: 0
+  Type: 1
 --- !u!114 &114326339953573300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2405,14 +2403,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1115740216549508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a3eaa4e18f85a44fa7bbe5468a3b205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Children: []
-  puzzleCtrl: {fileID: 0}
-  ButtonGraphic: {fileID: 0}
-  PushOffSet: 0.002
-  ValuesModifier: {x: 0, y: -30, z: 70, w: -50}
+  Puzzle: 0
+  Type: 1
 --- !u!114 &114343135931187948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2472,7 +2468,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Children: []
   GraphicData:
-    DoNotPaintItems: []
+    DoNotPaintItems:
+    - {fileID: 23802007773215938}
+    - {fileID: 23690828499796746}
+    - {fileID: 23929723074696794}
+    - {fileID: 23103420531508580}
+    - {fileID: 23337650346369076}
+    - {fileID: 120533053266240530}
+    - {fileID: 120635900596577164}
+    - {fileID: 120491669533681618}
+    - {fileID: 120909861673299708}
+    - {fileID: 23616826086094178}
     PassiveMat: {fileID: 2100000, guid: 42faddb2e59f5004e892136b59a2c905, type: 2}
     NeutralMat: {fileID: 2100000, guid: db45bdb529efebc4b889c5a058cd9e7c, type: 2}
     HighlightedMat: {fileID: 2100000, guid: 4201e4398a04d3f4e90e98425a24d486, type: 2}
@@ -2480,11 +2486,8 @@ MonoBehaviour:
     BrokenMat: {fileID: 2100000, guid: 3059fe99a3be62544aa67e9d18acf351, type: 2}
     SolvedMat: {fileID: 2100000, guid: 6b0c076e3e965064fbc27aab65390d03, type: 2}
   InteractionData:
-    CameraFocusPosition: {fileID: 0}
-  EVales: {x: 30, y: 70, z: 20, w: 90}
-  ResetButton: {fileID: 0}
-  TaggedButtons: []
-  Sliders: []
+    CameraFocusPosition: {fileID: 4438769942652814}
+  Data: {fileID: 11400000, guid: 220cf38a622d83145a20cf5047c8a918, type: 2}
 --- !u!114 &114811637686170120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2493,14 +2496,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1775445006160638}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a3eaa4e18f85a44fa7bbe5468a3b205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Children: []
-  puzzleCtrl: {fileID: 0}
-  ButtonGraphic: {fileID: 0}
-  PushOffSet: 0.002
-  ValuesModifier: {x: 50, y: 40, z: -10, w: 30}
+  Puzzle: 0
+  Type: 1
 --- !u!114 &114817255596414238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2509,14 +2510,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1722311721237208}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a3eaa4e18f85a44fa7bbe5468a3b205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Children: []
-  puzzleCtrl: {fileID: 0}
-  ButtonGraphic: {fileID: 0}
-  PushOffSet: 0.002
-  ValuesModifier: {x: -10, y: 20, z: -40, w: 20}
+  Puzzle: 0
+  Type: 1
 --- !u!114 &114943558732735956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2525,14 +2524,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1543896043068014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cb96c5f32c5e6344a352173e9e03dfe, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a3eaa4e18f85a44fa7bbe5468a3b205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Children: []
-  puzzleCtrl: {fileID: 0}
-  ButtonGraphic: {fileID: 0}
-  PushOffSet: 0.002
-  ValuesModifier: {x: -60, y: 30, z: 60, w: 0}
+  Puzzle: 0
+  Type: 1
 --- !u!120 &120491669533681618
 LineRenderer:
   m_ObjectHideFlags: 1

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// Classe che gestisce l'interazione con l'utente
@@ -23,4 +21,12 @@ public class PuzzleInteraction : MonoBehaviour {
         if (data.CameraFocusPosition)
             camCtrl.FocusAt(data.CameraFocusPosition);
     }
+}
+
+[System.Serializable]
+public class PuzzleInteractionData
+{
+    [Tooltip("La posizione che la camera assume nello spazio al momento del focus su questo oggetto")]
+    public Transform CameraFocusPosition;
+
 }

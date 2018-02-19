@@ -2,29 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PuzzleGeneric : SelectableItem
+public class SelectableGeneric : SelectableItem
 {
     public PuzzleGraphicData GraphicData;
-    PuzzleGraphic graphicCtrl;
+    protected PuzzleGraphic graphicCtrl;
 
     public PuzzleInteractionData InteractionData;
-    PuzzleInteraction interactionCtrl;
+    protected PuzzleInteraction interactionCtrl;
 
-    PuzzleState _solutionState = PuzzleState.Unsolved;
-    protected PuzzleState SolutionState
-    {
-        get { return _solutionState; }
-        set
-        {
-            if (SolutionState == value)
-                return;
-
-            _solutionState = value;
-            OnSolutionStateChange(SolutionState);
-        }
-    }
-    
-    void Start()
+    protected override void OnInitBegin(SelectableItem _parent)
     {
         //Graphic Controller
         graphicCtrl = GetComponent<PuzzleGraphic>();
@@ -37,8 +23,6 @@ public class PuzzleGeneric : SelectableItem
         if (interactionCtrl == null)
             interactionCtrl = gameObject.AddComponent<PuzzleInteraction>();
         interactionCtrl.Init(InteractionData);
-
-        OnStartEnd();
     }
 
     protected override void OnSelect()
@@ -51,18 +35,10 @@ public class PuzzleGeneric : SelectableItem
         if (graphicCtrl)
             graphicCtrl.Paint(_state);
     }
-
-    protected virtual void OnSolutionStateChange(PuzzleState _newState)
-    {
-        graphicCtrl.Paint(_newState);
-    }
-
-    protected virtual void OnStartEnd() { }
 }
 
-public enum PuzzleState
+public enum PuzzleType
 {
-    Unsolved,
-    Broken,
-    Solved
+    Turbine,
+    GPS
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 /// <summary>
 /// Gestore della grafica del puzzle. Cambia il materiale a tutti i renderder in parentela, esclusi specifici.
 /// </summary>
-[RequireComponent(typeof(MeshRenderer))]
 public class PuzzleGraphic : MonoBehaviour
 {
     PuzzleGraphicData data;
@@ -74,4 +73,20 @@ public class PuzzleGraphic : MonoBehaviour
             renderer.material = _mat;
         }
     }
+}
+
+[System.Serializable]
+public class PuzzleGraphicData
+{
+
+    [Tooltip("Lista di tutti i renderer figli che verranno ignorati da tutte le variazioni di colore del puzzle")]
+    public List<Renderer> DoNotPaintItems = new List<Renderer>();
+
+    [Header("Materials"), Space]
+    public Material PassiveMat;
+    public Material NeutralMat;
+    public Material HighlightedMat;
+    public Material SelectedMat;
+    public Material BrokenMat;
+    public Material SolvedMat;
 }
