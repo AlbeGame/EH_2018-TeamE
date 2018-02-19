@@ -1,58 +1,16 @@
 fileFormatVersion: 2
-guid: c83e80afe7e4dfb4f8be2bbd0e5a14ad
-timeCreated: 1518532300
+guid: 88ffa7df1e88cda4ea7e52b1ae36ce29
+timeCreated: 1519039906
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: base_20x20
-    100002: //RootNode
-    100004: levetta_base
-    100006: levetta_levetta
-    100008: levetta_monitor_onoff1
-    100010: schermo_cornice_v01
-    100012: schermo_cornice_v02
-    100014: schermo_monitor_v01
-    100016: schermo_monitor_v02
-    100018: vite_v02
-    400000: base_20x20
-    400002: //RootNode
-    400004: levetta_base
-    400006: levetta_levetta
-    400008: levetta_monitor_onoff1
-    400010: schermo_cornice_v01
-    400012: schermo_cornice_v02
-    400014: schermo_monitor_v01
-    400016: schermo_monitor_v02
-    400018: vite_v02
+    100000: //RootNode
+    400000: //RootNode
     2100000: Puzzle_03_M
-    2300000: base_20x20
-    2300002: levetta_base
-    2300004: levetta_levetta
-    2300006: levetta_monitor_onoff1
-    2300008: schermo_cornice_v01
-    2300010: schermo_cornice_v02
-    2300012: schermo_monitor_v01
-    2300014: schermo_monitor_v02
-    2300016: vite_v02
-    3300000: base_20x20
-    3300002: levetta_base
-    3300004: levetta_levetta
-    3300006: levetta_monitor_onoff1
-    3300008: schermo_cornice_v01
-    3300010: schermo_cornice_v02
-    3300012: schermo_monitor_v01
-    3300014: schermo_monitor_v02
-    3300016: vite_v02
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: base_20x20
-    4300002: vite_v02
-    4300004: schermo_cornice_v01
-    4300006: schermo_monitor_v01
-    4300008: schermo_cornice_v02
-    4300010: schermo_monitor_v02
-    4300012: levetta_levetta
-    4300014: levetta_monitor_onoff1
-    4300016: levetta_base
   externalObjects: {}
   materials:
     importMaterials: 1
