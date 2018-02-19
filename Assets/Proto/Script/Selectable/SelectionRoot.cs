@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectionRoot : SelectableItem
+public class SelectionRoot : SelectableAbstract
 {
     CameraController camCtrl;
-    public List<SelectableGeneric> Selectables = new List<SelectableGeneric>();
+    public List<SelectableItem> Selectables = new List<SelectableItem>();
 
     private void Start()
     {
         camCtrl = Camera.main.GetComponent<CameraController>();
-        foreach (SelectableGeneric puzzle in Selectables)
+        foreach (SelectableItem puzzle in Selectables)
         {
             puzzle.Init(this, SelectionState.Neutral);
         }

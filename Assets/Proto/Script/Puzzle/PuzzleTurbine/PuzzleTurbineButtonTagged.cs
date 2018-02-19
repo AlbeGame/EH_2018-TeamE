@@ -22,7 +22,7 @@ public class PuzzleTurbineButtonTagged : ISelectableBehaviour {
         puzzleOwner.Select(true);
     }
 
-    public void OnInit(SelectableItem _older)
+    public void OnInit(SelectableAbstract _older)
     {
         ButtonGraphic = _older.gameObject;
         originalPos = ButtonGraphic.transform.position;

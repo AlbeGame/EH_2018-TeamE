@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectableButton : SelectableItem
+public class SelectableButton : SelectableAbstract
 {
     public ISelectableBehaviour specificBehaviour;
     public PuzzleType Puzzle;
     public ButtonType Type;
 
-    protected override void OnInitEnd(SelectableItem _parent)
+    protected override void OnInitEnd(SelectableAbstract _parent)
     {
         specificBehaviour.OnInit(this);
     }

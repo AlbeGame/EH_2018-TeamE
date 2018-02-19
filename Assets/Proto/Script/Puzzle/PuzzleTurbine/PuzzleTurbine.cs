@@ -2,11 +2,10 @@
 using System.Linq;
 using UnityEngine;
 
-public class PuzzleTurbine : SelectableGeneric, IPuzzle
+public class PuzzleTurbine : SelectableItem, IPuzzle
 {
     public PuzzleTurbineData Data;
     PuzzleCombination combination;
-    SelectableButton ResetButton;
     List<SliderController> Sliders = new List<SliderController>();
 
     PuzzleState _solutionState = PuzzleState.Unsolved;
@@ -23,7 +22,7 @@ public class PuzzleTurbine : SelectableGeneric, IPuzzle
         }
     }
 
-    protected override void OnInitEnd(SelectableItem _parent)
+    protected override void OnInitEnd(SelectableAbstract _parent)
     {
         GenerateNewPuzzleCombination();
         InitGenricalElement();
@@ -34,7 +33,6 @@ public class PuzzleTurbine : SelectableGeneric, IPuzzle
         Data = _data as PuzzleTurbineData;
         InitGenricalElement();
     }
-
 
     private void InitGenricalElement()
     {
@@ -52,7 +50,8 @@ public class PuzzleTurbine : SelectableGeneric, IPuzzle
             switch (button.Type)
             {
                 case ButtonType.Untagged:
-                    ResetButton = button;
+                    button.specificBehaviour = new PuzzleTurbineButtonReset(this);
+                    button.Init();
                     break;
                 case ButtonType.Tagged:
                     TurbineButtonData buttonData = buttonPool[Random.Range(0, buttonPool.Count)];
@@ -65,7 +64,6 @@ public class PuzzleTurbine : SelectableGeneric, IPuzzle
             }
         }
 
-        Data.EValues = combination.EValues;
         foreach (SliderController slider in GetComponentsInChildren<SliderController>())
         {
             Sliders.Add(slider);
@@ -75,17 +73,17 @@ public class PuzzleTurbine : SelectableGeneric, IPuzzle
 
     public void SetEValues(int E1, int E2, int E3, int E4)
     {
-        Data.EValues[0] += E1;
-        Data.EValues[1] += E2;
-        Data.EValues[2] += E3;
-        Data.EValues[3] += E4;
+        combination.CurrentEValues[0] += E1;
+        combination.CurrentEValues[1] += E2;
+        combination.CurrentEValues[2] += E3;
+        combination.CurrentEValues[3] += E4;
 
-        for (int i = 0; i < Data.EValues.Length; i++)
+        for (int i = 0; i < combination.CurrentEValues.Length; i++)
         {
-            if (Data.EValues[i] < 0)
-                Data.EValues[i] = 0;
-            if (Data.EValues[i] > 100)
-                Data.EValues[i] = 100;
+            if (combination.CurrentEValues[i] < 0)
+                combination.CurrentEValues[i] = 0;
+            if (combination.CurrentEValues[i] > 100)
+                combination.CurrentEValues[i] = 100;
         }
 
         UpdateSliderValues();
@@ -95,7 +93,7 @@ public class PuzzleTurbine : SelectableGeneric, IPuzzle
     {
         for (int i = 0; i < 4; i++)
         {
-            if (Data.EValues[i] >= 70 && Data.EValues[i] <= 80)
+            if (combination.CurrentEValues[i] == 50)
                 continue;
 
             DoBreakThings();
@@ -109,7 +107,7 @@ public class PuzzleTurbine : SelectableGeneric, IPuzzle
     {
         for (int i = 0; i < 4; i++)
         {
-            if (Data.EValues[i] <= 0 && Data.EValues[i] >= 100)
+            if (combination.CurrentEValues[i] <= 0 && combination.CurrentEValues[i] >= 100)
                 DoBreakThings();
         }
     }
@@ -160,6 +158,7 @@ public class PuzzleTurbine : SelectableGeneric, IPuzzle
             }
         }
 
+        newComb.ResetEValues();
         combination = newComb;
     }
     TurbineButtonData GetUnchosenButton(List<TurbineButtonData> alreadyChosen)
@@ -174,7 +173,7 @@ public class PuzzleTurbine : SelectableGeneric, IPuzzle
     }
     bool IsSolvable(PuzzleCombination _combination, TurbineButtonData newButton)
     {
-        int[] currentEs = _combination.EValues;
+        int[] currentEs = _combination.InitialEValues;
 
         currentEs[0] -= newButton.E1Modifier;
         if (currentEs[0] < 0 || currentEs[0] > 100)
@@ -196,7 +195,7 @@ public class PuzzleTurbine : SelectableGeneric, IPuzzle
     {
         for (int i = 0; i < Sliders.Count; i++)
         {
-            Sliders[i].SetFillAmount(Data.EValues[i]);
+            Sliders[i].SetFillAmount(combination.CurrentEValues[i]);
         }
     }
 
@@ -210,7 +209,8 @@ public class PuzzleTurbine : SelectableGeneric, IPuzzle
     /// </summary>
     class PuzzleCombination
     {
-        public int[] EValues {get { return GetEs(); }}
+        public int[] InitialEValues {get { return GetEs(); }}
+        public int[] CurrentEValues { get; private set; }
         public List<TurbineButtonData> Solution = new List<TurbineButtonData>();
         public List<TurbineButtonData> Fillers = new List<TurbineButtonData>();
         //Assuming solution is correct
@@ -227,6 +227,11 @@ public class PuzzleTurbine : SelectableGeneric, IPuzzle
             }
 
             return eS;
+        }
+
+        public void ResetEValues()
+        {
+            CurrentEValues = InitialEValues;
         }
     }
 }

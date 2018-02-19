@@ -4,7 +4,7 @@ public class SliderController : MonoBehaviour {
 
     public Transform LineBegin;
     public Transform LineEnd;
-    Vector3 maxLenght { get { return LineEnd.position - LineBegin.position; } }
+    Vector3 maxLenght { get { return LineEnd.localPosition - LineBegin.localPosition; } }
 
     public Material PositiveColor;
     public Material NeutralColor;
@@ -15,15 +15,15 @@ public class SliderController : MonoBehaviour {
     private void OnEnable()
     {
         lineRenderer = GetComponentInChildren<LineRenderer>();
-        lineRenderer.SetPosition(0, LineBegin.position);
-        lineRenderer.SetPosition(1, LineEnd.position);
+        lineRenderer.SetPosition(0, LineBegin.localPosition);
+        lineRenderer.SetPosition(1, LineEnd.localPosition);
     }
 
     public void SetFillAmount(float _percentage)
     {
         Vector3 newLineHead;
 
-        newLineHead = LineBegin.position + maxLenght * _percentage / 100;
+        newLineHead = LineBegin.localPosition + maxLenght * _percentage / 100;
 
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, newLineHead);
 
@@ -32,11 +32,11 @@ public class SliderController : MonoBehaviour {
 
     void AdaptMaterial(float _percentage)
     {
-        if (_percentage > 80)
-            lineRenderer.material = NegativeColor;
-        else if (_percentage < 70)
-            lineRenderer.material = NeutralColor;
-        else
+        if (_percentage == 50)
             lineRenderer.material = PositiveColor;
+        else if (_percentage <= 0 || _percentage >= 100)
+            lineRenderer.material = NegativeColor;
+        else
+            lineRenderer.material = NeutralColor;
     }
 }

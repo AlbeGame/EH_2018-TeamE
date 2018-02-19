@@ -2,7 +2,7 @@
 
 public interface ISelectableBehaviour  {
 
-    void OnInit(SelectableItem _holder);
+    void OnInit(SelectableAbstract _holder);
 
     void OnSelect();
 
