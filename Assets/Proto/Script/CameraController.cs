@@ -6,11 +6,11 @@ public class CameraController : MonoBehaviour
 {
 
     public float MovementSpeed = 0.2f;
-    //public float speedH = 2.0f;
-   // public float speedV = 2.0f;
-
-   // private float yaw = 90f;
-    //private float pitch = 0.0f;
+    public float speedH = 2.0f;
+    public float speedV = 2.0f;
+    public bool isMoveFreeCam;
+    private float yaw = 90f;
+    private float pitch = 0.0f;
     Quaternion originalRotation;
     Vector3 originalPosition;
 
@@ -23,16 +23,20 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        //RotateCamera();
+        if (isMoveFreeCam)
+            RotateCamera();
+        
+            
+        
+           
     }
 
-    /*void RotateCamera()
+    void RotateCamera()
     {
         yaw += speedH * Input.GetAxis("Mouse X");
         pitch -= speedV * Input.GetAxis("Mouse Y");
-
         transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
-    }*/
+    }
 
     #region API
     /// <summary>
@@ -41,6 +45,7 @@ public class CameraController : MonoBehaviour
     /// <param name="_target"></param>
     public void FocusAt(Transform _target)
     {
+        isMoveFreeCam = false;
         transform.DORotateQuaternion(_target.rotation, MovementSpeed);
         transform.DOMove(_target.position, MovementSpeed);
     }
@@ -50,6 +55,7 @@ public class CameraController : MonoBehaviour
     /// <param name="_target"></param>
     public void FocusAt(Vector3 _targetPosition, Quaternion _targetRotation)
     {
+        isMoveFreeCam = false;
         transform.DORotateQuaternion(originalRotation, MovementSpeed);
         transform.DOMove(_targetPosition, MovementSpeed);
     }
@@ -59,6 +65,7 @@ public class CameraController : MonoBehaviour
     public void FocusReset()
     {
         FocusAt(originalPosition, originalRotation);
+        isMoveFreeCam = true;
     }
     #endregion
 }
