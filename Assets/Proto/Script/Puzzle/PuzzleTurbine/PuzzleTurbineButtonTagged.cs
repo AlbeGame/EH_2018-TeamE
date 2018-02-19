@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PuzzleTurbineButtonTagged : ISelectableBehaviour {
 
     PuzzleTurbine puzzleOwner;
 
     GameObject ButtonGraphic;
+    string label;
     float PushOffSet = .002f;
     Vector3 originalPos;
     int[] valueModifier = new int[4];
@@ -13,6 +15,7 @@ public class PuzzleTurbineButtonTagged : ISelectableBehaviour {
     {
         puzzleOwner = _puzzleOwner;
         valueModifier = _specifiData.EModifiers;
+        label = _specifiData.Label;
     }
 
     public void OnSelect()
@@ -25,6 +28,7 @@ public class PuzzleTurbineButtonTagged : ISelectableBehaviour {
     public void OnInit(SelectableAbstract _older)
     {
         ButtonGraphic = _older.gameObject;
+        ButtonGraphic.GetComponentInChildren<TextMesh>().text = label;
         originalPos = ButtonGraphic.transform.position;
     }
 
