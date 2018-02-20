@@ -8,6 +8,7 @@ public class PuzzleTurbine : SelectableItem, IPuzzle
     PuzzleCombination combination;
     List<SliderController> Sliders = new List<SliderController>();
 
+    #region IPuzzle
     PuzzleState _solutionState = PuzzleState.Unsolved;
     public PuzzleState SolutionState
     {
@@ -22,115 +23,34 @@ public class PuzzleTurbine : SelectableItem, IPuzzle
         }
     }
 
+    public void Setup(IPuzzleData _data)
+    {
+        Data = _data as PuzzleTurbineData;
+        InitGenricalElement();
+    }
+    #endregion
+
+    #region Selectable Behaviours
     protected override void OnInitEnd(SelectableAbstract _parent)
     {
         GenerateNewPuzzleCombination();
         InitGenricalElement();
     }
 
-    public void Setup(IPuzzleData _data)
+    void OnSolutionStateChange(PuzzleState _solutionState)
     {
-        Data = _data as PuzzleTurbineData;
-        InitGenricalElement();
+        graphicCtrl.Paint(_solutionState);
     }
 
-    private void InitGenricalElement()
-    {
-        List<TurbineButtonData> buttonPool = new List<TurbineButtonData>();
-        foreach (var item in combination.Solution)
-            buttonPool.Add(item);
-        foreach (var item in combination.Fillers)
-            buttonPool.Add(item);
-
-        foreach (SelectableButton button in GetComponentsInChildren<SelectableButton>())
-        {
-            if (button.Puzzle != PuzzleType.Turbine)
-                continue;
-
-            switch (button.Type)
-            {
-                case ButtonType.Untagged:
-                    button.specificBehaviour = new PuzzleTurbineButtonReset(this);
-                    button.Init();
-                    break;
-                case ButtonType.Tagged:
-                    TurbineButtonData buttonData = buttonPool[Random.Range(0, buttonPool.Count)];
-                    buttonPool.Remove(buttonData);
-                    button.specificBehaviour = new PuzzleTurbineButtonTagged(this, buttonData);
-                    button.Init();
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        foreach (SliderController slider in GetComponentsInChildren<SliderController>())
-        {
-            Sliders.Add(slider);
-        }
-        UpdateSliderValues();
-    }
-
-    public void SetEValues(int E1, int E2, int E3, int E4)
-    {
-        combination.CurrentEValues[0] += E1;
-        combination.CurrentEValues[1] += E2;
-        combination.CurrentEValues[2] += E3;
-        combination.CurrentEValues[3] += E4;
-
-        for (int i = 0; i < combination.CurrentEValues.Length; i++)
-        {
-            if (combination.CurrentEValues[i] < 0)
-                combination.CurrentEValues[i] = 0;
-            if (combination.CurrentEValues[i] > 100)
-                combination.CurrentEValues[i] = 100;
-        }
-
-        UpdateSliderValues();
-        CheckBreackDown();
-    }
-    public void CheckSolution()
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            if (combination.CurrentEValues[i] == 50)
-                continue;
-
-            DoBreakThings();
-            return;
-        }
-
-        DoWinningThings();
-    }
-
-    void CheckBreackDown()
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            if (combination.CurrentEValues[i] <= 0 && combination.CurrentEValues[i] >= 100)
-                DoBreakThings();
-        }
-    }
-
-    void DoWinningThings()
+    protected override void OnStateChange(SelectionState _state)
     {
 
-        //foreach (var item in TaggedButtons)
-        //{
-        //    item.GetComponent<MeshCollider>().enabled = false;
-        //}
-        //ResetButton.GetComponent<MeshCollider>().enabled = false;
-
-        Parent.Select(true);
-        SolutionState = PuzzleState.Solved;
-        State = SelectionState.Unselectable;
+        if (graphicCtrl && SolutionState == PuzzleState.Unsolved)
+            graphicCtrl.Paint(_state);
     }
+    #endregion
 
-    void DoBreakThings()
-    {
-        SolutionState = PuzzleState.Broken;
-    }
-
+    #region Setup and Init specific
     private void GenerateNewPuzzleCombination()
     {
         PuzzleCombination newComb = new PuzzleCombination();
@@ -191,23 +111,111 @@ public class PuzzleTurbine : SelectableItem, IPuzzle
         return true;
     }
 
+    private void InitGenricalElement()
+    {
+        List<TurbineButtonData> buttonPool = new List<TurbineButtonData>();
+        foreach (var item in combination.Solution)
+            buttonPool.Add(item);
+        foreach (var item in combination.Fillers)
+            buttonPool.Add(item);
+
+        foreach (SelectableButton button in GetComponentsInChildren<SelectableButton>())
+        {
+            if (button.Puzzle != PuzzleType.Turbine)
+                continue;
+
+            switch (button.Type)
+            {
+                case ButtonType.Untagged:
+                    button.specificBehaviour = new PuzzleTurbineButtonReset(this);
+                    button.Init();
+                    break;
+                case ButtonType.Tagged:
+                    TurbineButtonData buttonData = buttonPool[Random.Range(0, buttonPool.Count)];
+                    buttonPool.Remove(buttonData);
+                    button.specificBehaviour = new PuzzleTurbineButtonTagged(this, buttonData);
+                    button.Init();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        foreach (SliderController slider in GetComponentsInChildren<SliderController>())
+        {
+            Sliders.Add(slider);
+        }
+        UpdateSliderValues();
+    }
+    #endregion
+
+    public void SetEValues(int E1, int E2, int E3, int E4)
+    {
+        combination.CurrentEValues[0] += E1;
+        combination.CurrentEValues[1] += E2;
+        combination.CurrentEValues[2] += E3;
+        combination.CurrentEValues[3] += E4;
+
+        for (int i = 0; i < combination.CurrentEValues.Length; i++)
+        {
+            if (combination.CurrentEValues[i] < 0)
+                combination.CurrentEValues[i] = 0;
+            if (combination.CurrentEValues[i] > 100)
+                combination.CurrentEValues[i] = 100;
+        }
+
+        UpdateSliderValues();
+        CheckBreackDown();
+    }
+
+    public void CheckSolution()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (combination.CurrentEValues[i] == 50)
+                continue;
+
+            DoBreakThings();
+            return;
+        }
+
+        DoWinningThings();
+    }
+
+    void CheckBreackDown()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (combination.CurrentEValues[i] <= 0 && combination.CurrentEValues[i] >= 100)
+                DoBreakThings();
+        }
+    }
+
+    void DoWinningThings()
+    {
+
+        //foreach (var item in TaggedButtons)
+        //{
+        //    item.GetComponent<MeshCollider>().enabled = false;
+        //}
+        //ResetButton.GetComponent<MeshCollider>().enabled = false;
+
+        Parent.Select(true);
+        SolutionState = PuzzleState.Solved;
+        State = SelectionState.Unselectable;
+    }
+
+    void DoBreakThings()
+    {
+        SolutionState = PuzzleState.Broken;
+    }
+
     void UpdateSliderValues()
     {
         for (int i = 0; i < Sliders.Count; i++)
         {
             Sliders[i].SetFillAmount(combination.CurrentEValues[i]);
         }
-    }
-
-    void OnSolutionStateChange(PuzzleState _solutionState)
-    {
-        graphicCtrl.Paint(_solutionState);
-    }
-    protected override void OnStateChange(SelectionState _state)
-    {
-
-        if (graphicCtrl && SolutionState == PuzzleState.Unsolved)
-            graphicCtrl.Paint(_state);
     }
 
     /// <summary>

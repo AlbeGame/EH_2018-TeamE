@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿/// Container class with the generical behavior of a selectable.
+/// It builds a PuzzleGraphic and a PuzzleInteraction on his own GameObject if found none.
+/// </summary>
 public class SelectableItem : SelectableAbstract
 {
     public PuzzleGraphicData GraphicData;
