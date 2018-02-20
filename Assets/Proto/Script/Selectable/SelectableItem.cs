@@ -39,5 +39,6 @@ public class SelectableItem : SelectableAbstract
 public enum PuzzleType
 {
     Turbine,
-    GPS
+    GPS,
+    Autopilot
 }

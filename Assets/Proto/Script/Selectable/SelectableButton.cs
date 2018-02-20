@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using DG.Tweening;
 
 public class SelectableButton : SelectableAbstract
 {
@@ -8,12 +7,19 @@ public class SelectableButton : SelectableAbstract
     public PuzzleType Puzzle;
     public ButtonType Type;
 
-    float PushOffSet = .002f;
+    public float PushDuration = .5f;
+    public float PushOffSet = .005f;
+    [Tooltip("Keep it empty to apply on this GameObject")]
+    public GameObject ObjectToMove;
     Vector3 originalPos;
 
     protected override void OnInitEnd(SelectableAbstract _parent)
     {
-        originalPos = transform.position;
+        if (!ObjectToMove)
+            originalPos = transform.position;
+        else
+            originalPos = ObjectToMove.transform.position;
+
         specificBehaviour.OnInit(this);
     }
 
@@ -24,12 +30,18 @@ public class SelectableButton : SelectableAbstract
 
     private void OnMouseUp()
     {
-        transform.position = originalPos;
+        if (!ObjectToMove)
+            transform.DOMove(originalPos, PushDuration/2);
+        else
+            ObjectToMove.transform.DOMove(originalPos, PushDuration/2);
     }
 
     private void OnMouseDown()
     {
-        transform.position = new Vector3(originalPos.x, originalPos.y - PushOffSet, originalPos.z);
+        if(!ObjectToMove)
+            transform.DOMoveY(originalPos.y - PushOffSet, PushDuration/2);/* = new Vector3(originalPos.x, originalPos.y - PushOffSet, originalPos.z);*/
+        else
+            ObjectToMove.transform.DOMoveY(originalPos.y - PushOffSet, PushDuration / 2);
     }
 }
 
