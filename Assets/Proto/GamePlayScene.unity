@@ -170,6 +170,26 @@ Prefab:
       propertyPath: isMoveFreeCam
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114266232990130732, guid: 0c0d778887bcf7e4894c5883dd3b65cd,
+        type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1522528701}
+    - target: {fileID: 114266232990130732, guid: 0c0d778887bcf7e4894c5883dd3b65cd,
+        type: 2}
+      propertyPath: sensitivoty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114266232990130732, guid: 0c0d778887bcf7e4894c5883dd3b65cd,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114266232990130732, guid: 0c0d778887bcf7e4894c5883dd3b65cd,
+        type: 2}
+      propertyPath: sensitivity
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c0d778887bcf7e4894c5883dd3b65cd, type: 2}
   m_IsPrefabParent: 0
@@ -621,6 +641,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1522528701 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4918110393001174, guid: 0c0d778887bcf7e4894c5883dd3b65cd,
+    type: 2}
+  m_PrefabInternal: {fileID: 235242260}
 --- !u!1 &1560404823
 GameObject:
   m_ObjectHideFlags: 0

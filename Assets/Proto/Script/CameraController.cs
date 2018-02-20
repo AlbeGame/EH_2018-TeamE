@@ -6,15 +6,13 @@ public class CameraController : MonoBehaviour
 {
 
     public float MovementSpeed = 0.2f;
-    public float speedH = 2.0f;
-    public float speedV = 2.0f;
     public bool isMoveFreeCam;
-    private float yaw = 90f;
-    private float pitch = 0.0f;
+    public float sensitivity;
+
     Quaternion originalRotation;
     Vector3 originalPosition;
 
-    // Use this for initialization
+
     void Start()
     {
         originalRotation = transform.rotation;
@@ -23,20 +21,17 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if (isMoveFreeCam)
-            RotateCamera();
-        
-            
-        
-           
+        if(isMoveFreeCam)
+        RotateCamera(); 
     }
 
     void RotateCamera()
     {
-        yaw += speedH * Input.GetAxis("Mouse X");
-        pitch -= speedV * Input.GetAxis("Mouse Y");
-        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+        float newRotationY=transform.localEulerAngles.y +Input.GetAxis("Mouse X")*sensitivity;
+        float newRotationX = transform.localEulerAngles.x - Input.GetAxis("Mouse Y")*sensitivity;
+        gameObject.transform.localEulerAngles = new Vector3(newRotationX, newRotationY, 0);
     }
+
 
     #region API
     /// <summary>
