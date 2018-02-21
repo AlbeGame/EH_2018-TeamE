@@ -26,4 +26,9 @@ public class PuzzleGPSOutputMonitor : MonoBehaviour {
         Vector2 lowleftCorner = _coordinatesToDisplay - new Vector2(3.5f, 3.5f);
         mapMaterial.SetTextureOffset("_MainTex", new Vector2(gridTileDimension.x* lowleftCorner.x, gridTileDimension.y * lowleftCorner.y));
     }
+
+    public void Rotate(float _angle)
+    {
+        MapDisplay.transform.Rotate(Vector3.up, _angle);
+    }
 }
