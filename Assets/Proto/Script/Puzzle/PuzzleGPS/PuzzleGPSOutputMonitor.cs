@@ -5,9 +5,9 @@ using UnityEngine;
 public class PuzzleGPSOutputMonitor : MonoBehaviour {
 
     public MeshRenderer MapDisplay;
-    public Material mapMaterial;
-    public Vector2Int gridDimensions;
-    public Vector2 gridTileDimension;
+    Material mapMaterial;
+    Vector2Int gridDimensions;
+    Vector2 gridTileDimension;
 
     private void Start()
     {
@@ -23,6 +23,7 @@ public class PuzzleGPSOutputMonitor : MonoBehaviour {
 
     public void DisplayCoordinates(Vector2Int _coordinatesToDisplay)
     {
-        mapMaterial.SetTextureOffset("_MainTex", new Vector2(gridTileDimension.x*_coordinatesToDisplay.x, gridTileDimension.y * _coordinatesToDisplay.y));
+        Vector2 lowleftCorner = _coordinatesToDisplay - new Vector2(3.5f, 3.5f);
+        mapMaterial.SetTextureOffset("_MainTex", new Vector2(gridTileDimension.x* lowleftCorner.x, gridTileDimension.y * lowleftCorner.y));
     }
 }

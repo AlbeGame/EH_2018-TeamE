@@ -40,6 +40,10 @@ public class PuzzleGPS : SelectableItem, IPuzzle
 
     }
 
+    public void OnButtonSelect(SelectableButton _button) { }
+    public void OnSwitchSelect(SelectableSwitch _switch) { }
+    public void OnMonitorSelect(SelectableMonitor _monitor) { }
+
     [System.Serializable]
     public class GPS_IO
     {

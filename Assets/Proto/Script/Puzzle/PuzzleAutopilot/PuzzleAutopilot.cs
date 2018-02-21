@@ -124,6 +124,10 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
         AutopilotInteractable.MonitorFaseOK.ToggleOnOff(false);
     }
 
+    public void OnButtonSelect(SelectableButton _button) { }
+    public void OnSwitchSelect(SelectableSwitch _switch) { }
+    public void OnMonitorSelect(SelectableMonitor _monitor) { }
+
     //genera a caso una combinazione iniziale del puzzle (e la soluzione)
     void GenerateInitialValues() {
         int fase1index = Random.Range(0, Data.Fase1.Count);

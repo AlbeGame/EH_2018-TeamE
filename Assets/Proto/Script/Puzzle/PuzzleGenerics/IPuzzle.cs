@@ -6,6 +6,10 @@ public interface IPuzzle {
     PuzzleState SolutionState { get; set; }
 
     void Setup(IPuzzleData data);
+
+    void OnButtonSelect(SelectableButton _button);
+    void OnSwitchSelect(SelectableSwitch _switch);
+    void OnMonitorSelect(SelectableMonitor _monitor);
 }
 
 /// <summary>

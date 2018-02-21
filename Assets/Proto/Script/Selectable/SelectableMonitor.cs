@@ -1,16 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿public class SelectableMonitor : SelectableAbstract {
 
-public class SelectableMonitor : MonoBehaviour {
+    IPuzzle puzzleCtrl;
+    public bool IsEditable { get; private set; }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }
