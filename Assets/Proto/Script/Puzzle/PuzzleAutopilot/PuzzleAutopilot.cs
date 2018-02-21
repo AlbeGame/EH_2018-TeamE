@@ -3,11 +3,9 @@ using UnityEngine;
 
 public class PuzzleAutopilot : SelectableItem, IPuzzle {
 
-    public PuzzleAutopilotData data;
-    public List<SelectableButton> ButtonsStandard = new List<SelectableButton>();
-    public List<PuzzleAutopilotOutputMonitor> MonitorStandard = new List<PuzzleAutopilotOutputMonitor>();
-    public SelectableSwitch LevaSx;
-    public SelectableSwitch LevaDx;
+    public PuzzleAutopilotData Data;
+
+    public AutopilotIO AutopilotInteractable;
 
     int currentSolutionIndex = 0;
     bool isFase1Completed = false;
@@ -26,37 +24,37 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
     }
 
     public void Setup(IPuzzleData _data) {
-        data = _data as PuzzleAutopilotData;
+        Data = _data as PuzzleAutopilotData;
     }
 
     public void GetButtonInput(ISelectableBehaviour _selectable) {
 
-        PuzzleAutopilotButton button = _selectable as PuzzleAutopilotButton;
+        //PuzzleAutopilotButton button = _selectable as PuzzleAutopilotButton;
 
-        if (!isFase1Completed) {
-            if(data.Fase1[currentCombinantion[0]].Solution[currentSolutionIndex] == button.Actualvalue) {
-                currentSolutionIndex++;
-                if (currentSolutionIndex > data.Fase1[currentCombinantion[0]].Solution.Count) {
-                    isFase1Completed = true;
-                    currentSolutionIndex = 0;
-                    MonitorStandard[1].ToggleOnOff(true);
-                    return;
-                }
-            }
-        } else if (!isFase2Completed) {
-            if (data.Fase2[currentCombinantion[0]].Solution[currentSolutionIndex] == button.Actualvalue) {
-                currentSolutionIndex++;
-                if (currentSolutionIndex > data.Fase2[currentCombinantion[0]].Solution.Count) {
-                    isFase2Completed = true;
-                    currentSolutionIndex = 0;
-                    MonitorStandard[2].ToggleOnOff(true);
-                    DoWinningthings();
-                    return;
-                }
-            }
-        } 
+        //if (!isFase1Completed) {
+        //    if(Data.Fase1[currentCombinantion[0]].Solution[currentSolutionIndex] == button.Actualvalue) {
+        //        currentSolutionIndex++;
+        //        if (currentSolutionIndex > Data.Fase1[currentCombinantion[0]].Solution.Count) {
+        //            isFase1Completed = true;
+        //            currentSolutionIndex = 0;
+        //            MonitorStandard[1].ToggleOnOff(true);
+        //            return;
+        //        }
+        //    }
+        //} else if (!isFase2Completed) {
+        //    if (Data.Fase2[currentCombinantion[0]].Solution[currentSolutionIndex] == button.Actualvalue) {
+        //        currentSolutionIndex++;
+        //        if (currentSolutionIndex > Data.Fase2[currentCombinantion[0]].Solution.Count) {
+        //            isFase2Completed = true;
+        //            currentSolutionIndex = 0;
+        //            MonitorStandard[2].ToggleOnOff(true);
+        //            DoWinningthings();
+        //            return;
+        //        }
+        //    }
+        //} 
 
-        DoBadthings();
+        //DoBadthings();
     }
 
     void DoWinningthings() { SolutionState = PuzzleState.Solved; }
@@ -66,52 +64,75 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
         //Crea un setupIniziale;
         GenerateInitialValues();
         InitButtons();
-
-        string symbol = data.Fase1[currentCombinantion[0]].MonitorSymbol;
-        switch (symbol) {
-            case "C":
-                MonitorStandard[0].SetMaterial(0);
-                break;
-            case "D":
-                MonitorStandard[0].SetMaterial(1);
-                break;
-            case "E":
-                MonitorStandard[0].SetMaterial(2);
-                break;
-            default:
-                break;
-        }
-
-        string symbol2 = data.Fase2[currentCombinantion[1]].MonitorSymbol;
-        switch (symbol) {
-            case "H":
-                MonitorStandard[1].SetMaterial(3);
-                break;
-            case "I":
-                MonitorStandard[1].SetMaterial(4);
-                break;
-            case "J":
-                MonitorStandard[1].SetMaterial(5);
-                break;
-            default:
-                break;
-        }
-        MonitorStandard[1].ToggleOnOff(false);
+        InitOutputMonitors();
     }
 
     void InitButtons() {
-        for (int i = 0; i < ButtonsStandard.Count; i++) {
-            ButtonsStandard[i].specificBehaviour = new PuzzleAutopilotButton((InputValue)i);
+
+        for (int i = 0; i < 6; i++)
+        {
+            switch (i)
+            {
+                case 0:
+                    AutopilotInteractable.ButtonA.specificBehaviour = new PuzzleAutopilotButton((InputValue)i);
+                    break;
+                case 1:
+                    AutopilotInteractable.ButtonB.specificBehaviour = new PuzzleAutopilotButton((InputValue)i);
+                    break;
+                case 2:
+                    AutopilotInteractable.ButtonF.specificBehaviour = new PuzzleAutopilotButton((InputValue)i);
+                    break;
+                case 3:
+                    AutopilotInteractable.ButtonG.specificBehaviour = new PuzzleAutopilotButton((InputValue)i);
+                    break;
+                case 4:
+                    AutopilotInteractable.ButtonK.specificBehaviour = new PuzzleAutopilotButton((InputValue)i);
+                    break;
+                case 5:
+                    AutopilotInteractable.ButtonL.specificBehaviour = new PuzzleAutopilotButton((InputValue)i);
+                    break;
+                default:
+                    break;
+            }
         }
+    }
+
+    void InitOutputMonitors()
+    {
+        OutputValue output = Data.Fase1[currentCombinantion[0]].MonitorOutput;
+        AutopilotInteractable.MonitorFase1.SetMaterial((int)output);
+
+        OutputValue output2 = Data.Fase2[currentCombinantion[1]].MonitorOutput;
+        AutopilotInteractable.MonitorFase2.SetMaterial((int)output2);
+
+        AutopilotInteractable.MonitorFase2.ToggleOnOff(false);
+        AutopilotInteractable.MonitorFaseOK.ToggleOnOff(false);
     }
 
     //genera a caso una combinazione iniziale del puzzle (e la soluzione)
     void GenerateInitialValues() {
-        int fase1index = Random.Range(0, data.Fase1.Count);
+        int fase1index = Random.Range(0, Data.Fase1.Count);
         currentCombinantion[0] = fase1index;
 
-        int fase2index = Random.Range(0, data.Fase2.Count);
+        int fase2index = Random.Range(0, Data.Fase2.Count);
         currentCombinantion[1] = fase2index;
+    }
+
+    public struct AutopilotIO
+    {
+        public SelectableButton ButtonA;
+        public SelectableButton ButtonB;
+        public SelectableButton ButtonF;
+        public SelectableButton ButtonG;
+        public SelectableButton ButtonK;
+        public SelectableButton ButtonL;
+
+        public PuzzleAutopilotOutputMonitor MonitorFase1;
+        public PuzzleAutopilotOutputMonitor MonitorFase2;
+        public PuzzleAutopilotOutputMonitor MonitorFaseOK;
+
+        public SelectableSwitch LevaSx;
+        public SelectableSwitch LevaDx;
     }
 
     public enum InputValue{
@@ -125,6 +146,10 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
         BottoneG,
         BottoneK,
         BottoneL
+    }
+    public enum OutputValue
+    {
+        C,D,E,H,I,J
     }
 }
 

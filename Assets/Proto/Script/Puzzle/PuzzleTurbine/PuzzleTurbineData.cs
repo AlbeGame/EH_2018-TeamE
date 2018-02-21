@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "Puzzle Data", fileName = "New Turbine Data")]
+[CreateAssetMenu(fileName = "NewTurbineData", menuName = "PuzzleData/Turbine")]
 public class PuzzleTurbineData : ScriptableObject, IPuzzleData
 {
     public TurbineButtonData[] ButtonsValues = new TurbineButtonData[8];

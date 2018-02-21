@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-[CreateAssetMenu(menuName = "Puzzle Data", fileName = "New Autopilot Data")]
+[CreateAssetMenu(fileName = "NewAutopilotData", menuName = "PuzzleData/Autopilot")]
 public class PuzzleAutopilotData : ScriptableObject, IPuzzleData {
 
     public List<PartialSolution> Fase1;
@@ -9,9 +9,7 @@ public class PuzzleAutopilotData : ScriptableObject, IPuzzleData {
 
     [System.Serializable]
     public class PartialSolution {
-
-        public string MonitorSymbol;
-
+        public PuzzleAutopilot.OutputValue MonitorOutput;
         public List<PuzzleAutopilot.InputValue> Solution = new List<PuzzleAutopilot.InputValue>();
     }
 }
