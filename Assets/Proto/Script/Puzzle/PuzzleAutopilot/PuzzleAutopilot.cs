@@ -27,7 +27,7 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
         Data = _data as PuzzleAutopilotData;
     }
 
-    public void GetButtonInput(ISelectableBehaviour _selectable) {
+    public void SetInput(InputValue _inputSent) {
 
         //PuzzleAutopilotButton button = _selectable as PuzzleAutopilotButton;
 
@@ -132,7 +132,7 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
         int fase2index = Random.Range(0, Data.Fase2.Count);
         currentCombinantion[1] = fase2index;
     }
-
+    [System.Serializable]
     public struct AutopilotIO
     {
         public SelectableButton ButtonA;

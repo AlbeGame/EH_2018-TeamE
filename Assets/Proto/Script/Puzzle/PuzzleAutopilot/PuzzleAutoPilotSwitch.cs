@@ -37,5 +37,6 @@
     public void OnSelect()
     {
         status = !status;
+        puzzleCtrl.SetInput(currentValue);
     }
 }

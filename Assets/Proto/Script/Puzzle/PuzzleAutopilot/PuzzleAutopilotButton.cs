@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class PuzzleAutopilotButton : ISelectableBehaviour {
+﻿public class PuzzleAutopilotButton : ISelectableBehaviour {
 
     public PuzzleAutopilot.InputValue Actualvalue;
     PuzzleAutopilot puzzleCtrl;
@@ -16,7 +12,7 @@ public class PuzzleAutopilotButton : ISelectableBehaviour {
     }
 
     public void OnSelect() {
-        puzzleCtrl.GetButtonInput(this);
+        puzzleCtrl.SetInput(Actualvalue);
     }
 }
 
