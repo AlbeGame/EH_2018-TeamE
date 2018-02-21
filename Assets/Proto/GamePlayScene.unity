@@ -354,6 +354,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1719843198180178, guid: 59c531f328edafb41b0422706d45362d, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 59c531f328edafb41b0422706d45362d, type: 2}
   m_IsPrefabParent: 0
@@ -424,17 +428,7 @@ MonoBehaviour:
     SolvedMat: {fileID: 0}
   InteractionData:
     CameraFocusPosition: {fileID: 0}
-  data: {fileID: 11400000, guid: 88c017a19ad54464e9746b8ad239b44f, type: 2}
-  ButtonsStandard:
-  - {fileID: 326833796}
-  - {fileID: 326833795}
-  - {fileID: 326833794}
-  - {fileID: 326833793}
-  - {fileID: 326833792}
-  - {fileID: 326833791}
-  MonitorStandard: []
-  LevaSx: {fileID: 326833790}
-  LevaDx: {fileID: 326833789}
+  Data: {fileID: 0}
 --- !u!114 &326833789
 MonoBehaviour:
   m_ObjectHideFlags: 0

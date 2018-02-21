@@ -63,8 +63,17 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
     protected override void OnInitEnd(SelectableAbstract _parent) {
         //Crea un setupIniziale;
         GenerateInitialValues();
+        InitSwitches();
         InitButtons();
         InitOutputMonitors();
+    }
+
+    void InitSwitches()
+    {
+        AutopilotInteractable.LevaDx.specificBehaviour = new PuzzleAutoPilotSwitch((InputValue)Random.Range(-2, 0));
+        AutopilotInteractable.LevaDx.Init(this);
+        AutopilotInteractable.LevaSx.specificBehaviour = new PuzzleAutoPilotSwitch((InputValue)Random.Range(-4, -2));
+        AutopilotInteractable.LevaDx.Init(this);
     }
 
     void InitButtons() {
@@ -75,21 +84,27 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
             {
                 case 0:
                     AutopilotInteractable.ButtonA.specificBehaviour = new PuzzleAutopilotButton((InputValue)i);
+                    AutopilotInteractable.ButtonA.Init(this);
                     break;
                 case 1:
                     AutopilotInteractable.ButtonB.specificBehaviour = new PuzzleAutopilotButton((InputValue)i);
+                    AutopilotInteractable.ButtonB.Init(this);
                     break;
                 case 2:
                     AutopilotInteractable.ButtonF.specificBehaviour = new PuzzleAutopilotButton((InputValue)i);
+                    AutopilotInteractable.ButtonF.Init(this);
                     break;
                 case 3:
                     AutopilotInteractable.ButtonG.specificBehaviour = new PuzzleAutopilotButton((InputValue)i);
+                    AutopilotInteractable.ButtonG.Init(this);
                     break;
                 case 4:
                     AutopilotInteractable.ButtonK.specificBehaviour = new PuzzleAutopilotButton((InputValue)i);
+                    AutopilotInteractable.ButtonK.Init(this);
                     break;
                 case 5:
                     AutopilotInteractable.ButtonL.specificBehaviour = new PuzzleAutopilotButton((InputValue)i);
+                    AutopilotInteractable.ButtonL.Init(this);
                     break;
                 default:
                     break;
