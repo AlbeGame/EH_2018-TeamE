@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Name: AutopilotData
   m_EditorClassIdentifier: 
   Fase1:
-  - MonitorSymbol: C
+  - MonitorOutput: 0
     Solution: 0400000003000000feffffff0500000001000000
-  - MonitorSymbol: D
+  - MonitorOutput: 0
     Solution: 00000000feffffff030000000300000000000000
-  - MonitorSymbol: E
+  - MonitorOutput: 0
     Solution: 0000000000000000000000000000000000000000
   Fase2:
-  - MonitorSymbol: 
+  - MonitorOutput: 0
     Solution: 
-  - MonitorSymbol: 
+  - MonitorOutput: 0
     Solution: 
-  - MonitorSymbol: 
+  - MonitorOutput: 0
     Solution: 
