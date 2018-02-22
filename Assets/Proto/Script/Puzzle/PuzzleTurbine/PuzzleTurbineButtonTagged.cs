@@ -30,7 +30,7 @@ public class PuzzleTurbineButtonTagged : ISelectableBehaviour {
 }
 
 [System.Serializable]
-public class TurbineButtonData
+public class TurbineButtonData : IPuzzleInputData
 {
     public string Label;
     public int[] EModifiers { get { return new int[] { E1Modifier, E2Modifier, E3Modifier, E4Modifier }; } }
@@ -39,3 +39,4 @@ public class TurbineButtonData
     public int E3Modifier;
     public int E4Modifier;
 }
+

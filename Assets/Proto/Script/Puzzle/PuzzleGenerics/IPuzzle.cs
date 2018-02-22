@@ -24,3 +24,6 @@ public enum PuzzleState
     Broken,
     Solved
 }
+
+public interface IPuzzleInputData {
+}

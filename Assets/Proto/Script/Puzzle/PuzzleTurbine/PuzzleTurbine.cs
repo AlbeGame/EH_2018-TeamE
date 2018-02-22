@@ -2,19 +2,24 @@
 using System.Linq;
 using UnityEngine;
 
-public class PuzzleTurbine : SelectableItem, IPuzzle
-{
+public class PuzzleTurbine : SelectableItem, IPuzzle {
+    #region Interactables controller
+    [Header("Labled Buttons")]
+    public List<SelectableButton> LabledButtons = new List<SelectableButton>(5);
+    [Header("Reset Button")]
+    public SelectableButton resetButton = new SelectableButton();
+
+    #endregion
+
     public PuzzleTurbineData Data;
     PuzzleCombination combination;
     List<SliderController> Sliders = new List<SliderController>();
 
     #region IPuzzle
     PuzzleState _solutionState = PuzzleState.Unsolved;
-    public PuzzleState SolutionState
-    {
+    public PuzzleState SolutionState {
         get { return _solutionState; }
-        set
-        {
+        set {
             if (SolutionState == value)
                 return;
 
@@ -23,27 +28,43 @@ public class PuzzleTurbine : SelectableItem, IPuzzle
         }
     }
 
-    public void Setup(IPuzzleData _data)
-    {
+    public void Setup(IPuzzleData _data) {
         Data = _data as PuzzleTurbineData;
         InitGenricalElement();
     }
+
+    public void OnButtonSelect(SelectableButton _button) {
+        // Labled Button;
+        foreach (var button in LabledButtons) {
+            if (button == _button) {
+                Debug.Log("Premuto Bottone Lables : " + _button);
+                TurbineButtonData data = button.InputData as TurbineButtonData;
+                SetEValues(data.E1Modifier, data.E2Modifier, data.E3Modifier, data.E4Modifier);
+            }
+        }
+
+        // Reset Button
+        if (_button == resetButton) {
+            Debug.Log("Premuto Bottone Reset : " + _button);
+            CheckSolution();
+        }
+
+    }
+    public void OnSwitchSelect(SelectableSwitch _switch) { }
+    public void OnMonitorSelect(SelectableMonitor _monitor) { }
     #endregion
 
     #region Selectable Behaviours
-    protected override void OnInitEnd(SelectableAbstract _parent)
-    {
+    protected override void OnInitEnd(SelectableAbstract _parent) {
         GenerateNewPuzzleCombination();
         InitGenricalElement();
     }
 
-    void OnSolutionStateChange(PuzzleState _solutionState)
-    {
+    void OnSolutionStateChange(PuzzleState _solutionState) {
         graphicCtrl.Paint(_solutionState);
     }
 
-    protected override void OnStateChange(SelectionState _state)
-    {
+    protected override void OnStateChange(SelectionState _state) {
 
         if (graphicCtrl && SolutionState == PuzzleState.Unsolved)
             graphicCtrl.Paint(_state);
@@ -51,27 +72,21 @@ public class PuzzleTurbine : SelectableItem, IPuzzle
     #endregion
 
     #region Setup and Init specific
-    private void GenerateNewPuzzleCombination()
-    {
+    private void GenerateNewPuzzleCombination() {
         PuzzleCombination newComb = new PuzzleCombination();
         TurbineButtonData possibleButton;
         List<TurbineButtonData> usedButtons = new List<TurbineButtonData>();
         //Numero di pulsanti richiesti;
-        for (int i = 0; i < 5; i++)
-        {
+        for (int i = 0; i < 5; i++) {
             if (i < 2)
-                while (newComb.Solution.Count == i)
-                {
+                while (newComb.Solution.Count == i) {
                     possibleButton = GetUnchosenButton(usedButtons);
-                    if (IsSolvable(newComb, possibleButton))
-                    {
+                    if (IsSolvable(newComb, possibleButton)) {
                         newComb.Solution.Add(possibleButton);
                         usedButtons.Add(possibleButton);
                         break;
                     }
-                }
-            else
-            {
+                } else {
                 possibleButton = GetUnchosenButton(usedButtons);
                 usedButtons.Add(possibleButton);
                 newComb.Fillers.Add(possibleButton);
@@ -81,8 +96,7 @@ public class PuzzleTurbine : SelectableItem, IPuzzle
         newComb.ResetEValues();
         combination = newComb;
     }
-    TurbineButtonData GetUnchosenButton(List<TurbineButtonData> alreadyChosen)
-    {
+    TurbineButtonData GetUnchosenButton(List<TurbineButtonData> alreadyChosen) {
         List<TurbineButtonData> possibles = Data.ButtonsValues.ToList();
         foreach (var item in alreadyChosen)
             possibles.Remove(item);
@@ -91,8 +105,7 @@ public class PuzzleTurbine : SelectableItem, IPuzzle
 
         return possibles[chosenIndex];
     }
-    bool IsSolvable(PuzzleCombination _combination, TurbineButtonData newButton)
-    {
+    bool IsSolvable(PuzzleCombination _combination, TurbineButtonData newButton) {
         int[] currentEs = _combination.InitialEValues;
 
         currentEs[0] -= newButton.E1Modifier;
@@ -111,53 +124,75 @@ public class PuzzleTurbine : SelectableItem, IPuzzle
         return true;
     }
 
-    private void InitGenricalElement()
-    {
+    private void InitGenricalElement() {
         List<TurbineButtonData> buttonPool = new List<TurbineButtonData>();
         foreach (var item in combination.Solution)
             buttonPool.Add(item);
         foreach (var item in combination.Fillers)
             buttonPool.Add(item);
+        buttonPool.Shuffle();
 
-        foreach (SelectableButton button in GetComponentsInChildren<SelectableButton>())
-        {
-            if (button.Puzzle != PuzzleType.Turbine)
-                continue;
-
-            switch (button.Type)
-            {
-                case ButtonType.Untagged:
-                    button.specificBehaviour = new PuzzleTurbineButtonReset(this);
-                    button.Init();
-                    break;
-                case ButtonType.Tagged:
-                    TurbineButtonData buttonData = buttonPool[Random.Range(0, buttonPool.Count)];
-                    buttonPool.Remove(buttonData);
-                    button.specificBehaviour = new PuzzleTurbineButtonTagged(this, buttonData);
-                    button.Init();
-                    break;
-                default:
-                    break;
-            }
+        /// Inject Labled Buttons
+        for (int i = 0; i < LabledButtons.Count; i++) {
+            LabledButtons[i].Init(this);
+            LabledButtons[i].SetAdditionalData(buttonPool[i].Label);
+            LabledButtons[i].DataInjection(buttonPool[i]);
         }
 
-        foreach (SliderController slider in GetComponentsInChildren<SliderController>())
-        {
+        /// Inject Reset Button
+        resetButton.Init(this);
+        resetButton.DataInjection(null);
+
+        foreach (SliderController slider in GetComponentsInChildren<SliderController>()) {
             Sliders.Add(slider);
         }
         UpdateSliderValues();
+
+        #region Da CANCELLARE
+        //List<TurbineButtonData> buttonPool = new List<TurbineButtonData>();
+        //foreach (var item in combination.Solution)
+        //    buttonPool.Add(item);
+        //foreach (var item in combination.Fillers)
+        //    buttonPool.Add(item);
+
+        //foreach (SelectableButton button in GetComponentsInChildren<SelectableButton>())
+        //{
+        //    if (button.Puzzle != PuzzleType.Turbine)
+        //        continue;
+
+        //    switch (button.Type)
+        //    {
+        //        case ButtonType.Untagged:
+        //            button.specificBehaviour = new PuzzleTurbineButtonReset(this);
+        //            button.Init();
+        //            break;
+        //        case ButtonType.Tagged:
+        //            TurbineButtonData buttonData = buttonPool[Random.Range(0, buttonPool.Count)];
+        //            buttonPool.Remove(buttonData);
+        //            button.specificBehaviour = new PuzzleTurbineButtonTagged(this, buttonData);
+        //            button.Init();
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //}
+
+        //foreach (SliderController slider in GetComponentsInChildren<SliderController>())
+        //{
+        //    Sliders.Add(slider);
+        //}
+        //UpdateSliderValues();
+        #endregion
     }
     #endregion
 
-    public void SetEValues(int E1, int E2, int E3, int E4)
-    {
+    public void SetEValues(int E1, int E2, int E3, int E4) {
         combination.CurrentEValues[0] += E1;
         combination.CurrentEValues[1] += E2;
         combination.CurrentEValues[2] += E3;
         combination.CurrentEValues[3] += E4;
 
-        for (int i = 0; i < combination.CurrentEValues.Length; i++)
-        {
+        for (int i = 0; i < combination.CurrentEValues.Length; i++) {
             if (combination.CurrentEValues[i] < 0)
                 combination.CurrentEValues[i] = 0;
             if (combination.CurrentEValues[i] > 100)
@@ -168,10 +203,8 @@ public class PuzzleTurbine : SelectableItem, IPuzzle
         CheckBreackDown();
     }
 
-    public void CheckSolution()
-    {
-        for (int i = 0; i < 4; i++)
-        {
+    public void CheckSolution() {
+        for (int i = 0; i < 4; i++) {
             if (combination.CurrentEValues[i] == 50)
                 continue;
 
@@ -182,17 +215,14 @@ public class PuzzleTurbine : SelectableItem, IPuzzle
         DoWinningThings();
     }
 
-    void CheckBreackDown()
-    {
-        for (int i = 0; i < 4; i++)
-        {
+    void CheckBreackDown() {
+        for (int i = 0; i < 4; i++) {
             if (combination.CurrentEValues[i] <= 0 && combination.CurrentEValues[i] >= 100)
                 DoBreakThings();
         }
     }
 
-    void DoWinningThings()
-    {
+    void DoWinningThings() {
 
         //foreach (var item in TaggedButtons)
         //{
@@ -205,39 +235,31 @@ public class PuzzleTurbine : SelectableItem, IPuzzle
         State = SelectionState.Unselectable;
     }
 
-    void DoBreakThings()
-    {
+    void DoBreakThings() {
         SolutionState = PuzzleState.Broken;
     }
 
-    void UpdateSliderValues()
-    {
-        for (int i = 0; i < Sliders.Count; i++)
-        {
+    void UpdateSliderValues() {
+        for (int i = 0; i < Sliders.Count; i++) {
             Sliders[i].SetFillAmount(combination.CurrentEValues[i]);
         }
     }
 
-    public void OnButtonSelect(SelectableButton _button) { }
-    public void OnSwitchSelect(SelectableSwitch _switch) { }
-    public void OnMonitorSelect(SelectableMonitor _monitor) { }
+
 
     /// <summary>
     /// Values setup of the puzzle.
     /// </summary>
-    class PuzzleCombination
-    {
-        public int[] InitialEValues {get { return GetEs(); }}
+    class PuzzleCombination {
+        public int[] InitialEValues { get { return GetEs(); } }
         public int[] CurrentEValues { get; private set; }
         public List<TurbineButtonData> Solution = new List<TurbineButtonData>();
         public List<TurbineButtonData> Fillers = new List<TurbineButtonData>();
         //Assuming solution is correct
-        int[] GetEs()
-        {
+        int[] GetEs() {
             int[] eS = new int[] { 50, 50, 50, 50 };
 
-            foreach (var sol in Solution)
-            {
+            foreach (var sol in Solution) {
                 eS[0] -= sol.E1Modifier;
                 eS[1] -= sol.E2Modifier;
                 eS[2] -= sol.E3Modifier;
@@ -247,9 +269,30 @@ public class PuzzleTurbine : SelectableItem, IPuzzle
             return eS;
         }
 
-        public void ResetEValues()
-        {
+        public void ResetEValues() {
             CurrentEValues = InitialEValues;
         }
     }
+
+ 
+
 }
+   public static class ListExtension {
+        private static System.Random rng = new System.Random();
+
+        /// <summary>
+        /// Shuffles the specified list.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list">The list.</param>
+        public static void Shuffle<T>(this IList<T> list) {
+            int n = list.Count;
+            while (n > 1) {
+                n--;
+                int k = rng.Next(n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
+        }
+    }
