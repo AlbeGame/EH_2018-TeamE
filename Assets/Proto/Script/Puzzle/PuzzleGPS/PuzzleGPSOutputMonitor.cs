@@ -36,7 +36,7 @@ public class PuzzleGPSOutputMonitor : MonoBehaviour {
     /// <param name="_coordinatesToDisplay"></param>
     public void DisplayCoordinates(Vector2Int _coordinatesToDisplay)
     {
-        Vector2 lowleftCorner = _coordinatesToDisplay - new Vector2(3.5f, 3.5f);
+        Vector2 lowleftCorner = _coordinatesToDisplay - new Vector2(3f, 3f);
         mapMaterial.SetTextureOffset("_MainTex", new Vector2(data.GridTileDimension.x* lowleftCorner.x, data.GridTileDimension.y * lowleftCorner.y));
     }
     /// <summary>
