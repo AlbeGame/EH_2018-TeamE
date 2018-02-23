@@ -52,6 +52,7 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
     }
     public void OnSwitchSelect(SelectableSwitch _switch) { }
     public void OnMonitorSelect(SelectableMonitor _monitor) { }
+    public void OnUpdateSelectable(SelectableAbstract _selectable) { }
     #endregion
 
     #region Selectable Behaviours

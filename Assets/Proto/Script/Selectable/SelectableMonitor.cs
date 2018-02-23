@@ -1,17 +1,21 @@
-﻿public class SelectableMonitor : SelectableAbstract {
+﻿using UnityEngine;
+
+public class SelectableMonitor : SelectableAbstract {
 
     IPuzzle puzzleCtrl;
-    public bool IsEditable { get; private set; }
+    TextMesh textMesh; 
 
     protected override void OnInitEnd(SelectableAbstract _parent)
     {
+        textMesh = GetComponentInChildren<TextMesh>();
+
         if(_parent.GetType() == typeof(IPuzzle))
             puzzleCtrl = _parent as IPuzzle;
     }
 
-    // Update is called once per frame
     void Update () {
-		
+
+        puzzleCtrl.OnUpdateSelectable(this);
 	}
 
     protected override void OnSelect()

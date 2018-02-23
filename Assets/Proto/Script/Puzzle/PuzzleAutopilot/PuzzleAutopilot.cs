@@ -127,6 +127,7 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
     public void OnButtonSelect(SelectableButton _button) { }
     public void OnSwitchSelect(SelectableSwitch _switch) { }
     public void OnMonitorSelect(SelectableMonitor _monitor) { }
+    public void OnUpdateSelectable(SelectableAbstract _selectable) { }
 
     //genera a caso una combinazione iniziale del puzzle (e la soluzione)
     void GenerateInitialValues() {

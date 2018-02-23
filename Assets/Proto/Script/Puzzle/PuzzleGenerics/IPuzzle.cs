@@ -10,6 +10,7 @@ public interface IPuzzle {
     void OnButtonSelect(SelectableButton _button);
     void OnSwitchSelect(SelectableSwitch _switch);
     void OnMonitorSelect(SelectableMonitor _monitor);
+    void OnUpdateSelectable(SelectableAbstract _selectable);
 }
 
 /// <summary>
