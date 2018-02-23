@@ -3442,9 +3442,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3eaa4e18f85a44fa7bbe5468a3b205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Children: []
-  Puzzle: 0
-  Type: 1
+  PushDuration: 0.5
+  PushOffSet: 0.005
+  ObjectToMove: {fileID: 0}
+  Text: {fileID: 102581456054863956}
+  IconRenderer: {fileID: 0}
 --- !u!114 &114053222506946604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3456,9 +3458,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3eaa4e18f85a44fa7bbe5468a3b205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Children: []
-  Puzzle: 0
-  Type: 1
+  PushDuration: 0.5
+  PushOffSet: 0.005
+  ObjectToMove: {fileID: 0}
+  Text: {fileID: 102893468393026898}
+  IconRenderer: {fileID: 0}
 --- !u!114 &114059708465709916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3470,9 +3474,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3eaa4e18f85a44fa7bbe5468a3b205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Children: []
-  Puzzle: 0
-  Type: 1
+  PushDuration: 0.5
+  PushOffSet: 0.005
+  ObjectToMove: {fileID: 0}
+  Text: {fileID: 102871134376816392}
+  IconRenderer: {fileID: 0}
 --- !u!114 &114076595442579926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3516,9 +3522,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3eaa4e18f85a44fa7bbe5468a3b205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Children: []
-  Puzzle: 0
-  Type: 0
+  PushDuration: 0.5
+  PushOffSet: 0.005
+  ObjectToMove: {fileID: 0}
+  Text: {fileID: 0}
+  IconRenderer: {fileID: 0}
 --- !u!114 &114243391273669160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3568,9 +3576,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3eaa4e18f85a44fa7bbe5468a3b205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Children: []
-  Puzzle: 0
-  Type: 1
+  PushDuration: 0.5
+  PushOffSet: 0.005
+  ObjectToMove: {fileID: 0}
+  Text: {fileID: 102671451099535502}
+  IconRenderer: {fileID: 0}
 --- !u!114 &114791811612348458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3582,9 +3592,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3eaa4e18f85a44fa7bbe5468a3b205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Children: []
-  Puzzle: 0
-  Type: 1
+  PushDuration: 0.5
+  PushOffSet: 0.005
+  ObjectToMove: {fileID: 0}
+  Text: {fileID: 102321136281406646}
+  IconRenderer: {fileID: 0}
 --- !u!114 &114894518774836924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3612,12 +3624,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f4146671fa5b540bd511afa9d93cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Children:
-  - {fileID: 114059708465709916}
-  - {fileID: 114053222506946604}
-  - {fileID: 114013784536037966}
-  - {fileID: 114791811612348458}
-  - {fileID: 114579207941908418}
   GraphicData:
     DoNotPaintItems:
     - {fileID: 23750118520031482}
@@ -3631,7 +3637,7 @@ MonoBehaviour:
     - {fileID: 23161518118023992}
     - {fileID: 23346290313073614}
     - {fileID: 23885425430915538}
-    PassiveMat: {fileID: 0}
+    PassiveMat: {fileID: 2100000, guid: 93904388430fd1b4493ff7acafb12606, type: 2}
     NeutralMat: {fileID: 2100000, guid: db45bdb529efebc4b889c5a058cd9e7c, type: 2}
     HighlightedMat: {fileID: 2100000, guid: 4201e4398a04d3f4e90e98425a24d486, type: 2}
     SelectedMat: {fileID: 2100000, guid: 42faddb2e59f5004e892136b59a2c905, type: 2}
@@ -3639,6 +3645,13 @@ MonoBehaviour:
     SolvedMat: {fileID: 2100000, guid: 6b0c076e3e965064fbc27aab65390d03, type: 2}
   InteractionData:
     CameraFocusPosition: {fileID: 4564394003449282}
+  LabledButtons:
+  - {fileID: 114059708465709916}
+  - {fileID: 114053222506946604}
+  - {fileID: 114013784536037966}
+  - {fileID: 114791811612348458}
+  - {fileID: 114579207941908418}
+  resetButton: {fileID: 114147393791958304}
   Data: {fileID: 11400000, guid: 220cf38a622d83145a20cf5047c8a918, type: 2}
 --- !u!120 &120279152449944780
 LineRenderer:

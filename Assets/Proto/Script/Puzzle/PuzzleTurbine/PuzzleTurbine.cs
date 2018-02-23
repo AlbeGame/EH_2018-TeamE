@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 
 public class PuzzleTurbine : SelectableItem, IPuzzle {
+
     #region Interactables controller
     [Header("Labled Buttons")]
     public List<SelectableButton> LabledButtons = new List<SelectableButton>(5);

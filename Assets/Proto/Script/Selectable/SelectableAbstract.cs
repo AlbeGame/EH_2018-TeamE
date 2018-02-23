@@ -44,7 +44,7 @@ public abstract class SelectableAbstract : MonoBehaviour
         }
     }
 
-    protected List<SelectableAbstract> Children;
+    protected List<SelectableAbstract> Children = new List<SelectableAbstract>();
     public List<SelectableAbstract> Siblings
     {
         get
@@ -186,7 +186,6 @@ public abstract class SelectableAbstract : MonoBehaviour
     /// <param name="_parent"></param>
     public void Init(SelectableAbstract _parent, SelectionState _state = SelectionState.Neutral)
     {
-        Children = new List<SelectableAbstract>();
         OnInitBegin(_parent);
 
         if (_parent)

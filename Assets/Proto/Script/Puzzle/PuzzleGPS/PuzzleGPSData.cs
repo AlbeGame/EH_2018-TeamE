@@ -4,8 +4,18 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewGPSData", menuName = "PuzzleData/GPS")]
 public class PuzzleGPSData : ScriptableObject, IPuzzleData {
     public List<Vector2Int> PossibleCoordinates = new List<Vector2Int>();
+    public GridData Grid;
 
-    public Vector2Int GridDimension;
+    [System.Serializable]
+    public class GridData
+    {
+        public Vector2Int MinMaxLongitude;
+        public Vector2Int MinMaxLatitude;
+        public Vector2Int GridDimension { get { return new Vector2Int(MinMaxLongitude.y - MinMaxLongitude.x, MinMaxLatitude.y - MinMaxLatitude.x); } }
+        public Vector2Int GridTileDimension { get { return new Vector2Int(1 / GridDimension.x, 1 / GridDimension.y); } }
+        public int CellPerEdge = 6;
+        public Vector2 Scale { get { return new Vector2((float)CellPerEdge / GridDimension.x, (float)CellPerEdge / GridDimension.y); } }
+    }
 }
 
 public class PuzzleGPSNumericData : IPuzzleInputData
@@ -15,5 +25,5 @@ public class PuzzleGPSNumericData : IPuzzleInputData
 
 public class PuzzleGPSMonitorData: IPuzzleInputData
 {
-    public string text = " __";
+    public string text = " _ _";
 }

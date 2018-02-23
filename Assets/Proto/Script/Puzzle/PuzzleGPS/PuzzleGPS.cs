@@ -47,6 +47,11 @@ public class PuzzleGPS : SelectableItem, IPuzzle
     public void OnUpdateSelectable(SelectableAbstract _selectable) { }
     #endregion
 
+    protected override void OnInitEnd(SelectableAbstract _parent)
+    {
+        Init();
+    }
+
     public void Init()
     {
         GenerateRandomCombination();
@@ -59,8 +64,8 @@ public class PuzzleGPS : SelectableItem, IPuzzle
     {
         for (int i = 0; i < Interactables.NumericalButtons.Length; i++)
         {
-            Interactables.NumericalButtons[i].DataInjection(new PuzzleGPSNumericData() { ActualValue = i });
             Interactables.NumericalButtons[i].Init(this);
+            Interactables.NumericalButtons[i].DataInjection(new PuzzleGPSNumericData() { ActualValue = i });
         }
     }
 
@@ -76,7 +81,7 @@ public class PuzzleGPS : SelectableItem, IPuzzle
 
     void InitOutputMonitor()
     {
-        Interactables.OutputMonitor.Init(Data.GridDimension);
+        Interactables.OutputMonitor.Init(Data.Grid);
         Interactables.OutputMonitor.DisplayAndRotate(solutionCoordinates, solutionOrientation);
     }
 
