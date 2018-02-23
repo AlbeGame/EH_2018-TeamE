@@ -32,3 +32,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/TextMesh Pro/Plugins/vcomp120.dll
+Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-1.0.56-Runtime.dll
+Assets/TextMesh Pro/Plugins/64 Bit Plugins/TMPro_Plugin.dll
+Assets/TextMesh Pro/Plugins/Runtime DLL/TextMeshPro-2017.3-1.0.56-Runtime.dll
+Assets/TextMesh Pro/Plugins/32 Bit Plugins/TMPro_Plugin.dll
+Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-1.0.56-Editor.dll
