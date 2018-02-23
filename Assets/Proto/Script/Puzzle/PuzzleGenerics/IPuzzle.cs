@@ -18,6 +18,7 @@ public interface IPuzzle {
 /// Necessary to impose a Data injection on Setup and avid generic behaviours
 /// </summary>
 public interface IPuzzleData { }
+public interface IPuzzleInputData { }
 
 public enum PuzzleState
 {
@@ -26,5 +27,3 @@ public enum PuzzleState
     Solved
 }
 
-public interface IPuzzleInputData {
-}

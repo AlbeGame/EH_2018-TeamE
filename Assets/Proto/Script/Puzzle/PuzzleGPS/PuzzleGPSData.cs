@@ -7,3 +7,13 @@ public class PuzzleGPSData : ScriptableObject, IPuzzleData {
 
     public Vector2Int GridDimension;
 }
+
+public class PuzzleGPSNumericData : IPuzzleInputData
+{
+    public int ActualValue;
+}
+
+public class PuzzleGPSMonitorData: IPuzzleInputData
+{
+    public string text = " __";
+}

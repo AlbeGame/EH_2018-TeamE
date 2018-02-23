@@ -2,9 +2,6 @@
 using DG.Tweening;
 
 public class SelectableButton : SelectableAbstract {
-    public ISelectableBehaviour specificBehaviour;
-    public PuzzleType Puzzle;
-    public ButtonType Type;
 
     public float PushDuration = .5f;
     public float PushOffSet = .005f;
@@ -65,9 +62,4 @@ public class SelectableButton : SelectableAbstract {
         else
             ObjectToMove.transform.DOMoveY(originalPos.y - PushOffSet, PushDuration / 2);
     }
-}
-
-public enum ButtonType {
-    Untagged,
-    Tagged
 }

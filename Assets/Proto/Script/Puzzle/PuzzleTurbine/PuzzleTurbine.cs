@@ -148,42 +148,6 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
             Sliders.Add(slider);
         }
         UpdateSliderValues();
-
-        #region Da CANCELLARE
-        //List<TurbineButtonData> buttonPool = new List<TurbineButtonData>();
-        //foreach (var item in combination.Solution)
-        //    buttonPool.Add(item);
-        //foreach (var item in combination.Fillers)
-        //    buttonPool.Add(item);
-
-        //foreach (SelectableButton button in GetComponentsInChildren<SelectableButton>())
-        //{
-        //    if (button.Puzzle != PuzzleType.Turbine)
-        //        continue;
-
-        //    switch (button.Type)
-        //    {
-        //        case ButtonType.Untagged:
-        //            button.specificBehaviour = new PuzzleTurbineButtonReset(this);
-        //            button.Init();
-        //            break;
-        //        case ButtonType.Tagged:
-        //            TurbineButtonData buttonData = buttonPool[Random.Range(0, buttonPool.Count)];
-        //            buttonPool.Remove(buttonData);
-        //            button.specificBehaviour = new PuzzleTurbineButtonTagged(this, buttonData);
-        //            button.Init();
-        //            break;
-        //        default:
-        //            break;
-        //    }
-        //}
-
-        //foreach (SliderController slider in GetComponentsInChildren<SliderController>())
-        //{
-        //    Sliders.Add(slider);
-        //}
-        //UpdateSliderValues();
-        #endregion
     }
     #endregion
 
@@ -246,8 +210,6 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
         }
     }
 
-
-
     /// <summary>
     /// Values setup of the puzzle.
     /// </summary>
@@ -274,26 +236,4 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
             CurrentEValues = InitialEValues;
         }
     }
-
- 
-
 }
-   public static class ListExtension {
-        private static System.Random rng = new System.Random();
-
-        /// <summary>
-        /// Shuffles the specified list.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="list">The list.</param>
-        public static void Shuffle<T>(this IList<T> list) {
-            int n = list.Count;
-            while (n > 1) {
-                n--;
-                int k = rng.Next(n + 1);
-                T value = list[k];
-                list[k] = list[n];
-                list[n] = value;
-            }
-        }
-    }

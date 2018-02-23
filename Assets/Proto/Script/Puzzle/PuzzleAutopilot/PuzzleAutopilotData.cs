@@ -13,3 +13,8 @@ public class PuzzleAutopilotData : ScriptableObject, IPuzzleData {
         public List<PuzzleAutopilot.InputValue> Solution = new List<PuzzleAutopilot.InputValue>();
     }
 }
+
+public class PuzzleAutopilotButtonData : IPuzzleInputData
+{
+    public PuzzleAutopilot.InputValue Actualvalue;
+}

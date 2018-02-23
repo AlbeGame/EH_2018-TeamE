@@ -3,7 +3,16 @@
 public class SelectableMonitor : SelectableAbstract {
 
     IPuzzle puzzleCtrl;
-    TextMesh textMesh; 
+    TextMesh textMesh;
+
+    #region Data injection
+    public IPuzzleInputData InputData;
+
+    public void DataInjection(IPuzzleInputData _data)
+    {
+        InputData = _data;
+    }
+    #endregion
 
     protected override void OnInitEnd(SelectableAbstract _parent)
     {
@@ -13,8 +22,8 @@ public class SelectableMonitor : SelectableAbstract {
             puzzleCtrl = _parent as IPuzzle;
     }
 
-    void Update () {
-
+    void Update ()
+    {
         puzzleCtrl.OnUpdateSelectable(this);
 	}
 

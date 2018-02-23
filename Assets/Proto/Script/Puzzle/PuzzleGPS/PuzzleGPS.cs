@@ -10,6 +10,7 @@ public class PuzzleGPS : SelectableItem, IPuzzle
 
     SelectableMonitor currentSelectedMonitor;
 
+    #region IPuzzle
     PuzzleState _solutionState = PuzzleState.Unsolved;
     public PuzzleState SolutionState
     {
@@ -29,6 +30,23 @@ public class PuzzleGPS : SelectableItem, IPuzzle
         Data = _data as PuzzleGPSData;
     }
 
+    public void OnButtonSelect(SelectableButton _button) { }
+    public void OnSwitchSelect(SelectableSwitch _switch) { }
+    public void OnMonitorSelect(SelectableMonitor _monitor) {
+        if(_monitor == Interactables.Latitude)
+        {
+            currentSelectedMonitor = Interactables.Latitude;
+        }
+        else if (_monitor == Interactables.Longitude)
+        {
+            currentSelectedMonitor = Interactables.Longitude;
+        }
+
+        this.Select(true);
+    }
+    public void OnUpdateSelectable(SelectableAbstract _selectable) { }
+    #endregion
+
     public void Init()
     {
         GenerateRandomCombination();
@@ -41,7 +59,7 @@ public class PuzzleGPS : SelectableItem, IPuzzle
     {
         for (int i = 0; i < Interactables.NumericalButtons.Length; i++)
         {
-            Interactables.NumericalButtons[i].specificBehaviour = new PuzzleGPSNumeric(i);
+            Interactables.NumericalButtons[i].DataInjection(new PuzzleGPSNumericData() { ActualValue = i });
             Interactables.NumericalButtons[i].Init(this);
         }
     }
@@ -49,7 +67,9 @@ public class PuzzleGPS : SelectableItem, IPuzzle
     void InitSelectableMonitors()
     {
         Interactables.Latitude.Init(this);
+        Interactables.Latitude.DataInjection(new PuzzleGPSMonitorData());
         Interactables.Longitude.Init(this);
+        Interactables.Latitude.DataInjection(new PuzzleGPSMonitorData());
 
         currentSelectedMonitor = Interactables.Latitude;
     }
@@ -68,22 +88,6 @@ public class PuzzleGPS : SelectableItem, IPuzzle
         int randOrient = Random.Range(0, 4);
         solutionOrientation = randOrient * 90;
     }
-
-    public void OnButtonSelect(SelectableButton _button) { }
-    public void OnSwitchSelect(SelectableSwitch _switch) { }
-    public void OnMonitorSelect(SelectableMonitor _monitor) {
-        if(_monitor == Interactables.Latitude)
-        {
-            currentSelectedMonitor = Interactables.Latitude;
-        }
-        else if (_monitor == Interactables.Longitude)
-        {
-            currentSelectedMonitor = Interactables.Longitude;
-        }
-
-        this.Select(true);
-    }
-    public void OnUpdateSelectable(SelectableAbstract _selectable) { }
 
     [System.Serializable]
     public class GPS_IO
