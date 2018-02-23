@@ -18,13 +18,13 @@ public class SelectableMonitor : SelectableAbstract {
     {
         textMesh = GetComponentInChildren<TextMesh>();
 
-        if(_parent.GetType() == typeof(IPuzzle))
-            puzzleCtrl = _parent as IPuzzle;
+        puzzleCtrl = _parent as IPuzzle;
     }
 
     void Update ()
     {
-        puzzleCtrl.OnUpdateSelectable(this);
+        if (puzzleCtrl != null)
+            puzzleCtrl.OnUpdateSelectable(this);
 	}
 
     protected override void OnSelect()

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using DG.Tweening;
 
-public class SelectableButton : SelectableAbstract {
-
+public class SelectableButton : SelectableAbstract
+{
     public float PushDuration = .5f;
     public float PushOffSet = .005f;
     [Tooltip("Keep it empty to apply on this GameObject")]
@@ -11,7 +11,7 @@ public class SelectableButton : SelectableAbstract {
     public Renderer IconRenderer;
     Vector3 originalPos;
 
-    private IPuzzle PuzzleController;
+    private IPuzzle puzzleController;
 
     protected override void OnInitEnd(SelectableAbstract _parent) {
         if (!ObjectToMove)
@@ -19,14 +19,11 @@ public class SelectableButton : SelectableAbstract {
         else
             originalPos = ObjectToMove.transform.position;
 
-        PuzzleController = _parent as IPuzzle;
+        puzzleController = _parent as IPuzzle;
     }
 
     public void SetAdditionalData(string _label = "", Material _iconMat = null) {
         //Label Set
-        if (Text == null)
-            Text = GetComponentInChildren<TextMesh>();
-
         if (Text != null)
             Text.text = _label;
 
@@ -45,7 +42,7 @@ public class SelectableButton : SelectableAbstract {
 
     protected override void OnSelect() {
         //specificBehaviour.OnSelect();
-        PuzzleController.OnButtonSelect(this);
+        puzzleController.OnButtonSelect(this);
         Parent.Select(true);
     }
 
@@ -58,7 +55,7 @@ public class SelectableButton : SelectableAbstract {
 
     private void OnMouseDown() {
         if (!ObjectToMove)
-            transform.DOMoveY(originalPos.y - PushOffSet, PushDuration / 2);/* = new Vector3(originalPos.x, originalPos.y - PushOffSet, originalPos.z);*/
+            transform.DOMoveY(originalPos.y - PushOffSet, PushDuration / 2);
         else
             ObjectToMove.transform.DOMoveY(originalPos.y - PushOffSet, PushDuration / 2);
     }

@@ -43,8 +43,8 @@ public abstract class SelectableAbstract : MonoBehaviour
             _selectedScion = value;
         }
     }
-    [HideInInspector]
-    public List<SelectableAbstract> Children = new List<SelectableAbstract>();
+
+    protected List<SelectableAbstract> Children;
     public List<SelectableAbstract> Siblings
     {
         get
@@ -186,6 +186,7 @@ public abstract class SelectableAbstract : MonoBehaviour
     /// <param name="_parent"></param>
     public void Init(SelectableAbstract _parent, SelectionState _state = SelectionState.Neutral)
     {
+        Children = new List<SelectableAbstract>();
         OnInitBegin(_parent);
 
         if (_parent)

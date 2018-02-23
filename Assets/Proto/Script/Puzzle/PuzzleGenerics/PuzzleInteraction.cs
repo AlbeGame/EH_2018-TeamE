@@ -9,7 +9,6 @@ public class PuzzleInteraction : MonoBehaviour {
 
     CameraController camCtrl;
 
-
     public void Init(PuzzleInteractionData _data)
     {
         data = _data;
@@ -28,5 +27,4 @@ public class PuzzleInteractionData
 {
     [Tooltip("La posizione che la camera assume nello spazio al momento del focus su questo oggetto")]
     public Transform CameraFocusPosition;
-
 }

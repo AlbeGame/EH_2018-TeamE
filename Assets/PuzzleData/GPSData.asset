@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47b249346d4261643acf1d1665cf3d25, type: 3}
-  m_Name: NewGPSData
+  m_Name: GPSData
   m_EditorClassIdentifier: 
   PossibleCoordinates:
   - {x: 0, y: 0}
@@ -17,5 +17,4 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
   - {x: 0, y: 0}
-  MapMaterial: {fileID: 2100000, guid: a21d8f3599a45b84288ae320fd9151d6, type: 2}
   GridDimension: {x: 15, y: 30}
