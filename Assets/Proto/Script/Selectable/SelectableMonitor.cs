@@ -33,8 +33,18 @@ public class SelectableMonitor : SelectableAbstract {
             puzzleCtrl.OnMonitorSelect(this);
     }
 
-    public void TypeOn(string _thingsToWrite)
+    public void TypeOn(string _thingsToWrite, bool replaceOldText = true)
     {
-        textMesh.text = _thingsToWrite;
+        if(replaceOldText)
+            textMesh.text = _thingsToWrite;
+        else
+        {
+            textMesh.text = textMesh.text + _thingsToWrite;
+        }
+    }
+
+    public string GetText()
+    {
+        return textMesh.text;
     }
 }

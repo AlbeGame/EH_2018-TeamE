@@ -25,5 +25,5 @@ public class PuzzleGPSNumericData : IPuzzleInputData
 
 public class PuzzleGPSMonitorData: IPuzzleInputData
 {
-    public string text = " _ _";
+    public int coordinateValue;
 }

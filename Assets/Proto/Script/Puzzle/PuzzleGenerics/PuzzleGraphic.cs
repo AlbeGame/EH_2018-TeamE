@@ -15,8 +15,9 @@ public class PuzzleGraphic : MonoBehaviour
 
         foreach (MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>())
         {
-            if (!data.DoNotPaintItems.Contains(renderer))
-                meshRenderers.Add(renderer);
+            if(!renderer.GetComponent<TextMesh>())
+                if (!data.DoNotPaintItems.Contains(renderer))
+                    meshRenderers.Add(renderer);
         }
 
         Paint(data.NeutralMat);
@@ -78,7 +79,6 @@ public class PuzzleGraphic : MonoBehaviour
 [System.Serializable]
 public class PuzzleGraphicData
 {
-
     [Tooltip("Lista di tutti i renderer figli che verranno ignorati da tutte le variazioni di colore del puzzle")]
     public List<Renderer> DoNotPaintItems = new List<Renderer>();
 

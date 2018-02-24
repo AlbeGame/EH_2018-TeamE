@@ -38,7 +38,6 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
         // Labled Button;
         foreach (var button in LabledButtons) {
             if (button == _button) {
-                Debug.Log("Premuto Bottone Lables : " + _button);
                 TurbineButtonData data = button.InputData as TurbineButtonData;
                 SetEValues(data.E1Modifier, data.E2Modifier, data.E3Modifier, data.E4Modifier);
             }
@@ -46,7 +45,6 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
 
         // Reset Button
         if (_button == resetButton) {
-            Debug.Log("Premuto Bottone Reset : " + _button);
             CheckSolution();
         }
 

@@ -35,10 +35,3 @@ public class SelectableItem : SelectableAbstract
             graphicCtrl.Paint(_state);
     }
 }
-
-public enum PuzzleType
-{
-    Turbine,
-    GPS,
-    Autopilot
-}
