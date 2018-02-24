@@ -5,6 +5,10 @@ using UnityEngine;
 public class PuzzleGPSOutputMonitor : MonoBehaviour {
 
     public MeshRenderer MapDisplay;
+    public GameObject NText;
+    public GameObject EText;
+    public GameObject SText;
+    public GameObject WText;
     Material mapMaterial;
     PuzzleGPSData.GridData data;
 
@@ -46,5 +50,24 @@ public class PuzzleGPSOutputMonitor : MonoBehaviour {
     public void Rotate(float _angle)
     {
         MapDisplay.transform.Rotate(Vector3.forward, _angle);
+        int quarter = (int)_angle % 4;
+
+        switch (quarter)
+        {
+            case 0:
+                NText.SetActive(true);
+                break;
+            case 1:
+                EText.SetActive(true);
+                break;
+            case 2:
+                SText.SetActive(true);
+                break;
+            case 3:
+                WText.SetActive(true);
+                break;
+            default:
+                break;
+        }
     }
 }

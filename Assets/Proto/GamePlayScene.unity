@@ -984,52 +984,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1001 &714053903
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4933770861806626, guid: 34d0efe268592b044b4fc914760b4fbd, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4933770861806626, guid: 34d0efe268592b044b4fc914760b4fbd, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4933770861806626, guid: 34d0efe268592b044b4fc914760b4fbd, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4933770861806626, guid: 34d0efe268592b044b4fc914760b4fbd, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4933770861806626, guid: 34d0efe268592b044b4fc914760b4fbd, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4933770861806626, guid: 34d0efe268592b044b4fc914760b4fbd, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4933770861806626, guid: 34d0efe268592b044b4fc914760b4fbd, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4933770861806626, guid: 34d0efe268592b044b4fc914760b4fbd, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955323308381628, guid: 34d0efe268592b044b4fc914760b4fbd, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.3075
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 34d0efe268592b044b4fc914760b4fbd, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &802070805
 Prefab:
   m_ObjectHideFlags: 0
@@ -1068,6 +1022,10 @@ Prefab:
     - target: {fileID: 4933770861806626, guid: 34d0efe268592b044b4fc914760b4fbd, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276600353649312, guid: 34d0efe268592b044b4fc914760b4fbd, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34d0efe268592b044b4fc914760b4fbd, type: 2}

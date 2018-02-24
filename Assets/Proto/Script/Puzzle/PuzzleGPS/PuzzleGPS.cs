@@ -76,6 +76,11 @@ public class PuzzleGPS : SelectableItem, IPuzzle
         Interactables.Longitude.Init(this);
         Interactables.Latitude.DataInjection(new PuzzleGPSMonitorData());
 
+        //DEBUG POURPOSE ONLY
+        Interactables.Latitude.TypeOn(solutionCoordinates.x.ToString());
+        Interactables.Longitude.TypeOn(solutionCoordinates.y.ToString());
+        //---------
+
         currentSelectedMonitor = Interactables.Latitude;
     }
 

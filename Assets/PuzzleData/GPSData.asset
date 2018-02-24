@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Name: GPSData
   m_EditorClassIdentifier: 
   PossibleCoordinates:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  GridDimension: {x: 15, y: 30}
+  - {x: 80, y: 36}
+  - {x: 83, y: 38}
+  - {x: 83, y: 32}
+  - {x: 83, y: 20}
+  - {x: 86, y: 41}
+  - {x: 87, y: 36}
+  - {x: 87, y: 24}
+  - {x: 87, y: 18}
+  Grid:
+    MinMaxLongitude: {x: 77, y: 92}
+    MinMaxLatitude: {x: 15, y: 45}
+    CellPerEdge: 6

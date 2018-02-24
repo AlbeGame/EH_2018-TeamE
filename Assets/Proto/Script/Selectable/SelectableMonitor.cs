@@ -32,4 +32,9 @@ public class SelectableMonitor : SelectableAbstract {
         if (puzzleCtrl != null)
             puzzleCtrl.OnMonitorSelect(this);
     }
+
+    public void TypeOn(string _thingsToWrite)
+    {
+        textMesh.text = _thingsToWrite;
+    }
 }
