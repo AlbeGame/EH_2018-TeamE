@@ -3,14 +3,12 @@ using UnityEngine;
 
 public class SelectableSwitch : SelectableAbstract
 {
-    public ISelectableBehaviour specificBehaviour;
-
     public float BendDuration;
     public float BendAngle = 45;
     [Tooltip("Keep it empty to apply on this GameObject")]
     public GameObject ObjectToMove;
     bool _status;
-    bool status
+    public bool selectStatus
     {
         get { return _status; }
         set
@@ -20,6 +18,8 @@ public class SelectableSwitch : SelectableAbstract
         }
     }
 
+    private IPuzzle puzzleCtrl;
+
     protected override void OnInitEnd(SelectableAbstract _parent)
     {
         //if (!ObjectToMove)
@@ -27,21 +27,31 @@ public class SelectableSwitch : SelectableAbstract
         //else
         //    originalRotation = ObjectToMove.transform.rotation;
 
-        specificBehaviour.OnInit(this);
-        status = false;
+        selectStatus = false;
+        puzzleCtrl = _parent as IPuzzle;
     }
+
+    #region Data injection
+    public IPuzzleInputData InputData;
+
+    public void DataInjection(IPuzzleInputData _data)
+    {
+        InputData = _data;
+    }
+    #endregion
 
     protected override void OnSelect()
     {
-        status = !status;
-        specificBehaviour.OnSelect();
+        selectStatus = !selectStatus;
+        puzzleCtrl.OnSwitchSelect(this);
+        Parent.Select(true);
     }
 
     void Bend(int _direction)
     {
         if (!ObjectToMove)
-            transform.DORotate(Vector3.forward * _direction * BendAngle, BendDuration);
+            transform.DOLocalRotate(Vector3.forward* _direction * BendAngle, BendDuration);
         else
-            ObjectToMove.transform.DORotate(Vector3.forward * _direction * BendAngle, BendDuration);
+            ObjectToMove.transform.DOLocalRotate(Vector3.forward * _direction * BendAngle, BendDuration);
     }
 }

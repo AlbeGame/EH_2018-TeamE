@@ -14,7 +14,7 @@ public class PuzzleAutopilotData : ScriptableObject, IPuzzleData {
     }
 }
 
-public class PuzzleAutopilotButtonData : IPuzzleInputData
+public class PuzzleAutopilotInputData : IPuzzleInputData
 {
     public PuzzleAutopilot.InputValue Actualvalue;
 }
