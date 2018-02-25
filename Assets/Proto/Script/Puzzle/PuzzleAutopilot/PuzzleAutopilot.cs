@@ -23,6 +23,20 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
     }
     bool isFase1Solved;
     bool isFase2Solved;
+    List<InputValue> combToCompare {
+        get
+        {
+            if (!isFase1Solved)
+                return Data.Fase1[solutionCombinantion[0]].Solution;
+            else if (!isFase2Solved)
+                return Data.Fase2[solutionCombinantion[1]].Solution;
+            else
+            {
+                Debug.LogError("Qualcuno sta cercando di accedere a questa lista e qualcosa non va!");
+                return new List<InputValue>();
+            }
+        }
+    }
 
     #region IPuzzle
     PuzzleState _solutionState = PuzzleState.Unsolved;
@@ -48,6 +62,25 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
     public void OnSwitchSelect(SelectableSwitch _switch)
     {
         InputValue value = (_switch.InputData as PuzzleAutopilotInputData).Actualvalue;
+        switch (value)
+        {
+            case InputValue.LevaSx_Sx:
+                value = InputValue.LevaSx_Dx;
+                break;
+            case InputValue.LevaSx_Dx:
+                value = InputValue.LevaSx_Sx;
+                break;
+            case InputValue.LevaDx_Sx:
+                value = InputValue.LevaDx_Dx;
+                break;
+            case InputValue.LevaDx_Dx:
+                value = InputValue.LevaDx_Sx;
+                break;
+            default:
+                Debug.LogError("Valore inconsistente per uno switch!!");
+                break;
+        }
+        (_switch.InputData as PuzzleAutopilotInputData).Actualvalue = value;
         CompareInputWithSolution(value);
     }
     public void OnMonitorSelect(SelectableMonitor _monitor) { }
@@ -105,11 +138,13 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
 
         Interactables.LevaDx.Init(this);
         Interactables.LevaDx.DataInjection(new PuzzleAutopilotInputData() { Actualvalue = randDx });
-        Interactables.LevaDx.selectStatus = (int)randDx % 2 == 0 ? true : false;
+        Interactables.LevaDx.selectStatus = (int)randDx % 2 != 0 ? true : false;
 
         Interactables.LevaSx.Init(this);
         Interactables.LevaSx.DataInjection(new PuzzleAutopilotInputData() { Actualvalue = randSx });
-        Interactables.LevaSx.selectStatus = (int)randSx % 2 == 0 ? true : false;
+        Interactables.LevaSx.selectStatus = (int)randSx % 2 != 0 ? true : false;
+
+        OnCurrentSolutionIndexUpdate();
     }
 
     void InitButtons() {
@@ -167,19 +202,41 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
 
         int fase2index = Random.Range(0, Data.Fase2.Count);
         solutionCombinantion[1] = fase2index;
+
+        //DEBUG---------
+        Debug.Log(gameObject.name);
+        string fase1Sol = "Fase1Sol: ";
+        foreach (InputValue iVal in Data.Fase1[fase1index].Solution)
+        {
+            fase1Sol += iVal.ToString() + ",";
+        }
+        Debug.Log(name + "_" + fase1Sol);
+        string fase2Sol = "Fase2Sol: ";
+        foreach (InputValue iVal in Data.Fase2[fase2index].Solution)
+        {
+            fase2Sol += iVal.ToString() + ",";
+        }
+        Debug.Log(name + "_" + fase2Sol);
+        //--------------
     }
 
-    void DoWinningthings() { SolutionState = PuzzleState.Solved; }
-    void DoBreakingThings() { SolutionState = PuzzleState.Broken; }
+    void DoWinningthings()
+    {
+        Parent.Select(true);
+        SolutionState = PuzzleState.Solved;
+        graphicCtrl.Paint(_solutionState);
+        State = SelectionState.Unselectable;
+    }
+    void DoBreakingThings()
+    {
+        Parent.Select(true);
+        SolutionState = PuzzleState.Broken;
+        graphicCtrl.Paint(_solutionState);
+        State = SelectionState.Unselectable;
+    }
 
     bool CompareInputWithSolution(InputValue _input)
     {
-        List<InputValue> combToCompare = new List<InputValue>();
-        if (!isFase1Solved)
-            combToCompare = Data.Fase1[solutionCombinantion[0]].Solution;
-        else if(!isFase2Solved)
-            combToCompare = Data.Fase2[solutionCombinantion[1]].Solution;
-
         if(combToCompare[currentSolutionIndex] == _input)
         {
             currentSolutionIndex++;
@@ -195,44 +252,58 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
 
     void OnCurrentSolutionIndexUpdate()
     {
-        //Get the actual combination
-        List<InputValue> combToCompare = new List<InputValue>();
-        if (!isFase1Solved)
-            combToCompare = Data.Fase1[solutionCombinantion[0]].Solution;
-        else if (!isFase2Solved)
-            combToCompare = Data.Fase2[solutionCombinantion[1]].Solution;
+        //Check if fase is solved
+        if (CheckSolution())
+        {
+            DoWinningthings();
+            return;
+        }
 
         //Compare eventual already done lever status
         InputValue currentInput = combToCompare[currentSolutionIndex];
         InputValue leverValue;
-        if (currentSolutionIndex < -2)
+        if ((int)currentInput < -2)
         {
             leverValue = (Interactables.LevaSx.InputData as PuzzleAutopilotInputData).Actualvalue;
             if(leverValue == currentInput)
             {
                 currentSolutionIndex++;
+                return;
             }
         }
-        else if(currentSolutionIndex < 0)
+        else if(currentInput < 0)
         {
             leverValue = (Interactables.LevaDx.InputData as PuzzleAutopilotInputData).Actualvalue;
             if (leverValue == currentInput)
             {
                 currentSolutionIndex++;
+                return;
             }
         }
+    }
 
-        //Check if fase is solved
-        if(currentSolutionIndex >= combToCompare.Count)
+    bool CheckSolution()
+    {
+        if (currentSolutionIndex >= combToCompare.Count)
         {
             if (!isFase1Solved)
+            {
                 isFase1Solved = true;
+                currentSolutionIndex = 0;
+                Interactables.MonitorFase2.ToggleOnOff();
+                return false;
+            }
             else if (!isFase2Solved)
             {
                 isFase2Solved = true;
-                DoWinningthings();
+                Interactables.MonitorFaseOK.ToggleOnOff();
+                return true;
             }
+            else
+                return true;
         }
+        else
+            return false;
     }
 
     [System.Serializable]
@@ -255,9 +326,9 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
 
     public enum InputValue{
         LevaSx_Sx = -4,
-        LevaSx_Dx,
-        LevaDx_Sx,
-        LevaDx_Dx,
+        LevaSx_Dx = -3,
+        LevaDx_Sx = -2,
+        LevaDx_Dx = -1,
         BottoneA = 0,
         BottoneB,
         BottoneF,

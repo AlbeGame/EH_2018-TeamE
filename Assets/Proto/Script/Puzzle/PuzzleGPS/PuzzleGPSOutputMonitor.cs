@@ -14,15 +14,23 @@ public class PuzzleGPSOutputMonitor : MonoBehaviour {
 
     private void Start()
     {
-        mapMaterial = new Material(MapDisplay.material);
-        MapDisplay.material = mapMaterial;
+        InitMapMaterial();
     }
 
     public void Init(PuzzleGPSData.GridData _data)
     {
         data = _data;
 
+        if (!mapMaterial)
+            InitMapMaterial();
+
         mapMaterial.SetTextureScale("_MainTex", data.Scale);
+    }
+
+    void InitMapMaterial()
+    {
+        mapMaterial = new Material(MapDisplay.material);
+        MapDisplay.material = mapMaterial;
     }
 
     /// <summary>
