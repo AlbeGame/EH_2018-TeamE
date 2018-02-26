@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
 {
 
     public float MovementSpeed = 0.2f;
-    public bool isMoveFreeCam;
+	public bool isMoveFreeCam;
     public float sensitivity;
 
     Quaternion originalRotation;
