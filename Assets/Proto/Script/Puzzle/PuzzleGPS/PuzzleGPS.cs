@@ -142,7 +142,7 @@ public class PuzzleGPS : SelectableItem, IPuzzle
         int latitude = (Interactables.Latitude.InputData as PuzzleGPSMonitorData).coordinateValue;
         int longitude = (Interactables.Longitude.InputData as PuzzleGPSMonitorData).coordinateValue;
 
-        if (solutionCoordinates.x == latitude && solutionCoordinates.y == longitude)
+        if (solutionCoordinates.x == longitude && solutionCoordinates.y == latitude)
             DoWinningThings();
         else
             DoBreakingThings();
