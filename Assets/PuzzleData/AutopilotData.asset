@@ -13,15 +13,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Fase1:
   - MonitorOutput: 0
-    Solution: 04000000ffffffff03000000fcffffff01000000
+    Solution: 04000000ffffffff03000000fdffffff01000000
   - MonitorOutput: 1
     Solution: 04000000feffffff0000000003000000fdffffff
   - MonitorOutput: 2
-    Solution: fdffffff0200000001000000ffffffff05000000
+    Solution: fcffffff0200000001000000ffffffff05000000
   Fase2:
   - MonitorOutput: 3
     Solution: 0500000002000000fcfffffffeffffff00000000
   - MonitorOutput: 4
     Solution: 03000000fdffffff01000000feffffff04000000
   - MonitorOutput: 5
-    Solution: fcffffff020000000300000001000000feffffff
+    Solution: fdffffff020000000300000001000000feffffff
