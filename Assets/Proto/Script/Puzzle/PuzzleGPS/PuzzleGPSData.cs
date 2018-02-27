@@ -3,6 +3,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewGPSData", menuName = "PuzzleData/GPS")]
 public class PuzzleGPSData : ScriptableObject, IPuzzleData {
+    [Header("(Longitude, Latitude)")]
     public List<Vector2Int> PossibleCoordinates = new List<Vector2Int>();
     public GridData Grid;
 

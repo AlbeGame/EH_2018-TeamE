@@ -94,6 +94,8 @@ public class PuzzleGPS : SelectableItem, IPuzzle
         InitOutputMonitor();
         InitNumerics();
         InitSelectableMonitors();
+
+        Debug.Log(solutionCoordinates);
     }
 
     void InitNumerics()

@@ -48,7 +48,7 @@ public class PuzzleGPSOutputMonitor : MonoBehaviour {
     /// <param name="_coordinatesToDisplay"></param>
     public void DisplayCoordinates(Vector2Int _coordinatesToDisplay)
     {
-        Vector2 lowleftCorner = _coordinatesToDisplay - new Vector2(3f, 3f);
+        Vector2 lowleftCorner = _coordinatesToDisplay - new Vector2(data.MinMaxLongitude.x, data.MinMaxLatitude.y) - Vector2.one*data.CellPerEdge/2;
         mapMaterial.SetTextureOffset("_MainTex", new Vector2(data.GridTileDimension.x* lowleftCorner.x, data.GridTileDimension.y * lowleftCorner.y));
     }
     /// <summary>
@@ -58,7 +58,7 @@ public class PuzzleGPSOutputMonitor : MonoBehaviour {
     public void Rotate(float _angle)
     {
         MapDisplay.transform.Rotate(Vector3.forward, _angle);
-        int quarter = (int)_angle % 4;
+        int quarter = (int)_angle / 90;
 
         switch (quarter)
         {
