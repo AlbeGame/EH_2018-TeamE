@@ -20,6 +20,7 @@ public class PuzzleAutopilotOutputMonitor : MonoBehaviour {
     }
 
     public void SetMaterial(int index) {
-        originalMat = materialsCDEHIJ[index];
+        originalMat = new Material(materialsCDEHIJ[index]);
+        Icon.material = originalMat;
     }
 }

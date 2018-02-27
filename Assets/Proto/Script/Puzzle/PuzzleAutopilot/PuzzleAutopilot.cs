@@ -87,36 +87,6 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
     public void OnUpdateSelectable(SelectableAbstract _selectable) { }
     #endregion
 
-    public void SetInput(InputValue _inputSent) {
-
-        //PuzzleAutopilotButton button = _selectable as PuzzleAutopilotButton;
-
-        //if (!isFase1Completed) {
-        //    if(Data.Fase1[currentCombinantion[0]].Solution[currentSolutionIndex] == button.Actualvalue) {
-        //        currentSolutionIndex++;
-        //        if (currentSolutionIndex > Data.Fase1[currentCombinantion[0]].Solution.Count) {
-        //            isFase1Completed = true;
-        //            currentSolutionIndex = 0;
-        //            MonitorStandard[1].ToggleOnOff(true);
-        //            return;
-        //        }
-        //    }
-        //} else if (!isFase2Completed) {
-        //    if (Data.Fase2[currentCombinantion[0]].Solution[currentSolutionIndex] == button.Actualvalue) {
-        //        currentSolutionIndex++;
-        //        if (currentSolutionIndex > Data.Fase2[currentCombinantion[0]].Solution.Count) {
-        //            isFase2Completed = true;
-        //            currentSolutionIndex = 0;
-        //            MonitorStandard[2].ToggleOnOff(true);
-        //            DoWinningthings();
-        //            return;
-        //        }
-        //    }
-        //} 
-
-        //DoBadthings();
-    }
-
     protected override void OnInitEnd(SelectableAbstract _parent)
     {
         //Crea un setupIniziale;
