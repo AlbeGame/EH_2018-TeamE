@@ -742,8 +742,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4003607116069478}
-  - component: {fileID: 64397817836978872}
   - component: {fileID: 114359614924430664}
+  - component: {fileID: 65742771099993172}
   m_Layer: 0
   m_Name: Puzzle_03_autopilota
   m_TagString: Untagged
@@ -1131,13 +1131,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1377493232640930}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1913, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4003607116069478}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!4 &4138576123201828
 Transform:
   m_ObjectHideFlags: 1
@@ -3270,7 +3270,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100006, guid: c93a6f35ca066ae428b0621b76504022, type: 3}
+  - {fileID: 2100000, guid: 251942fd1b3e29340a01f482d6a6e22f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3702,20 +3702,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: c93a6f35ca066ae428b0621b76504022, type: 3}
---- !u!64 &64397817836978872
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1611877166994292}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 88ffa7df1e88cda4ea7e52b1ae36ce29, type: 3}
 --- !u!64 &64399185417876776
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -3842,6 +3828,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: f0b1a35c024dba1438fb9d81702302c6, type: 3}
+--- !u!65 &65742771099993172
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1611877166994292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.03, z: 0.2}
+  m_Center: {x: 0, y: 0.01, z: 0}
 --- !u!102 &102156057431352564
 TextMesh:
   serializedVersion: 3
@@ -4006,13 +4004,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialsCDEHIJ:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Icon: {fileID: 0}
+  - {fileID: 2100000, guid: b92733fde7906e548906a099d66da69d, type: 2}
+  - {fileID: 2100000, guid: 43cf6f10abdb1a848aa1593809c26747, type: 2}
+  - {fileID: 2100000, guid: 4226fb7f5339d44419cf0fde0e42ada4, type: 2}
+  - {fileID: 2100000, guid: 59b4a48f99f36af4eaae7aabe77b708e, type: 2}
+  - {fileID: 2100000, guid: fe6a472c6990bee49aeb5adb2c99cb4c, type: 2}
+  - {fileID: 2100000, guid: 98d1dfc616d882146988cc17c1a0ddc0, type: 2}
+  Icon: {fileID: 23499622098546048}
 --- !u!114 &114160740991940642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4066,6 +4064,9 @@ MonoBehaviour:
     - {fileID: 23053176901581050}
     - {fileID: 23701998501722346}
     - {fileID: 23281318786623138}
+    - {fileID: 23562544936766876}
+    - {fileID: 23365640786446458}
+    - {fileID: 23935876611365892}
     PassiveMat: {fileID: 2100000, guid: 93904388430fd1b4493ff7acafb12606, type: 2}
     NeutralMat: {fileID: 2100000, guid: db45bdb529efebc4b889c5a058cd9e7c, type: 2}
     HighlightedMat: {fileID: 2100000, guid: 4201e4398a04d3f4e90e98425a24d486, type: 2}
@@ -4076,17 +4077,17 @@ MonoBehaviour:
     CameraFocusPosition: {fileID: 4129396750750592}
   Data: {fileID: 11400000, guid: 88c017a19ad54464e9746b8ad239b44f, type: 2}
   Interactables:
-    ButtonA: {fileID: 0}
-    ButtonB: {fileID: 0}
-    ButtonF: {fileID: 0}
-    ButtonG: {fileID: 0}
-    ButtonK: {fileID: 0}
-    ButtonL: {fileID: 0}
-    MonitorFase1: {fileID: 0}
-    MonitorFase2: {fileID: 0}
-    MonitorFaseOK: {fileID: 0}
-    LevaSx: {fileID: 0}
-    LevaDx: {fileID: 0}
+    ButtonA: {fileID: 114000564881633896}
+    ButtonB: {fileID: 114718040357519176}
+    ButtonF: {fileID: 114312255492445100}
+    ButtonG: {fileID: 114462343232751308}
+    ButtonK: {fileID: 114407157234250884}
+    ButtonL: {fileID: 114094242862348088}
+    MonitorFase1: {fileID: 114136848273414708}
+    MonitorFase2: {fileID: 114606662612735526}
+    MonitorFaseOK: {fileID: 114933807237872054}
+    LevaSx: {fileID: 114160740991940642}
+    LevaDx: {fileID: 114758523153955448}
 --- !u!114 &114407157234250884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4125,13 +4126,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialsCDEHIJ:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Icon: {fileID: 0}
+  - {fileID: 2100000, guid: b92733fde7906e548906a099d66da69d, type: 2}
+  - {fileID: 2100000, guid: 43cf6f10abdb1a848aa1593809c26747, type: 2}
+  - {fileID: 2100000, guid: 4226fb7f5339d44419cf0fde0e42ada4, type: 2}
+  - {fileID: 2100000, guid: 59b4a48f99f36af4eaae7aabe77b708e, type: 2}
+  - {fileID: 2100000, guid: fe6a472c6990bee49aeb5adb2c99cb4c, type: 2}
+  - {fileID: 2100000, guid: 98d1dfc616d882146988cc17c1a0ddc0, type: 2}
+  Icon: {fileID: 23442763565073564}
 --- !u!114 &114718040357519176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4171,13 +4172,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialsCDEHIJ:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Icon: {fileID: 0}
+  - {fileID: 2100000, guid: b92733fde7906e548906a099d66da69d, type: 2}
+  - {fileID: 2100000, guid: 43cf6f10abdb1a848aa1593809c26747, type: 2}
+  - {fileID: 2100000, guid: 4226fb7f5339d44419cf0fde0e42ada4, type: 2}
+  - {fileID: 2100000, guid: 59b4a48f99f36af4eaae7aabe77b708e, type: 2}
+  - {fileID: 2100000, guid: fe6a472c6990bee49aeb5adb2c99cb4c, type: 2}
+  - {fileID: 2100000, guid: 98d1dfc616d882146988cc17c1a0ddc0, type: 2}
+  Icon: {fileID: 23049744846211456}
 --- !u!136 &136283502921522780
 CapsuleCollider:
   m_ObjectHideFlags: 1
