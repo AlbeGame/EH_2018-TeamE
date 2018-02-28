@@ -9,6 +9,8 @@ public class SelectionRoot : SelectableAbstract
     private void Start()
     {
         camCtrl = Camera.main.GetComponent<CameraController>();
+        camCtrl.isMoveFreeCam = false;
+
         foreach (SelectableItem puzzle in Selectables)
         {
             puzzle.Init(this, SelectionState.Neutral);
@@ -19,8 +21,15 @@ public class SelectionRoot : SelectableAbstract
     private void Update()
     {
         if (Input.GetMouseButtonUp(1))
+        {
             if(hasASelectedChild)
                 Select(true);
+
+            camCtrl.isMoveFreeCam = false;
+        }
+
+        if(State == SelectionState.Selected && Input.GetMouseButton(1))
+            camCtrl.isMoveFreeCam = true;
     }
 
     protected override void OnSelect()
