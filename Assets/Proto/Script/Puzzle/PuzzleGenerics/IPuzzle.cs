@@ -1,4 +1,6 @@
-﻿/// <summary>
+﻿using UnityEngine;
+
+/// <summary>
 /// Behaviour that all puzzles share
 /// </summary>
 public interface IPuzzle {
@@ -17,7 +19,9 @@ public interface IPuzzle {
 /// Interface used to flag all the data needed by an IPuzzle
 /// Necessary to impose a Data injection on Setup and avid generic behaviours
 /// </summary>
-public interface IPuzzleData { }
+public interface IPuzzleData {
+    GameObject GetIPuzzleGO();
+}
 public interface IPuzzleInputData { }
 
 public enum PuzzleState

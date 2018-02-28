@@ -60,6 +60,8 @@ public abstract class SelectableAbstract : MonoBehaviour
     public bool HasMouseOver { get; protected set; }
     protected bool hasASelectedChild { get { return Children.Contains(SelectedScion); } }
 
+    Collider collider;
+
     private void OnMouseUpAsButton()
     {
         Select();
@@ -87,6 +89,15 @@ public abstract class SelectableAbstract : MonoBehaviour
     /// <param name="_state"></param>
     void OnStateSwitch(SelectionState _state)
     {
+
+        if (collider)
+        {
+            if (_state == SelectionState.Neutral || _state == SelectionState.Highlighted)
+                collider.enabled = true;
+            else
+                collider.enabled = false;
+        }
+                
         switch (_state)
         {
             case SelectionState.Unselectable:
@@ -186,6 +197,10 @@ public abstract class SelectableAbstract : MonoBehaviour
     /// <param name="_parent"></param>
     public void Init(SelectableAbstract _parent, SelectionState _state = SelectionState.Neutral)
     {
+        collider = GetComponent<Collider>();
+        if (!collider)
+            Debug.LogWarning("No Collider found! Selectable may not work as intended");
+
         OnInitBegin(_parent);
 
         if (_parent)
@@ -205,6 +220,10 @@ public abstract class SelectableAbstract : MonoBehaviour
     /// <param name="_parent"></param>
     public void Init(bool _searchParent = true, SelectionState _state = SelectionState.Neutral)
     {
+        collider = GetComponent<Collider>();
+        if (!collider)
+            Debug.LogWarning("No Collider found! Selectable may not work as intended");
+
         SelectableAbstract parent;
         if (_searchParent)
             parent = GetParent();

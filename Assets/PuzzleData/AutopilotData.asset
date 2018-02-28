@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7961f08f83d297748a78cb5659dc3420, type: 3}
   m_Name: AutopilotData
   m_EditorClassIdentifier: 
+  Prefab: {fileID: 1611877166994292, guid: 59c531f328edafb41b0422706d45362d, type: 2}
   Fase1:
   - MonitorOutput: 0
     Solution: 04000000ffffffff03000000fdffffff01000000

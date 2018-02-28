@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b249346d4261643acf1d1665cf3d25, type: 3}
   m_Name: GPSData
   m_EditorClassIdentifier: 
+  Prefab: {fileID: 1204371740839280, guid: f7e2dc2dae189ae45be194c87221109a, type: 2}
   PossibleCoordinates:
   - {x: 80, y: 36}
   - {x: 83, y: 38}

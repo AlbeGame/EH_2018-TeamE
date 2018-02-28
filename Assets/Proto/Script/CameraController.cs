@@ -6,7 +6,12 @@ public class CameraController : MonoBehaviour
 {
 
     public float MovementSpeed = 0.2f;
-	public bool isMoveFreeCam;
+    bool _isMoveFreeCam;
+	public bool isMoveFreeCam
+    {
+        get { return _isMoveFreeCam; }
+        set { _isMoveFreeCam = value; }
+    }
     public float sensitivity;
 
     Quaternion originalRotation;
@@ -60,7 +65,6 @@ public class CameraController : MonoBehaviour
     public void FocusReset()
     {
         FocusAt(originalPosition, originalRotation);
-        isMoveFreeCam = true;
     }
     #endregion
 }

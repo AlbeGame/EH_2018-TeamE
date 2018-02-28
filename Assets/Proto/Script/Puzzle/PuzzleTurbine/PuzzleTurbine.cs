@@ -12,7 +12,7 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
 
     #endregion
 
-    public PuzzleTurbineData Data;
+    PuzzleTurbineData data;
     PuzzleCombination combination;
     List<SliderController> Sliders = new List<SliderController>();
 
@@ -30,8 +30,8 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
     }
 
     public void Setup(IPuzzleData _data) {
-        Data = _data as PuzzleTurbineData;
-        InitGenricalElement();
+        data = _data as PuzzleTurbineData;
+        GenerateNewPuzzleCombination();
     }
 
     public void OnButtonSelect(SelectableButton _button) {
@@ -42,12 +42,12 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
                 SetEValues(data.E1Modifier, data.E2Modifier, data.E3Modifier, data.E4Modifier);
             }
         }
+        Select(true);
 
         // Reset Button
         if (_button == resetButton) {
             CheckSolution();
         }
-
     }
     public void OnSwitchSelect(SelectableSwitch _switch) { }
     public void OnMonitorSelect(SelectableMonitor _monitor) { }
@@ -56,7 +56,6 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
 
     #region Selectable Behaviours
     protected override void OnInitEnd(SelectableAbstract _parent) {
-        GenerateNewPuzzleCombination();
         InitGenricalElement();
     }
 
@@ -97,7 +96,7 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
         combination = newComb;
     }
     TurbineButtonData GetUnchosenButton(List<TurbineButtonData> alreadyChosen) {
-        List<TurbineButtonData> possibles = Data.ButtonsValues.ToList();
+        List<TurbineButtonData> possibles = data.ButtonsValues.ToList();
         foreach (var item in alreadyChosen)
             possibles.Remove(item);
 
@@ -186,21 +185,13 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
         }
     }
 
-    void DoWinningThings() {
-
-        //foreach (var item in TaggedButtons)
-        //{
-        //    item.GetComponent<MeshCollider>().enabled = false;
-        //}
-        //ResetButton.GetComponent<MeshCollider>().enabled = false;
-
-        Parent.Select(true);
-        SolutionState = PuzzleState.Solved;
-        State = SelectionState.Unselectable;
+    void DoWinningThings()
+    {
+        (GetRoot() as SelectionRoot).NotifyPuzzleSolved(this);
     }
 
     void DoBreakThings() {
-        SolutionState = PuzzleState.Broken;
+        (GetRoot() as SelectionRoot).NotifyPuzzleBreakdown(this);
     }
 
     void UpdateSliderValues() {

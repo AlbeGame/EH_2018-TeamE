@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7244ce0d892b74e9ef9c7fc644cb73, type: 3}
   m_Name: Turbine
   m_EditorClassIdentifier: 
+  Prefab: {fileID: 1933808208843816, guid: d34b197f9f2520f4baa4c15ac018a381, type: 2}
   ButtonsValues:
   - Label: RNYF
     E1Modifier: 0

@@ -3,22 +3,13 @@ using DG.Tweening;
 
 public class SelectableButton : SelectableAbstract
 {
-    //public float PushDuration = .5f;
-    //public float PushOffSet = .005f;
-    //[Tooltip("Keep it empty to apply on this GameObject")]
-    //public GameObject ObjectToMove;
     public TextMesh Text;
     public Renderer IconRenderer;
-    //Vector3 originalPos;
 
     private IPuzzle puzzleController;
 
-    protected override void OnInitEnd(SelectableAbstract _parent) {
-        //if (!ObjectToMove)
-        //    originalPos = transform.position;
-        //else
-        //    originalPos = ObjectToMove.transform.position;
-
+    protected override void OnInitEnd(SelectableAbstract _parent)
+    {
         puzzleController = _parent as IPuzzle;
     }
 
@@ -40,23 +31,8 @@ public class SelectableButton : SelectableAbstract
     }
     #endregion
 
-    protected override void OnSelect() {
-        //specificBehaviour.OnSelect();
+    protected override void OnSelect()
+    {
         puzzleController.OnButtonSelect(this);
-        Parent.Select(true);
     }
-
-    //private void OnMouseUp() {
-    //    if (!ObjectToMove)
-    //        transform.DOMove(originalPos, PushDuration / 2);
-    //    else
-    //        ObjectToMove.transform.DOMove(originalPos, PushDuration / 2);
-    //}
-
-    //private void OnMouseDown() {
-    //    if (!ObjectToMove)
-    //        transform.DOMoveY(originalPos.y - PushOffSet, PushDuration / 2);
-    //    else
-    //        ObjectToMove.transform.DOMoveY(originalPos.y - PushOffSet, PushDuration / 2);
-    //}
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PuzzleAutopilot : SelectableItem, IPuzzle {
 
-    public PuzzleAutopilotData Data;
+    PuzzleAutopilotData data;
 
     public AutopilotIO Interactables;
     //Indice relativo alla soluzione scelta in data.Fase#
@@ -27,9 +27,9 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
         get
         {
             if (!isFase1Solved)
-                return Data.Fase1[solutionCombinantion[0]].Solution;
+                return data.Fase1[solutionCombinantion[0]].Solution;
             else if (!isFase2Solved)
-                return Data.Fase2[solutionCombinantion[1]].Solution;
+                return data.Fase2[solutionCombinantion[1]].Solution;
             else
             {
                 Debug.LogError("Qualcuno sta cercando di accedere a questa lista e qualcosa non va!");
@@ -51,16 +51,19 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
     }
 
     public void Setup(IPuzzleData _data) {
-        Data = _data as PuzzleAutopilotData;
+        data = _data as PuzzleAutopilotData;
+        GenerateInitialValues();
     }
 
     public void OnButtonSelect(SelectableButton _button)
     {
         InputValue value = (_button.InputData as PuzzleAutopilotInputData).Actualvalue;
+        Select(true);
         CompareInputWithSolution(value);
     }
     public void OnSwitchSelect(SelectableSwitch _switch)
     {
+        Select(true);
         InputValue value = (_switch.InputData as PuzzleAutopilotInputData).Actualvalue;
         switch (value)
         {
@@ -89,8 +92,7 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
 
     protected override void OnInitEnd(SelectableAbstract _parent)
     {
-        //Crea un setupIniziale;
-        GenerateInitialValues();
+        //Inizializza gli elementi di Input
         InitSwitches();
         InitButtons();
         InitOutputMonitors();
@@ -155,10 +157,10 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
 
     void InitOutputMonitors()
     {
-        OutputValue output = Data.Fase1[solutionCombinantion[0]].MonitorOutput;
+        OutputValue output = data.Fase1[solutionCombinantion[0]].MonitorOutput;
         Interactables.MonitorFase1.SetMaterial((int)output);
 
-        OutputValue output2 = Data.Fase2[solutionCombinantion[1]].MonitorOutput;
+        OutputValue output2 = data.Fase2[solutionCombinantion[1]].MonitorOutput;
         Interactables.MonitorFase2.SetMaterial((int)output2);
 
         Interactables.MonitorFase2.ToggleOnOff(false);
@@ -167,22 +169,22 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
 
     //genera a caso una combinazione iniziale del puzzle (e la soluzione)
     void GenerateInitialValues() {
-        int fase1index = Random.Range(0, Data.Fase1.Count);
+        int fase1index = Random.Range(0, data.Fase1.Count);
         solutionCombinantion[0] = fase1index;
 
-        int fase2index = Random.Range(0, Data.Fase2.Count);
+        int fase2index = Random.Range(0, data.Fase2.Count);
         solutionCombinantion[1] = fase2index;
 
         //DEBUG---------
         Debug.Log(gameObject.name);
         string fase1Sol = "Fase1Sol: ";
-        foreach (InputValue iVal in Data.Fase1[fase1index].Solution)
+        foreach (InputValue iVal in data.Fase1[fase1index].Solution)
         {
             fase1Sol += iVal.ToString() + ",";
         }
         Debug.Log(name + "_" + fase1Sol);
         string fase2Sol = "Fase2Sol: ";
-        foreach (InputValue iVal in Data.Fase2[fase2index].Solution)
+        foreach (InputValue iVal in data.Fase2[fase2index].Solution)
         {
             fase2Sol += iVal.ToString() + ",";
         }
@@ -192,17 +194,18 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
 
     void DoWinningthings()
     {
-        Parent.Select(true);
-        SolutionState = PuzzleState.Solved;
+        (GetRoot() as SelectionRoot).NotifyPuzzleSolved(this);
+
         graphicCtrl.Paint(_solutionState);
         State = SelectionState.Unselectable;
     }
     void DoBreakingThings()
     {
-        Parent.Select(true);
-        SolutionState = PuzzleState.Broken;
+        (GetRoot() as SelectionRoot).NotifyPuzzleBreakdown(this);
+
         graphicCtrl.Paint(_solutionState);
         State = SelectionState.Unselectable;
+        Parent.Select(true);
     }
 
     bool CompareInputWithSolution(InputValue _input)

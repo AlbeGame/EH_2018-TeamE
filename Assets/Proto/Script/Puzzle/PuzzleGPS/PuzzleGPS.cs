@@ -2,7 +2,7 @@
 
 public class PuzzleGPS : SelectableItem, IPuzzle
 {
-    public PuzzleGPSData Data;
+    PuzzleGPSData data;
     public GPS_IO Interactables;
 
     Vector2Int solutionCoordinates;
@@ -28,7 +28,8 @@ public class PuzzleGPS : SelectableItem, IPuzzle
 
     public void Setup(IPuzzleData _data)
     {
-        Data = _data as PuzzleGPSData;
+        data = _data as PuzzleGPSData;
+        GenerateRandomCombination();
     }
 
     public void OnButtonSelect(SelectableButton _button)
@@ -36,7 +37,8 @@ public class PuzzleGPS : SelectableItem, IPuzzle
         PuzzleGPSNumericData data = _button.InputData as PuzzleGPSNumericData;
         PuzzleGPSMonitorData coordinateData = currentSelectedMonitor.InputData as PuzzleGPSMonitorData;
 
-        if(data.ActualValue < 10)
+        Select(true);
+        if (data.ActualValue < 10)
         {
             coordinateData.coordinateValue *= 10;
             coordinateData.coordinateValue += data.ActualValue;
@@ -63,7 +65,7 @@ public class PuzzleGPS : SelectableItem, IPuzzle
             currentSelectedMonitor = Interactables.Longitude;
         }
 
-        this.Select(true);
+        Select(true);
     }
 
     public void OnUpdateSelectable(SelectableAbstract _selectable)
@@ -74,7 +76,9 @@ public class PuzzleGPS : SelectableItem, IPuzzle
 
     protected override void OnInitEnd(SelectableAbstract _parent)
     {
-        Init();
+        InitOutputMonitor();
+        InitNumerics();
+        InitSelectableMonitors();
     }
 
     protected override void OnStateChange(SelectionState _state)
@@ -86,16 +90,6 @@ public class PuzzleGPS : SelectableItem, IPuzzle
     void OnSolutionStateChange(PuzzleState _solutionState)
     {
         graphicCtrl.Paint(_solutionState);
-    }
-
-    public void Init()
-    {
-        GenerateRandomCombination();
-        InitOutputMonitor();
-        InitNumerics();
-        InitSelectableMonitors();
-
-        Debug.Log(solutionCoordinates);
     }
 
     void InitNumerics()
@@ -124,14 +118,14 @@ public class PuzzleGPS : SelectableItem, IPuzzle
 
     void InitOutputMonitor()
     {
-        Interactables.OutputMonitor.Init(Data.Grid);
+        Interactables.OutputMonitor.Init(data.Grid);
         Interactables.OutputMonitor.DisplayAndRotate(solutionCoordinates, solutionOrientation);
     }
 
     void GenerateRandomCombination()
     {
-        int randCoordIndex = Random.Range(0, Data.PossibleCoordinates.Count);
-        solutionCoordinates = Data.PossibleCoordinates[randCoordIndex];
+        int randCoordIndex = Random.Range(0, data.PossibleCoordinates.Count);
+        solutionCoordinates = data.PossibleCoordinates[randCoordIndex];
 
         int randOrient = Random.Range(0, 4);
         solutionOrientation = randOrient * 90;
@@ -150,15 +144,13 @@ public class PuzzleGPS : SelectableItem, IPuzzle
 
     void DoWinningThings()
     {
-        Parent.Select(true);
-        SolutionState = PuzzleState.Solved;
+        (GetRoot() as SelectionRoot).NotifyPuzzleSolved(this);
         graphicCtrl.Paint(_solutionState);
-        State = SelectionState.Unselectable;
     }
 
     void DoBreakingThings()
     {
-        SolutionState = PuzzleState.Broken;
+        (GetRoot() as SelectionRoot).NotifyPuzzleBreakdown(this);
         graphicCtrl.Paint(_solutionState);
     }
 

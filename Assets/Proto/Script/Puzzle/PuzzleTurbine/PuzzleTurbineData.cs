@@ -3,7 +3,13 @@
 [CreateAssetMenu(fileName = "NewTurbineData", menuName = "PuzzleData/Turbine")]
 public class PuzzleTurbineData : ScriptableObject, IPuzzleData
 {
+    public GameObject Prefab;
     public TurbineButtonData[] ButtonsValues = new TurbineButtonData[8];
+
+    public GameObject GetIPuzzleGO()
+    {
+        return Prefab;
+    }
 }
 
 [System.Serializable]

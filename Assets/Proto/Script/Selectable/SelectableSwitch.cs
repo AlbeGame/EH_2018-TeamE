@@ -44,7 +44,6 @@ public class SelectableSwitch : SelectableAbstract
     {
         selectStatus = !selectStatus;
         puzzleCtrl.OnSwitchSelect(this);
-        Parent.Select(true);
     }
 
     void Bend(int _direction)
