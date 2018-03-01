@@ -4,8 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class CameraController : MonoBehaviour
 {
-
+    float rangeView = 90.0f;
     public float MovementSpeed = 0.2f;
+
     bool _isMoveFreeCam;
 	public bool isMoveFreeCam
     {
@@ -22,21 +23,44 @@ public class CameraController : MonoBehaviour
     {
         originalRotation = transform.rotation;
         originalPosition = transform.position;
+        isMoveFreeCam = true;
     }
 
     void Update()
     {
         if(isMoveFreeCam)
-        RotateCamera(); 
+        RotateCamera();
+         
     }
+
 
     void RotateCamera()
     {
-        float newRotationY=transform.localEulerAngles.y +Input.GetAxis("Mouse X")*sensitivity;
-        float newRotationX = transform.localEulerAngles.x - Input.GetAxis("Mouse Y")*sensitivity;
-        gameObject.transform.localEulerAngles = new Vector3(newRotationX, newRotationY, 0);
-    }
 
+        float RotationY = transform.localEulerAngles.y + Input.GetAxis("Mouse X")*5;
+        float RotationX = transform.localEulerAngles.x - Input.GetAxis("Mouse Y")*5;
+        gameObject.transform.localEulerAngles = new Vector3(RotationX, RotationY, 0);
+        RotationX = Mathf.Clamp(RotationY, -90, 90);
+
+
+        
+       
+        // cameraTransform.localRotation *= Quaternion.Euler(0,-newRotationY, 0);
+
+        /* if (transform.localEulerAngles.y > rangeView)
+         {
+             transform.localEulerAngles = new Vector3(0, 90, 0);
+         }
+         else
+         {
+             if (transform.localEulerAngles.y < -rangeView)
+             {
+                 transform.localEulerAngles = new Vector3(0, -90, 0);
+             }
+         }*/
+
+
+    }
 
     #region API
     /// <summary>
@@ -48,6 +72,7 @@ public class CameraController : MonoBehaviour
         isMoveFreeCam = false;
         transform.DORotateQuaternion(_target.rotation, MovementSpeed);
         transform.DOMove(_target.position, MovementSpeed);
+        
     }
     /// <summary>
     /// Move the camera toward _targetPosition and rotate it as _forward
@@ -65,6 +90,7 @@ public class CameraController : MonoBehaviour
     public void FocusReset()
     {
         FocusAt(originalPosition, originalRotation);
+       isMoveFreeCam=true;
     }
     #endregion
 }
