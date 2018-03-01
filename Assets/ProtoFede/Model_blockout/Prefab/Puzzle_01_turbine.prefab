@@ -3970,7 +3970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3eaa4e18f85a44fa7bbe5468a3b205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: {fileID: 0}
+  Text: {fileID: 102818426323299872}
   IconRenderer: {fileID: 0}
 --- !u!114 &114072160121049696
 MonoBehaviour:
@@ -3983,7 +3983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3eaa4e18f85a44fa7bbe5468a3b205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: {fileID: 0}
+  Text: {fileID: 102762271762460948}
   IconRenderer: {fileID: 0}
 --- !u!114 &114162383402500234
 MonoBehaviour:
@@ -3996,7 +3996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3eaa4e18f85a44fa7bbe5468a3b205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: {fileID: 0}
+  Text: {fileID: 102501792613059386}
   IconRenderer: {fileID: 0}
 --- !u!114 &114256849000601096
 MonoBehaviour:
@@ -4030,7 +4030,6 @@ MonoBehaviour:
   - {fileID: 114060215824855814}
   - {fileID: 114162383402500234}
   resetButton: {fileID: 114367614469390166}
-  Data: {fileID: 11400000, guid: 220cf38a622d83145a20cf5047c8a918, type: 2}
 --- !u!114 &114367614469390166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4087,7 +4086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3eaa4e18f85a44fa7bbe5468a3b205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: {fileID: 0}
+  Text: {fileID: 102729521398039478}
   IconRenderer: {fileID: 0}
 --- !u!114 &114756623273882100
 MonoBehaviour:
@@ -4100,7 +4099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3eaa4e18f85a44fa7bbe5468a3b205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: {fileID: 0}
+  Text: {fileID: 102698822614139458}
   IconRenderer: {fileID: 0}
 --- !u!114 &114935304842514916
 MonoBehaviour:

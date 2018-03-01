@@ -89,7 +89,6 @@ public class CameraController : MonoBehaviour
     public void FocusReset()
     {
         FocusAt(originalPosition, originalRotation);
-       isMoveFreeCam=true;
     }
     #endregion
 }
