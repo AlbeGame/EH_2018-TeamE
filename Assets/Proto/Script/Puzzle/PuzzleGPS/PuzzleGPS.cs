@@ -129,6 +129,9 @@ public class PuzzleGPS : SelectableItem, IPuzzle
 
         int randOrient = Random.Range(0, 4);
         solutionOrientation = randOrient * 90;
+
+        Debugger.DebugLogger.LogText(gameObject.name + gameObject.GetInstanceID());
+        Debugger.DebugLogger.LogText(solutionCoordinates.ToString());
     }
 
     void CheckSolution()

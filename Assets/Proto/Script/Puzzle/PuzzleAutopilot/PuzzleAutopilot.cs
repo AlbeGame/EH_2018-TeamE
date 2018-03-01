@@ -176,19 +176,19 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
         solutionCombinantion[1] = fase2index;
 
         //DEBUG---------
-        Debug.Log(gameObject.name);
+        Debugger.DebugLogger.LogText(gameObject.name + gameObject.GetInstanceID());
         string fase1Sol = "Fase1Sol: ";
         foreach (InputValue iVal in data.Fase1[fase1index].Solution)
         {
             fase1Sol += iVal.ToString() + ",";
         }
-        Debug.Log(name + "_" + fase1Sol);
+        Debugger.DebugLogger.LogText(fase1Sol);
         string fase2Sol = "Fase2Sol: ";
         foreach (InputValue iVal in data.Fase2[fase2index].Solution)
         {
             fase2Sol += iVal.ToString() + ",";
         }
-        Debug.Log(name + "_" + fase2Sol);
+        Debugger.DebugLogger.LogText(fase2Sol);
         //--------------
     }
 

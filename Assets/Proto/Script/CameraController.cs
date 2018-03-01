@@ -23,7 +23,6 @@ public class CameraController : MonoBehaviour
     {
         originalRotation = transform.rotation;
         originalPosition = transform.position;
-        isMoveFreeCam = true;
     }
 
     void Update()

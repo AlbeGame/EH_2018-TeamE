@@ -94,6 +94,9 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
 
         newComb.ResetEValues();
         combination = newComb;
+
+        Debugger.DebugLogger.LogText(gameObject.name + gameObject.GetInstanceID());
+        Debugger.DebugLogger.LogText(combination.Solution[0].Label + "_" + combination.Solution[1].Label);
     }
     TurbineButtonData GetUnchosenButton(List<TurbineButtonData> alreadyChosen) {
         List<TurbineButtonData> possibles = data.ButtonsValues.ToList();
