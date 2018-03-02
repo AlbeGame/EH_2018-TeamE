@@ -74,6 +74,7 @@ public class PuzzleGPS : SelectableItem, IPuzzle
     }
     #endregion
 
+    #region Selectable Behaviours
     protected override void OnInitEnd(SelectableAbstract _parent)
     {
         InitOutputMonitor();
@@ -86,6 +87,16 @@ public class PuzzleGPS : SelectableItem, IPuzzle
         if(SolutionState == PuzzleState.Unsolved)
             base.OnStateChange(_state);
     }
+
+    protected override void OnSelect()
+    {
+        base.OnSelect();
+
+        Debugger.DebugLogger.LogText("------------//" + gameObject.name + "//-----------");
+        Debugger.DebugLogger.LogText(gameObject.name + gameObject.GetInstanceID());
+        Debugger.DebugLogger.LogText(solutionCoordinates.ToString());
+    }
+    #endregion
 
     void OnSolutionStateChange(PuzzleState _solutionState)
     {
@@ -129,9 +140,6 @@ public class PuzzleGPS : SelectableItem, IPuzzle
 
         int randOrient = Random.Range(0, 4);
         solutionOrientation = randOrient * 90;
-
-        Debugger.DebugLogger.LogText(gameObject.name + gameObject.GetInstanceID());
-        Debugger.DebugLogger.LogText(solutionCoordinates.ToString());
     }
 
     void CheckSolution()

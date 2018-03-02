@@ -68,6 +68,14 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
         if (graphicCtrl && SolutionState == PuzzleState.Unsolved)
             graphicCtrl.Paint(_state);
     }
+
+    protected override void OnSelect()
+    {
+        base.OnSelect();
+
+        Debugger.DebugLogger.LogText("------------//"+gameObject.name + "//-----------");
+        Debugger.DebugLogger.LogText(combination.Solution[0].Label + "_" + combination.Solution[1].Label);
+    }
     #endregion
 
     #region Setup and Init specific
@@ -94,9 +102,6 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
 
         newComb.ResetEValues();
         combination = newComb;
-
-        Debugger.DebugLogger.LogText(gameObject.name + gameObject.GetInstanceID());
-        Debugger.DebugLogger.LogText(combination.Solution[0].Label + "_" + combination.Solution[1].Label);
     }
     TurbineButtonData GetUnchosenButton(List<TurbineButtonData> alreadyChosen) {
         List<TurbineButtonData> possibles = data.ButtonsValues.ToList();

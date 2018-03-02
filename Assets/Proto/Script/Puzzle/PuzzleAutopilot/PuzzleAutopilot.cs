@@ -90,6 +90,7 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
     public void OnUpdateSelectable(SelectableAbstract _selectable) { }
     #endregion
 
+    #region Selectable Behaviours
     protected override void OnInitEnd(SelectableAbstract _parent)
     {
         //Inizializza gli elementi di Input
@@ -102,6 +103,26 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
         isFase1Solved = false;
         isFase2Solved = false;
     }
+
+    protected override void OnSelect()
+    {
+        base.OnSelect();
+
+        Debugger.DebugLogger.LogText("------------//" + gameObject.name + "//-----------");
+        string fase1Sol = "Fase1Sol: ";
+        foreach (InputValue iVal in data.Fase1[solutionCombinantion[0]].Solution)
+        {
+            fase1Sol += iVal.ToString() + ",";
+        }
+        Debugger.DebugLogger.LogText(fase1Sol);
+        string fase2Sol = "Fase2Sol: ";
+        foreach (InputValue iVal in data.Fase2[solutionCombinantion[1]].Solution)
+        {
+            fase2Sol += iVal.ToString() + ",";
+        }
+        Debugger.DebugLogger.LogText(fase2Sol);
+    }
+    #endregion
 
     void InitSwitches()
     {
@@ -174,22 +195,6 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
 
         int fase2index = Random.Range(0, data.Fase2.Count);
         solutionCombinantion[1] = fase2index;
-
-        //DEBUG---------
-        Debugger.DebugLogger.LogText(gameObject.name + gameObject.GetInstanceID());
-        string fase1Sol = "Fase1Sol: ";
-        foreach (InputValue iVal in data.Fase1[fase1index].Solution)
-        {
-            fase1Sol += iVal.ToString() + ",";
-        }
-        Debugger.DebugLogger.LogText(fase1Sol);
-        string fase2Sol = "Fase2Sol: ";
-        foreach (InputValue iVal in data.Fase2[fase2index].Solution)
-        {
-            fase2Sol += iVal.ToString() + ",";
-        }
-        Debugger.DebugLogger.LogText(fase2Sol);
-        //--------------
     }
 
     void DoWinningthings()
@@ -199,6 +204,7 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
         graphicCtrl.Paint(_solutionState);
         State = SelectionState.Unselectable;
     }
+
     void DoBreakingThings()
     {
         (GetRoot() as SelectionRoot).NotifyPuzzleBreakdown(this);

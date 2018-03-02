@@ -20,6 +20,7 @@ public class Debugger : MonoBehaviour {
     {
         //Pay attention: property of singleton paradigm
         DebugLogger = this;
+        Init();
     }
     #endregion
 
@@ -34,10 +35,6 @@ public class Debugger : MonoBehaviour {
         view.gameObject.SetActive(false);
 	}
 
-    private void Start()
-    {
-        Init();
-    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F12))
