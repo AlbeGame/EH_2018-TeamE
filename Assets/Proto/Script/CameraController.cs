@@ -4,16 +4,20 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class CameraController : MonoBehaviour
 {
-    float rangeView = 90.0f;
+    
+    public float RotSpeed = 2.5F;
+    public float minY = -30.0f;
+    public float maxY = 30.0f;
+    float RotLeftRight;
+    float RotUpDown;
+    Vector3 euler;
     public float MovementSpeed = 0.2f;
-
     bool _isMoveFreeCam;
 	public bool isMoveFreeCam
     {
         get { return _isMoveFreeCam; }
         set { _isMoveFreeCam = value; }
     }
-    public float sensitivity;
 
     Quaternion originalRotation;
     Vector3 originalPosition;
@@ -35,28 +39,17 @@ public class CameraController : MonoBehaviour
 
     void RotateCamera()
     {
+        transform.localEulerAngles = euler;
+        RotLeftRight = Input.GetAxis("Mouse X") * RotSpeed;
+        RotUpDown = Input.GetAxis("Mouse Y") * RotSpeed;
 
-        float RotationY = transform.localEulerAngles.y + Input.GetAxis("Mouse X")*5;
-        float RotationX = transform.localEulerAngles.x - Input.GetAxis("Mouse Y")*5;
-        gameObject.transform.localEulerAngles = new Vector3(RotationX, RotationY, 0);
-        RotationX = Mathf.Clamp(RotationY, -90, 90);
+        euler.y += RotLeftRight;
+        euler.x -= RotUpDown;
 
-
-        
-       
-        // cameraTransform.localRotation *= Quaternion.Euler(0,-newRotationY, 0);
-
-        /* if (transform.localEulerAngles.y > rangeView)
-         {
-             transform.localEulerAngles = new Vector3(0, 90, 0);
-         }
-         else
-         {
-             if (transform.localEulerAngles.y < -rangeView)
-             {
-                 transform.localEulerAngles = new Vector3(0, -90, 0);
-             }
-         }*/
+        if (euler.x >= maxY)
+            euler.x = maxY;
+        if (euler.x <= minY)
+            euler.x = minY;
 
 
     }
