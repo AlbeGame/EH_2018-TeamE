@@ -11,11 +11,14 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
     public SelectableButton resetButton = new SelectableButton();
 
     #endregion
-
+    Altimetro addTime;
     PuzzleTurbineData data;
     PuzzleCombination combination;
     List<SliderController> Sliders = new List<SliderController>();
-
+    void Start()
+    {
+        addTime = FindObjectOfType<Altimetro>();
+    }
     #region IPuzzle
     PuzzleState _solutionState = PuzzleState.Unsolved;
     public PuzzleState SolutionState {
@@ -200,6 +203,7 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
 
     void DoBreakThings() {
         (GetRoot() as SelectionRoot).NotifyPuzzleBreakdown(this);
+        addTime.DropSpeed += 2.9F;
     }
 
     void UpdateSliderValues() {
