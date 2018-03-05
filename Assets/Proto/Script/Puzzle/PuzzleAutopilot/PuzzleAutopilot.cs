@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class PuzzleAutopilot : SelectableItem, IPuzzle {
 
-    Altimetro addTime;
+  
     PuzzleAutopilotData data;
     public AutopilotIO Interactables;
     //Indice relativo alla soluzione scelta in data.Fase#
     //I due indici dell'array sono le due possibili fasi.
     int[] solutionCombinantion = new int[2];
 
-    void Start()
-    {
-        addTime = FindObjectOfType<Altimetro>();
-    }
+  
 
     int _currentSolIndex;
     int currentSolutionIndex
@@ -217,8 +214,6 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
         graphicCtrl.Paint(_solutionState);
         State = SelectionState.Unselectable;
         Parent.Select(true);
-        addTime.DropSpeed += 2.9F;
-        
     }
 
     bool CompareInputWithSolution(InputValue _input)

@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class Altimetro : MonoBehaviour
 {
-    public Text GameOverText;
     int updateTimer = 0;
     public GameObject ArrowToMove;
     public float DropSpeed = 1.0f;
@@ -29,8 +28,6 @@ public class Altimetro : MonoBehaviour
         if (currentAltitude <= 0)
         {
             currentAltitude = 0;
-            GameOverText.text = "GAME OVER";
-            Time.timeScale = 0f;
             return;
         }
 

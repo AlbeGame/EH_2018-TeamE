@@ -1811,7 +1811,6 @@ GameObject:
   - component: {fileID: 1181254661}
   - component: {fileID: 1181254664}
   - component: {fileID: 1181254663}
-  - component: {fileID: 1181254662}
   m_Layer: 0
   m_Name: CamForMapAltimetro
   m_TagString: Untagged
@@ -1832,13 +1831,6 @@ Transform:
   m_Father: {fileID: 1004798387}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!81 &1181254662
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1181254660}
-  m_Enabled: 1
 --- !u!124 &1181254663
 Behaviour:
   m_ObjectHideFlags: 0
@@ -3132,7 +3124,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1952813600}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.2819299
+  m_Size: 0.19644728
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3544,7 +3536,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -238.6, y: -10.77}
+  m_AnchoredPosition: {x: -238.60002, y: -10.769989}
   m_SizeDelta: {x: 278.04, y: 18.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1998894141

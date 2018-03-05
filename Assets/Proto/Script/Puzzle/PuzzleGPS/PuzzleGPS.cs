@@ -4,15 +4,13 @@ public class PuzzleGPS : SelectableItem, IPuzzle
 {
     PuzzleGPSData data;
     public GPS_IO Interactables;
-    Altimetro addTime;
+    
     Vector2Int solutionCoordinates;
     float solutionOrientation;
 
     SelectableMonitor currentSelectedMonitor;
-    void Start()
-    {
-        addTime = FindObjectOfType<Altimetro>();
-    }
+    
+   
     #region IPuzzle
     PuzzleState _solutionState = PuzzleState.Unsolved;
     public PuzzleState SolutionState
@@ -166,7 +164,7 @@ public class PuzzleGPS : SelectableItem, IPuzzle
     {
         (GetRoot() as SelectionRoot).NotifyPuzzleBreakdown(this);
         graphicCtrl.Paint(_solutionState);
-        addTime.DropSpeed += 2.9F;
+       
     }
 
     [System.Serializable]
