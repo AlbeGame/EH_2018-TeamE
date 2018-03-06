@@ -4,7 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class CameraController : MonoBehaviour
 {
-    
     public float RotSpeed = 2.5F;
     public float minY = -30.0f;
     public float maxY = 30.0f;
@@ -25,6 +24,7 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
+        euler = new Vector3(0, 90, 0);
         originalRotation = transform.rotation;
         originalPosition = transform.position;
     }
@@ -39,6 +39,7 @@ public class CameraController : MonoBehaviour
 
     void RotateCamera()
     {
+     
         transform.localEulerAngles = euler;
         RotLeftRight = Input.GetAxis("Mouse X") * RotSpeed;
         RotUpDown = Input.GetAxis("Mouse Y") * RotSpeed;

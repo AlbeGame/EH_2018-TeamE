@@ -35,6 +35,12 @@ public class Altimetro : MonoBehaviour
         
     }
     
+    //function for add speed at dropspeed...i must see still
+    public void AddTime()
+    {
+        DropSpeed += 3.5F;
+    }
+
     void GetMoveAltimeter()
     {
         float currentAngle = (360 * currentAltitude) / MaxAltitude;

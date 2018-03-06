@@ -3011,6 +3011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62752958fcdf8194697ac5b86296c370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camMove: {fileID: 1789302192}
   RotSpeed: 2.5
   minY: -30
   maxY: 30
