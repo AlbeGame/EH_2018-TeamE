@@ -13,15 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab: {fileID: 1789942624344764, guid: f7e2dc2dae189ae45be194c87221109a, type: 2}
   PossibleCoordinates:
-  - {x: 80, y: 36}
-  - {x: 83, y: 38}
-  - {x: 83, y: 32}
-  - {x: 83, y: 20}
-  - {x: 86, y: 41}
-  - {x: 87, y: 36}
-  - {x: 87, y: 24}
-  - {x: 87, y: 18}
-  Grid:
-    MinMaxLongitude: {x: 77, y: 92}
-    MinMaxLatitude: {x: 15, y: 45}
-    CellPerEdge: 6
+  - Coordinate: {x: 36, y: 86}
+    MonitorImage: {fileID: 2800000, guid: ae288845a9c02b642abe7d45ad77fea4, type: 3}
+  - Coordinate: {x: 35, y: 90}
+    MonitorImage: {fileID: 2800000, guid: c6b555b586e44e74abda730b1732030a, type: 3}
+  - Coordinate: {x: 38, y: 83}
+    MonitorImage: {fileID: 2800000, guid: 1fb5c3777f3a3434996ea6e1981eef67, type: 3}
