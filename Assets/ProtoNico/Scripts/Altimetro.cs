@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Altimetro : MonoBehaviour
 {
+    float multiplier = 1.3f;
     int updateTimer = 0;
     public GameObject ArrowToMove;
     public float DropSpeed = 1.0f;
@@ -35,12 +36,8 @@ public class Altimetro : MonoBehaviour
         
     }
     
-    //function for add speed at dropspeed...i must see still
-    public void AddTime()
-    {
-        DropSpeed += 3.5F;
-    }
-
+    
+    
     void GetMoveAltimeter()
     {
         float currentAngle = (360 * currentAltitude) / MaxAltitude;
@@ -49,5 +46,17 @@ public class Altimetro : MonoBehaviour
 
         ArrowToMove.transform.localRotation = Quaternion.AngleAxis(currentAngle, Vector3.forward);
     }
+
+
+    //funzione che aggiunge 0.3 al multiplier per poi moltiplicandolo con il time "attuale in game" per ogni volta che si distrugge un oggetto in scena
+    public void AddTime()
+    {
+         
+        currentAltitude *= multiplier;
+        multiplier = multiplier + 0.3f;
+
+        
+    }
+
 }
 
