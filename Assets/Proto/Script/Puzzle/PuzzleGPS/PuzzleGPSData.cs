@@ -6,12 +6,23 @@ public class PuzzleGPSData : ScriptableObject, IPuzzleData {
     public GameObject Prefab;
 
     [Header("(Longitude, Latitude)")]
-    public List<Vector2Int> PossibleCoordinates = new List<Vector2Int>();
-    public GridData Grid;
+    public List<PossibleCoordinate> PossibleCoordinates = new List<PossibleCoordinate>();
+    /// <summary>
+    /// [Deprecated] No longer needed
+    /// </summary>
+    /// <returns></returns>
+    //public GridData Grid;
 
     public GameObject GetIPuzzleGO()
     {
         return Prefab;
+    }
+
+    [System.Serializable]
+    public struct PossibleCoordinate
+    {
+        public Vector2Int Coordinate;
+        public Texture MonitorImage;
     }
 
     [System.Serializable]

@@ -110,6 +110,7 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
     {
         base.OnSelect();
 
+        Debugger.DebugLogger.Clean();
         Debugger.DebugLogger.LogText("------------//" + gameObject.name + "//-----------");
         string fase1Sol = "Fase1Sol: ";
         foreach (InputValue iVal in data.Fase1[solutionCombinantion[0]].Solution)

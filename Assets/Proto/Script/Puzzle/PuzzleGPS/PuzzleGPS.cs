@@ -4,8 +4,8 @@ public class PuzzleGPS : SelectableItem, IPuzzle
 {
     PuzzleGPSData data;
     public GPS_IO Interactables;
-    
-    Vector2Int solutionCoordinates;
+
+    PuzzleGPSData.PossibleCoordinate solutionCoordinates;
     float solutionOrientation;
 
     SelectableMonitor currentSelectedMonitor;
@@ -93,9 +93,10 @@ public class PuzzleGPS : SelectableItem, IPuzzle
     {
         base.OnSelect();
 
+        Debugger.DebugLogger.Clean();
         Debugger.DebugLogger.LogText("------------//" + gameObject.name + "//-----------");
         Debugger.DebugLogger.LogText(gameObject.name + gameObject.GetInstanceID());
-        Debugger.DebugLogger.LogText(solutionCoordinates.ToString());
+        Debugger.DebugLogger.LogText(solutionCoordinates.Coordinate.ToString());
     }
     #endregion
 
@@ -130,7 +131,7 @@ public class PuzzleGPS : SelectableItem, IPuzzle
 
     void InitOutputMonitor()
     {
-        Interactables.OutputMonitor.Init(data.Grid);
+        Interactables.OutputMonitor.Init(data);
         Interactables.OutputMonitor.DisplayAndRotate(solutionCoordinates, solutionOrientation);
     }
 
@@ -148,7 +149,7 @@ public class PuzzleGPS : SelectableItem, IPuzzle
         int latitude = (Interactables.Latitude.InputData as PuzzleGPSMonitorData).coordinateValue;
         int longitude = (Interactables.Longitude.InputData as PuzzleGPSMonitorData).coordinateValue;
 
-        if (solutionCoordinates.x == longitude && solutionCoordinates.y == latitude)
+        if (solutionCoordinates.Coordinate.x == longitude && solutionCoordinates.Coordinate.y == latitude)
             DoWinningThings();
         else
             DoBreakingThings();

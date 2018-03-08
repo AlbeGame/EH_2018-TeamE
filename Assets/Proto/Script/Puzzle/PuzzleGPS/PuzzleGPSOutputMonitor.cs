@@ -10,21 +10,21 @@ public class PuzzleGPSOutputMonitor : MonoBehaviour {
     public GameObject SText;
     public GameObject WText;
     Material mapMaterial;
-    PuzzleGPSData.GridData data;
+    PuzzleGPSData data;
 
     private void Start()
     {
         InitMapMaterial();
     }
 
-    public void Init(PuzzleGPSData.GridData _data)
+    public void Init(PuzzleGPSData _data)
     {
         data = _data;
 
         if (!mapMaterial)
             InitMapMaterial();
 
-        mapMaterial.SetTextureScale("_MainTex", data.Scale);
+        //mapMaterial.SetTextureScale("_MainTex", data.Scale);
     }
 
     void InitMapMaterial()
@@ -37,20 +37,26 @@ public class PuzzleGPSOutputMonitor : MonoBehaviour {
     /// It display specific coordinates on the monitor and rotate it with a specific angle
     /// </summary>
     /// <param name="_coordinatesToDisplay"></param>
-    public void DisplayAndRotate(Vector2Int _coordinatesToDisplay, float _angle)
+    public void DisplayAndRotate(PuzzleGPSData.PossibleCoordinate _coordinatesToDisplay, float _angle)
     {
         DisplayCoordinates(_coordinatesToDisplay);
         Rotate(_angle);
     }
+
+    public void DisplayCoordinates(PuzzleGPSData.PossibleCoordinate _coordToShow)
+    {
+        mapMaterial.mainTexture = _coordToShow.MonitorImage;
+    }
     /// <summary>
+    /// [Deprecated] use ShowCoordinates instead
     /// Displays a specific coordinate on the monitor
     /// </summary>
     /// <param name="_coordinatesToDisplay"></param>
-    public void DisplayCoordinates(Vector2Int _coordinatesToDisplay)
-    {
-        Vector2 lowleftCorner = _coordinatesToDisplay - new Vector2(data.MinMaxLongitude.x, data.MinMaxLatitude.y) - Vector2.one*data.CellPerEdge/2;
-        mapMaterial.SetTextureOffset("_MainTex", new Vector2(data.GridTileDimension.x* lowleftCorner.x, data.GridTileDimension.y * lowleftCorner.y));
-    }
+    //public void DisplayCoordinates(Vector2Int _coordinatesToDisplay)
+    //{
+    //    Vector2 lowleftCorner = _coordinatesToDisplay - new Vector2(data.MinMaxLongitude.x, data.MinMaxLatitude.y) - Vector2.one * data.CellPerEdge / 2;
+    //    mapMaterial.SetTextureOffset("_MainTex", new Vector2(data.GridTileDimension.x * lowleftCorner.x, data.GridTileDimension.y * lowleftCorner.y));
+    //}
     /// <summary>
     /// Rotates the monitor by a specific angle
     /// </summary>
@@ -66,13 +72,13 @@ public class PuzzleGPSOutputMonitor : MonoBehaviour {
                 NText.SetActive(true);
                 break;
             case 1:
-                EText.SetActive(true);
+                WText.SetActive(true);
                 break;
             case 2:
                 SText.SetActive(true);
                 break;
             case 3:
-                WText.SetActive(true);
+                EText.SetActive(true);
                 break;
             default:
                 break;

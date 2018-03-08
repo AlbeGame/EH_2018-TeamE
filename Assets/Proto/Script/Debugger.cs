@@ -41,6 +41,11 @@ public class Debugger : MonoBehaviour {
             view.gameObject.SetActive(!view.gameObject.activeSelf);
     }
 
+    public void Clean()
+    {
+        textToLog.text = "";
+    }
+
     public void LogText(string _textToLog)
     {
         textToLog.text += "\r\n" + _textToLog;

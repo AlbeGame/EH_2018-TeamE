@@ -72,7 +72,7 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
     protected override void OnSelect()
     {
         base.OnSelect();
-
+        Debugger.DebugLogger.Clean();
         Debugger.DebugLogger.LogText("------------//"+gameObject.name + "//-----------");
         Debugger.DebugLogger.LogText(combination.Solution[0].Label + "_" + combination.Solution[1].Label);
     }
