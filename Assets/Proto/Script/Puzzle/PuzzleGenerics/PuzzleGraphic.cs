@@ -20,6 +20,9 @@ public class PuzzleGraphic : MonoBehaviour
                     meshRenderers.Add(renderer);
         }
 
+        if(data.ParticlesGroup != null)
+            data.ParticlesGroup.SetActive(false);
+
         Paint(data.NeutralMat);
     }
 
@@ -55,12 +58,24 @@ public class PuzzleGraphic : MonoBehaviour
         switch (_state)
         {
             case PuzzleState.Unsolved:;
-            break;
+                if(data.Lights != null)
+                    data.Lights.material = data.EmissiveNegative;
+                if (data.ParticlesGroup != null)
+                    data.ParticlesGroup.SetActive(false);
+                break;
             case PuzzleState.Broken:
                 Paint(data.BrokenMat);
+                if(data.Lights != null)
+                    data.Lights.material = data.EmissiveNegative;
+                if (data.ParticlesGroup != null)
+                    data.ParticlesGroup.SetActive(true);
                 break;
             case PuzzleState.Solved:
                 Paint(data.SolvedMat);
+                if(data.ParticlesGroup != null)
+                    data.ParticlesGroup.SetActive(false);
+                if(data.Lights != null)
+                    data.Lights.material = data.EmissivePositive;
                 break;
             default:
                 break;
@@ -71,7 +86,14 @@ public class PuzzleGraphic : MonoBehaviour
     {
         foreach (Renderer renderer in meshRenderers)
         {
-            renderer.material = _mat;
+            Material[] newMaterials = renderer.materials;
+            for (int i = 0; i < newMaterials.Length; i++)
+            {
+                if (renderer == data.Lights && i == 0)
+                    continue;
+                newMaterials[i] = _mat;
+            }
+            renderer.materials = newMaterials;
         }
     }
 }
@@ -81,6 +103,14 @@ public class PuzzleGraphicData
 {
     [Tooltip("Lista di tutti i renderer figli che verranno ignorati da tutte le variazioni di colore del puzzle")]
     public List<Renderer> DoNotPaintItems = new List<Renderer>();
+
+    [Header("Puzzle Lights")]
+    public MeshRenderer Lights;
+    public Material EmissivePositive;
+    public Material EmissiveNegative;
+
+    [Header("Puzzle Particles")]
+    public GameObject ParticlesGroup;
 
     [Header("Materials"), Space]
     public Material PassiveMat;

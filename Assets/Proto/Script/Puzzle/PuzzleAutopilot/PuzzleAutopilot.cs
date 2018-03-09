@@ -47,7 +47,8 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
             return _solutionState;
         }
 
-        set {
+        set
+        {
             _solutionState = value;
         }
     }
