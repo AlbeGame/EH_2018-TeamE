@@ -82,6 +82,7 @@ public class CameraController : MonoBehaviour
     /// </summary>
     public void FocusReset()
     {
+        euler = new Vector3(0, 90, 0);
         FocusAt(originalPosition, originalRotation);
     }
     #endregion

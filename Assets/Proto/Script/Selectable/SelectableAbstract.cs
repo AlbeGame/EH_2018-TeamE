@@ -101,7 +101,8 @@ public abstract class SelectableAbstract : MonoBehaviour
         switch (_state)
         {
             case SelectionState.Unselectable:
-                Parent.Children.Remove(this);
+                foreach (SelectableAbstract child in Children)
+                    child.State = SelectionState.Unselectable;
                 break;
             case SelectionState.Neutral:
                 foreach (SelectableAbstract child in Children)
@@ -119,7 +120,11 @@ public abstract class SelectableAbstract : MonoBehaviour
                 //    Parent.SelectedScion = this;
                 //Unlock neutral state for children
                 foreach (SelectableAbstract child in Children)
+                {
+                    if (child.State == SelectionState.Unselectable)
+                        continue;
                     child.State = SelectionState.Neutral;
+                }
                 break;
             case SelectionState.Passive:
                 if (hasASelectedChild)
