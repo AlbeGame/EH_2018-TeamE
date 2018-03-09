@@ -72,13 +72,13 @@ public class PuzzleGPSOutputMonitor : MonoBehaviour {
                 NText.SetActive(true);
                 break;
             case 1:
-                WText.SetActive(true);
+                EText.SetActive(true);
                 break;
             case 2:
                 SText.SetActive(true);
                 break;
             case 3:
-                EText.SetActive(true);
+                WText.SetActive(true);
                 break;
             default:
                 break;
