@@ -9,9 +9,14 @@ ModelImporter:
     400000: //RootNode
     2100000: blinn1
     2100002: lambert2
+    2100004: lambert10
+    2100006: blinn3
+    2100008: lambert9
+    2100010: lambert3
     2300000: //RootNode
     3300000: //RootNode
     4300000: Lights_Green_Red
+    4300002: polySurface62
   externalObjects: {}
   materials:
     importMaterials: 1
