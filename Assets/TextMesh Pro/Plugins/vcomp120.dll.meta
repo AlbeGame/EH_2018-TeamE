@@ -9,18 +9,6 @@ PluginImporter:
   isOverridable: 0
   platformData:
   - first:
-      '': OSXIntel
-    second:
-      enabled: 0
-      settings:
-        CPU: AnyCPU
-  - first:
-      '': OSXIntel64
-    second:
-      enabled: 0
-      settings:
-        CPU: AnyCPU
-  - first:
       '': WP8
     second:
       enabled: 0
@@ -71,6 +59,18 @@ PluginImporter:
       enabled: 0
       settings:
         CPU: x86_64
+  - first:
+      Standalone: OSXIntel
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+  - first:
+      Standalone: OSXIntel64
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
   - first:
       Standalone: Win
     second:
