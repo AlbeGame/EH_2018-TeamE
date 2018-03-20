@@ -10,6 +10,8 @@ public class Altimetro : MonoBehaviour
     public float DropSpeed = 1.0f;
     public float MaxAltitude = 1000;
     public float currentAltitude;
+    
+    private int SecondsToMove;
 
     private void Start()
     {
@@ -22,6 +24,7 @@ public class Altimetro : MonoBehaviour
     {
         UpdateAltitude();
         GetMoveAltimeter();
+       // GetMoveArrowSeconds();
     }
 
     void UpdateAltitude()
@@ -47,6 +50,12 @@ public class Altimetro : MonoBehaviour
         ArrowToMove.transform.localRotation = Quaternion.AngleAxis(currentAngle, Vector3.forward);
     }
 
+    //muove la seconda freccia più sottile al secondo 
+    void GetMoveArrowSeconds()
+    {
+        SecondsToMove = (int)(Time.time % 60);
+        gameObject.transform.localRotation = Quaternion.AngleAxis(SecondsToMove, Vector3.back);
+    }
 
     //funzione che aggiunge 0.3 al multiplier per poi moltiplicandolo con il time "attuale in game" per ogni volta che si distrugge un oggetto in scena
     public void AddTime()
