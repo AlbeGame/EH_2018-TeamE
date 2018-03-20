@@ -5,7 +5,7 @@ public class SelectableItem : SelectableAbstract
 {
     public PuzzleGraphicData GraphicData;
     protected PuzzleGraphic graphicCtrl;
-
+   
     public PuzzleInteractionData InteractionData;
     protected PuzzleInteraction interactionCtrl;
 
@@ -22,6 +22,7 @@ public class SelectableItem : SelectableAbstract
         if (interactionCtrl == null)
             interactionCtrl = gameObject.AddComponent<PuzzleInteraction>();
         interactionCtrl.Init(InteractionData);
+        
     }
 
     protected override void OnSelect()
