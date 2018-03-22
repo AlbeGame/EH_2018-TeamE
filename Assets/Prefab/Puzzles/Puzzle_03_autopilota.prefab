@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 114236893908819526}
   - component: {fileID: 65648489892870940}
   m_Layer: 0
-  m_Name: Bottoncino_puzzle_03
+  m_Name: Bottoncino_puzzle_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 114428762630910542}
   - component: {fileID: 65921402355121500}
   m_Layer: 0
-  m_Name: Bottoncino_puzzle_03
+  m_Name: Bottoncino_puzzle_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -716,7 +716,7 @@ GameObject:
   - component: {fileID: 114482687526228244}
   - component: {fileID: 65605300405370074}
   m_Layer: 0
-  m_Name: Bottoncino_puzzle_03
+  m_Name: Bottoncino_puzzle_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -765,7 +765,7 @@ GameObject:
   - component: {fileID: 114379223810812690}
   - component: {fileID: 65491652388422494}
   m_Layer: 0
-  m_Name: Bottoncino_puzzle_03
+  m_Name: Bottoncino_puzzle_G
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -799,7 +799,7 @@ GameObject:
   - component: {fileID: 114209062547340872}
   - component: {fileID: 65287555807974474}
   m_Layer: 0
-  m_Name: Bottoncino_puzzle_03
+  m_Name: Bottoncino_puzzle_F
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -946,7 +946,7 @@ GameObject:
   - component: {fileID: 114353745500847370}
   - component: {fileID: 65064761711345532}
   m_Layer: 0
-  m_Name: Bottoncino_puzzle_03
+  m_Name: Bottoncino_puzzle_K
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1969,7 +1969,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1904049528373270}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0.3501, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4732504276516800}
@@ -4499,13 +4499,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialsCDEHIJ:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Icon: {fileID: 0}
+  - {fileID: 2100000, guid: b92733fde7906e548906a099d66da69d, type: 2}
+  - {fileID: 2100000, guid: 43cf6f10abdb1a848aa1593809c26747, type: 2}
+  - {fileID: 2100000, guid: 4226fb7f5339d44419cf0fde0e42ada4, type: 2}
+  - {fileID: 2100000, guid: 59b4a48f99f36af4eaae7aabe77b708e, type: 2}
+  - {fileID: 2100000, guid: fe6a472c6990bee49aeb5adb2c99cb4c, type: 2}
+  - {fileID: 2100000, guid: 98d1dfc616d882146988cc17c1a0ddc0, type: 2}
+  Icon: {fileID: 23310340215027420}
 --- !u!114 &114209062547340872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4544,13 +4544,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialsCDEHIJ:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Icon: {fileID: 0}
+  - {fileID: 2100000, guid: b92733fde7906e548906a099d66da69d, type: 2}
+  - {fileID: 2100000, guid: 43cf6f10abdb1a848aa1593809c26747, type: 2}
+  - {fileID: 2100000, guid: 4226fb7f5339d44419cf0fde0e42ada4, type: 2}
+  - {fileID: 2100000, guid: 59b4a48f99f36af4eaae7aabe77b708e, type: 2}
+  - {fileID: 2100000, guid: fe6a472c6990bee49aeb5adb2c99cb4c, type: 2}
+  - {fileID: 2100000, guid: 98d1dfc616d882146988cc17c1a0ddc0, type: 2}
+  Icon: {fileID: 23244332659506708}
 --- !u!114 &114271947116117416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4563,31 +4563,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GraphicData:
-    DoNotPaintItems: []
-    Lights: {fileID: 0}
-    EmissivePositive: {fileID: 0}
-    EmissiveNegative: {fileID: 0}
+    DoNotPaintItems:
+    - {fileID: 23161535414465076}
+    - {fileID: 23160227911021646}
+    - {fileID: 23490170846245826}
+    - {fileID: 23345228739830880}
+    - {fileID: 23244332659506708}
+    - {fileID: 23932010775206346}
+    - {fileID: 23184512801321576}
+    - {fileID: 23359995269574920}
+    - {fileID: 23310340215027420}
+    Lights: {fileID: 23528473516560198}
+    EmissivePositive: {fileID: 2100000, guid: 389021201113423418b16267fd002ac8, type: 2}
+    EmissiveNegative: {fileID: 2100000, guid: 46f7dc8ce67ca07469b340759d89072b, type: 2}
     ParticlesGroup: {fileID: 1266975677911908}
-    PassiveMat: {fileID: 0}
-    NeutralMat: {fileID: 0}
-    HighlightedMat: {fileID: 0}
-    SelectedMat: {fileID: 0}
-    BrokenMat: {fileID: 0}
-    SolvedMat: {fileID: 0}
+    PassiveMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
+    NeutralMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
+    HighlightedMat: {fileID: 2100000, guid: 12f28803ed2e7784288642de0e738aaa, type: 2}
+    SelectedMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
+    BrokenMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
+    SolvedMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
   InteractionData:
     CameraFocusPosition: {fileID: 4627323625435046}
   Interactables:
-    ButtonA: {fileID: 0}
-    ButtonB: {fileID: 0}
-    ButtonF: {fileID: 0}
-    ButtonG: {fileID: 0}
-    ButtonK: {fileID: 0}
-    ButtonL: {fileID: 0}
+    ButtonA: {fileID: 114428762630910542}
+    ButtonB: {fileID: 114482687526228244}
+    ButtonF: {fileID: 114209062547340872}
+    ButtonG: {fileID: 114379223810812690}
+    ButtonK: {fileID: 114353745500847370}
+    ButtonL: {fileID: 114236893908819526}
     MonitorFase1: {fileID: 114480532649506702}
     MonitorFase2: {fileID: 114255236225213978}
     MonitorFaseOK: {fileID: 114015529440005340}
-    LevaSx: {fileID: 0}
-    LevaDx: {fileID: 0}
+    LevaSx: {fileID: 114620048821565744}
+    LevaDx: {fileID: 114578606226114778}
 --- !u!114 &114353745500847370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4639,13 +4648,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialsCDEHIJ:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Icon: {fileID: 0}
+  - {fileID: 2100000, guid: b92733fde7906e548906a099d66da69d, type: 2}
+  - {fileID: 2100000, guid: 43cf6f10abdb1a848aa1593809c26747, type: 2}
+  - {fileID: 2100000, guid: 4226fb7f5339d44419cf0fde0e42ada4, type: 2}
+  - {fileID: 2100000, guid: 59b4a48f99f36af4eaae7aabe77b708e, type: 2}
+  - {fileID: 2100000, guid: fe6a472c6990bee49aeb5adb2c99cb4c, type: 2}
+  - {fileID: 2100000, guid: 98d1dfc616d882146988cc17c1a0ddc0, type: 2}
+  Icon: {fileID: 23490170846245826}
 --- !u!114 &114482687526228244
 MonoBehaviour:
   m_ObjectHideFlags: 1
