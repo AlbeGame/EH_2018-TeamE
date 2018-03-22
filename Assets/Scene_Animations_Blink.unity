@@ -11813,6 +11813,23 @@ Transform:
   m_Father: {fileID: 1330430692}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &546249882 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1930869938958774, guid: f7e2dc2dae189ae45be194c87221109a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1338196866}
+--- !u!114 &546249885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 546249882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3442172d53e488f44a665a4ab7856493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 975504542}
 --- !u!1 &558803728
 GameObject:
   m_ObjectHideFlags: 0
@@ -16035,6 +16052,23 @@ Transform:
   m_Father: {fileID: 1840998903}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &860744749 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1665172054959986, guid: f7e2dc2dae189ae45be194c87221109a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1338196866}
+--- !u!114 &860744751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 860744749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3442172d53e488f44a665a4ab7856493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1760183996}
 --- !u!1 &883068631
 GameObject:
   m_ObjectHideFlags: 0
@@ -16522,6 +16556,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 970220749}
   m_Mesh: {fileID: 4300000, guid: fff6cd2f9363cff4c914c5319ad19b18, type: 3}
+--- !u!102 &975504542 stripped
+TextMesh:
+  m_PrefabParentObject: {fileID: 102504835808904068, guid: f7e2dc2dae189ae45be194c87221109a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1338196866}
 --- !u!1 &1003617671 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1550786742091490, guid: 59c531f328edafb41b0422706d45362d,
@@ -26247,6 +26286,11 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!102 &1760183996 stripped
+TextMesh:
+  m_PrefabParentObject: {fileID: 102092011776272682, guid: f7e2dc2dae189ae45be194c87221109a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1338196866}
 --- !u!1 &1780375165
 GameObject:
   m_ObjectHideFlags: 0
