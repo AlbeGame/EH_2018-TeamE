@@ -136,7 +136,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4683075129006008}
-  - component: {fileID: 114696299372471796}
   m_Layer: 0
   m_Name: Levetta_puzzle_03
   m_TagString: Untagged
@@ -153,6 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4729206852270898}
   - component: {fileID: 136253616525897486}
+  - component: {fileID: 114982774607541764}
   m_Layer: 0
   m_Name: Levetta_leva_01_GO
   m_TagString: Untagged
@@ -775,12 +775,12 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278255360
---- !u!114 &114696299372471796
+--- !u!114 &114982774607541764
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1580133583835892}
+  m_GameObject: {fileID: 1631857874532324}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a53918f1d0c8c8441a6c0a09a1ebfa93, type: 3}

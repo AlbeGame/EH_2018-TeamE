@@ -89,7 +89,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4880773659597134}
-  - component: {fileID: 114620048821565744}
   m_Layer: 0
   m_Name: Levetta_puzzle_03
   m_TagString: Untagged
@@ -647,6 +646,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4340553031918606}
   - component: {fileID: 136613812858761916}
+  - component: {fileID: 114603668498013338}
   m_Layer: 0
   m_Name: Levetta_leva_01_GO
   m_TagString: Untagged
@@ -960,7 +960,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4823715572690460}
-  - component: {fileID: 114578606226114778}
   m_Layer: 0
   m_Name: Levetta_puzzle_03
   m_TagString: Untagged
@@ -1192,6 +1191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4990144438464162}
   - component: {fileID: 136620337979774494}
+  - component: {fileID: 114675482876026174}
   m_Layer: 0
   m_Name: Levetta_leva_01_GO
   m_TagString: Untagged
@@ -4595,8 +4595,8 @@ MonoBehaviour:
     MonitorFase1: {fileID: 114480532649506702}
     MonitorFase2: {fileID: 114255236225213978}
     MonitorFaseOK: {fileID: 114015529440005340}
-    LevaSx: {fileID: 114620048821565744}
-    LevaDx: {fileID: 114578606226114778}
+    LevaSx: {fileID: 114603668498013338}
+    LevaDx: {fileID: 114675482876026174}
 --- !u!114 &114353745500847370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4668,26 +4668,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 0}
   IconRenderer: {fileID: 23160227911021646}
---- !u!114 &114578606226114778
+--- !u!114 &114603668498013338
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1784580392986430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a53918f1d0c8c8441a6c0a09a1ebfa93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BendDuration: 0.1
-  BendAngle: 45
-  ObjectToMove: {fileID: 1954590171016158}
---- !u!114 &114620048821565744
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1027169217396924}
+  m_GameObject: {fileID: 1471494737078366}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a53918f1d0c8c8441a6c0a09a1ebfa93, type: 3}
@@ -4696,6 +4682,20 @@ MonoBehaviour:
   BendDuration: 0.1
   BendAngle: 45
   ObjectToMove: {fileID: 1471494737078366}
+--- !u!114 &114675482876026174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1954590171016158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a53918f1d0c8c8441a6c0a09a1ebfa93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BendDuration: 0.1
+  BendAngle: 45
+  ObjectToMove: {fileID: 1954590171016158}
 --- !u!136 &136613812858761916
 CapsuleCollider:
   m_ObjectHideFlags: 1

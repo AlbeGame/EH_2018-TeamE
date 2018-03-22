@@ -208,7 +208,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 84da7edcdbd5d7f4a92e38ab7ae0c410, type: 3}
+  - {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -242,7 +242,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: db45bdb529efebc4b889c5a058cd9e7c, type: 2}
+  - {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -379,11 +379,11 @@ MonoBehaviour:
     EmissivePositive: {fileID: 0}
     EmissiveNegative: {fileID: 0}
     ParticlesGroup: {fileID: 0}
-    PassiveMat: {fileID: 2100000, guid: 42faddb2e59f5004e892136b59a2c905, type: 2}
-    NeutralMat: {fileID: 2100000, guid: db45bdb529efebc4b889c5a058cd9e7c, type: 2}
-    HighlightedMat: {fileID: 2100000, guid: 4201e4398a04d3f4e90e98425a24d486, type: 2}
-    SelectedMat: {fileID: 2100000, guid: db45bdb529efebc4b889c5a058cd9e7c, type: 2}
-    BrokenMat: {fileID: 0}
-    SolvedMat: {fileID: 0}
+    PassiveMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
+    NeutralMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
+    HighlightedMat: {fileID: 2100000, guid: 12f28803ed2e7784288642de0e738aaa, type: 2}
+    SelectedMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
+    BrokenMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
+    SolvedMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
   InteractionData:
     CameraFocusPosition: {fileID: 4277099328762320}
