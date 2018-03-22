@@ -8,30 +8,27 @@ public class BlinkScreen : MonoBehaviour {
 	private float _blinkRate;
 	private bool isShowingCaret = false;
 
-    // Use this for initialization
+    
     void Start () {
         _blinkRate = blinkRate;
 	}
 	
-	// Update is called once per frame
+	
 	void Update () {
-		blinkRate -= Time.deltaTime;
-		if(blinkRate <= 0f){
-			Blinking();
-			blinkRate = _blinkRate;
-		}
+        GetBlink();
 
 	}
 
-	void Blinking(){
+    //mostra il trattino se è vero altrimenti no
+	void ShowBlinking(){
 
 		if(isShowingCaret){
-			//in questo momento stiamo mostrando il caret
+			
 			text.text = text.text.Remove(text.text.Length -1);
             
 		}
 		else{
-			//non stiamo mostrando il caret
+		
 			text.text = text.text.Insert(text.text.Length,"|");
            
 		}
@@ -39,7 +36,18 @@ public class BlinkScreen : MonoBehaviour {
 		isShowingCaret = !isShowingCaret;
 	}
 
+    //la funzione GetBlink() fa il calcolo quando arriva a zero chiama un altra funzione e mostra blink
+    #region API
+    //questo fa il calcolo ..quando arriva a zero parte la funzione showBlink e continua ad andare in loop da 0.5 a 0 mostrando il blink.
+    public void GetBlink()
+    {
+        blinkRate -= Time.deltaTime;
+        if (blinkRate <= 0f)
+        {
+            ShowBlinking();       //funzione che mostra blink 
+            blinkRate = _blinkRate;
+        }
+    }
 
-   
-
+    #endregion
 }

@@ -15,7 +15,10 @@ public class AnimButtons : MonoBehaviour {
 		
 	}
 
-	public void OnButtonPressed(){
+    #region API
+    // va prendere il parametro nell'animator "trigger" facendo partire l'animazione
+    public void OnButtonPressed(){
 		anim.SetTrigger("PushAnimation");
 	}
+#endregion
 }
