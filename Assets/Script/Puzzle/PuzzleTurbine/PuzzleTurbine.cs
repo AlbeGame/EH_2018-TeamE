@@ -6,7 +6,7 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
 
     #region Interactables controller
     [Header("Labled Buttons")]
-    public List<SelectableButton> LabledButtons = new List<SelectableButton>(5);
+    public List<SelectableButton> LabledButtons = new List<SelectableButton>(3);
     [Header("Reset Button")]
     public SelectableButton resetButton = new SelectableButton();
 
@@ -84,7 +84,7 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
         TurbineButtonData possibleButton;
         List<TurbineButtonData> usedButtons = new List<TurbineButtonData>();
         //Numero di pulsanti richiesti;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < LabledButtons.Count; i++) {
             if (i < 2)
                 while (newComb.Solution.Count == i) {
                     possibleButton = GetUnchosenButton(usedButtons);

@@ -606,7 +606,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 858018632}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.17768951
+  m_Size: 0.12942408
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5369,7 +5369,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 867238069}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -2061169968, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -6795,24 +6795,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4022885027353866, guid: a2a57cbdef7ca22469ff6640aea46a14, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4022885027353866, guid: a2a57cbdef7ca22469ff6640aea46a14, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23487673215162964, guid: a2a57cbdef7ca22469ff6640aea46a14,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-    - target: {fileID: 23245564975749048, guid: a2a57cbdef7ca22469ff6640aea46a14,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a2a57cbdef7ca22469ff6640aea46a14, type: 2}
   m_IsPrefabParent: 0
@@ -8434,7 +8416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f995ac9cc92d77489b412de91c8f8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 0}
+  timerText: {fileID: 1833242121}
 --- !u!114 &1303959333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11476,7 +11458,6 @@ GameObject:
   - component: {fileID: 1599699585}
   - component: {fileID: 1599699584}
   - component: {fileID: 1599699583}
-  - component: {fileID: 1599699586}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -11562,18 +11543,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1599699586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1599699581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60bfd0f0b1422ad46af821960c5fe603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mapAltimeter: {fileID: 715163764}
 --- !u!1 &1602937952
 GameObject:
   m_ObjectHideFlags: 0
@@ -11861,7 +11830,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Press "A" Altimeter:'
+  m_Text: 'Press "A" altimeter:'
 --- !u!222 &1607813929
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11974,7 +11943,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1654768928}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.3220782, y: -0.694399, z: -0.26935774}
+  m_LocalPosition: {x: -0.47, y: -0.631, z: 1.667}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 25162010}
@@ -12003,7 +11972,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 30
   orthographic: 0
@@ -13346,7 +13315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60bfd0f0b1422ad46af821960c5fe603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapAltimeter: {fileID: 0}
+  mapAltimeter: {fileID: 715163764}
 --- !u!114 &1876127810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14851,8 +14820,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+  near clip plane: 0.1
+  far clip plane: 250
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -14878,7 +14847,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2139113319}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -3.477, y: 0.728, z: -0.081}
+  m_LocalPosition: {x: -0.6114, y: 0.728, z: 1.0687}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

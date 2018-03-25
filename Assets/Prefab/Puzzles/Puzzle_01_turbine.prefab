@@ -793,7 +793,6 @@ GameObject:
   - component: {fileID: 4481247656195982}
   - component: {fileID: 33820992975101326}
   - component: {fileID: 23278739663114172}
-  - component: {fileID: 95456490619221548}
   m_Layer: 0
   m_Name: Monitor_4
   m_TagString: Untagged
@@ -942,7 +941,6 @@ GameObject:
   - component: {fileID: 4504804973136886}
   - component: {fileID: 33106871989962056}
   - component: {fileID: 23953936546711900}
-  - component: {fileID: 95629415210932038}
   m_Layer: 0
   m_Name: Monitor_4
   m_TagString: Untagged
@@ -1468,7 +1466,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1129313172359768}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0019999743, y: 0.010300006, z: 0.038100008}
+  m_LocalPosition: {x: -0.0006, y: 0.010300006, z: 0.038100008}
   m_LocalScale: {x: 1.24, y: 1.2399999, z: 1.2399998}
   m_Children:
   - {fileID: 4354734747350614}
@@ -2240,7 +2238,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1007332444170038}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0.255, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4432022013599174}
@@ -4055,23 +4053,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95456490619221548
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1659190757227826}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: fff6cd2f9363cff4c914c5319ad19b18, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95469121571269432
 Animator:
   serializedVersion: 3
@@ -4115,23 +4096,6 @@ Animator:
   m_GameObject: {fileID: 1867327014656876}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 4e4be4c413123b74b924715e31486b42, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95629415210932038
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1778971208583850}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: fff6cd2f9363cff4c914c5319ad19b18, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -4496,11 +4460,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc747c6bd06a1e4397507bd588aa5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LineBegin: {fileID: 0}
-  LineEnd: {fileID: 0}
-  PositiveColor: {fileID: 0}
-  NeutralColor: {fileID: 0}
-  NegativeColor: {fileID: 0}
+  LineBegin: {fileID: 4781630560409272}
+  LineEnd: {fileID: 4694506432594980}
+  PositiveColor: {fileID: 2100000, guid: 6b0c076e3e965064fbc27aab65390d03, type: 2}
+  NeutralColor: {fileID: 2100000, guid: 25635a94fe2e289419801b1a263db0cf, type: 2}
+  NegativeColor: {fileID: 2100000, guid: 3059fe99a3be62544aa67e9d18acf351, type: 2}
 --- !u!114 &114433292679293144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4513,8 +4477,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GraphicData:
-    DoNotPaintItems: []
-    Lights: {fileID: 0}
+    DoNotPaintItems:
+    - {fileID: 120485226091736352}
+    - {fileID: 120356174390535648}
+    - {fileID: 120247922760127560}
+    - {fileID: 120103802283474374}
+    Lights: {fileID: 23827962761183382}
     EmissivePositive: {fileID: 2100000, guid: 389021201113423418b16267fd002ac8, type: 2}
     EmissiveNegative: {fileID: 2100000, guid: 46f7dc8ce67ca07469b340759d89072b, type: 2}
     ParticlesGroup: {fileID: 1010350256450726}
@@ -4525,7 +4493,7 @@ MonoBehaviour:
     BrokenMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
     SolvedMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
   InteractionData:
-    CameraFocusPosition: {fileID: 0}
+    CameraFocusPosition: {fileID: 4789621818113502}
   LabledButtons:
   - {fileID: 114615308723249202}
   - {fileID: 114485163686356240}
@@ -4555,11 +4523,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc747c6bd06a1e4397507bd588aa5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LineBegin: {fileID: 0}
-  LineEnd: {fileID: 0}
-  PositiveColor: {fileID: 0}
-  NeutralColor: {fileID: 0}
-  NegativeColor: {fileID: 0}
+  LineBegin: {fileID: 4069650241813724}
+  LineEnd: {fileID: 4148856046143296}
+  PositiveColor: {fileID: 2100000, guid: 6b0c076e3e965064fbc27aab65390d03, type: 2}
+  NeutralColor: {fileID: 2100000, guid: 25635a94fe2e289419801b1a263db0cf, type: 2}
+  NegativeColor: {fileID: 2100000, guid: 3059fe99a3be62544aa67e9d18acf351, type: 2}
 --- !u!114 &114535646702858338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4571,11 +4539,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc747c6bd06a1e4397507bd588aa5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LineBegin: {fileID: 0}
-  LineEnd: {fileID: 0}
-  PositiveColor: {fileID: 0}
-  NeutralColor: {fileID: 0}
-  NegativeColor: {fileID: 0}
+  LineBegin: {fileID: 4841246614610694}
+  LineEnd: {fileID: 4815503212472394}
+  PositiveColor: {fileID: 2100000, guid: 6b0c076e3e965064fbc27aab65390d03, type: 2}
+  NeutralColor: {fileID: 2100000, guid: 25635a94fe2e289419801b1a263db0cf, type: 2}
+  NegativeColor: {fileID: 2100000, guid: 3059fe99a3be62544aa67e9d18acf351, type: 2}
 --- !u!114 &114615308723249202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4600,11 +4568,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc747c6bd06a1e4397507bd588aa5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LineBegin: {fileID: 0}
-  LineEnd: {fileID: 0}
-  PositiveColor: {fileID: 0}
-  NeutralColor: {fileID: 0}
-  NegativeColor: {fileID: 0}
+  LineBegin: {fileID: 4248843829306386}
+  LineEnd: {fileID: 4226887895457144}
+  PositiveColor: {fileID: 2100000, guid: 6b0c076e3e965064fbc27aab65390d03, type: 2}
+  NeutralColor: {fileID: 2100000, guid: 25635a94fe2e289419801b1a263db0cf, type: 2}
+  NegativeColor: {fileID: 2100000, guid: 3059fe99a3be62544aa67e9d18acf351, type: 2}
 --- !u!114 &114744201891149676
 MonoBehaviour:
   m_ObjectHideFlags: 1
