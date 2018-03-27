@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
     float RotLeftRight;
     float RotUpDown;
     Vector3 euler;
-    public float MovementSpeed = 0.2f;
+    public float MovementSpeed = 0.5f;
     bool _isMoveFreeCam;
 	public bool isMoveFreeCam
     {
@@ -63,7 +63,8 @@ public class CameraController : MonoBehaviour
     public void FocusAt(Transform _target)
     {
         isMoveFreeCam = false;
-        transform.DORotateQuaternion(_target.rotation, MovementSpeed);
+        transform.DORotate(_target.rotation.eulerAngles, MovementSpeed);
+        //transform.DORotateQuaternion(_target.rotation, MovementSpeed);
         transform.DOMove(_target.position, MovementSpeed);
         
     }
@@ -74,7 +75,8 @@ public class CameraController : MonoBehaviour
     public void FocusAt(Vector3 _targetPosition, Quaternion _targetRotation)
     {
         isMoveFreeCam = false;
-        transform.DORotateQuaternion(originalRotation, MovementSpeed);
+        transform.DORotate(originalRotation.eulerAngles, MovementSpeed);
+        //transform.DORotateQuaternion(originalRotation, MovementSpeed);
         transform.DOMove(_targetPosition, MovementSpeed);
     }
     /// <summary>
