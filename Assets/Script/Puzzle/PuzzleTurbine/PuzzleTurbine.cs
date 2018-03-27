@@ -14,6 +14,7 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
    
     PuzzleTurbineData data;
     PuzzleCombination combination;
+    int buttonHits;
     List<SliderController> Sliders = new List<SliderController>();
   
     #region IPuzzle
@@ -31,6 +32,7 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
 
     public void Setup(IPuzzleData _data) {
         data = _data as PuzzleTurbineData;
+        buttonHits = 0;
         GenerateNewPuzzleCombination();
     }
 
@@ -54,13 +56,13 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
 
     public void DoLoose() {
         (GetRoot() as SelectionRoot).NotifyPuzzleBreakdown(this);
-      
     }
 
     public void OnButtonSelect(SelectableButton _button) {
         // Labled Button;
         foreach (var button in LabledButtons) {
             if (button == _button) {
+                buttonHits++;
                 TurbineButtonData data = button.InputData as TurbineButtonData;
                 SetEValues(data.E1Modifier, data.E2Modifier, data.E3Modifier, data.E4Modifier);
             }
@@ -153,7 +155,6 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
 
         return true;
     }
-
     private void InitGenricalElement() {
         List<TurbineButtonData> buttonPool = new List<TurbineButtonData>();
         foreach (var item in combination.Solution)
@@ -186,6 +187,7 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
         combination.CurrentEValues[2] += E3;
         combination.CurrentEValues[3] += E4;
 
+        CheckBreackDown();
         for (int i = 0; i < combination.CurrentEValues.Length; i++) {
             if (combination.CurrentEValues[i] < 0)
                 combination.CurrentEValues[i] = 0;
@@ -194,13 +196,14 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
         }
 
         UpdateSliderValues();
-        CheckBreackDown();
     }
     void CheckBreackDown() {
         for (int i = 0; i < 4; i++) {
-            if (combination.CurrentEValues[i] <= 0 && combination.CurrentEValues[i] >= 100)
+            if (combination.CurrentEValues[i] < 0 || combination.CurrentEValues[i] > 100)
                 DoLoose();
         }
+        if (buttonHits >= 3)
+            DoLoose();
     }
 
     void UpdateSliderValues() {
