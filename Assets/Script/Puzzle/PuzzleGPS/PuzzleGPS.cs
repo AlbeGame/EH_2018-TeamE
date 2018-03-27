@@ -33,6 +33,36 @@ public class PuzzleGPS : SelectableItem, IPuzzle
         GenerateRandomCombination();
     }
 
+    public bool CheckIfSolved()
+    {
+        int latitude = (Interactables.Latitude.InputData as PuzzleGPSMonitorData).coordinateValue;
+        int longitude = (Interactables.Longitude.InputData as PuzzleGPSMonitorData).coordinateValue;
+
+        if (solutionCoordinates.Coordinate.x == longitude && solutionCoordinates.Coordinate.y == latitude)
+        {
+            DoWin();
+            return true;
+        }
+        else
+        {
+            DoLoose();
+            return false;
+        }
+    }
+
+    public void DoWin()
+    {
+        (GetRoot() as SelectionRoot).NotifyPuzzleSolved(this);
+        graphicCtrl.Paint(_solutionState);
+    }
+
+    public void DoLoose()
+    {
+        (GetRoot() as SelectionRoot).NotifyPuzzleBreakdown(this);
+        graphicCtrl.Paint(_solutionState);
+       
+    }
+
     public void OnButtonSelect(SelectableButton _button)
     {
         PuzzleGPSNumericData data = _button.InputData as PuzzleGPSNumericData;
@@ -52,7 +82,7 @@ public class PuzzleGPS : SelectableItem, IPuzzle
         }
         else if(data.ActualValue == 11)
         {
-            CheckSolution();
+            CheckIfSolved();
         }
     }
     public void OnSwitchSelect(SelectableSwitch _switch) { }
@@ -142,30 +172,6 @@ public class PuzzleGPS : SelectableItem, IPuzzle
 
         int randOrient = Random.Range(0, 4);
         solutionOrientation = randOrient * 90;
-    }
-
-    void CheckSolution()
-    {
-        int latitude = (Interactables.Latitude.InputData as PuzzleGPSMonitorData).coordinateValue;
-        int longitude = (Interactables.Longitude.InputData as PuzzleGPSMonitorData).coordinateValue;
-
-        if (solutionCoordinates.Coordinate.x == longitude && solutionCoordinates.Coordinate.y == latitude)
-            DoWinningThings();
-        else
-            DoBreakingThings();
-    }
-
-    void DoWinningThings()
-    {
-        (GetRoot() as SelectionRoot).NotifyPuzzleSolved(this);
-        graphicCtrl.Paint(_solutionState);
-    }
-
-    void DoBreakingThings()
-    {
-        (GetRoot() as SelectionRoot).NotifyPuzzleBreakdown(this);
-        graphicCtrl.Paint(_solutionState);
-       
     }
 
     [System.Serializable]

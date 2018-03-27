@@ -58,6 +58,47 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
         GenerateInitialValues();
     }
 
+    public void DoWin()
+    {
+        (GetRoot() as SelectionRoot).NotifyPuzzleSolved(this);
+
+        graphicCtrl.Paint(_solutionState);
+        State = SelectionState.Unselectable;
+    }
+
+    public void DoLoose()
+    {
+        (GetRoot() as SelectionRoot).NotifyPuzzleBreakdown(this);
+
+        graphicCtrl.Paint(_solutionState);
+        State = SelectionState.Unselectable;
+        Parent.Select(true);
+    }
+
+    public bool CheckIfSolved()
+    {
+        if (currentSolutionIndex >= combToCompare.Count)
+        {
+            if (!isFase1Solved)
+            {
+                isFase1Solved = true;
+                currentSolutionIndex = 0;
+                Interactables.MonitorFase2.ToggleOnOff();
+                return false;
+            }
+            else if (!isFase2Solved)
+            {
+                isFase2Solved = true;
+                Interactables.MonitorFaseOK.ToggleOnOff();
+                return true;
+            }
+            else
+                return true;
+        }
+        else
+            return false;
+    }
+
     public void OnButtonSelect(SelectableButton _button)
     {
         InputValue value = (_button.InputData as PuzzleAutopilotInputData).Actualvalue;
@@ -200,24 +241,6 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
         int fase2index = Random.Range(0, data.Fase2.Count);
         solutionCombinantion[1] = fase2index;
     }
-
-   public void DoWinningthings()
-    {
-        (GetRoot() as SelectionRoot).NotifyPuzzleSolved(this);
-
-        graphicCtrl.Paint(_solutionState);
-        State = SelectionState.Unselectable;
-    }
-
-    void DoBreakingThings()
-    {
-        (GetRoot() as SelectionRoot).NotifyPuzzleBreakdown(this);
-
-        graphicCtrl.Paint(_solutionState);
-        State = SelectionState.Unselectable;
-        Parent.Select(true);
-    }
-
     bool CompareInputWithSolution(InputValue _input)
     {
         if(combToCompare[currentSolutionIndex] == _input)
@@ -228,7 +251,7 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
         else
         {
             currentSolutionIndex = 0;
-            DoBreakingThings();
+            DoLoose();
             return false;
         }
     }
@@ -236,9 +259,9 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
     void OnCurrentSolutionIndexUpdate()
     {
         //Check if fase is solved
-        if (CheckSolution())
+        if (CheckIfSolved())
         {
-            DoWinningthings();
+            DoWin();
             return;
         }
 
@@ -265,29 +288,6 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
         }
     }
 
-    bool CheckSolution()
-    {
-        if (currentSolutionIndex >= combToCompare.Count)
-        {
-            if (!isFase1Solved)
-            {
-                isFase1Solved = true;
-                currentSolutionIndex = 0;
-                Interactables.MonitorFase2.ToggleOnOff();
-                return false;
-            }
-            else if (!isFase2Solved)
-            {
-                isFase2Solved = true;
-                Interactables.MonitorFaseOK.ToggleOnOff();
-                return true;
-            }
-            else
-                return true;
-        }
-        else
-            return false;
-    }
 
     [System.Serializable]
     public struct AutopilotIO

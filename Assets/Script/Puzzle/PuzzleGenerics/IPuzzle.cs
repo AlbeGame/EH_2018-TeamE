@@ -9,6 +9,10 @@ public interface IPuzzle {
 
     void Setup(IPuzzleData data);
 
+    void DoWin();
+    void DoLoose();
+    bool CheckIfSolved();
+
     void OnButtonSelect(SelectableButton _button);
     void OnSwitchSelect(SelectableSwitch _switch);
     void OnMonitorSelect(SelectableMonitor _monitor);

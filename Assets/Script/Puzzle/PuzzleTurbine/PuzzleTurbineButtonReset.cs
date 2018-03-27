@@ -14,7 +14,7 @@ public class PuzzleTurbineButtonReset : ISelectableBehaviour {
     void ISelectableBehaviour.OnSelect()
     {
         if (puzzleCtrl != null)
-            puzzleCtrl.CheckSolution();
+            puzzleCtrl.CheckIfSolved();
 
         puzzleCtrl.Select(true);
     }

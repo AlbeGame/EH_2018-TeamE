@@ -34,6 +34,29 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
         GenerateNewPuzzleCombination();
     }
 
+    public bool CheckIfSolved() {
+        for (int i = 0; i < 4; i++) {
+            if (combination.CurrentEValues[i] == 50)
+                continue;
+
+            DoLoose();
+            return false;
+        }
+
+        DoWin();
+        return true;
+    }
+
+    public void DoWin()
+    {
+        (GetRoot() as SelectionRoot).NotifyPuzzleSolved(this);
+    }
+
+    public void DoLoose() {
+        (GetRoot() as SelectionRoot).NotifyPuzzleBreakdown(this);
+      
+    }
+
     public void OnButtonSelect(SelectableButton _button) {
         // Labled Button;
         foreach (var button in LabledButtons) {
@@ -46,7 +69,7 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
 
         // Reset Button
         if (_button == resetButton) {
-            CheckSolution();
+            CheckIfSolved();
         }
     }
     public void OnSwitchSelect(SelectableSwitch _switch) { }
@@ -173,34 +196,11 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
         UpdateSliderValues();
         CheckBreackDown();
     }
-
-    public void CheckSolution() {
-        for (int i = 0; i < 4; i++) {
-            if (combination.CurrentEValues[i] == 50)
-                continue;
-
-            DoBreakThings();
-            return;
-        }
-
-        DoWinningThings();
-    }
-
     void CheckBreackDown() {
         for (int i = 0; i < 4; i++) {
             if (combination.CurrentEValues[i] <= 0 && combination.CurrentEValues[i] >= 100)
-                DoBreakThings();
+                DoLoose();
         }
-    }
-
-    void DoWinningThings()
-    {
-        (GetRoot() as SelectionRoot).NotifyPuzzleSolved(this);
-    }
-
-    void DoBreakThings() {
-        (GetRoot() as SelectionRoot).NotifyPuzzleBreakdown(this);
-      
     }
 
     void UpdateSliderValues() {
