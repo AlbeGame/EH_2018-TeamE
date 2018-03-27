@@ -63,7 +63,7 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
         (GetRoot() as SelectionRoot).NotifyPuzzleSolved(this);
 
         graphicCtrl.Paint(_solutionState);
-        State = SelectionState.Unselectable;
+
     }
 
     public void DoLoose()
@@ -71,7 +71,6 @@ public class PuzzleAutopilot : SelectableItem, IPuzzle {
         (GetRoot() as SelectionRoot).NotifyPuzzleBreakdown(this);
 
         graphicCtrl.Paint(_solutionState);
-        State = SelectionState.Unselectable;
         Parent.Select(true);
     }
 

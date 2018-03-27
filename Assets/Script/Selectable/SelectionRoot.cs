@@ -53,7 +53,6 @@ public class SelectionRoot : SelectableAbstract
         //Parziale comportamento comunque da refactorizzare
         Select(true);
         puzzle.SolutionState = PuzzleState.Solved;
-        (puzzle as SelectableItem).State = SelectionState.Unselectable;
 
         currentSolvedPuzzles++;
         if (currentSolvedPuzzles >= PuzzleNeededToWin)

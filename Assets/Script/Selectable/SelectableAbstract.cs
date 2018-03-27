@@ -18,8 +18,7 @@ public abstract class SelectableAbstract : MonoBehaviour
         }
         set
         {
-            if(_state != SelectionState.Unselectable)
-                _state = value;
+            _state = value;
             OnStateSwitch(State);
         }
     }
@@ -101,10 +100,6 @@ public abstract class SelectableAbstract : MonoBehaviour
 
         switch (_state)
         {
-            case SelectionState.Unselectable:
-                foreach (SelectableAbstract child in Children)
-                    child.State = SelectionState.Unselectable;
-                break;
             case SelectionState.Neutral:
                 foreach (SelectableAbstract child in Children)
                     child.State = SelectionState.Passive;
@@ -244,6 +239,8 @@ public abstract class SelectableAbstract : MonoBehaviour
         State = _state;
 
         OnInitEnd(parent);
+
+        SelectableBehaviour ciccio = new SelectableBehaviour();
     }
 
     /// <summary>
@@ -251,9 +248,6 @@ public abstract class SelectableAbstract : MonoBehaviour
     /// </summary>
     public void Select(bool ignoreState = false)
     {
-        if (State == SelectionState.Unselectable)
-            return;
-
         if (ignoreState || State != SelectionState.Passive)
         {
             State = SelectionState.Selected;
@@ -268,13 +262,4 @@ public abstract class SelectableAbstract : MonoBehaviour
     protected virtual void OnStateChange(SelectionState _newState) { }
     protected virtual void OnSelect() { }
     #endregion
-}
-
-public enum SelectionState
-{
-    Unselectable = -1,
-    Neutral,
-    Highlighted,
-    Selected,
-    Passive
 }
