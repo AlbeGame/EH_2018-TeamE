@@ -606,7 +606,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 858018632}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.33879152
+  m_Size: 0.180082
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -14879,4 +14879,4 @@ MonoBehaviour:
   RotSpeed: 2.5
   minY: -30
   maxY: 30
-  MovementSpeed: 0.2
+  MovementSpeed: 0.5
