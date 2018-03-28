@@ -8,6 +8,7 @@ public interface IPuzzle {
     PuzzleState SolutionState { get; set; }
 
     void Setup(IPuzzleData data);
+    void Init();
 
     void DoWin();
     void DoLoose();

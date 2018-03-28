@@ -22,6 +22,7 @@ public class SelectionRoot : MonoBehaviour, ISelectable
     public void Init()
     {
         selectable = GetComponent<SelectableBehaviour>();
+        selectable.Init();
 
         camCtrl = Camera.main.GetComponent<CameraController>();
         camCtrl.isMoveFreeCam = false;
@@ -36,6 +37,7 @@ public class SelectionRoot : MonoBehaviour, ISelectable
             IPuzzleData randData = PuzzleDatas[randIndex] as IPuzzleData;
             IPuzzle randPuzzle = Instantiate(randData.GetIPuzzleGO(), puzzlePos).GetComponent<IPuzzle>();
             randPuzzle.Setup(randData);
+            randPuzzle.Init();
             (randPuzzle as MonoBehaviour).GetComponent<SelectableBehaviour>().Init(selectable);
         }
     }
@@ -44,13 +46,14 @@ public class SelectionRoot : MonoBehaviour, ISelectable
     {
         if (Input.GetMouseButtonUp(1))
         {
-            if(selectable.GetChildren().First(s => s.State == SelectionState.Selected) != null)
+            SelectableBehaviour selected = selectable.GetChildren().FirstOrDefault(s => s.State == SelectionState.Selected);
+            if (selected != null)
                 selectable.Select();
 
             camCtrl.isMoveFreeCam = false;
         }
 
-        if(selectable.State == SelectionState.Selected && Input.GetMouseButton(1))
+        if(selectable.State != SelectionState.Passive && Input.GetMouseButton(1))
             camCtrl.isMoveFreeCam = true;
     }
 
