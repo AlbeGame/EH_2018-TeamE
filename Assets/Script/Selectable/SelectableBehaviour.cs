@@ -51,7 +51,7 @@ public class SelectableBehaviour : MonoBehaviour
     //Selectables to notify
     List<ISelectable> selectables = new List<ISelectable>();
 
-    Collider selectionCollider;
+    public Collider selectionCollider;
 
     #region API
     #region Input hook up

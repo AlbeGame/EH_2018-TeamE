@@ -169,7 +169,13 @@ public class PuzzleAutopilot : MonoBehaviour, IPuzzle, ISelectable
         Debugger.DebugLogger.LogText(fase2Sol);
     }
 
-    public void OnStateChange(SelectionState _newState) { }
+    public void OnStateChange(SelectionState _newState)
+    {
+        if (_newState == SelectionState.Selected || _newState == SelectionState.Passive)
+            selectable.selectionCollider.enabled = false;
+        else
+            selectable.selectionCollider.enabled = true;
+    }
     #endregion
 
     void InitSwitches()

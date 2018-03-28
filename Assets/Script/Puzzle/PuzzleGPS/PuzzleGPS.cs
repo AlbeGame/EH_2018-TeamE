@@ -34,6 +34,8 @@ public class PuzzleGPS : MonoBehaviour, IPuzzle, ISelectable
     public void Setup(IPuzzleData _data)
     {
         data = _data as PuzzleGPSData;
+        selectable = GetComponent<SelectableBehaviour>();
+
 
         graphicCtrl = GetComponent<PuzzleGraphic>();
 
@@ -120,7 +122,13 @@ public class PuzzleGPS : MonoBehaviour, IPuzzle, ISelectable
         InitSelectableMonitors();
     }
 
-    public void OnStateChange(SelectionState _state) { }
+    public void OnStateChange(SelectionState _newState)
+    {
+        if (_newState == SelectionState.Selected || _newState == SelectionState.Passive)
+            selectable.selectionCollider.enabled = false;
+        else
+            selectable.selectionCollider.enabled = true;
+    }
 
     public void OnSelection()
     {

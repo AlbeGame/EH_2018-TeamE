@@ -36,6 +36,7 @@ public class SelectionRoot : MonoBehaviour, ISelectable
             randIndex = Random.Range(0, PuzzleDatas.Count);
             IPuzzleData randData = PuzzleDatas[randIndex] as IPuzzleData;
             IPuzzle randPuzzle = Instantiate(randData.GetIPuzzleGO(), puzzlePos).GetComponent<IPuzzle>();
+            (randPuzzle as MonoBehaviour).transform.SetParent(transform);
             randPuzzle.Setup(randData);
             randPuzzle.Init();
             (randPuzzle as MonoBehaviour).GetComponent<SelectableBehaviour>().Init(selectable);
