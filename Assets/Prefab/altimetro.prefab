@@ -67,8 +67,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4022885027353866}
   - component: {fileID: 114202557726360550}
-  - component: {fileID: 114635365900417346}
   - component: {fileID: 64190067011751640}
+  - component: {fileID: 114743291881338832}
   m_Layer: 0
   m_Name: altimetro
   m_TagString: Untagged
@@ -360,7 +360,7 @@ MonoBehaviour:
   DropSpeed: 1
   MaxAltitude: 720
   currentAltitude: 0
---- !u!114 &114635365900417346
+--- !u!114 &114743291881338832
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -368,22 +368,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1347717235195798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae3d86b743272a41947ae4f42aa4495, type: 3}
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GraphicData:
-    DoNotPaintItems:
-    - {fileID: 23245564975749048}
-    - {fileID: 23584770928326584}
-    Lights: {fileID: 0}
-    EmissivePositive: {fileID: 0}
-    EmissiveNegative: {fileID: 0}
-    ParticlesGroup: {fileID: 0}
-    PassiveMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-    NeutralMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-    HighlightedMat: {fileID: 2100000, guid: 12f28803ed2e7784288642de0e738aaa, type: 2}
-    SelectedMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-    BrokenMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-    SolvedMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-  InteractionData:
-    CameraFocusPosition: {fileID: 4277099328762320}

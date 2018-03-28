@@ -21,7 +21,7 @@ public class SelectionRoot : MonoBehaviour, ISelectable
 
     public void Init()
     {
-        selectable.GetComponent<SelectableBehaviour>();
+        selectable = GetComponent<SelectableBehaviour>();
 
         camCtrl = Camera.main.GetComponent<CameraController>();
         camCtrl.isMoveFreeCam = false;

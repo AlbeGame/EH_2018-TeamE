@@ -49,7 +49,7 @@ public class SelectableBehaviour : MonoBehaviour
         }
     }
     //Selectables to notify
-    List<ISelectable> selectables;
+    List<ISelectable> selectables = new List<ISelectable>();
 
     Collider selectionCollider;
 
@@ -232,11 +232,11 @@ public class SelectableBehaviour : MonoBehaviour
                 break;
         }
 
-
-        foreach (ISelectable selectable in selectables)
-        {
-            selectable.OnStateChange(_newState);
-        }
+        if(selectables.Count > 0)
+            foreach (ISelectable selectable in selectables)
+            {
+                selectable.OnStateChange(_newState);
+            }
     }
     
     // Behaviour than only the Root follows
@@ -261,10 +261,13 @@ public class SelectableBehaviour : MonoBehaviour
             return;
         }
 
-        if(_newSelected.Siblings.Contains(currentSelected))
-            currentSelected.State = SelectionState.Neutral;
-        else
-            currentSelected.State = SelectionState.Passive;
+        if (currentSelected)
+        {
+            if (_newSelected.Siblings.Contains(currentSelected))
+                currentSelected.State = SelectionState.Neutral;
+            else
+                currentSelected.State = SelectionState.Passive;
+        }
 
         currentSelected = _newSelected;
     }

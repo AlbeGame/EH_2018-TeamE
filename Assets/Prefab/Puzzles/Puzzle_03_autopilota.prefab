@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 4636885207468518}
   - component: {fileID: 114236893908819526}
   - component: {fileID: 65648489892870940}
+  - component: {fileID: 114690486415927246}
   m_Layer: 0
   m_Name: Bottoncino_puzzle_L
   m_TagString: Untagged
@@ -427,6 +428,7 @@ GameObject:
   - component: {fileID: 4514409527235634}
   - component: {fileID: 114428762630910542}
   - component: {fileID: 65921402355121500}
+  - component: {fileID: 114862353080247328}
   m_Layer: 0
   m_Name: Bottoncino_puzzle_A
   m_TagString: Untagged
@@ -647,6 +649,7 @@ GameObject:
   - component: {fileID: 4340553031918606}
   - component: {fileID: 136613812858761916}
   - component: {fileID: 114603668498013338}
+  - component: {fileID: 114205182469226744}
   m_Layer: 0
   m_Name: Levetta_leva_01_GO
   m_TagString: Untagged
@@ -715,6 +718,7 @@ GameObject:
   - component: {fileID: 4712585409644222}
   - component: {fileID: 114482687526228244}
   - component: {fileID: 65605300405370074}
+  - component: {fileID: 114576574155837266}
   m_Layer: 0
   m_Name: Bottoncino_puzzle_B
   m_TagString: Untagged
@@ -764,6 +768,7 @@ GameObject:
   - component: {fileID: 4905769291329420}
   - component: {fileID: 114379223810812690}
   - component: {fileID: 65491652388422494}
+  - component: {fileID: 114375195288182732}
   m_Layer: 0
   m_Name: Bottoncino_puzzle_G
   m_TagString: Untagged
@@ -798,6 +803,7 @@ GameObject:
   - component: {fileID: 4575280057404754}
   - component: {fileID: 114209062547340872}
   - component: {fileID: 65287555807974474}
+  - component: {fileID: 114740312073472024}
   m_Layer: 0
   m_Name: Bottoncino_puzzle_F
   m_TagString: Untagged
@@ -945,6 +951,7 @@ GameObject:
   - component: {fileID: 4627243974262358}
   - component: {fileID: 114353745500847370}
   - component: {fileID: 65064761711345532}
+  - component: {fileID: 114434764592119218}
   m_Layer: 0
   m_Name: Bottoncino_puzzle_K
   m_TagString: Untagged
@@ -1192,6 +1199,7 @@ GameObject:
   - component: {fileID: 4990144438464162}
   - component: {fileID: 136620337979774494}
   - component: {fileID: 114675482876026174}
+  - component: {fileID: 114362099383786708}
   m_Layer: 0
   m_Name: Levetta_leva_01_GO
   m_TagString: Untagged
@@ -1276,6 +1284,8 @@ GameObject:
   - component: {fileID: 4732504276516800}
   - component: {fileID: 65361071062118200}
   - component: {fileID: 114271947116117416}
+  - component: {fileID: 114906300849542882}
+  - component: {fileID: 114873321619337498}
   m_Layer: 0
   m_Name: Puzzle_03_autopilota
   m_TagString: Untagged
@@ -4506,6 +4516,17 @@ MonoBehaviour:
   - {fileID: 2100000, guid: fe6a472c6990bee49aeb5adb2c99cb4c, type: 2}
   - {fileID: 2100000, guid: 98d1dfc616d882146988cc17c1a0ddc0, type: 2}
   Icon: {fileID: 23310340215027420}
+--- !u!114 &114205182469226744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1471494737078366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114209062547340872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4562,29 +4583,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c3fdd8b3351c064db3891eba28df995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GraphicData:
-    DoNotPaintItems:
-    - {fileID: 23161535414465076}
-    - {fileID: 23160227911021646}
-    - {fileID: 23490170846245826}
-    - {fileID: 23345228739830880}
-    - {fileID: 23244332659506708}
-    - {fileID: 23932010775206346}
-    - {fileID: 23184512801321576}
-    - {fileID: 23359995269574920}
-    - {fileID: 23310340215027420}
-    Lights: {fileID: 23528473516560198}
-    EmissivePositive: {fileID: 2100000, guid: 389021201113423418b16267fd002ac8, type: 2}
-    EmissiveNegative: {fileID: 2100000, guid: 46f7dc8ce67ca07469b340759d89072b, type: 2}
-    ParticlesGroup: {fileID: 1266975677911908}
-    PassiveMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-    NeutralMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-    HighlightedMat: {fileID: 2100000, guid: 12f28803ed2e7784288642de0e738aaa, type: 2}
-    SelectedMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-    BrokenMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-    SolvedMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-  InteractionData:
-    CameraFocusPosition: {fileID: 4627323625435046}
   Interactables:
     ButtonA: {fileID: 114428762630910542}
     ButtonB: {fileID: 114482687526228244}
@@ -4610,6 +4608,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 0}
   IconRenderer: {fileID: 23359995269574920}
+--- !u!114 &114362099383786708
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1954590171016158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114375195288182732
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1656367902739618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114379223810812690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4636,6 +4656,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 0}
   IconRenderer: {fileID: 23161535414465076}
+--- !u!114 &114434764592119218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1776978792374908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114480532649506702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4668,6 +4699,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 0}
   IconRenderer: {fileID: 23160227911021646}
+--- !u!114 &114576574155837266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1550786742091490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114603668498013338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4679,9 +4721,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a53918f1d0c8c8441a6c0a09a1ebfa93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BendDuration: 0.1
-  BendAngle: 45
-  ObjectToMove: {fileID: 1471494737078366}
 --- !u!114 &114675482876026174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4693,9 +4732,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a53918f1d0c8c8441a6c0a09a1ebfa93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BendDuration: 0.1
-  BendAngle: 45
-  ObjectToMove: {fileID: 1954590171016158}
+--- !u!114 &114690486415927246
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1157097134050830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114740312073472024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1687280743014408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114862353080247328
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1272152188196520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114873321619337498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1990937667070262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad9400ebd581fd4ea0d0dab38582f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraFocusPoint: {fileID: 4627323625435046}
+  Data:
+    DoNotPaintItems:
+    - {fileID: 23161535414465076}
+    - {fileID: 23160227911021646}
+    - {fileID: 23490170846245826}
+    - {fileID: 23345228739830880}
+    - {fileID: 23244332659506708}
+    - {fileID: 23932010775206346}
+    - {fileID: 23184512801321576}
+    - {fileID: 23359995269574920}
+    - {fileID: 23310340215027420}
+    Lights: {fileID: 23528473516560198}
+    EmissivePositive: {fileID: 2100000, guid: 389021201113423418b16267fd002ac8, type: 2}
+    EmissiveNegative: {fileID: 2100000, guid: 46f7dc8ce67ca07469b340759d89072b, type: 2}
+    ParticlesGroup: {fileID: 1266975677911908}
+    NeutralMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
+    HighlightedMat: {fileID: 2100000, guid: 12f28803ed2e7784288642de0e738aaa, type: 2}
+--- !u!114 &114906300849542882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1990937667070262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136613812858761916
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 4129253514490752}
   - component: {fileID: 114485163686356240}
   - component: {fileID: 135128613612946872}
+  - component: {fileID: 114653683526842912}
   m_Layer: 0
   m_Name: Labeled Button 2
   m_TagString: Untagged
@@ -296,6 +297,7 @@ GameObject:
   - component: {fileID: 4358654544057254}
   - component: {fileID: 114018028218853468}
   - component: {fileID: 65829906586843990}
+  - component: {fileID: 114349113396053214}
   m_Layer: 0
   m_Name: Bottone_Enter
   m_TagString: Untagged
@@ -313,6 +315,7 @@ GameObject:
   - component: {fileID: 4108606508527142}
   - component: {fileID: 114744201891149676}
   - component: {fileID: 135238471339452750}
+  - component: {fileID: 114841878156387274}
   m_Layer: 0
   m_Name: Labeled Button 3
   m_TagString: Untagged
@@ -561,6 +564,7 @@ GameObject:
   - component: {fileID: 4923619676565108}
   - component: {fileID: 114615308723249202}
   - component: {fileID: 135308628964200170}
+  - component: {fileID: 114499918381057030}
   m_Layer: 0
   m_Name: Labeled Button 1
   m_TagString: Untagged
@@ -1104,6 +1108,8 @@ GameObject:
   - component: {fileID: 4432022013599174}
   - component: {fileID: 114433292679293144}
   - component: {fileID: 65452248691383758}
+  - component: {fileID: 114052990072501440}
+  - component: {fileID: 114793047032162288}
   m_Layer: 0
   m_Name: Puzzle_01_turbine
   m_TagString: Untagged
@@ -4449,6 +4455,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 0}
   IconRenderer: {fileID: 0}
+--- !u!114 &114052990072501440
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1874294378427598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114349113396053214
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1215986828913634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114420732158734322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4476,24 +4504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f4146671fa5b540bd511afa9d93cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GraphicData:
-    DoNotPaintItems:
-    - {fileID: 120485226091736352}
-    - {fileID: 120356174390535648}
-    - {fileID: 120247922760127560}
-    - {fileID: 120103802283474374}
-    Lights: {fileID: 23827962761183382}
-    EmissivePositive: {fileID: 2100000, guid: 389021201113423418b16267fd002ac8, type: 2}
-    EmissiveNegative: {fileID: 2100000, guid: 46f7dc8ce67ca07469b340759d89072b, type: 2}
-    ParticlesGroup: {fileID: 1010350256450726}
-    PassiveMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-    NeutralMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-    HighlightedMat: {fileID: 2100000, guid: 12f28803ed2e7784288642de0e738aaa, type: 2}
-    SelectedMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-    BrokenMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-    SolvedMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-  InteractionData:
-    CameraFocusPosition: {fileID: 4789621818113502}
   LabledButtons:
   - {fileID: 114615308723249202}
   - {fileID: 114485163686356240}
@@ -4512,6 +4522,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 102545167610144882}
   IconRenderer: {fileID: 0}
+--- !u!114 &114499918381057030
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1513974033124656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114508626654250756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4557,6 +4578,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 102094735608781598}
   IconRenderer: {fileID: 0}
+--- !u!114 &114653683526842912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1129313172359768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114723948030607438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4586,6 +4618,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 102306432245321562}
   IconRenderer: {fileID: 0}
+--- !u!114 &114793047032162288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1874294378427598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad9400ebd581fd4ea0d0dab38582f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraFocusPoint: {fileID: 4789621818113502}
+  Data:
+    DoNotPaintItems: []
+    Lights: {fileID: 23827962761183382}
+    EmissivePositive: {fileID: 2100000, guid: 389021201113423418b16267fd002ac8, type: 2}
+    EmissiveNegative: {fileID: 2100000, guid: 46f7dc8ce67ca07469b340759d89072b, type: 2}
+    ParticlesGroup: {fileID: 1010350256450726}
+    NeutralMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
+    HighlightedMat: {fileID: 2100000, guid: 12f28803ed2e7784288642de0e738aaa, type: 2}
+--- !u!114 &114841878156387274
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228643271142360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!120 &120103802283474374
 LineRenderer:
   m_ObjectHideFlags: 1
