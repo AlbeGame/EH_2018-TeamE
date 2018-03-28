@@ -15,11 +15,6 @@ public class PuzzleInteraction : MonoBehaviour {
         camCtrl = Camera.main.GetComponent<CameraController>();
     }
 
-    public void CameraFocusCall()
-    {
-        if (data.CameraFocusPosition)
-            camCtrl.FocusAt(data.CameraFocusPosition);
-    }
 }
 
 [System.Serializable]

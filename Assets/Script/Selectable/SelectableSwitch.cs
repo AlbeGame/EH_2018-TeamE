@@ -1,12 +1,12 @@
-﻿using DG.Tweening;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SelectableSwitch : SelectableAbstract
+/// <summary>
+/// Class that acts as a switch (true/false) input device for puzzles
+/// </summary>
+[RequireComponent(typeof(SelectableBehaviour))]
+public class SelectableSwitch : MonoBehaviour, IPuzzleInput
 {
-    public float BendDuration;
-    public float BendAngle = 45;
     [Tooltip("Keep it empty to apply on this GameObject")]
-    public GameObject ObjectToMove;
     bool _status;
     public bool selectStatus
     {
@@ -14,43 +14,47 @@ public class SelectableSwitch : SelectableAbstract
         set
         {
             _status = value;
-            Bend(_status ? 1 : -1);
         }
     }
 
-    private IPuzzle puzzleCtrl;
+    SelectableBehaviour selectable;
+    IPuzzle puzzleCtrl;
 
-    protected override void OnInitEnd(SelectableAbstract _parent)
+    #region IPuzzleInput
+    public void Init(IPuzzle _parentPuzzle, IPuzzleInputData _data)
     {
-        //if (!ObjectToMove)
-        //    originalRotation = transform.rotation;
-        //else
-        //    originalRotation = ObjectToMove.transform.rotation;
-
-        selectStatus = false;
-        puzzleCtrl = _parent as IPuzzle;
-    }
-
-    #region Data injection
-    public IPuzzleInputData InputData;
-
-    public void DataInjection(IPuzzleInputData _data)
-    {
+        //Initial data injection
         InputData = _data;
-    }
-    #endregion
 
-    protected override void OnSelect()
+        //setup parent relationship
+        puzzleCtrl = _parentPuzzle;
+
+        //selectable behaviour setup
+        selectable = GetComponent<SelectableBehaviour>();
+        selectable.Init((puzzleCtrl as MonoBehaviour).GetComponent<SelectableBehaviour>());
+        
+        //starting swtich condition
+        selectStatus = false;
+    }
+
+    public void OnSelection()
     {
         selectStatus = !selectStatus;
         puzzleCtrl.OnSwitchSelect(this);
     }
 
-    void Bend(int _direction)
+    public void OnStateChange(SelectionState _newState){}
+    
+    #region Data injection
+    public IPuzzleInputData InputData;
+    /// <summary>
+    /// Use it to modify held data on fly
+    /// </summary>
+    /// <param name="_data"></param>
+    public void DataInjection(IPuzzleInputData _data)
     {
-        if (!ObjectToMove)
-            transform.DOLocalRotate(Vector3.forward* _direction * BendAngle, BendDuration);
-        else
-            ObjectToMove.transform.DOLocalRotate(Vector3.forward * _direction * BendAngle, BendDuration);
+        InputData = _data;
     }
+    #endregion
+    #endregion
 }

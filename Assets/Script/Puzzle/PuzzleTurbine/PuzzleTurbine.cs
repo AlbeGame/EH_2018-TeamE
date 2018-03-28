@@ -2,16 +2,27 @@
 using System.Linq;
 using UnityEngine;
 
-public class PuzzleTurbine : SelectableItem, IPuzzle {
-
+[RequireComponent(typeof(SelectableBehaviour), typeof(PuzzleGraphic))]
+public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
+{
+    //----------------TODO quando torno da pranzo----------------
+    // Convertire Puzzle Turbine e Autopilot al format
+    // SelectableBehaviour + PuzzleGraphic + IPuzzle + ISelectable
+    // Usa GPS come riferimento per i dubbi
+    // Rifai tutti i prefab e testa il funzionamento
+    // Metti i puzzle e gli input. Dovrebbero portarsi dietro in automatico i component necessari
+    //-----------------------------------------------------------
+    
     #region Interactables controller
     [Header("Labled Buttons")]
     public List<SelectableButton> LabledButtons = new List<SelectableButton>(3);
     [Header("Reset Button")]
     public SelectableButton resetButton = new SelectableButton();
-
     #endregion
-   
+
+    SelectableBehaviour selectable;
+    PuzzleGraphic graphicCtrl;
+
     PuzzleTurbineData data;
     PuzzleCombination combination;
     int buttonHits;
@@ -80,7 +91,7 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
     #endregion
 
     #region Selectable Behaviours
-    protected override void OnInitEnd(SelectableAbstract _parent) {
+    public void Init() {
         InitGenricalElement();
     }
 
@@ -88,15 +99,10 @@ public class PuzzleTurbine : SelectableItem, IPuzzle {
         graphicCtrl.Paint(_solutionState);
     }
 
-    protected override void OnStateChange(SelectionState _state) {
+    public void OnStateChange(SelectionState _state) { }
 
-        if (graphicCtrl && SolutionState == PuzzleState.Unsolved)
-            graphicCtrl.Paint(_state);
-    }
-
-    protected override void OnSelect()
+    public void OnSelection()
     {
-        base.OnSelect();
         Debugger.DebugLogger.Clean();
         Debugger.DebugLogger.LogText("------------//"+gameObject.name + "//-----------");
         Debugger.DebugLogger.LogText(combination.Solution[0].Label + "_" + combination.Solution[1].Label);

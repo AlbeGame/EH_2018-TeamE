@@ -4,46 +4,71 @@ using UnityEngine;
 /// <summary>
 /// Gestore della grafica del puzzle. Cambia il materiale a tutti i renderder in parentela, esclusi specifici.
 /// </summary>
-public class PuzzleGraphic : MonoBehaviour
+public class PuzzleGraphic : MonoBehaviour, ISelectable
 {
-    PuzzleGraphicData data;
+    public Transform CameraFocusPoint;
+    CameraController camCtrl;
+
+    public PuzzleGraphicData Data;
     List<MeshRenderer> meshRenderers = new List<MeshRenderer>();
+    bool inhibitColorChange;
+
+    private void Start()
+    {
+        if (Data != null)
+            Init(Data);
+    }
+
+    #region API
+    #region ISelectable
+    public void OnSelection()
+    {
+        CameraFocusCall();
+    }
+
+    public void OnStateChange(SelectionState _newState)
+    {
+        Paint(_newState);
+    }
+    #endregion
 
     public void Init(PuzzleGraphicData _data)
     {
-        data = _data;
+        Data = _data;
+
+        camCtrl = Camera.main.GetComponent<CameraController>();
 
         foreach (MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>())
         {
             if(!renderer.GetComponent<TextMesh>())
-                if (!data.DoNotPaintItems.Contains(renderer))
+                if (!Data.DoNotPaintItems.Contains(renderer))
                     meshRenderers.Add(renderer);
         }
 
-        if(data.ParticlesGroup != null)
-            data.ParticlesGroup.SetActive(false);
+        if(Data.ParticlesGroup != null)
+            Data.ParticlesGroup.SetActive(false);
 
-        Paint(data.NeutralMat);
+        Paint(Data.NeutralMat);
     }
 
     public void Paint(SelectionState _state)
     {
-        if (data == null)
+        if (Data == null || inhibitColorChange)
             return;
 
         switch (_state)
         {
             case SelectionState.Passive:
-                Paint(data.PassiveMat);
+                Paint(Data.NeutralMat);
                 break;
             case SelectionState.Neutral:
-                Paint(data.NeutralMat);
+                Paint(Data.NeutralMat);
                 break;
             case SelectionState.Highlighted:
-                Paint(data.HighlightedMat);
+                Paint(Data.HighlightedMat);
                 break;
             case SelectionState.Selected:
-                Paint(data.SelectedMat);
+                Paint(Data.NeutralMat);
                 break;
             default:
                 break;
@@ -52,30 +77,31 @@ public class PuzzleGraphic : MonoBehaviour
 
     public void Paint(PuzzleState _state)
     {
-        if (data == null)
+        if (Data == null)
             return;
 
         switch (_state)
         {
             case PuzzleState.Unsolved:;
-                if(data.Lights != null)
-                    data.Lights.material = data.EmissiveNegative;
-                if (data.ParticlesGroup != null)
-                    data.ParticlesGroup.SetActive(false);
+                inhibitColorChange = false;
+                if(Data.Lights != null)
+                    Data.Lights.materials[1] = Data.EmissiveNegative;
+                if (Data.ParticlesGroup != null)
+                    Data.ParticlesGroup.SetActive(false);
                 break;
             case PuzzleState.Broken:
-                Paint(data.BrokenMat);
-                if(data.Lights != null)
-                    data.Lights.material = data.EmissiveNegative;
-                if (data.ParticlesGroup != null)
-                    data.ParticlesGroup.SetActive(true);
+                inhibitColorChange = true;
+                if (Data.Lights != null)
+                    Data.Lights.materials[1] = Data.EmissiveNegative;
+                if (Data.ParticlesGroup != null)
+                    Data.ParticlesGroup.SetActive(true);
                 break;
             case PuzzleState.Solved:
-                Paint(data.SolvedMat);
-                if(data.ParticlesGroup != null)
-                    data.ParticlesGroup.SetActive(false);
-                if(data.Lights != null)
-                    data.Lights.material = data.EmissivePositive;
+                inhibitColorChange = true;
+                if (Data.ParticlesGroup != null)
+                    Data.ParticlesGroup.SetActive(false);
+                if(Data.Lights != null)
+                    Data.Lights.materials[1] = Data.EmissivePositive;
                 break;
             default:
                 break;
@@ -89,13 +115,20 @@ public class PuzzleGraphic : MonoBehaviour
             Material[] newMaterials = renderer.materials;
             for (int i = 0; i < newMaterials.Length; i++)
             {
-                if (renderer == data.Lights && i == 0)
+                if (renderer == Data.Lights && i == 1)
                     continue;
                 newMaterials[i] = _mat;
             }
             renderer.materials = newMaterials;
         }
     }
+
+    void CameraFocusCall()
+    {
+        if (CameraFocusPoint != null)
+            camCtrl.FocusAt(CameraFocusPoint);
+    }
+    #endregion
 }
 
 [System.Serializable]
@@ -113,10 +146,6 @@ public class PuzzleGraphicData
     public GameObject ParticlesGroup;
 
     [Header("Materials"), Space]
-    public Material PassiveMat;
     public Material NeutralMat;
     public Material HighlightedMat;
-    public Material SelectedMat;
-    public Material BrokenMat;
-    public Material SolvedMat;
 }

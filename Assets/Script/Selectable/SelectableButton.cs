@@ -1,16 +1,26 @@
 ﻿using UnityEngine;
-using DG.Tweening;
 
-public class SelectableButton : SelectableAbstract
+[RequireComponent(typeof(SelectableBehaviour))]
+public class SelectableButton : MonoBehaviour, IPuzzleInput
 {
     public TextMesh Text;
     public Renderer IconRenderer;
 
-    private IPuzzle puzzleController;
+    SelectableBehaviour selectable;
+    IPuzzle puzzleCtrl;
 
-    protected override void OnInitEnd(SelectableAbstract _parent)
+    #region  IPuzzleInput
+    public void Init(IPuzzle _parentPuzzle, IPuzzleInputData _data)
     {
-        puzzleController = _parent as IPuzzle;
+        //Initial data injection
+        InputData = _data;
+
+        //setup parent relationship
+        puzzleCtrl = _parentPuzzle;
+
+        //selectable behaviour setup
+        selectable = GetComponent<SelectableBehaviour>();
+        selectable.Init((puzzleCtrl as MonoBehaviour).GetComponent<SelectableBehaviour>());
     }
 
     public void SetAdditionalData(string _label = "", Material _iconMat = null) {
@@ -23,6 +33,13 @@ public class SelectableButton : SelectableAbstract
             IconRenderer.material = _iconMat;
     }
 
+    public void OnSelection()
+    {
+        puzzleCtrl.OnButtonSelect(this);
+    }
+
+    public void OnStateChange(SelectionState _newState) { }
+    
     #region Data injection
     public IPuzzleInputData InputData;
 
@@ -30,9 +47,5 @@ public class SelectableButton : SelectableAbstract
         InputData = _data;
     }
     #endregion
-
-    protected override void OnSelect()
-    {
-        puzzleController.OnButtonSelect(this);
-    }
+    #endregion
 }

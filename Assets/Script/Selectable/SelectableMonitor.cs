@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
-public class SelectableMonitor : SelectableAbstract {
-
+[RequireComponent(typeof(SelectableBehaviour))]
+public class SelectableMonitor : MonoBehaviour, IPuzzleInput
+{
+    SelectableBehaviour selectable;
     IPuzzle puzzleCtrl;
     TextMesh textMesh;
 
@@ -14,11 +16,21 @@ public class SelectableMonitor : SelectableAbstract {
     }
     #endregion
 
-    protected override void OnInitEnd(SelectableAbstract _parent)
+    public void Init(IPuzzle _parentPuzzle, IPuzzleInputData _data)
     {
         textMesh = GetComponentInChildren<TextMesh>();
+        if (!textMesh)
+            Debug.LogWarning("This component needs a TextMesh in order to work properly!");
 
-        puzzleCtrl = _parent as IPuzzle;
+        //Initial data injection
+        InputData = _data;
+
+        //setup parent relationship
+        puzzleCtrl = _parentPuzzle;
+
+        //selectable behaviour setup
+        selectable = GetComponent<SelectableBehaviour>();
+        selectable.Init((puzzleCtrl as MonoBehaviour).GetComponent<SelectableBehaviour>());
     }
 
     void Update ()
@@ -27,7 +39,7 @@ public class SelectableMonitor : SelectableAbstract {
             puzzleCtrl.OnUpdateSelectable(this);
 	}
 
-    protected override void OnSelect()
+    public void OnSelection()
     {
         if (puzzleCtrl != null)
             puzzleCtrl.OnMonitorSelect(this);

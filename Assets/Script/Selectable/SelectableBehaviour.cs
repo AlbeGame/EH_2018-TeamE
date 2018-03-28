@@ -35,7 +35,7 @@ public class SelectableBehaviour : MonoBehaviour
 
             return _parent;
         }
-        private set { _parent = value; }
+        set { _parent = value; }
     }
     List<SelectableBehaviour> Children = new List<SelectableBehaviour>();
     List<SelectableBehaviour> Siblings
@@ -230,6 +230,7 @@ public class SelectableBehaviour : MonoBehaviour
         }
     }
     
+    // Behaviour than only the Root follows
     #region Root Behaviour
     SelectableBehaviour currentSelected;
 

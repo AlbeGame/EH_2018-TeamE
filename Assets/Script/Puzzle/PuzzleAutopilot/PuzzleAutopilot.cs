@@ -1,10 +1,9 @@
-﻿using System.Linq;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class PuzzleAutopilot : SelectableItem, IPuzzle {
-
-  
+[RequireComponent(typeof(SelectableBehaviour), typeof(PuzzleGraphic))]
+public class PuzzleAutopilot : MonoBehaviour, IPuzzle, ISelectable
+{
     PuzzleAutopilotData data;
     public AutopilotIO Interactables;
     //Indice relativo alla soluzione scelta in data.Fase#

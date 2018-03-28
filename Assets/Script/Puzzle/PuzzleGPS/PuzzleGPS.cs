@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
 
-public class PuzzleGPS : SelectableItem, IPuzzle
+[RequireComponent(typeof(SelectableBehaviour), typeof(PuzzleGraphic))]
+public class PuzzleGPS : MonoBehaviour, IPuzzle, ISelectable
 {
+    SelectableBehaviour selectable;
+    PuzzleGraphic graphicCtrl;
+
     PuzzleGPSData data;
     public GPS_IO Interactables;
 
@@ -30,6 +34,9 @@ public class PuzzleGPS : SelectableItem, IPuzzle
     public void Setup(IPuzzleData _data)
     {
         data = _data as PuzzleGPSData;
+
+        graphicCtrl = GetComponent<PuzzleGraphic>();
+
         GenerateRandomCombination();
     }
 
@@ -52,13 +59,13 @@ public class PuzzleGPS : SelectableItem, IPuzzle
 
     public void DoWin()
     {
-        (GetRoot() as SelectionRoot).NotifyPuzzleSolved(this);
+        selectable.GetRoot().GetComponent<SelectionRoot>().NotifyPuzzleSolved(this);
         graphicCtrl.Paint(_solutionState);
     }
 
     public void DoLoose()
     {
-        (GetRoot() as SelectionRoot).NotifyPuzzleBreakdown(this);
+        selectable.GetRoot().GetComponent<SelectionRoot>().NotifyPuzzleBreakdown(this);
         graphicCtrl.Paint(_solutionState);
        
     }
@@ -68,7 +75,7 @@ public class PuzzleGPS : SelectableItem, IPuzzle
         PuzzleGPSNumericData data = _button.InputData as PuzzleGPSNumericData;
         PuzzleGPSMonitorData coordinateData = currentSelectedMonitor.InputData as PuzzleGPSMonitorData;
 
-        Select(true);
+        selectable.Select();
         if (data.ActualValue < 10)
         {
             coordinateData.coordinateValue *= 10;
@@ -96,33 +103,27 @@ public class PuzzleGPS : SelectableItem, IPuzzle
             currentSelectedMonitor = Interactables.Longitude;
         }
 
-        Select(true);
+        selectable.Select();
     }
 
-    public void OnUpdateSelectable(SelectableAbstract _selectable)
+    public void OnUpdateSelectable(IPuzzleInput _input)
     {
         //CurrentSelectedMonitor deve lampeggiare.
     }
     #endregion
 
     #region Selectable Behaviours
-    protected override void OnInitEnd(SelectableAbstract _parent)
+    public void Init()
     {
         InitOutputMonitor();
         InitNumerics();
         InitSelectableMonitors();
     }
 
-    protected override void OnStateChange(SelectionState _state)
-    {
-        if(SolutionState == PuzzleState.Unsolved)
-            base.OnStateChange(_state);
-    }
+    public void OnStateChange(SelectionState _state) { }
 
-    protected override void OnSelect()
+    public void OnSelection()
     {
-        base.OnSelect();
-
         Debugger.DebugLogger.Clean();
         Debugger.DebugLogger.LogText("------------//" + gameObject.name + "//-----------");
         Debugger.DebugLogger.LogText(gameObject.name + gameObject.GetInstanceID());
@@ -139,17 +140,14 @@ public class PuzzleGPS : SelectableItem, IPuzzle
     {
         for (int i = 0; i < Interactables.NumericalButtons.Length; i++)
         {
-            Interactables.NumericalButtons[i].Init(this);
-            Interactables.NumericalButtons[i].DataInjection(new PuzzleGPSNumericData() { ActualValue = i });
+            Interactables.NumericalButtons[i].Init(this, new PuzzleGPSNumericData() { ActualValue = i });
         }
     }
 
     void InitSelectableMonitors()
     {
-        Interactables.Latitude.Init(this);
-        Interactables.Latitude.DataInjection(new PuzzleGPSMonitorData());
-        Interactables.Longitude.Init(this);
-        Interactables.Longitude.DataInjection(new PuzzleGPSMonitorData());
+        Interactables.Latitude.Init(this, new PuzzleGPSMonitorData());
+        Interactables.Longitude.Init(this, new PuzzleGPSMonitorData());
 
         ////DEBUG POURPOSE ONLY
         //Interactables.Latitude.TypeOn(solutionCoordinates.x.ToString());
