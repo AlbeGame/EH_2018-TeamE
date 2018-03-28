@@ -10,7 +10,7 @@ public class PuzzleGPSOutputMonitor : MonoBehaviour {
     public GameObject SText;
     public GameObject WText;
     Material mapMaterial;
-    PuzzleGPSData data;
+    //PuzzleGPSData data;
 
     private void Start()
     {
@@ -19,7 +19,7 @@ public class PuzzleGPSOutputMonitor : MonoBehaviour {
 
     public void Init(PuzzleGPSData _data)
     {
-        data = _data;
+        //data = _data;
 
         if (!mapMaterial)
             InitMapMaterial();

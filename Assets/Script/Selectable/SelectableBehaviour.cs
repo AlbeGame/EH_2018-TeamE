@@ -143,7 +143,7 @@ public class SelectableBehaviour : MonoBehaviour
 
     #region Composite Pattern
     /// <summary>
-    /// Return all the children except _child
+    /// Return all the parent's children except this one
     /// </summary>
     /// <param name="_child"></param>
     /// <returns></returns>
@@ -164,6 +164,15 @@ public class SelectableBehaviour : MonoBehaviour
     }
 
     /// <summary>
+    /// Return all the children
+    /// </summary>
+    /// <returns></returns>
+    public List<SelectableBehaviour> GetChildren()
+    {
+        return Children;
+    }
+
+    /// <summary>
     /// Return the Root
     /// </summary>
     /// <returns></returns>
@@ -179,7 +188,7 @@ public class SelectableBehaviour : MonoBehaviour
     }
 
     /// <summary>
-    /// Return the parent of this Selectablebehaviour (climbing the transform hierarchy)
+    /// Return the parent of this SelectableBehaviour (climbing the transform hierarchy)
     /// </summary>
     /// <returns></returns>
     public SelectableBehaviour GetParent()
@@ -240,7 +249,7 @@ public class SelectableBehaviour : MonoBehaviour
     /// <param name="_newSelected"></param>
     void EnstablishNewSelection(SelectableBehaviour _newSelected)
     {
-        if (_newSelected = null)
+        if (_newSelected == null)
             GetRoot().State = SelectionState.Neutral;
 
         if (_newSelected == this || _newSelected.State != SelectionState.Selected)

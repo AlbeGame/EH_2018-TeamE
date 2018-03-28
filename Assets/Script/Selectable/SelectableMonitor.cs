@@ -45,6 +45,8 @@ public class SelectableMonitor : MonoBehaviour, IPuzzleInput
             puzzleCtrl.OnMonitorSelect(this);
     }
 
+    public void OnStateChange(SelectionState _newState) { }
+
     public void TypeOn(string _thingsToWrite, bool replaceOldText = true)
     {
         if(replaceOldText)

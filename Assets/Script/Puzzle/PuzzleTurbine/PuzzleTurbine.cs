@@ -43,6 +43,9 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
 
     public void Setup(IPuzzleData _data) {
         data = _data as PuzzleTurbineData;
+
+        selectable = GetComponent<SelectableBehaviour>();
+
         buttonHits = 0;
         GenerateNewPuzzleCombination();
     }
@@ -62,11 +65,11 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
 
     public void DoWin()
     {
-        (GetRoot() as SelectionRoot).NotifyPuzzleSolved(this);
+        selectable.GetRoot().GetComponent<SelectionRoot>().NotifyPuzzleSolved(this);
     }
 
     public void DoLoose() {
-        (GetRoot() as SelectionRoot).NotifyPuzzleBreakdown(this);
+        selectable.GetRoot().GetComponent<SelectionRoot>().NotifyPuzzleBreakdown(this);
     }
 
     public void OnButtonSelect(SelectableButton _button) {
@@ -78,20 +81,24 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
                 SetEValues(data.E1Modifier, data.E2Modifier, data.E3Modifier, data.E4Modifier);
             }
         }
-        Select(true);
 
         // Reset Button
         if (_button == resetButton) {
             CheckIfSolved();
         }
+
+        selectable.Select();
     }
     public void OnSwitchSelect(SelectableSwitch _switch) { }
     public void OnMonitorSelect(SelectableMonitor _monitor) { }
-    public void OnUpdateSelectable(SelectableAbstract _selectable) { }
+    public void OnUpdateSelectable(IPuzzleInput _input) { }
     #endregion
 
     #region Selectable Behaviours
     public void Init() {
+
+        graphicCtrl = GetComponent<PuzzleGraphic>();
+
         InitGenricalElement();
     }
 
@@ -171,14 +178,12 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
 
         /// Inject Labled Buttons
         for (int i = 0; i < LabledButtons.Count; i++) {
-            LabledButtons[i].Init(this);
+            LabledButtons[i].Init(this, buttonPool[i]);
             LabledButtons[i].SetAdditionalData(buttonPool[i].Label);
-            LabledButtons[i].DataInjection(buttonPool[i]);
         }
 
         /// Inject Reset Button
-        resetButton.Init(this);
-        resetButton.DataInjection(null);
+        resetButton.Init(this, null);
 
         foreach (SliderController slider in GetComponentsInChildren<SliderController>()) {
             Sliders.Add(slider);

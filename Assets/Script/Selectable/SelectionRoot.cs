@@ -1,8 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class SelectionRoot : SelectableAbstract
+[RequireComponent(typeof(SelectableBehaviour))]
+public class SelectionRoot : MonoBehaviour, ISelectable
 {
+    SelectableBehaviour selectable;
+
     CameraController camCtrl;
     public int PuzzleNeededToWin;
     int currentSolvedPuzzles;
@@ -12,25 +16,27 @@ public class SelectionRoot : SelectableAbstract
 
     private void Start()
     {
-        Init(false, SelectionState.Selected);
+        Init();
     }
 
-    protected override void OnInitEnd(SelectableAbstract _parent)
+    public void Init()
     {
+        selectable.GetComponent<SelectableBehaviour>();
+
         camCtrl = Camera.main.GetComponent<CameraController>();
         camCtrl.isMoveFreeCam = false;
 
         if (Altimetro)
-            Altimetro.GetComponent<SelectableItem>().Init(this);
+            Altimetro.GetComponent<SelectableBehaviour>().Init(selectable);
 
         int randIndex;
         foreach (Transform puzzlePos in PuzzlePositions)
         {
             randIndex = Random.Range(0, PuzzleDatas.Count);
             IPuzzleData randData = PuzzleDatas[randIndex] as IPuzzleData;
-            SelectableItem randPuzzle = Instantiate(randData.GetIPuzzleGO(), puzzlePos).GetComponent<SelectableItem>();
-            (randPuzzle as IPuzzle).Setup(randData);
-            randPuzzle.Init(this);
+            IPuzzle randPuzzle = Instantiate(randData.GetIPuzzleGO(), puzzlePos).GetComponent<IPuzzle>();
+            randPuzzle.Setup(randData);
+            (randPuzzle as MonoBehaviour).GetComponent<SelectableBehaviour>().Init(selectable);
         }
     }
 
@@ -38,20 +44,20 @@ public class SelectionRoot : SelectableAbstract
     {
         if (Input.GetMouseButtonUp(1))
         {
-            if(hasASelectedChild)
-                Select(true);
+            if(selectable.GetChildren().First(s => s.State == SelectionState.Selected) != null)
+                selectable.Select();
 
             camCtrl.isMoveFreeCam = false;
         }
 
-        if(State == SelectionState.Selected && Input.GetMouseButton(1))
+        if(selectable.State == SelectionState.Selected && Input.GetMouseButton(1))
             camCtrl.isMoveFreeCam = true;
     }
 
     public void NotifyPuzzleSolved(IPuzzle puzzle)
     {
         //Parziale comportamento comunque da refactorizzare
-        Select(true);
+        selectable.Select();
         puzzle.SolutionState = PuzzleState.Solved;
 
         currentSolvedPuzzles++;
@@ -65,9 +71,11 @@ public class SelectionRoot : SelectableAbstract
         _puzzle.SolutionState = PuzzleState.Broken;
     }
 
-    protected override void OnSelect()
+    public void OnSelection()
     {
         camCtrl.isMoveFreeCam = false;
         camCtrl.FocusReset();
     }
+
+    public void OnStateChange(SelectionState _newState) { }
 }

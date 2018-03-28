@@ -4,13 +4,14 @@ using UnityEngine;
 [RequireComponent(typeof(SelectableBehaviour), typeof(PuzzleGraphic))]
 public class PuzzleAutopilot : MonoBehaviour, IPuzzle, ISelectable
 {
+    SelectableBehaviour selectable;
+    PuzzleGraphic graphicCtrl;
+
     PuzzleAutopilotData data;
     public AutopilotIO Interactables;
     //Indice relativo alla soluzione scelta in data.Fase#
     //I due indici dell'array sono le due possibili fasi.
     int[] solutionCombinantion = new int[2];
-
-  
 
     int _currentSolIndex;
     int currentSolutionIndex
@@ -53,13 +54,15 @@ public class PuzzleAutopilot : MonoBehaviour, IPuzzle, ISelectable
     }
 
     public void Setup(IPuzzleData _data) {
+        selectable = GetComponent<SelectableBehaviour>();
+
         data = _data as PuzzleAutopilotData;
         GenerateInitialValues();
     }
 
     public void DoWin()
     {
-        (GetRoot() as SelectionRoot).NotifyPuzzleSolved(this);
+        selectable.GetRoot().GetComponent<SelectionRoot>().NotifyPuzzleSolved(this);
 
         graphicCtrl.Paint(_solutionState);
 
@@ -67,10 +70,10 @@ public class PuzzleAutopilot : MonoBehaviour, IPuzzle, ISelectable
 
     public void DoLoose()
     {
-        (GetRoot() as SelectionRoot).NotifyPuzzleBreakdown(this);
+        selectable.GetRoot().GetComponent<SelectionRoot>().NotifyPuzzleBreakdown(this);
 
         graphicCtrl.Paint(_solutionState);
-        Parent.Select(true);
+        selectable.GetParent().Select();
     }
 
     public bool CheckIfSolved()
@@ -100,12 +103,12 @@ public class PuzzleAutopilot : MonoBehaviour, IPuzzle, ISelectable
     public void OnButtonSelect(SelectableButton _button)
     {
         InputValue value = (_button.InputData as PuzzleAutopilotInputData).Actualvalue;
-        Select(true);
+        selectable.Select();
         CompareInputWithSolution(value);
     }
     public void OnSwitchSelect(SelectableSwitch _switch)
     {
-        Select(true);
+        selectable.Select();
         InputValue value = (_switch.InputData as PuzzleAutopilotInputData).Actualvalue;
         switch (value)
         {
@@ -129,12 +132,14 @@ public class PuzzleAutopilot : MonoBehaviour, IPuzzle, ISelectable
         CompareInputWithSolution(value);
     }
     public void OnMonitorSelect(SelectableMonitor _monitor) { }
-    public void OnUpdateSelectable(SelectableAbstract _selectable) { }
+    public void OnUpdateSelectable(IPuzzleInput _input) { }
     #endregion
 
     #region Selectable Behaviours
-    protected override void OnInitEnd(SelectableAbstract _parent)
+    public void Init()
     {
+        graphicCtrl = GetComponent<PuzzleGraphic>();
+
         //Inizializza gli elementi di Input
         InitSwitches();
         InitButtons();
@@ -146,10 +151,8 @@ public class PuzzleAutopilot : MonoBehaviour, IPuzzle, ISelectable
         isFase2Solved = false;
     }
 
-    protected override void OnSelect()
+    public void OnSelection()
     {
-        base.OnSelect();
-
         Debugger.DebugLogger.Clean();
         Debugger.DebugLogger.LogText("------------//" + gameObject.name + "//-----------");
         string fase1Sol = "Fase1Sol: ";
@@ -165,6 +168,8 @@ public class PuzzleAutopilot : MonoBehaviour, IPuzzle, ISelectable
         }
         Debugger.DebugLogger.LogText(fase2Sol);
     }
+
+    public void OnStateChange(SelectionState _newState) { }
     #endregion
 
     void InitSwitches()
@@ -172,12 +177,10 @@ public class PuzzleAutopilot : MonoBehaviour, IPuzzle, ISelectable
         InputValue randDx = (InputValue)Random.Range(-2, 0);
         InputValue randSx = (InputValue)Random.Range(-4, -2);
 
-        Interactables.LevaDx.Init(this);
-        Interactables.LevaDx.DataInjection(new PuzzleAutopilotInputData() { Actualvalue = randDx });
+        Interactables.LevaDx.Init(this, new PuzzleAutopilotInputData() { Actualvalue = randDx });
         Interactables.LevaDx.selectStatus = (int)randDx % 2 != 0 ? true : false;
 
-        Interactables.LevaSx.Init(this);
-        Interactables.LevaSx.DataInjection(new PuzzleAutopilotInputData() { Actualvalue = randSx });
+        Interactables.LevaSx.Init(this, new PuzzleAutopilotInputData() { Actualvalue = randSx });
         Interactables.LevaSx.selectStatus = (int)randSx % 2 != 0 ? true : false;
 
         OnCurrentSolutionIndexUpdate();
@@ -190,28 +193,22 @@ public class PuzzleAutopilot : MonoBehaviour, IPuzzle, ISelectable
             switch (i)
             {
                 case 0:
-                    Interactables.ButtonA.DataInjection(new PuzzleAutopilotInputData() { Actualvalue = InputValue.BottoneA });
-                    Interactables.ButtonA.Init(this);
+                    Interactables.ButtonA.Init(this, new PuzzleAutopilotInputData() { Actualvalue = InputValue.BottoneA });
                     break;
                 case 1:
-                    Interactables.ButtonB.DataInjection(new PuzzleAutopilotInputData() { Actualvalue = InputValue.BottoneB });
-                    Interactables.ButtonB.Init(this);
+                    Interactables.ButtonB.Init(this, new PuzzleAutopilotInputData() { Actualvalue = InputValue.BottoneB });
                     break;
                 case 2:
-                    Interactables.ButtonF.DataInjection(new PuzzleAutopilotInputData() { Actualvalue = InputValue.BottoneF });
-                    Interactables.ButtonF.Init(this);
+                    Interactables.ButtonF.Init(this, new PuzzleAutopilotInputData() { Actualvalue = InputValue.BottoneF });
                     break;
                 case 3:
-                    Interactables.ButtonG.DataInjection(new PuzzleAutopilotInputData() { Actualvalue = InputValue.BottoneG });
-                    Interactables.ButtonG.Init(this);
+                    Interactables.ButtonG.Init(this, new PuzzleAutopilotInputData() { Actualvalue = InputValue.BottoneG });
                     break;
                 case 4:
-                    Interactables.ButtonK.DataInjection(new PuzzleAutopilotInputData() { Actualvalue = InputValue.BottoneK });
-                    Interactables.ButtonK.Init(this);
+                    Interactables.ButtonK.Init(this, new PuzzleAutopilotInputData() { Actualvalue = InputValue.BottoneK });
                     break;
                 case 5:
-                    Interactables.ButtonL.DataInjection(new PuzzleAutopilotInputData() { Actualvalue = InputValue.BottoneL });
-                    Interactables.ButtonL.Init(this);
+                    Interactables.ButtonL.Init(this, new PuzzleAutopilotInputData() { Actualvalue = InputValue.BottoneL });
                     break;
                 default:
                     break;
