@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class Blink : MonoBehaviour {
 
     Text text;
-    string textToFlash = "|";
+    string textTrattino = "|";
     string blankText = "";
     string staticText = "";
-
+   
     bool isBlinking = true;
 
 
@@ -29,9 +29,10 @@ public class Blink : MonoBehaviour {
             text.text = blankText;
             yield return new WaitForSeconds(0.5f);
 
-            text.text = textToFlash;
+            text.text = textTrattino;
             yield return new WaitForSeconds(0.5f);
         }
+        
     }
 
 
@@ -40,6 +41,8 @@ public class Blink : MonoBehaviour {
         yield return new WaitForSeconds(5f);
         isBlinking = false;
         text.text = staticText;
+
+
     }
 
     public void Active()

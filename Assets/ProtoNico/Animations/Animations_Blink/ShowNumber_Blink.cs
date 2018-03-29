@@ -7,7 +7,7 @@ public class ShowNumber_Blink : MonoBehaviour
     Text resultText;
     double result = 0.0;
      double multiplier = 1;
-   
+  
     
     
 
@@ -17,6 +17,7 @@ public class ShowNumber_Blink : MonoBehaviour
     void Start()
     {
         resultText = GameObject.Find("Result").GetComponent<Text>();
+      
     }
 
     public void WriteTextField()
@@ -37,6 +38,7 @@ public class ShowNumber_Blink : MonoBehaviour
             result += d * multiplier;
             multiplier /=10;
         }
+      
         WriteTextField();
     }
 
