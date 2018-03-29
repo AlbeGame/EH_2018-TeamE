@@ -14,56 +14,56 @@ MonoBehaviour:
   Prefab: {fileID: 1473764462072768, guid: f7e2dc2dae189ae45be194c87221109a, type: 2}
   PossibleCoordinates:
   - Coordinate: {x: 86, y: 36}
-    MonitorImage: {fileID: 2800000, guid: ae288845a9c02b642abe7d45ad77fea4, type: 3}
+    MonitorImage: {fileID: 2800000, guid: 2c3d792aec85a0e489e9b158a94deb85, type: 3}
   - Coordinate: {x: 90, y: 35}
-    MonitorImage: {fileID: 2800000, guid: c6b555b586e44e74abda730b1732030a, type: 3}
+    MonitorImage: {fileID: 2800000, guid: 6f12c80d010f5174dad5357d8c51effa, type: 3}
   - Coordinate: {x: 83, y: 38}
-    MonitorImage: {fileID: 2800000, guid: 1fb5c3777f3a3434996ea6e1981eef67, type: 3}
+    MonitorImage: {fileID: 2800000, guid: 7ae596957b5ab5f4597768d2c346a164, type: 3}
   - Coordinate: {x: 90, y: 42}
-    MonitorImage: {fileID: 2800000, guid: 679c0976624fcd2458391f884288597a, type: 3}
+    MonitorImage: {fileID: 2800000, guid: de3d73db451b97a4285b67249ccd1039, type: 3}
   - Coordinate: {x: 84, y: 29}
-    MonitorImage: {fileID: 2800000, guid: 3eaef8818a5e03d4aae40a2c6e5e1ee7, type: 3}
+    MonitorImage: {fileID: 2800000, guid: 632f4bc311f42a64293640ad92ffeba6, type: 3}
   - Coordinate: {x: 79, y: 41}
-    MonitorImage: {fileID: 2800000, guid: b057030c657ce7e4ca825a95592acbde, type: 3}
+    MonitorImage: {fileID: 2800000, guid: 304b1850df30f3c48bc6cf3f4e11c015, type: 3}
   - Coordinate: {x: 82, y: 31}
-    MonitorImage: {fileID: 2800000, guid: 5b7483fa1ca411c43879b0f87b2b7ac0, type: 3}
+    MonitorImage: {fileID: 2800000, guid: 0f9f94e6d22049b4a99729664c3c3824, type: 3}
   - Coordinate: {x: 79, y: 32}
-    MonitorImage: {fileID: 2800000, guid: f668ea69657e0eb499fe73db20e5d064, type: 3}
+    MonitorImage: {fileID: 2800000, guid: e73907f2edae39440a3cdd03e6b40704, type: 3}
   - Coordinate: {x: 80, y: 29}
-    MonitorImage: {fileID: 2800000, guid: 716a75165a3590342b8a73dc0204700f, type: 3}
+    MonitorImage: {fileID: 2800000, guid: 02bcf1f5ae2189f4aa1fdb69ab907320, type: 3}
   - Coordinate: {x: 79, y: 21}
-    MonitorImage: {fileID: 2800000, guid: d253a1072dc0c334486e8553db56c241, type: 3}
+    MonitorImage: {fileID: 2800000, guid: 9a02f1275505598489f6c3108796d782, type: 3}
   - Coordinate: {x: 85, y: 20}
-    MonitorImage: {fileID: 2800000, guid: 0b2280c2129933443a2531804345f2d8, type: 3}
+    MonitorImage: {fileID: 2800000, guid: c6076426a73cf0848bf79cb947fe2d67, type: 3}
   - Coordinate: {x: 90, y: 26}
-    MonitorImage: {fileID: 2800000, guid: a30bf89aa94ae6545aac16a30f558100, type: 3}
+    MonitorImage: {fileID: 2800000, guid: 40f3e1967f05d974392210eb38d894eb, type: 3}
   - Coordinate: {x: 90, y: 21}
-    MonitorImage: {fileID: 2800000, guid: c3d668fee5962f24b91b2f48133b3225, type: 3}
+    MonitorImage: {fileID: 2800000, guid: c59ad3cea7ec5e243b1373e0e14b8b4a, type: 3}
   - Coordinate: {x: 84, y: 24}
-    MonitorImage: {fileID: 2800000, guid: fe6f0d742d435ba4da743ffe0f8f2f50, type: 3}
+    MonitorImage: {fileID: 2800000, guid: c8d32b06cedf3e342967d0033720e6d5, type: 3}
   - Coordinate: {x: 81, y: 24}
-    MonitorImage: {fileID: 2800000, guid: 11f11d38fecda744f886142103795981, type: 3}
+    MonitorImage: {fileID: 2800000, guid: b4ef14e05d5096f45aa24af13d2c1ed2, type: 3}
   - Coordinate: {x: 86, y: 27}
-    MonitorImage: {fileID: 2800000, guid: ed4f7a85925069a46af016c386f4428b, type: 3}
+    MonitorImage: {fileID: 2800000, guid: 5ef97c346a8d6b24eb25bfd4079c5641, type: 3}
   - Coordinate: {x: 86, y: 41}
-    MonitorImage: {fileID: 2800000, guid: af4b93dba8c852843a952f06c5ff6afc, type: 3}
+    MonitorImage: {fileID: 2800000, guid: 640539aa0d54b8945bb5774cbcca36cd, type: 3}
   - Coordinate: {x: 87, y: 32}
-    MonitorImage: {fileID: 2800000, guid: 69ff23f49062f364fa053b9bf39537dd, type: 3}
+    MonitorImage: {fileID: 2800000, guid: 1364326dae1b7ef42bf97c85e7465504, type: 3}
   - Coordinate: {x: 90, y: 31}
-    MonitorImage: {fileID: 2800000, guid: 89f065c0768b27c4298aff121c60dfa1, type: 3}
+    MonitorImage: {fileID: 2800000, guid: aa6867cc93381d94b89378a4ce6e94f3, type: 3}
   - Coordinate: {x: 79, y: 26}
-    MonitorImage: {fileID: 2800000, guid: 548107c1a9443fd45be64b509af71d96, type: 3}
+    MonitorImage: {fileID: 2800000, guid: 07a01cc7e85abd541b28dfec0de14d5d, type: 3}
   - Coordinate: {x: 89, y: 28}
-    MonitorImage: {fileID: 2800000, guid: ec5e7f9179c932c4bbf8dfb58155e00c, type: 3}
+    MonitorImage: {fileID: 2800000, guid: 333bb7381f6815044a0b8244aebbe099, type: 3}
   - Coordinate: {x: 84, y: 34}
-    MonitorImage: {fileID: 2800000, guid: 5b9932c8662f4994a9d9efea8bdc9476, type: 3}
+    MonitorImage: {fileID: 2800000, guid: 2c584826b5c317b49a454806693631bf, type: 3}
   - Coordinate: {x: 81, y: 35}
-    MonitorImage: {fileID: 2800000, guid: 1f294762d0017da4f83ebea90c79daab, type: 3}
+    MonitorImage: {fileID: 2800000, guid: d7dd5c2ed0643eb40858a25e238b58c8, type: 3}
   - Coordinate: {x: 82, y: 42}
-    MonitorImage: {fileID: 2800000, guid: 62cb122eb64f126489cf573d266d603a, type: 3}
+    MonitorImage: {fileID: 2800000, guid: 2c59a1a50c7a36e42b694ad440eb22aa, type: 3}
   - Coordinate: {x: 88, y: 39}
-    MonitorImage: {fileID: 2800000, guid: 5319c91af7aef6e408cc594df07717e0, type: 3}
+    MonitorImage: {fileID: 2800000, guid: ede633e3b8153f74aaf125d7271ef6db, type: 3}
   - Coordinate: {x: 87, y: 23}
-    MonitorImage: {fileID: 2800000, guid: 3c459bc17c3c0304caba26c53b4bdf5b, type: 3}
+    MonitorImage: {fileID: 2800000, guid: cb8cd341ed06b534db84f6433cb37dc9, type: 3}
   - Coordinate: {x: 80, y: 37}
-    MonitorImage: {fileID: 2800000, guid: 10cca9d975ef15a488768b34c69b7331, type: 3}
+    MonitorImage: {fileID: 2800000, guid: 3c53486a580476249a224802e248b7e6, type: 3}
