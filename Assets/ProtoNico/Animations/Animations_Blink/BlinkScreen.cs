@@ -1,24 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class BlinkScreen : MonoBehaviour {
 
-	public TextMesh text;
+	Text text;
 	private float blinkRate = 0.5f;
-	private float _blinkRate;
-	private bool isShowingCaret = false;
+    private float _blinkRate;
+	public bool isShowingCaret = false;
     
    void  Start () {
         _blinkRate = blinkRate;
-       
+       text= GameObject.Find("Result").GetComponent<Text>();
     }
 	
 	
 	void Update () {
 
         GetBlink();
+        
 	}
 
     
@@ -39,7 +41,7 @@ public class BlinkScreen : MonoBehaviour {
 	}
 
     
-    #region API
+   
    
     public void GetBlink()
     {
@@ -51,5 +53,17 @@ public class BlinkScreen : MonoBehaviour {
         }
     }
 
-    #endregion
+
+    public void NotBlink()
+    {
+       
+
+    }
+
+    public void YesBlink()
+    {
+        
+    }
+
+    
 }
