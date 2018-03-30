@@ -11,6 +11,8 @@ public class SelectionRoot : MonoBehaviour, ISelectable
     public int PuzzleNeededToWin;
     int currentSolvedPuzzles;
     public Altimetro Altimetro;
+    public SelectableBehaviour AlarmPuzzle;
+
     public List<ScriptableObject> PuzzleDatas = new List<ScriptableObject>();
     public List<Transform> PuzzlePositions = new List<Transform>();
 
@@ -23,6 +25,9 @@ public class SelectionRoot : MonoBehaviour, ISelectable
     {
         selectable = GetComponent<SelectableBehaviour>();
         selectable.Init();
+
+        if (AlarmPuzzle)
+            AlarmPuzzle.Init(selectable);
 
         camCtrl = Camera.main.GetComponent<CameraController>();
         camCtrl.isMoveFreeCam = false;

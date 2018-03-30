@@ -4527,6 +4527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
 --- !u!114 &114209062547340872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4619,6 +4620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
 --- !u!114 &114375195288182732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4630,6 +4632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
 --- !u!114 &114379223810812690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4667,6 +4670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
 --- !u!114 &114480532649506702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4710,6 +4714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
 --- !u!114 &114603668498013338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4743,6 +4748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
 --- !u!114 &114740312073472024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4754,6 +4760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
 --- !u!114 &114862353080247328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4765,6 +4772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
 --- !u!114 &114873321619337498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4778,22 +4786,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CameraFocusPoint: {fileID: 4627323625435046}
   Data:
+    NeutralMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
+    HighlightedMat: {fileID: 2100000, guid: 12f28803ed2e7784288642de0e738aaa, type: 2}
     DoNotPaintItems:
-    - {fileID: 23161535414465076}
-    - {fileID: 23160227911021646}
-    - {fileID: 23490170846245826}
-    - {fileID: 23345228739830880}
-    - {fileID: 23244332659506708}
-    - {fileID: 23932010775206346}
-    - {fileID: 23184512801321576}
-    - {fileID: 23359995269574920}
-    - {fileID: 23310340215027420}
+    - {fileID: 1039873061743540}
+    - {fileID: 1330791266403724}
+    - {fileID: 1746212499676826}
     Lights: {fileID: 23528473516560198}
     EmissivePositive: {fileID: 2100000, guid: 389021201113423418b16267fd002ac8, type: 2}
     EmissiveNegative: {fileID: 2100000, guid: 46f7dc8ce67ca07469b340759d89072b, type: 2}
     ParticlesGroup: {fileID: 1266975677911908}
-    NeutralMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-    HighlightedMat: {fileID: 2100000, guid: 12f28803ed2e7784288642de0e738aaa, type: 2}
 --- !u!114 &114906300849542882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4805,6 +4807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
 --- !u!136 &136613812858761916
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -38,12 +39,24 @@ public class PuzzleGraphic : MonoBehaviour, ISelectable
 
         camCtrl = Camera.main.GetComponent<CameraController>();
 
-        foreach (MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>())
+        List<MeshRenderer> renderers = GetComponentsInChildren<MeshRenderer>().ToList();
+        renderers = renderers.Where(r => r.GetComponent<TextMesh>() == null).ToList();
+        List<MeshRenderer> rendSToNotPaint = new List<MeshRenderer>();
+        foreach (GameObject gO in Data.DoNotPaintItems)
         {
-            if(!renderer.GetComponent<TextMesh>())
-                if (!Data.DoNotPaintItems.Contains(renderer))
-                    meshRenderers.Add(renderer);
+            if (gO == null)
+                continue;
+
+            rendSToNotPaint = gO.GetComponentsInChildren<MeshRenderer>().ToList();
+            if(rendSToNotPaint != null && rendSToNotPaint.Count > 0)
+                foreach (MeshRenderer gORend in rendSToNotPaint)
+                {
+                    if (renderers.Contains(gORend))
+                        renderers.Remove(gORend);
+                }
         }
+
+        meshRenderers = renderers;
 
         if(Data.ParticlesGroup != null)
             Data.ParticlesGroup.SetActive(false);
@@ -134,8 +147,12 @@ public class PuzzleGraphic : MonoBehaviour, ISelectable
 [System.Serializable]
 public class PuzzleGraphicData
 {
+    [Header("Materials"), Space]
+    public Material NeutralMat;
+    public Material HighlightedMat;
+
     [Tooltip("Lista di tutti i renderer figli che verranno ignorati da tutte le variazioni di colore del puzzle")]
-    public List<Renderer> DoNotPaintItems = new List<Renderer>();
+    public List<GameObject> DoNotPaintItems = new List<GameObject>();
 
     [Header("Puzzle Lights")]
     public MeshRenderer Lights;
@@ -144,8 +161,4 @@ public class PuzzleGraphicData
 
     [Header("Puzzle Particles")]
     public GameObject ParticlesGroup;
-
-    [Header("Materials"), Space]
-    public Material NeutralMat;
-    public Material HighlightedMat;
 }
