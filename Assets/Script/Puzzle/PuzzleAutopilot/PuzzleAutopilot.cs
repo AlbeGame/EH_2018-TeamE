@@ -53,8 +53,10 @@ public class PuzzleAutopilot : MonoBehaviour, IPuzzle, ISelectable
         }
     }
 
-    public void Setup(IPuzzleData _data) {
+    public void Setup(IPuzzleData _data)
+    {
         selectable = GetComponent<SelectableBehaviour>();
+        graphicCtrl = GetComponent<PuzzleGraphic>();
 
         data = _data as PuzzleAutopilotData;
         GenerateInitialValues();
@@ -65,7 +67,6 @@ public class PuzzleAutopilot : MonoBehaviour, IPuzzle, ISelectable
         selectable.GetRoot().GetComponent<SelectionRoot>().NotifyPuzzleSolved(this);
 
         graphicCtrl.Paint(_solutionState);
-
     }
 
     public void DoLoose()
@@ -138,8 +139,6 @@ public class PuzzleAutopilot : MonoBehaviour, IPuzzle, ISelectable
     #region Selectable Behaviours
     public void Init()
     {
-        graphicCtrl = GetComponent<PuzzleGraphic>();
-
         //Inizializza gli elementi di Input
         InitSwitches();
         InitButtons();
