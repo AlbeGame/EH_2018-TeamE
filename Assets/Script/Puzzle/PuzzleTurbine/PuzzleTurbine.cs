@@ -90,6 +90,7 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
     public void Init() {
 
         graphicCtrl = GetComponent<PuzzleGraphic>();
+        graphicCtrl.Init(graphicCtrl.Data);
 
         InitGenricalElement();
     }

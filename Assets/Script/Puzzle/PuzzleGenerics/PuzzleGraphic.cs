@@ -62,6 +62,7 @@ public class PuzzleGraphic : MonoBehaviour, ISelectable
             Data.ParticlesGroup.SetActive(false);
 
         Paint(Data.NeutralMat);
+        PaintLights(Data.NeutralMat);
     }
 
     public void Paint(SelectionState _state)
@@ -98,14 +99,14 @@ public class PuzzleGraphic : MonoBehaviour, ISelectable
             case PuzzleState.Unsolved:;
                 inhibitColorChange = false;
                 if(Data.Lights != null)
-                    Data.Lights.materials[1] = Data.EmissiveNegative;
+                    PaintLights(Data.NeutralMat);
                 if (Data.ParticlesGroup != null)
                     Data.ParticlesGroup.SetActive(false);
                 break;
             case PuzzleState.Broken:
                 inhibitColorChange = true;
                 if (Data.Lights != null)
-                    Data.Lights.materials[1] = Data.EmissiveNegative;
+                    PaintLights(Data.EmissiveNegative);
                 if (Data.ParticlesGroup != null)
                     Data.ParticlesGroup.SetActive(true);
                 break;
@@ -114,7 +115,7 @@ public class PuzzleGraphic : MonoBehaviour, ISelectable
                 if (Data.ParticlesGroup != null)
                     Data.ParticlesGroup.SetActive(false);
                 if(Data.Lights != null)
-                    Data.Lights.materials[1] = Data.EmissivePositive;
+                    PaintLights(Data.EmissivePositive);
                 break;
             default:
                 break;
@@ -131,6 +132,19 @@ public class PuzzleGraphic : MonoBehaviour, ISelectable
                 if (renderer == Data.Lights && i == 1)
                     continue;
                 newMaterials[i] = _mat;
+            }
+            renderer.materials = newMaterials;
+        }
+    }
+    public void PaintLights(Material _mat)
+    {
+        foreach (Renderer renderer in meshRenderers)
+        {
+            Material[] newMaterials = renderer.materials;
+            for (int i = 0; i < newMaterials.Length; i++)
+            {
+                if (renderer == Data.Lights && i == 1)
+                    newMaterials[i] = _mat;
             }
             renderer.materials = newMaterials;
         }

@@ -139,6 +139,8 @@ public class PuzzleAutopilot : MonoBehaviour, IPuzzle, ISelectable
     #region Selectable Behaviours
     public void Init()
     {
+        graphicCtrl.Init(graphicCtrl.Data);
+
         //Inizializza gli elementi di Input
         InitSwitches();
         InitButtons();

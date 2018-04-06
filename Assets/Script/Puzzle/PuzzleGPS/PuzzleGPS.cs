@@ -117,6 +117,7 @@ public class PuzzleGPS : MonoBehaviour, IPuzzle, ISelectable
     #region Selectable Behaviours
     public void Init()
     {
+        graphicCtrl.Init(graphicCtrl.Data);
         InitOutputMonitor();
         InitNumerics();
         InitSelectableMonitors();
