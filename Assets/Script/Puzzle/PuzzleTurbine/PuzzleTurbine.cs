@@ -5,14 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(SelectableBehaviour), typeof(PuzzleGraphic))]
 public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
 {
-    //----------------TODO quando torno da pranzo----------------
-    // Convertire Puzzle Turbine e Autopilot al format
-    // SelectableBehaviour + PuzzleGraphic + IPuzzle + ISelectable
-    // Usa GPS come riferimento per i dubbi
-    // Rifai tutti i prefab e testa il funzionamento
-    // Metti i puzzle e gli input. Dovrebbero portarsi dietro in automatico i component necessari
-    //-----------------------------------------------------------
-    
     #region Interactables controller
     [Header("Labled Buttons")]
     public List<SelectableButton> LabledButtons = new List<SelectableButton>(3);

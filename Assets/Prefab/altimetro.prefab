@@ -99,8 +99,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4022885027353866}
   - component: {fileID: 114202557726360550}
-  - component: {fileID: 64190067011751640}
   - component: {fileID: 114743291881338832}
+  - component: {fileID: 114401680620621070}
+  - component: {fileID: 65505517845644460}
   m_Layer: 0
   m_Name: altimetro
   m_TagString: Untagged
@@ -419,20 +420,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1151138510134640}
   m_Mesh: {fileID: 4300004, guid: 84da7edcdbd5d7f4a92e38ab7ae0c410, type: 3}
---- !u!64 &64190067011751640
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1347717235195798}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300002, guid: 84da7edcdbd5d7f4a92e38ab7ae0c410, type: 3}
 --- !u!64 &64919890863227724
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -447,6 +434,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65505517845644460
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1347717235195798}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.2, z: 0.05}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114202557726360550
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -462,6 +461,27 @@ MonoBehaviour:
   DropSpeed: 1
   MaxAltitude: 720
   currentAltitude: 0
+--- !u!114 &114401680620621070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1347717235195798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad9400ebd581fd4ea0d0dab38582f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraFocusPoint: {fileID: 4277099328762320}
+  Data:
+    NeutralMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
+    HighlightedMat: {fileID: 2100000, guid: 12f28803ed2e7784288642de0e738aaa, type: 2}
+    DoNotPaintItems:
+    - {fileID: 1967915476666858}
+    Lights: {fileID: 0}
+    EmissivePositive: {fileID: 0}
+    EmissiveNegative: {fileID: 0}
+    ParticlesGroup: {fileID: 0}
 --- !u!114 &114743291881338832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -473,3 +493,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}

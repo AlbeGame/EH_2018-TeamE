@@ -214,6 +214,8 @@ GameObject:
   - component: {fileID: 4129253514490752}
   - component: {fileID: 114485163686356240}
   - component: {fileID: 135128613612946872}
+  - component: {fileID: 114906964969265192}
+  - component: {fileID: 114217795050897680}
   m_Layer: 0
   m_Name: Labeled Button 2
   m_TagString: Untagged
@@ -315,6 +317,7 @@ GameObject:
   - component: {fileID: 4358654544057254}
   - component: {fileID: 114018028218853468}
   - component: {fileID: 65829906586843990}
+  - component: {fileID: 114455176306865312}
   m_Layer: 0
   m_Name: Bottone_Enter
   m_TagString: Untagged
@@ -349,6 +352,8 @@ GameObject:
   - component: {fileID: 4108606508527142}
   - component: {fileID: 114744201891149676}
   - component: {fileID: 135238471339452750}
+  - component: {fileID: 114489845735270492}
+  - component: {fileID: 114902676850828062}
   m_Layer: 0
   m_Name: Labeled Button 3
   m_TagString: Untagged
@@ -629,6 +634,8 @@ GameObject:
   - component: {fileID: 4923619676565108}
   - component: {fileID: 114615308723249202}
   - component: {fileID: 135308628964200170}
+  - component: {fileID: 114320648544541054}
+  - component: {fileID: 114028200574413262}
   m_Layer: 0
   m_Name: Labeled Button 1
   m_TagString: Untagged
@@ -1138,6 +1145,9 @@ GameObject:
   - component: {fileID: 4432022013599174}
   - component: {fileID: 114433292679293144}
   - component: {fileID: 65452248691383758}
+  - component: {fileID: 114802090982857486}
+  - component: {fileID: 114344096415359136}
+  - component: {fileID: 114399980278454330}
   m_Layer: 0
   m_Name: Puzzle_01_turbine
   m_TagString: Untagged
@@ -4449,6 +4459,122 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 0}
   IconRenderer: {fileID: 0}
+--- !u!114 &114028200574413262
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1513974033124656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
+--- !u!114 &114217795050897680
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1129313172359768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
+--- !u!114 &114320648544541054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1513974033124656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
+--- !u!114 &114344096415359136
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1874294378427598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad9400ebd581fd4ea0d0dab38582f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraFocusPoint: {fileID: 4789621818113502}
+  Data:
+    NeutralMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
+    HighlightedMat: {fileID: 2100000, guid: 12f28803ed2e7784288642de0e738aaa, type: 2}
+    DoNotPaintItems: []
+    Lights: {fileID: 23827962761183382}
+    EmissivePositive: {fileID: 2100000, guid: 389021201113423418b16267fd002ac8, type: 2}
+    EmissiveNegative: {fileID: 2100000, guid: 46f7dc8ce67ca07469b340759d89072b, type: 2}
+    ParticlesGroup: {fileID: 1993499412610358}
+--- !u!114 &114399980278454330
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1874294378427598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2371a52455bdeb49b19a82455f82e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lights: []
+  ButtonsA:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ButtonsB:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ButtonsC:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ButtonsD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ButtonsE:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ButtonsF:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ButtonsG:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ButtonsH:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114420732158734322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4476,29 +4602,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f4146671fa5b540bd511afa9d93cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GraphicData:
-    DoNotPaintItems:
-    - {fileID: 120485226091736352}
-    - {fileID: 120356174390535648}
-    - {fileID: 120247922760127560}
-    - {fileID: 120103802283474374}
-    Lights: {fileID: 23827962761183382}
-    EmissivePositive: {fileID: 2100000, guid: 389021201113423418b16267fd002ac8, type: 2}
-    EmissiveNegative: {fileID: 2100000, guid: 46f7dc8ce67ca07469b340759d89072b, type: 2}
-    ParticlesGroup: {fileID: 0}
-    PassiveMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-    NeutralMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-    HighlightedMat: {fileID: 2100000, guid: 12f28803ed2e7784288642de0e738aaa, type: 2}
-    SelectedMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-    BrokenMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-    SolvedMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-  InteractionData:
-    CameraFocusPosition: {fileID: 4789621818113502}
   LabledButtons:
   - {fileID: 114615308723249202}
   - {fileID: 114485163686356240}
   - {fileID: 114744201891149676}
   resetButton: {fileID: 114018028218853468}
+--- !u!114 &114455176306865312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1215986828913634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
 --- !u!114 &114485163686356240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4512,6 +4632,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 102545167610144882}
   IconRenderer: {fileID: 0}
+--- !u!114 &114489845735270492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228643271142360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
 --- !u!114 &114508626654250756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4586,6 +4718,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 102306432245321562}
   IconRenderer: {fileID: 0}
+--- !u!114 &114802090982857486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1874294378427598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
+--- !u!114 &114902676850828062
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228643271142360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
+--- !u!114 &114906964969265192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1129313172359768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
 --- !u!120 &120103802283474374
 LineRenderer:
   m_ObjectHideFlags: 1

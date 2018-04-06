@@ -11,18 +11,20 @@ public class CameraController : MonoBehaviour
     float RotUpDown;
     Vector3 euler;
     public float MovementSpeed = 0.5f;
+    bool canMoveFreeCam = true;
     bool _isMoveFreeCam;
     public bool isMoveFreeCam
     {
         get { return _isMoveFreeCam; }
         set
         {
-            if (_isMoveFreeCam != value)
+            if (!canMoveFreeCam)
             {
-                _isMoveFreeCam = value;
-                if(_isMoveFreeCam)
-                    FocusReset();
+                _isMoveFreeCam = false;
+                return;
             }
+            else
+                _isMoveFreeCam = value;
         }
     }
 
@@ -40,7 +42,6 @@ public class CameraController : MonoBehaviour
     {
         if (isMoveFreeCam)
             RotateCamera();
-
     }
 
 
@@ -69,6 +70,7 @@ public class CameraController : MonoBehaviour
     /// <param name="_target"></param>
     public void FocusAt(Transform _target)
     {
+        canMoveFreeCam = false;
         isMoveFreeCam = false;
         transform.DORotate(_target.rotation.eulerAngles, MovementSpeed);
         //transform.DORotateQuaternion(_target.rotation, MovementSpeed);
@@ -81,10 +83,11 @@ public class CameraController : MonoBehaviour
     /// <param name="_target"></param>
     public void FocusAt(Vector3 _targetPosition, Quaternion _targetRotation)
     {
+        canMoveFreeCam = false;
         isMoveFreeCam = false;
         transform.DORotate(originalRotation.eulerAngles, MovementSpeed);
         //transform.DORotateQuaternion(originalRotation, MovementSpeed);
-        transform.DOMove(_targetPosition, MovementSpeed);
+        transform.DOMove(_targetPosition, MovementSpeed).OnComplete(()=> { if (_targetPosition == originalPosition) canMoveFreeCam = true; });
     }
     /// <summary>
     /// Move the camera to her original position and orientation

@@ -153,10 +153,7 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
     #endregion
 
     #region ISelectable
-    public void OnSelection()
-    {
-        throw new System.NotImplementedException();
-    }
+    public void OnSelection() { }
     public void OnStateChange(SelectionState _state) { }
     #endregion
 
