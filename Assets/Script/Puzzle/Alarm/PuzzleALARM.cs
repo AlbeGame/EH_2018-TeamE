@@ -157,10 +157,7 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
     {
         throw new System.NotImplementedException();
     }
-    public void OnStateChange(SelectionState _state)
-    {
-        throw new System.NotImplementedException();
-    }
+    public void OnStateChange(SelectionState _state) { }
     #endregion
 
     private void Update()

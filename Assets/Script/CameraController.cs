@@ -12,10 +12,18 @@ public class CameraController : MonoBehaviour
     Vector3 euler;
     public float MovementSpeed = 0.5f;
     bool _isMoveFreeCam;
-	public bool isMoveFreeCam
+    public bool isMoveFreeCam
     {
         get { return _isMoveFreeCam; }
-        set { _isMoveFreeCam = value; }
+        set
+        {
+            if (_isMoveFreeCam != value)
+            {
+                _isMoveFreeCam = value;
+                if(_isMoveFreeCam)
+                    FocusReset();
+            }
+        }
     }
 
     Quaternion originalRotation;
@@ -31,15 +39,15 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if(isMoveFreeCam)
-        RotateCamera();
-         
+        if (isMoveFreeCam)
+            RotateCamera();
+
     }
 
 
     void RotateCamera()
     {
-     
+
         transform.localEulerAngles = euler;
         RotLeftRight = Input.GetAxis("Mouse X") * RotSpeed;
         RotUpDown = Input.GetAxis("Mouse Y") * RotSpeed;
@@ -66,7 +74,7 @@ public class CameraController : MonoBehaviour
         transform.DORotate(_target.rotation.eulerAngles, MovementSpeed);
         //transform.DORotateQuaternion(_target.rotation, MovementSpeed);
         transform.DOMove(_target.position, MovementSpeed);
-        
+
     }
     /// <summary>
     /// Move the camera toward _targetPosition and rotate it as _forward

@@ -26,7 +26,7 @@ public class SelectionRoot : MonoBehaviour, ISelectable
         selectable = GetComponent<SelectableBehaviour>();
         selectable.Init();
 
-        if (AlarmPuzzle)
+        if (AlarmPuzzle) { }
             AlarmPuzzle.Init(selectable);
 
         camCtrl = Camera.main.GetComponent<CameraController>();

@@ -743,7 +743,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 858018632}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.180082
+  m_Size: 0.17407453
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5565,6 +5565,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 544177618}
   m_Mesh: {fileID: 4300156, guid: a6cd92dd6f7ac604788a2903487eedcf, type: 3}
+--- !u!1 &559955082 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1347717235195798, guid: a2a57cbdef7ca22469ff6640aea46a14,
+    type: 2}
+  m_PrefabInternal: {fileID: 1045389521}
+--- !u!114 &559955085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 559955082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad9400ebd581fd4ea0d0dab38582f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraFocusPoint: {fileID: 967246148}
+  Data:
+    NeutralMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
+    HighlightedMat: {fileID: 2100000, guid: 12f28803ed2e7784288642de0e738aaa, type: 2}
+    DoNotPaintItems:
+    - {fileID: 1533117952}
+    Lights: {fileID: 0}
+    EmissivePositive: {fileID: 0}
+    EmissiveNegative: {fileID: 0}
+    ParticlesGroup: {fileID: 0}
 --- !u!1 &567389588
 GameObject:
   m_ObjectHideFlags: 0
@@ -10839,6 +10865,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 965618123}
   m_Mesh: {fileID: 4300210, guid: a6cd92dd6f7ac604788a2903487eedcf, type: 3}
+--- !u!4 &967246148 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4277099328762320, guid: a2a57cbdef7ca22469ff6640aea46a14,
+    type: 2}
+  m_PrefabInternal: {fileID: 1045389521}
 --- !u!1 &969896028
 GameObject:
   m_ObjectHideFlags: 0
@@ -16962,6 +16993,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1532870527}
   m_Mesh: {fileID: 4300108, guid: a6cd92dd6f7ac604788a2903487eedcf, type: 3}
+--- !u!1 &1533117952 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1967915476666858, guid: a2a57cbdef7ca22469ff6640aea46a14,
+    type: 2}
+  m_PrefabInternal: {fileID: 1045389521}
 --- !u!1 &1547127900
 GameObject:
   m_ObjectHideFlags: 0
