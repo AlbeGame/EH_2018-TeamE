@@ -29,7 +29,6 @@ public class CameraController : MonoBehaviour
     Quaternion originalRotation;
     Vector3 originalPosition;
 
-
     void Start()
     {
         euler = new Vector3(0, 90, 0);
