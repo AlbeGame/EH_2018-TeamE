@@ -8,16 +8,25 @@ ModelImporter:
     100000: //RootNode
     100002: base_altimetro
     100004: freccia_altimetro
+    100006: base_altimetro1
     400000: //RootNode
     400002: base_altimetro
     400004: freccia_altimetro
+    400006: base_altimetro1
     2100000: lambert1
+    2100002: lambert2
+    2100004: lambert12
     2300000: base_altimetro
     2300002: freccia_altimetro
+    2300004: base_altimetro1
+    2300006: //RootNode
     3300000: base_altimetro
     3300002: freccia_altimetro
+    3300004: base_altimetro1
+    3300006: //RootNode
     4300000: freccia_altimetro
     4300002: base_altimetro
+    4300004: base_altimetro1
   externalObjects: {}
   materials:
     importMaterials: 1

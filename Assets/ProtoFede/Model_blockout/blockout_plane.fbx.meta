@@ -170,6 +170,186 @@ ModelImporter:
     100324: pPlane1
     100326: pPlane3
     100328: pPlane7
+    100330: ingombri_03
+    100332: pCube124
+    100334: pCube172
+    100336: pCube173
+    100338: pCube174
+    100340: pCube175
+    100342: pCube176
+    100344: pCube177
+    100346: pCube178
+    100348: pCube179
+    100350: pCube180
+    100352: pCube193
+    100354: pCube194
+    100356: pCube198
+    100358: pCube250
+    100360: pCube251
+    100362: pCube252
+    100364: pCube254
+    100366: pCube255
+    100368: pCube258
+    100370: pCube259
+    100372: pCube260
+    100374: pCube282
+    100376: pCube283
+    100378: pCylinder146
+    100380: pCylinder205
+    100382: pCylinder206
+    100384: pCylinder207
+    100386: pCylinder208
+    100388: pCylinder209
+    100390: pCylinder210
+    100392: pCylinder211
+    100394: pCylinder212
+    100396: pCylinder213
+    100398: pCylinder214
+    100400: pCylinder215
+    100402: pCylinder216
+    100404: pCylinder219
+    100406: pCylinder220
+    100408: pCylinder221
+    100410: pCylinder222
+    100412: pCylinder223
+    100414: pCylinder224
+    100416: pCylinder225
+    100418: pCylinder226
+    100420: pCylinder227
+    100422: pCylinder228
+    100424: pCylinder229
+    100426: pCylinder230
+    100428: pCylinder232
+    100430: pCylinder233
+    100432: pCylinder234
+    100434: pCylinder235
+    100436: pCylinder236
+    100438: pCylinder237
+    100440: pCylinder238
+    100442: pCylinder239
+    100444: pCylinder240
+    100446: pCylinder241
+    100448: pCylinder242
+    100450: pCylinder243
+    100452: pCylinder244
+    100454: pCylinder245
+    100456: pCylinder246
+    100458: pCylinder247
+    100460: pCylinder248
+    100462: pCylinder249
+    100464: pCylinder250
+    100466: pCylinder251
+    100468: pCylinder252
+    100470: pCylinder253
+    100472: polySurface38
+    100474: polySurface39
+    100476: polySurface41
+    100478: polySurface42
+    100480: polySurface43
+    100482: polySurface44
+    100484: polySurface45
+    100486: polySurface46 1
+    100488: polySurface56
+    100490: polySurface57
+    100492: polySurface58
+    100494: pPlane4
+    100496: pPlane5
+    100498: pPlane6
+    100500: pPlane8
+    100502: transform100
+    100504: transform101
+    100506: transform102
+    100508: transform103
+    100510: transform104
+    100512: transform105
+    100514: transform106
+    100516: transform107
+    100518: transform112
+    100520: transform114
+    100522: transform115
+    100524: transform116
+    100526: transform118
+    100528: transform120
+    100530: transform122
+    100532: transform123
+    100534: transform124
+    100536: transform126
+    100538: transform127
+    100540: transform128
+    100542: transform129
+    100544: transform130
+    100546: transform131
+    100548: transform132
+    100550: transform133
+    100552: transform134
+    100554: transform135
+    100556: transform136
+    100558: transform137
+    100560: transform138
+    100562: transform139
+    100564: transform140
+    100566: transform141
+    100568: transform142
+    100570: transform143
+    100572: transform144
+    100574: transform145
+    100576: transform146
+    100578: transform147
+    100580: transform148
+    100582: transform149
+    100584: transform151
+    100586: transform152
+    100588: transform153
+    100590: transform154
+    100592: transform51
+    100594: transform52
+    100596: transform53
+    100598: transform54
+    100600: transform55
+    100602: transform56
+    100604: transform57
+    100606: transform58
+    100608: transform59
+    100610: transform60
+    100612: transform61
+    100614: transform62
+    100616: transform63
+    100618: transform64
+    100620: transform65
+    100622: transform66
+    100624: transform67
+    100626: transform68
+    100628: transform69
+    100630: transform70
+    100632: transform71
+    100634: transform72
+    100636: transform73
+    100638: transform74
+    100640: transform75
+    100642: transform76
+    100644: transform77
+    100646: transform78
+    100648: transform79
+    100650: transform80
+    100652: transform81
+    100654: transform82
+    100656: transform83
+    100658: transform84
+    100660: transform85
+    100662: transform86
+    100664: transform87
+    100666: transform88
+    100668: transform89
+    100670: transform90
+    100672: transform91
+    100674: transform92
+    100676: transform93
+    100678: transform94
+    100680: transform95
+    100682: transform96
+    100684: transform97
+    100686: transform98
+    100688: transform99
     400000: //RootNode
     400002: cockpit2
     400004: Corpo_plane
@@ -335,6 +515,186 @@ ModelImporter:
     400324: pPlane1
     400326: pPlane3
     400328: pPlane7
+    400330: ingombri_03
+    400332: pCube124
+    400334: pCube172
+    400336: pCube173
+    400338: pCube174
+    400340: pCube175
+    400342: pCube176
+    400344: pCube177
+    400346: pCube178
+    400348: pCube179
+    400350: pCube180
+    400352: pCube193
+    400354: pCube194
+    400356: pCube198
+    400358: pCube250
+    400360: pCube251
+    400362: pCube252
+    400364: pCube254
+    400366: pCube255
+    400368: pCube258
+    400370: pCube259
+    400372: pCube260
+    400374: pCube282
+    400376: pCube283
+    400378: pCylinder146
+    400380: pCylinder205
+    400382: pCylinder206
+    400384: pCylinder207
+    400386: pCylinder208
+    400388: pCylinder209
+    400390: pCylinder210
+    400392: pCylinder211
+    400394: pCylinder212
+    400396: pCylinder213
+    400398: pCylinder214
+    400400: pCylinder215
+    400402: pCylinder216
+    400404: pCylinder219
+    400406: pCylinder220
+    400408: pCylinder221
+    400410: pCylinder222
+    400412: pCylinder223
+    400414: pCylinder224
+    400416: pCylinder225
+    400418: pCylinder226
+    400420: pCylinder227
+    400422: pCylinder228
+    400424: pCylinder229
+    400426: pCylinder230
+    400428: pCylinder232
+    400430: pCylinder233
+    400432: pCylinder234
+    400434: pCylinder235
+    400436: pCylinder236
+    400438: pCylinder237
+    400440: pCylinder238
+    400442: pCylinder239
+    400444: pCylinder240
+    400446: pCylinder241
+    400448: pCylinder242
+    400450: pCylinder243
+    400452: pCylinder244
+    400454: pCylinder245
+    400456: pCylinder246
+    400458: pCylinder247
+    400460: pCylinder248
+    400462: pCylinder249
+    400464: pCylinder250
+    400466: pCylinder251
+    400468: pCylinder252
+    400470: pCylinder253
+    400472: polySurface38
+    400474: polySurface39
+    400476: polySurface41
+    400478: polySurface42
+    400480: polySurface43
+    400482: polySurface44
+    400484: polySurface45
+    400486: polySurface46 1
+    400488: polySurface56
+    400490: polySurface57
+    400492: polySurface58
+    400494: pPlane4
+    400496: pPlane5
+    400498: pPlane6
+    400500: pPlane8
+    400502: transform100
+    400504: transform101
+    400506: transform102
+    400508: transform103
+    400510: transform104
+    400512: transform105
+    400514: transform106
+    400516: transform107
+    400518: transform112
+    400520: transform114
+    400522: transform115
+    400524: transform116
+    400526: transform118
+    400528: transform120
+    400530: transform122
+    400532: transform123
+    400534: transform124
+    400536: transform126
+    400538: transform127
+    400540: transform128
+    400542: transform129
+    400544: transform130
+    400546: transform131
+    400548: transform132
+    400550: transform133
+    400552: transform134
+    400554: transform135
+    400556: transform136
+    400558: transform137
+    400560: transform138
+    400562: transform139
+    400564: transform140
+    400566: transform141
+    400568: transform142
+    400570: transform143
+    400572: transform144
+    400574: transform145
+    400576: transform146
+    400578: transform147
+    400580: transform148
+    400582: transform149
+    400584: transform151
+    400586: transform152
+    400588: transform153
+    400590: transform154
+    400592: transform51
+    400594: transform52
+    400596: transform53
+    400598: transform54
+    400600: transform55
+    400602: transform56
+    400604: transform57
+    400606: transform58
+    400608: transform59
+    400610: transform60
+    400612: transform61
+    400614: transform62
+    400616: transform63
+    400618: transform64
+    400620: transform65
+    400622: transform66
+    400624: transform67
+    400626: transform68
+    400628: transform69
+    400630: transform70
+    400632: transform71
+    400634: transform72
+    400636: transform73
+    400638: transform74
+    400640: transform75
+    400642: transform76
+    400644: transform77
+    400646: transform78
+    400648: transform79
+    400650: transform80
+    400652: transform81
+    400654: transform82
+    400656: transform83
+    400658: transform84
+    400660: transform85
+    400662: transform86
+    400664: transform87
+    400666: transform88
+    400668: transform89
+    400670: transform90
+    400672: transform91
+    400674: transform92
+    400676: transform93
+    400678: transform94
+    400680: transform95
+    400682: transform96
+    400684: transform97
+    400686: transform98
+    400688: transform99
     2100000: plane_mat
     2100002: vetro_mat
     2100004: palette_M
@@ -344,6 +704,7 @@ ModelImporter:
     2100012: lambert2
     2100014: blinn2
     2100016: blinn1
+    2100018: lambert3
     2300000: cockpit2
     2300002: Corpo_plane
     2300004: ingombri_01
@@ -504,6 +865,7 @@ ModelImporter:
     2300314: pPlane1
     2300316: pPlane3
     2300318: pPlane7
+    2300320: pPlane8
     3300000: cockpit2
     3300002: Corpo_plane
     3300004: ingombri_01
@@ -664,6 +1026,7 @@ ModelImporter:
     3300314: pPlane1
     3300316: pPlane3
     3300318: pPlane7
+    3300320: pPlane8
     4300000: pavimento_plane
     4300002: vetro_plane
     4300004: sedile_01
@@ -823,6 +1186,7 @@ ModelImporter:
     4300312: pPlane7
     4300314: pCube286
     4300316: pCube287
+    4300318: pPlane8
   externalObjects: {}
   materials:
     importMaterials: 1
