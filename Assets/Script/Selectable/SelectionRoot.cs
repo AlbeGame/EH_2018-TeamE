@@ -60,6 +60,8 @@ public class SelectionRoot : MonoBehaviour, ISelectable
             SelectableBehaviour selected = selectable.GetChildren().FirstOrDefault(s => s.State == SelectionState.Selected);
             if (selected != null)
                 selectable.Select();
+            else if (selectable.State != SelectionState.Selected)
+                selectable.Select();
 
             camCtrl.isMoveFreeCam = false;
         }

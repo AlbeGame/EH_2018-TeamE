@@ -7057,7 +7057,7 @@ Prefab:
     - target: {fileID: 114202557726360550, guid: a2a57cbdef7ca22469ff6640aea46a14,
         type: 2}
       propertyPath: MaxAltitude
-      value: 10
+      value: 720
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a2a57cbdef7ca22469ff6640aea46a14, type: 2}

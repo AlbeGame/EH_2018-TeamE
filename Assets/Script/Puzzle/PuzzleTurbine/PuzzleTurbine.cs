@@ -58,10 +58,12 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
     public void DoWin()
     {
         selectable.GetRoot().GetComponent<SelectionRoot>().NotifyPuzzleSolved(this);
+        //selectable.GetRoot().Select();
     }
 
     public void DoLoose() {
         selectable.GetRoot().GetComponent<SelectionRoot>().NotifyPuzzleBreakdown(this);
+        //selectable.GetRoot().Select();
     }
 
     public void OnButtonSelect(SelectableButton _button) {
@@ -78,8 +80,8 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
         if (_button == resetButton) {
             CheckIfSolved();
         }
-
-        selectable.Select();
+        if(SolutionState == PuzzleState.Unsolved)
+            selectable.Select();
     }
     public void OnSwitchSelect(SelectableSwitch _switch) { }
     public void OnMonitorSelect(SelectableMonitor _monitor) { }
