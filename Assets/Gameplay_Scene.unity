@@ -1950,6 +1950,7 @@ MonoBehaviour:
   PuzzleNeededToWin: 3
   Altimetro: {fileID: 1045389523}
   AlarmPuzzle: {fileID: 1266963493}
+  Alarm_Data: {fileID: 11400000, guid: f336c269c9069124d80a51b21e117029, type: 2}
   PuzzleDatas:
   - {fileID: 11400000, guid: 88c017a19ad54464e9746b8ad239b44f, type: 2}
   - {fileID: 11400000, guid: cad79f16deab47d4092ec9121551317a, type: 2}
@@ -7053,6 +7054,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114202557726360550, guid: a2a57cbdef7ca22469ff6640aea46a14,
+        type: 2}
+      propertyPath: MaxAltitude
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a2a57cbdef7ca22469ff6640aea46a14, type: 2}
   m_IsPrefabParent: 0
@@ -8256,6 +8262,11 @@ Prefab:
       propertyPath: Lights.Array.data[1]
       value: 
       objectReference: {fileID: 403371611}
+    - target: {fileID: 114139896294512420, guid: 1037aaf84f35a4944b5fefa05e8e84e9,
+        type: 2}
+      propertyPath: Lights.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1037aaf84f35a4944b5fefa05e8e84e9, type: 2}
   m_IsPrefabParent: 0

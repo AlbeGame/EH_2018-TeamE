@@ -14,19 +14,19 @@ public class PuzzleALARM_Light : MonoBehaviour
 
     public void Init(List<PuzzleALARM.LightsValue> _pattern)
     {
-        materialPattern = new List<Material>(_pattern.Count);
+        materialPattern = new List<Material>();
         for (int i = 0; i < _pattern.Count; i++)
         {
             switch (_pattern[i])
             {
                 case PuzzleALARM.LightsValue.OFF:
-                    materialPattern[i] = OFF_mat;
+                    materialPattern.Add(OFF_mat);
                     break;
                 case PuzzleALARM.LightsValue.RED:
-                    materialPattern[i] = Red_mat;
+                    materialPattern.Add(Red_mat);
                     break;
                 case PuzzleALARM.LightsValue.YELLOW:
-                    materialPattern[i] = Yellow_mat;
+                    materialPattern.Add(Yellow_mat);
                     break;
                 default:
                     break;
@@ -40,6 +40,8 @@ public class PuzzleALARM_Light : MonoBehaviour
     {
         SetMat(materialPattern[patternIndex]);
         patternIndex++;
+        if (patternIndex >= materialPattern.Count)
+            patternIndex = 0;
     }
 
     public void TurnOff()
@@ -55,6 +57,9 @@ public class PuzzleALARM_Light : MonoBehaviour
 
     void SetMat(Material _mat)
     {
-        mRenderer.materials[1] = _mat;
+        Material[] newMats = mRenderer.materials;
+        newMats[1] = _mat;
+
+        mRenderer.materials = newMats;
     }
 }

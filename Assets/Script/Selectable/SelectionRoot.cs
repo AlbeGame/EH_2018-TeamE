@@ -12,6 +12,7 @@ public class SelectionRoot : MonoBehaviour, ISelectable
     int currentSolvedPuzzles;
     public Altimetro Altimetro;
     public SelectableBehaviour AlarmPuzzle;
+    public PuzzleALARM_Data Alarm_Data;
 
     public List<ScriptableObject> PuzzleDatas = new List<ScriptableObject>();
     public List<Transform> PuzzlePositions = new List<Transform>();
@@ -27,7 +28,11 @@ public class SelectionRoot : MonoBehaviour, ISelectable
         selectable.Init();
 
         if (AlarmPuzzle)
+        {
             AlarmPuzzle.Init(selectable);
+            AlarmPuzzle.GetComponent<PuzzleALARM>().Setup(Alarm_Data);
+            AlarmPuzzle.GetComponent<PuzzleALARM>().Init();
+        }
 
         camCtrl = Camera.main.GetComponent<CameraController>();
         camCtrl.isMoveFreeCam = false;
@@ -63,6 +68,61 @@ public class SelectionRoot : MonoBehaviour, ISelectable
             camCtrl.isMoveFreeCam = true;
     }
 
+    bool hasAlarmedOnce;
+    bool hasAlarmedAltitude;
+    public void ActivateAlarm(bool forceIt = false)
+    {
+        PuzzleALARM _alarm = AlarmPuzzle.GetComponent<PuzzleALARM>();
+
+        if (forceIt)
+            _alarm.Toggle();
+        else
+        {
+            ActivateAlarm();
+        }
+
+        hasAlarmedOnce = true;
+    }
+
+    public void ActivateAlarm()
+    {
+        PuzzleALARM _alarm = AlarmPuzzle.GetComponent<PuzzleALARM>();
+        if (hasAlarmedOnce)
+        {
+            int actualChance = Random.Range(0, 100);
+            if (actualChance >= 50)
+                _alarm.Toggle();
+        }
+        else
+            _alarm.Toggle();
+
+        hasAlarmedOnce = true;
+    }
+
+    public void NotifyAltitudeUpdate(float _maxAltitude, float _currentAltitude)
+    {
+        NotifyAltitudeUpdate(_currentAltitude / _maxAltitude);
+    }
+
+    public void NotifyAltitudeUpdate(float percentage)
+    {
+        if (percentage >= 0.5f)
+            return;
+
+        if(percentage <= 0)
+        { //gameOver
+        }
+
+        if (hasAlarmedAltitude)
+            return;
+        else
+        {
+            if (!hasAlarmedOnce)
+                ActivateAlarm(true);
+            hasAlarmedAltitude = true;
+        }
+    }
+
     public void NotifyPuzzleSolved(IPuzzle puzzle)
     {
         //Parziale comportamento comunque da refactorizzare
@@ -78,6 +138,8 @@ public class SelectionRoot : MonoBehaviour, ISelectable
     {
         //chiamata all'altimetro;
         _puzzle.SolutionState = PuzzleState.Broken;
+
+        AlarmPuzzle.GetComponent<PuzzleALARM>().Toggle(true);
     }
 
     public void OnSelection()

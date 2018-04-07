@@ -157,11 +157,19 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
     public void OnStateChange(SelectionState _state) { }
     #endregion
 
+    public float LightBlinkInterval = .5f;
+    float currentLBInterval = 0;
     private void Update()
     {
-        if(IsAlarmActive)
-            foreach (PuzzleALARM_Light light in Lights)
-                light.Pulse();
+        currentLBInterval += Time.deltaTime;
+        if (currentLBInterval >= LightBlinkInterval)
+        {
+            if (IsAlarmActive)
+                foreach (PuzzleALARM_Light light in Lights)
+                    light.Pulse();
+
+            currentLBInterval = 0;
+        }
     }
 
     public void Toggle(bool On = true)
@@ -169,7 +177,7 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
         //if ((On && IsAlarmActive) || (!On && !IsAlarmActive))
         //    return;
 
-        if (On ^ IsAlarmActive)
+        if (!(On ^ IsAlarmActive))
             return;
 
         if (On)
