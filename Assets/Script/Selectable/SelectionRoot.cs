@@ -101,6 +101,16 @@ public class SelectionRoot : MonoBehaviour, ISelectable
         hasAlarmedOnce = true;
     }
 
+    public void AccelerateAltimeter()
+    {
+        Altimetro.Accelerate();
+    }
+
+    public void DecelerateAltimeter(bool goPositive = false)
+    {
+        Altimetro.Decelerate(goPositive);
+    }
+
     public void NotifyAltitudeUpdate(float _maxAltitude, float _currentAltitude)
     {
         NotifyAltitudeUpdate(_currentAltitude / _maxAltitude);
@@ -131,6 +141,7 @@ public class SelectionRoot : MonoBehaviour, ISelectable
         selectable.Select();
         puzzle.SolutionState = PuzzleState.Solved;
 
+        DecelerateAltimeter(puzzle.GetType() == typeof(PuzzleALARM)? true:false);
         currentSolvedPuzzles++;
         if (currentSolvedPuzzles >= PuzzleNeededToWin)
             FindObjectOfType<MenuPauseController>().GoMainMenu(); //Momentanea Soluzione di vittoria
@@ -141,6 +152,7 @@ public class SelectionRoot : MonoBehaviour, ISelectable
         //chiamata all'altimetro;
         _puzzle.SolutionState = PuzzleState.Broken;
 
+        AccelerateAltimeter();
         AlarmPuzzle.GetComponent<PuzzleALARM>().Toggle(true);
     }
 

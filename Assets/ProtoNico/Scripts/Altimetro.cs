@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class Altimetro : MonoBehaviour
 {
-    float multiplier = 1.3f;
-    int updateTimer = 0;
+    public float[] Multipliers = new float[6] { .7f, 1f, 1.3f, 1.6f, 2f, 2.33f };
+    int currentMultiplayerIndex = 1;
     public GameObject ArrowToMove;
-    public float DropSpeed = 1.0f;
+    float dropSpeed { get { return 1 * Multipliers[currentMultiplayerIndex]; } }
     public float MaxAltitude = 1000;
     public float currentAltitude;
     
@@ -26,7 +26,7 @@ public class Altimetro : MonoBehaviour
     private void Update()
     {
         UpdateAltitude();
-        GetMoveAltimeter();
+        RotateArrow();
        // GetMoveArrowSeconds();
     }
 
@@ -34,20 +34,29 @@ public class Altimetro : MonoBehaviour
     {
         gameController.NotifyAltitudeUpdate(MaxAltitude, currentAltitude);
 
-
         if (currentAltitude <= 0)
         {
             currentAltitude = 0;
             return;
         }
 
-        currentAltitude -= Time.deltaTime * DropSpeed;
-        
+        currentAltitude -= Time.deltaTime * dropSpeed;
     }
     
+    public void Accelerate()
+    {
+        currentMultiplayerIndex += currentMultiplayerIndex >= Multipliers.Length -1? 0 : 1;
+    }
+
+    public void Decelerate(bool goPositive = false)
+    {
+        if(goPositive)
+            currentMultiplayerIndex -= currentMultiplayerIndex <= 0 ? 0 : 1;
+        else
+            currentMultiplayerIndex -= currentMultiplayerIndex <= 1 ? 0 : 1;
+    }
     
-    
-    void GetMoveAltimeter()
+    void RotateArrow()
     {
         float currentAngle = (360 * currentAltitude) / MaxAltitude;
         if (currentAltitude == 0)
@@ -62,16 +71,5 @@ public class Altimetro : MonoBehaviour
         SecondsToMove = (int)(Time.time % 60);
         gameObject.transform.localRotation = Quaternion.AngleAxis(SecondsToMove, Vector3.back);
     }
-
-    //funzione che aggiunge 0.3 al multiplier per poi moltiplicandolo con il time "attuale in game" per ogni volta che si distrugge un oggetto in scena
-    public void AddTime()
-    {
-         
-        currentAltitude *= multiplier;
-        multiplier = multiplier + 0.3f;
-
-        
-    }
-
 }
 

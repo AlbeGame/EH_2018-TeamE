@@ -80,8 +80,8 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
         if (_button == resetButton) {
             CheckIfSolved();
         }
-        if(SolutionState == PuzzleState.Unsolved)
-            selectable.Select();
+
+        selectable.Select();
     }
     public void OnSwitchSelect(SelectableSwitch _switch) { }
     public void OnMonitorSelect(SelectableMonitor _monitor) { }
@@ -95,6 +95,7 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
         graphicCtrl.Init(graphicCtrl.Data);
 
         InitGenricalElement();
+        buttonHits = 0;
     }
 
     void OnSolutionStateChange(PuzzleState _solutionState) {

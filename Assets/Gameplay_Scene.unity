@@ -7059,6 +7059,26 @@ Prefab:
       propertyPath: MaxAltitude
       value: 720
       objectReference: {fileID: 0}
+    - target: {fileID: 114202557726360550, guid: a2a57cbdef7ca22469ff6640aea46a14,
+        type: 2}
+      propertyPath: Multipliers.Array.data[2]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114202557726360550, guid: a2a57cbdef7ca22469ff6640aea46a14,
+        type: 2}
+      propertyPath: Multipliers.Array.data[3]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114202557726360550, guid: a2a57cbdef7ca22469ff6640aea46a14,
+        type: 2}
+      propertyPath: Multipliers.Array.data[4]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114202557726360550, guid: a2a57cbdef7ca22469ff6640aea46a14,
+        type: 2}
+      propertyPath: Multipliers.Array.data[5]
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a2a57cbdef7ca22469ff6640aea46a14, type: 2}
   m_IsPrefabParent: 0
