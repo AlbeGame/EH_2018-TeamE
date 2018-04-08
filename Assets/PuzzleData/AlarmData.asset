@@ -13,14 +13,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Setups:
   - LightPattern: 0100000000000000
-    Seq1_First: 0
-    Seq1_Second: 0
-    Seq2_First: 0
-    Seq2_Second: 0
-    Button_Last: 0
-  - LightPattern: 02000000020000000200000000000000
-    Seq1_First: 6
-    Seq1_Second: 7
-    Seq2_First: 8
-    Seq2_Second: 9
-    Button_Last: 5
+    Seq1_First: 2
+    Seq1_Second: 3
+    Seq2_First: 11
+    Seq2_Second: 14
+    Button_Last: 10
+  - LightPattern: 01000000000000000000000000000000
+    Seq1_First: 26
+    Seq1_Second: 29
+    Seq2_First: 18
+    Seq2_Second: 17
+    Button_Last: 15
