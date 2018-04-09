@@ -606,7 +606,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 858018632}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.15487893
+  m_Size: 0.36665407
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1381,7 +1381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 150088921}
   m_Layer: 0
-  m_Name: allarme
+  m_Name: Allarme
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
