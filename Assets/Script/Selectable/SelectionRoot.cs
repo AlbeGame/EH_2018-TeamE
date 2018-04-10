@@ -8,12 +8,14 @@ public class SelectionRoot : MonoBehaviour, ISelectable
     SelectableBehaviour selectable;
 
     CameraController camCtrl;
-    public int PuzzleNeededToWin;
+
+    public LevelSettings Setting;
+    int PuzzleNeededToWin { get { return Setting.PuzzlesNeededToWin; } }
     public Altimetro Altimetro;
     public SelectableBehaviour AlarmPuzzle;
-    public PuzzleALARM_Data Alarm_Data;
+    PuzzleALARM_Data Alarm_Data { get { return Setting.Alarm_Data; } }
 
-    public List<ScriptableObject> PuzzleDatas = new List<ScriptableObject>();
+    List<ScriptableObject> PuzzleDatas { get { return Setting.PuzzleDatas; }}
     List<IPuzzle> puzzles = new List<IPuzzle>();
     public List<Transform> PuzzlePositions = new List<Transform>();
 
