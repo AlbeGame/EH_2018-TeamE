@@ -72,6 +72,8 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
 
     public void Init()
     {
+        SolutionState = PuzzleState.Unsolved;
+
         //Initializing lights
         foreach (PuzzleALARM_Light light in Lights)
         {
@@ -87,6 +89,7 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
     }
     public void DoWin()
     {
+        SolutionState = PuzzleState.Solved;
         selectable.GetRoot().GetComponent<SelectionRoot>().NotifyPuzzleSolved(this);
         graphicCtrl.Paint(_solutionState);
     }
@@ -131,7 +134,8 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
                 break;
         }
 
-        selectable.Select();
+        if(SolutionState != PuzzleState.Solved)
+            selectable.Select();
     }
     public void OnSwitchSelect(SelectableSwitch _switch)
     {
