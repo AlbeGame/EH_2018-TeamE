@@ -9,12 +9,12 @@ public class SelectionRoot : MonoBehaviour, ISelectable
 
     CameraController camCtrl;
     public int PuzzleNeededToWin;
-    int currentSolvedPuzzles;
     public Altimetro Altimetro;
     public SelectableBehaviour AlarmPuzzle;
     public PuzzleALARM_Data Alarm_Data;
 
     public List<ScriptableObject> PuzzleDatas = new List<ScriptableObject>();
+    List<IPuzzle> puzzles = new List<IPuzzle>();
     public List<Transform> PuzzlePositions = new List<Transform>();
 
     private void Start()
@@ -49,6 +49,7 @@ public class SelectionRoot : MonoBehaviour, ISelectable
             (randPuzzle as MonoBehaviour).transform.SetParent(transform);
             randPuzzle.Setup(randData);
             randPuzzle.Init();
+            puzzles.Add(randPuzzle);
             (randPuzzle as MonoBehaviour).GetComponent<SelectableBehaviour>().Init(selectable);
         }
     }
@@ -142,9 +143,7 @@ public class SelectionRoot : MonoBehaviour, ISelectable
         puzzle.SolutionState = PuzzleState.Solved;
 
         DecelerateAltimeter(puzzle.GetType() == typeof(PuzzleALARM)? true:false);
-        currentSolvedPuzzles++;
-        if (currentSolvedPuzzles >= PuzzleNeededToWin)
-            FindObjectOfType<MenuPauseController>().GoMainMenu(); //Momentanea Soluzione di vittoria
+        UpdateOverallSolution();
     }
 
     public void NotifyPuzzleBreakdown(IPuzzle _puzzle)
@@ -163,4 +162,19 @@ public class SelectionRoot : MonoBehaviour, ISelectable
     }
 
     public void OnStateChange(SelectionState _newState) { }
+
+    void UpdateOverallSolution()
+    {
+        int currentSolvedPuzzles = 0;
+
+        foreach (IPuzzle puzzle in puzzles)
+        {
+            if (puzzle.SolutionState == PuzzleState.Solved)
+                currentSolvedPuzzles++;
+        }
+
+        //Momentanea Soluzione di vittoria
+        if (currentSolvedPuzzles >= PuzzleNeededToWin)
+            FindObjectOfType<MenuPauseController>().GoMainMenu(); 
+    }
 }
