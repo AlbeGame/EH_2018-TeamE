@@ -25,7 +25,7 @@ public class SelectionRoot : MonoBehaviour, ISelectable
     public void Init()
     {
         selectable = GetComponent<SelectableBehaviour>();
-        selectable.Init();
+        selectable.Init(null, SelectionState.Selected);
 
         if (AlarmPuzzle)
         {

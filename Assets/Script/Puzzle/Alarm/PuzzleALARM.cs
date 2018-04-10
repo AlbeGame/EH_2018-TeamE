@@ -97,7 +97,10 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
     public void OnButtonSelect(SelectableButton _button)
     {
         if (!IsAlarmActive)
+        {
+            selectable.Select();
             return;
+        }
 
         switch (solutionIndex)
         {
@@ -126,6 +129,8 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
                 CheckIfSolved();
                 break;
         }
+
+        selectable.Select();
     }
     public void OnSwitchSelect(SelectableSwitch _switch)
     {
