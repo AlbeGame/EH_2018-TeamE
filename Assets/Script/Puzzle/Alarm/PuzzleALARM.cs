@@ -90,7 +90,12 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
     public void DoWin()
     {
         SolutionState = PuzzleState.Solved;
+        IsAlarmActive = false;
         selectable.GetRoot().GetComponent<SelectionRoot>().NotifyPuzzleSolved(this);
+
+        foreach (PuzzleALARM_Light light in Lights)
+            light.TurnOff();
+
         graphicCtrl.Paint(_solutionState);
     }
     public void DoLoose()
@@ -163,7 +168,15 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
     #endregion
 
     #region ISelectable
-    public void OnSelection() { }
+    public void OnSelection()
+    {
+        Debugger.DebugLogger.Clean();
+        Debugger.DebugLogger.LogText(chosenSetup.Seq1_First.ToString() + " " +
+            chosenSetup.Seq1_Second.ToString() + " " +
+            chosenSetup.Seq2_First.ToString() + " " +
+            chosenSetup.Seq2_Second.ToString() + " " +
+            chosenSetup.Button_Last.ToString());
+    }
     public void OnStateChange(SelectionState _state) { }
     #endregion
 

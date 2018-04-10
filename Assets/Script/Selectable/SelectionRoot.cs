@@ -144,7 +144,29 @@ public class SelectionRoot : MonoBehaviour, ISelectable
         selectable.Select();
         puzzle.SolutionState = PuzzleState.Solved;
 
-        DecelerateAltimeter(puzzle.GetType() == typeof(PuzzleALARM)? true:false);
+        if(puzzle.GetType() == typeof(PuzzleALARM))
+        {
+            List<IPuzzle> brokenPuzzles = new List<IPuzzle>();
+            foreach (IPuzzle puz in puzzles)
+            {
+                if (puz.SolutionState == PuzzleState.Broken)
+                    brokenPuzzles.Add(puz);
+            }
+
+            if(brokenPuzzles.Count > 0)
+            {
+                brokenPuzzles.Shuffle();
+                IPuzzle randPuzz = brokenPuzzles[Random.Range(0, brokenPuzzles.Count)];
+                randPuzz.Init();
+                randPuzz.SolutionState = PuzzleState.Unsolved;
+                DecelerateAltimeter();
+            }
+            else
+            {
+                DecelerateAltimeter(true);
+            }
+        }
+
         UpdateOverallSolution();
     }
 
