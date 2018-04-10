@@ -10,6 +10,7 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
     PuzzleALARM_Data data;
     PuzzleALARM_Data.PossibileSetup chosenSetup;
 
+    public float LightBlinkInterval = .5f;
     public List<PuzzleALARM_Light> Lights = new List<PuzzleALARM_Light>();
 
     [Header("GroupA")]
@@ -162,7 +163,6 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
     public void OnStateChange(SelectionState _state) { }
     #endregion
 
-    public float LightBlinkInterval = .5f;
     float currentLBInterval = 0;
     private void Update()
     {
