@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(SelectableBehaviour))]
-public class SelectionRoot : MonoBehaviour, ISelectable
+public class LevelManager : MonoBehaviour, ISelectable
 {
     SelectableBehaviour selectable;
 
@@ -26,6 +26,8 @@ public class SelectionRoot : MonoBehaviour, ISelectable
 
     public void Init()
     {
+        Setting = GameManager.I_GM.ChosenSetting;
+
         selectable = GetComponent<SelectableBehaviour>();
         selectable.Init(null, SelectionState.Selected);
 
@@ -43,16 +45,28 @@ public class SelectionRoot : MonoBehaviour, ISelectable
             Altimetro.GetComponent<SelectableBehaviour>().Init(selectable);
 
         int randIndex;
-        foreach (Transform puzzlePos in PuzzlePositions)
+        List<Transform> positionLeft = PuzzlePositions;
+
+        for (int i = 0; i < Setting.TotalPuzzles; i++)
         {
             randIndex = Random.Range(0, PuzzleDatas.Count);
             IPuzzleData randData = PuzzleDatas[randIndex] as IPuzzleData;
-            IPuzzle randPuzzle = Instantiate(randData.GetIPuzzleGO(), puzzlePos).GetComponent<IPuzzle>();
+
+            int randPos = Random.Range(0, positionLeft.Count);
+            Transform position = positionLeft[randPos];
+            positionLeft.RemoveAt(randPos);
+
+            IPuzzle randPuzzle = Instantiate(randData.GetIPuzzleGO(), position).GetComponent<IPuzzle>();
             (randPuzzle as MonoBehaviour).transform.SetParent(transform);
             randPuzzle.Setup(randData);
             randPuzzle.Init();
             puzzles.Add(randPuzzle);
             (randPuzzle as MonoBehaviour).GetComponent<SelectableBehaviour>().Init(selectable);
+        }
+
+        foreach (Transform pos in positionLeft)
+        {
+            Instantiate(Setting.FillingObjects[Random.Range(0, Setting.FillingObjects.Count)], pos);
         }
     }
 

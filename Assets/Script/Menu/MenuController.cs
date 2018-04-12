@@ -45,28 +45,34 @@ public class MenuController : MonoBehaviour {
             ResetEventSystmSelection(LevelSelectionPanel.GetComponentInChildren<Button>().gameObject);
         }
     }
-    public void GoToMenuVolume()// sto provando
-    {
-        if (LevelSelectionPanel.activeSelf)
-            LevelSelectionPanel.SetActive(false);
-        
-            if (!menuVolume.activeSelf)
-            {
-                menuVolume.SetActive(true);
-                ResetEventSystmSelection(menuVolume.GetComponentInChildren<Button>().gameObject);
-            }
 
-        
-    }
+    //public void GoToMenuVolume()// sto provando
+    //{
+    //    if (LevelSelectionPanel.activeSelf)
+    //        LevelSelectionPanel.SetActive(false);
+
+    //        if (!menuVolume.activeSelf)
+    //        {
+    //            menuVolume.SetActive(true);
+    //            ResetEventSystmSelection(menuVolume.GetComponentInChildren<Button>().gameObject);
+    //        }
+
+
+    //}
 
     public void QuitGame()
     {
         Application.Quit();
     }
 
-    public void GoGamePlay(int _sceneIndex = 1)
+    public void GoGamePlay(int _sceneIndex)
     {
         SceneManager.LoadScene(_sceneIndex);
+    }
+
+    public void SetDifficoulty(int difficoulty)
+    {
+        GameManager.I_GM.SetDifficultyLevel((DifficoultyLevel) difficoulty);
     }
     #endregion
 

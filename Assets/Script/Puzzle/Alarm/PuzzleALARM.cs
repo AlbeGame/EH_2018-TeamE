@@ -91,7 +91,7 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
     {
         SolutionState = PuzzleState.Solved;
         IsAlarmActive = false;
-        selectable.GetRoot().GetComponent<SelectionRoot>().NotifyPuzzleSolved(this);
+        selectable.GetRoot().GetComponent<LevelManager>().NotifyPuzzleSolved(this);
 
         foreach (PuzzleALARM_Light light in Lights)
             light.TurnOff();

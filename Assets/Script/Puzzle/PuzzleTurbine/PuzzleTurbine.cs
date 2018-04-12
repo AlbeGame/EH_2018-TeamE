@@ -57,12 +57,12 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
 
     public void DoWin()
     {
-        selectable.GetRoot().GetComponent<SelectionRoot>().NotifyPuzzleSolved(this);
+        selectable.GetRoot().GetComponent<LevelManager>().NotifyPuzzleSolved(this);
         //selectable.GetRoot().Select();
     }
 
     public void DoLoose() {
-        selectable.GetRoot().GetComponent<SelectionRoot>().NotifyPuzzleBreakdown(this);
+        selectable.GetRoot().GetComponent<LevelManager>().NotifyPuzzleBreakdown(this);
         //selectable.GetRoot().Select();
     }
 
