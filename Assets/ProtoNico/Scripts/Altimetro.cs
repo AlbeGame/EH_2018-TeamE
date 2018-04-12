@@ -12,7 +12,7 @@ public class Altimetro : MonoBehaviour
     public float currentAltitude;
     
     private int SecondsToMove;
-    SelectionRoot gameController;
+    LevelManager gameController;
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class Altimetro : MonoBehaviour
         if (ArrowToMove == null)
             ArrowToMove = this.gameObject;
 
-        gameController = GetComponent<SelectableBehaviour>().GetRoot().GetComponent<SelectionRoot>();
+        gameController = GetComponent<SelectableBehaviour>().GetRoot().GetComponent<LevelManager>();
     }
 
     private void Update()

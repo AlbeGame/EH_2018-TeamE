@@ -61,13 +61,13 @@ public class PuzzleGPS : MonoBehaviour, IPuzzle, ISelectable
 
     public void DoWin()
     {
-        selectable.GetRoot().GetComponent<SelectionRoot>().NotifyPuzzleSolved(this);
+        selectable.GetRoot().GetComponent<LevelManager>().NotifyPuzzleSolved(this);
         graphicCtrl.Paint(_solutionState);
     }
 
     public void DoLoose()
     {
-        selectable.GetRoot().GetComponent<SelectionRoot>().NotifyPuzzleBreakdown(this);
+        selectable.GetRoot().GetComponent<LevelManager>().NotifyPuzzleBreakdown(this);
         graphicCtrl.Paint(_solutionState);
        
     }
