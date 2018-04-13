@@ -88,7 +88,6 @@ public class SelectableBehaviour : MonoBehaviour
         {
             selectable.OnSelection();
         }
-        Debug.Log(name);
     }
     
     /// <summary>
