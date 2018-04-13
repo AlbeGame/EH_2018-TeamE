@@ -96,7 +96,7 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
         foreach (PuzzleALARM_Light light in Lights)
             light.TurnOff();
 
-        graphicCtrl.Paint(_solutionState);
+        graphicCtrl.Paint(SolutionState);
     }
     public void DoLoose()
     {
