@@ -6,10 +6,15 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: base_puzzle_allarme
     400000: //RootNode
+    400002: base_puzzle_allarme
     2100000: lambert3
+    2100002: lambert4
     2300000: //RootNode
+    2300002: base_puzzle_allarme
     3300000: //RootNode
+    3300002: base_puzzle_allarme
     4300000: base_puzzle_allarme
   externalObjects: {}
   materials:
