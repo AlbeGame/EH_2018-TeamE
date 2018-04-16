@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4713075733721890}
   - component: {fileID: 114554879922598194}
   - component: {fileID: 65882491975525044}
+  - component: {fileID: 95454171365076074}
   m_Layer: 0
   m_Name: tasto_X
   m_TagString: Untagged
@@ -190,6 +191,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.018, y: 0.011041277, z: 0.018}
   m_Center: {x: -0.0000000046566138, y: 0.005520638, z: -0.0000000013969842}
+--- !u!95 &95454171365076074
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1361329297966262}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a640a8a566c1b544d8e91e4f70624581, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!102 &102185869833132236
 TextMesh:
   serializedVersion: 3
@@ -226,3 +244,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 0}
   IconRenderer: {fileID: 0}
+  Animator: {fileID: 0}
+  AnimationDownName: 
+  AnimationUpName: 

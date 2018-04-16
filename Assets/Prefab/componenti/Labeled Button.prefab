@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 4809903192544866}
   - component: {fileID: 114591032306800498}
   - component: {fileID: 135092570001710826}
+  - component: {fileID: 95621822358663060}
   m_Layer: 0
   m_Name: Labeled Button
   m_TagString: Untagged
@@ -398,6 +399,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95621822358663060
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798288180784282}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3389bed8c1857fa48af4d411b1ae148b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!102 &102799706003147338
 TextMesh:
   serializedVersion: 3
@@ -432,6 +450,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 102799706003147338}
   IconRenderer: {fileID: 0}
+  Animator: {fileID: 0}
+  AnimationDownName: 
+  AnimationUpName: 
 --- !u!135 &135092570001710826
 SphereCollider:
   m_ObjectHideFlags: 1

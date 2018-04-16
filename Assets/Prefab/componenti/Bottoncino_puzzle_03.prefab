@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4727365197304802}
   - component: {fileID: 114202887821463022}
   - component: {fileID: 65602878391990030}
+  - component: {fileID: 95047392725243510}
   m_Layer: 0
   m_Name: Bottoncino_puzzle_03
   m_TagString: Untagged
@@ -212,6 +213,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.040256955, y: 0.008, z: 0.03935113}
   m_Center: {x: 0, y: 0.004, z: 0}
+--- !u!95 &95047392725243510
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1368385617403064}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 75a76d06b0ccef045892e823bc9ce8e6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114202887821463022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,3 +243,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 0}
   IconRenderer: {fileID: 23752256751303092}
+  Animator: {fileID: 0}
+  AnimationDownName: 
+  AnimationUpName: 

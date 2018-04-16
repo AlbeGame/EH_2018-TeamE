@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 4761205559011662}
   - component: {fileID: 114758304295100706}
   - component: {fileID: 65252520105630676}
+  - component: {fileID: 95981620658216672}
   m_Layer: 0
   m_Name: Bottone_reset
   m_TagString: Untagged
@@ -190,6 +191,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.08103413, y: 0.0036542402, z: 0.028797636}
   m_Center: {x: 0.000000063329935, y: 0.0018271493, z: -0.0000000014514361}
+--- !u!95 &95981620658216672
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1949461325626772}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a7c235d0ad4eb324eb0abdc7beed7924, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!102 &102270733053117140
 TextMesh:
   serializedVersion: 3
@@ -224,3 +242,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 0}
   IconRenderer: {fileID: 0}
+  Animator: {fileID: 0}
+  AnimationDownName: 
+  AnimationUpName: 

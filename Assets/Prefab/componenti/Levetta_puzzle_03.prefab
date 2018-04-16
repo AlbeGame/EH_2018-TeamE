@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 4729206852270898}
   - component: {fileID: 136253616525897486}
   - component: {fileID: 114982774607541764}
+  - component: {fileID: 95738400037245456}
   m_Layer: 0
   m_Name: Levetta_leva_01_GO
   m_TagString: Untagged
@@ -324,7 +325,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1580133583835892}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.0468, y: 0.0094, z: -0.0943}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4910423353074168}
@@ -712,6 +713,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1148261586609934}
   m_Mesh: {fileID: 4300000, guid: 9e957cfa5364c414c943ef4a09902bfd, type: 3}
+--- !u!95 &95738400037245456
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1631857874532324}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 893e1bbc71073ab4b915b26a4197e242, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!102 &102348104105902008
 TextMesh:
   serializedVersion: 3
@@ -786,9 +804,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a53918f1d0c8c8441a6c0a09a1ebfa93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BendDuration: 0.1
-  BendAngle: 45
-  ObjectToMove: {fileID: 1631857874532324}
+  AnimatorCtrl: {fileID: 0}
+  ToLeftAnim: 
+  ToRightAnim: 
 --- !u!136 &136253616525897486
 CapsuleCollider:
   m_ObjectHideFlags: 1
