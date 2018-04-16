@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aab77e6a9e4f72240a7d8814c4e7a429, type: 3}
+  m_Name: LockCode
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 1210340496298244, guid: c45e539a74579534790ede9d9370a371, type: 2}
+  Setups:
+  - ScreenImage: {fileID: 2800000, guid: 8781d7d292ad0f049b7b55d2bdc0cbeb, type: 3}
+    Seq_1st: 0
+    Seq_2nd: 0
+    Seq_3rd: 0
+  - ScreenImage: {fileID: 2800000, guid: 0ba3449fcfb21d64d9cc683ac103f80a, type: 3}
+    Seq_1st: 0
+    Seq_2nd: 1
+    Seq_3rd: 2
+  - ScreenImage: {fileID: 8400000, guid: e060f44d6d69e7741b07014a4091baa6, type: 2}
+    Seq_1st: 2
+    Seq_2nd: 1
+    Seq_3rd: 0

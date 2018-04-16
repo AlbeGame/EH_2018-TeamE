@@ -5,6 +5,9 @@ public class SelectableButton : MonoBehaviour, IPuzzleInput
 {
     public TextMesh Text;
     public Renderer IconRenderer;
+    public Animator Animator;
+    public string AnimationDownName;
+    public string AnimationUpName;
 
     SelectableBehaviour selectable;
     IPuzzle puzzleCtrl;
@@ -17,6 +20,8 @@ public class SelectableButton : MonoBehaviour, IPuzzleInput
 
         //setup parent relationship
         puzzleCtrl = _parentPuzzle;
+
+        Animator = GetComponent<Animator>();
 
         //selectable behaviour setup
         selectable = GetComponent<SelectableBehaviour>();
@@ -45,6 +50,18 @@ public class SelectableButton : MonoBehaviour, IPuzzleInput
 
     public void DataInjection(IPuzzleInputData _data) {
         InputData = _data;
+    }
+
+    private void OnMouseDown()
+    {
+        if (Animator)
+            Animator.Play(AnimationDownName);
+    }
+
+    private void OnMouseUp()
+    {
+        if (Animator)
+            Animator.Play(AnimationUpName);
     }
     #endregion
     #endregion

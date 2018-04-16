@@ -22,7 +22,7 @@ public class SelectableSwitch : MonoBehaviour, IPuzzleInput
     #region IPuzzleInput
     public void Init(IPuzzle _parentPuzzle, IPuzzleInputData _data)
     {
-        animCtrl = GetComponent<Animator>();
+        AnimatorCtrl = GetComponent<Animator>();
 
         //Initial data injection
         InputData = _data;
@@ -47,7 +47,9 @@ public class SelectableSwitch : MonoBehaviour, IPuzzleInput
     public void OnStateChange(SelectionState _newState){}
 
     #region Animation
-    Animator animCtrl;
+    public Animator AnimatorCtrl;
+    public string ToLeftAnim;
+    public string ToRightAnim;
     bool _isPressed;
     bool isPressed {
         get { return _isPressed; }
@@ -58,7 +60,13 @@ public class SelectableSwitch : MonoBehaviour, IPuzzleInput
             else
             {
                 _isPressed = value;
-                animCtrl.SetBool("IsPressed", _isPressed);
+                if (AnimatorCtrl)
+                {
+                    if (_isPressed)
+                        AnimatorCtrl.Play(ToRightAnim);
+                    else
+                        AnimatorCtrl.Play(ToLeftAnim);
+                }
             }
         }
     }
