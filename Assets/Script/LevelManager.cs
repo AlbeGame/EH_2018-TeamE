@@ -135,11 +135,13 @@ public class LevelManager : MonoBehaviour, ISelectable
 
     public void NotifyAltitudeUpdate(float percentage)
     {
-        if (percentage >= 0.5f)
+        if (percentage >= 0.5f || selectable.State == SelectionState.Passive)
             return;
 
         if(percentage <= 0)
-        { //gameOver
+        {
+            FindObjectOfType<MenuPauseController>().ToggleDefeatMenu();
+            selectable.State = SelectionState.Passive;
         }
 
         if (hasAlarmedAltitude)
@@ -213,6 +215,9 @@ public class LevelManager : MonoBehaviour, ISelectable
 
         //Momentanea Soluzione di vittoria
         if (currentSolvedPuzzles >= PuzzleNeededToWin)
-            FindObjectOfType<MenuPauseController>().GoMainMenu(); 
+        {
+            FindObjectOfType<MenuPauseController>().ToggleVictoryMenu();
+            selectable.State = SelectionState.Passive;
+        }
     }
 }
