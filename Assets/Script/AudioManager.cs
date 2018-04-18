@@ -1,78 +1,57 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class AudioManager : MonoBehaviour {
-
-    
-    public AudioData ambient;
-    public AudioData beep;
-    public AudioData allarm;
+public class AudioManager : MonoBehaviour
+{
+    public List<AudioData> AudioDatas;
+    public int IndipendentChannels = 5;
     private List<AudioSource> audioSources = new List<AudioSource>();
 
     // Use this for initialization
-    void Start () {
-        foreach (AudioSource source in GameObject.FindObjectsOfType<AudioSource>()) {
-            audioSources.Add(source);
+    void Start ()
+    {
+        for (int i = 0; i < IndipendentChannels; i++)
+        {
+            audioSources.Add(Instantiate(new GameObject("Source_" + i), transform).AddComponent<AudioSource>());
         }
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.P)) {
-            PlaySound(AudioType.ambient);
-        }
-
-
-    }
-
-    public void PlaySound(AudioType audioTypes) 
+    public void PlaySound(AudioType _type) 
     {
-        AudioSource current = null;
+        AudioSource firstFreeSource = null;
         foreach (var audio in audioSources) 
         {
-            
             if(audio.isPlaying == false) {
-                current = audio;
+                firstFreeSource = audio;
                 break;
             }
         }
 
-        switch (audioTypes) {
-            case AudioType.ambient:
-                current.clip = ambient.Clip;
-                current.Play();
-                break;
-            case AudioType.beep:
-                current.clip = beep.Clip;
-                current.Play();
-                break;
-            case AudioType.allarme:
-                current.clip = allarm.Clip;
-                current.Play();
-                break;
-            default:
-                break;
+        foreach (AudioData data in AudioDatas)
+        {
+            if(data.Type == _type)
+            {
+                firstFreeSource.clip = data.Clip;
+                firstFreeSource.Play();
+            }
         }
-
-        
     }
-    
-
 }
+
 public enum AudioType 
 {
-    ambient = 1,
-    beep = 2,
-    allarme = 3,
+    Input = 0,
+    Ambient = 1,
+    Altimeter = 2,
+    Allarme = 3,
+    Other
 }
 
 [Serializable]
 public class AudioData 
 {
+    public AudioType Type;
     public AudioClip Clip;
-
 }
 

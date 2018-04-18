@@ -40,6 +40,8 @@ public class SelectableButton : MonoBehaviour, IPuzzleInput
 
     public void OnSelection()
     {
+        GameManager.I_GM.AudioManager.PlaySound(AudioType.Input);
+
         puzzleCtrl.OnButtonSelect(this);
     }
 

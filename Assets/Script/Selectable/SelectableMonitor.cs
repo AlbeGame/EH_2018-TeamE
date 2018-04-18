@@ -7,6 +7,10 @@ public class SelectableMonitor : MonoBehaviour, IPuzzleInput
     IPuzzle puzzleCtrl;
     TextMesh textMesh;
 
+    public Animator AnimatorCtrl;
+    public string SelectionAnimation;
+    public string IdleAnimation;
+
     #region Data injection
     public IPuzzleInputData InputData;
 
@@ -25,6 +29,8 @@ public class SelectableMonitor : MonoBehaviour, IPuzzleInput
         //Initial data injection
         InputData = _data;
 
+        AnimatorCtrl = GetComponent<Animator>();
+
         //setup parent relationship
         puzzleCtrl = _parentPuzzle;
 
@@ -41,11 +47,24 @@ public class SelectableMonitor : MonoBehaviour, IPuzzleInput
 
     public void OnSelection()
     {
+        GameManager.I_GM.AudioManager.PlaySound(AudioType.Input);
+
         if (puzzleCtrl != null)
             puzzleCtrl.OnMonitorSelect(this);
     }
 
-    public void OnStateChange(SelectionState _newState) { }
+    public void OnStateChange(SelectionState _newState)
+    {
+        if (AnimatorCtrl)
+        {
+            if(_newState == SelectionState.Selected)
+            {
+                AnimatorCtrl.Play(SelectionAnimation);
+            }
+            else
+                AnimatorCtrl.Play(IdleAnimation);
+        }
+    }
 
     public void TypeOn(string _thingsToWrite, bool replaceOldText = true)
     {

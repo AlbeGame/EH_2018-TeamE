@@ -40,6 +40,7 @@ public class SelectableSwitch : MonoBehaviour, IPuzzleInput
 
     public void OnSelection()
     {
+        GameManager.I_GM.AudioManager.PlaySound(AudioType.Input);
         selectStatus = !selectStatus;
         puzzleCtrl.OnSwitchSelect(this);
     }

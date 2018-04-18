@@ -28,6 +28,8 @@ public class LevelManager : MonoBehaviour, ISelectable
     {
         Setting = GameManager.I_GM.ChosenSetting;
 
+        GameManager.I_GM.AudioManager.PlaySound(AudioType.Ambient);
+        
         selectable = GetComponent<SelectableBehaviour>();
         selectable.Init(null, SelectionState.Selected);
 
