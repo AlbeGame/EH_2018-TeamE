@@ -241,7 +241,7 @@ public class SelectableBehaviour : MonoBehaviour
     
     // Behaviour than only the Root follows
     #region Root Behaviour
-    SelectableBehaviour currentSelected;
+    SelectableBehaviour currentSelected { get; set; }
 
     /// <summary>
     /// It switch the state of the currentSelected before updating it.
@@ -252,7 +252,7 @@ public class SelectableBehaviour : MonoBehaviour
         if (_newSelected == null)
             GetRoot().State = SelectionState.Neutral;
 
-        if (_newSelected == this || _newSelected.State != SelectionState.Selected)
+        if (_newSelected.State != SelectionState.Selected)
             return;
 
         if (Parent)
@@ -263,7 +263,7 @@ public class SelectableBehaviour : MonoBehaviour
 
         if (currentSelected)
         {
-            if (_newSelected.Siblings.Contains(currentSelected))
+            if (_newSelected.Siblings.Contains(currentSelected) || _newSelected.Children.Contains(currentSelected))
                 currentSelected.State = SelectionState.Neutral;
             else
                 currentSelected.State = SelectionState.Passive;
