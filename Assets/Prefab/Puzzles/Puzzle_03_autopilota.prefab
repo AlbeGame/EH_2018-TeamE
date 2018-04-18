@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 114329269272389048}
   - component: {fileID: 65902799830978726}
   - component: {fileID: 95021850395826024}
+  - component: {fileID: 114723453947076142}
   m_Layer: 0
   m_Name: Bottoncino_puzzle_B
   m_TagString: Untagged
@@ -151,6 +152,7 @@ GameObject:
   - component: {fileID: 114410493551164416}
   - component: {fileID: 65119974910798314}
   - component: {fileID: 95006785099298476}
+  - component: {fileID: 114683159541097498}
   m_Layer: 0
   m_Name: Bottoncino_puzzle_L
   m_TagString: Untagged
@@ -286,6 +288,7 @@ GameObject:
   - component: {fileID: 114454884237002066}
   - component: {fileID: 65908478351433462}
   - component: {fileID: 95486605078372498}
+  - component: {fileID: 114594734733214468}
   m_Layer: 0
   m_Name: Bottoncino_puzzle_F
   m_TagString: Untagged
@@ -640,6 +643,7 @@ GameObject:
   - component: {fileID: 114646655086569274}
   - component: {fileID: 65371373604745646}
   - component: {fileID: 95574806140431010}
+  - component: {fileID: 114326919598876430}
   m_Layer: 0
   m_Name: Bottoncino_puzzle_G
   m_TagString: Untagged
@@ -812,6 +816,7 @@ GameObject:
   - component: {fileID: 136763539356225390}
   - component: {fileID: 114127481820810714}
   - component: {fileID: 95703936333908646}
+  - component: {fileID: 114101696531325868}
   m_Layer: 0
   m_Name: Levetta_leva_01_GO
   m_TagString: Untagged
@@ -881,6 +886,7 @@ GameObject:
   - component: {fileID: 114693965862682106}
   - component: {fileID: 65018050297957750}
   - component: {fileID: 95002505775516390}
+  - component: {fileID: 114929258307110034}
   m_Layer: 0
   m_Name: Bottoncino_puzzle_K
   m_TagString: Untagged
@@ -899,6 +905,7 @@ GameObject:
   - component: {fileID: 136080025308679220}
   - component: {fileID: 114675166659263828}
   - component: {fileID: 95542624222530464}
+  - component: {fileID: 114774834095861304}
   m_Layer: 0
   m_Name: Levetta_leva_01_GO
   m_TagString: Untagged
@@ -1034,6 +1041,7 @@ GameObject:
   - component: {fileID: 114030901330295514}
   - component: {fileID: 65949804278177308}
   - component: {fileID: 95194022084039112}
+  - component: {fileID: 114764825577718168}
   m_Layer: 0
   m_Name: Bottoncino_puzzle_A
   m_TagString: Untagged
@@ -4684,6 +4692,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectionCollider: {fileID: 0}
+--- !u!114 &114101696531325868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1633980917859740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
 --- !u!114 &114127481820810714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4717,6 +4737,18 @@ MonoBehaviour:
   - {fileID: 2100000, guid: fe6a472c6990bee49aeb5adb2c99cb4c, type: 2}
   - {fileID: 2100000, guid: 98d1dfc616d882146988cc17c1a0ddc0, type: 2}
   Icon: {fileID: 23300253928209544}
+--- !u!114 &114326919598876430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1456073641912904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
 --- !u!114 &114329269272389048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4784,6 +4816,18 @@ MonoBehaviour:
   - {fileID: 2100000, guid: fe6a472c6990bee49aeb5adb2c99cb4c, type: 2}
   - {fileID: 2100000, guid: 98d1dfc616d882146988cc17c1a0ddc0, type: 2}
   Icon: {fileID: 23166448047646428}
+--- !u!114 &114594734733214468
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1227851566608158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
 --- !u!114 &114646655086569274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4814,6 +4858,18 @@ MonoBehaviour:
   AnimatorCtrl: {fileID: 0}
   ToLeftAnim: 
   ToRightAnim: 
+--- !u!114 &114683159541097498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1140932759027810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
 --- !u!114 &114693965862682106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4830,6 +4886,42 @@ MonoBehaviour:
   Animator: {fileID: 0}
   AnimationDownName: 
   AnimationUpName: 
+--- !u!114 &114723453947076142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1099708637075956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
+--- !u!114 &114764825577718168
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1778413715632342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
+--- !u!114 &114774834095861304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1677749638919610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
 --- !u!114 &114862338408920782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4872,6 +4964,18 @@ MonoBehaviour:
   - {fileID: 2100000, guid: fe6a472c6990bee49aeb5adb2c99cb4c, type: 2}
   - {fileID: 2100000, guid: 98d1dfc616d882146988cc17c1a0ddc0, type: 2}
   Icon: {fileID: 23741328972071724}
+--- !u!114 &114929258307110034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1674489794298880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
 --- !u!136 &136080025308679220
 CapsuleCollider:
   m_ObjectHideFlags: 1

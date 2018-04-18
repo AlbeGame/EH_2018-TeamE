@@ -250,6 +250,7 @@ GameObject:
   - component: {fileID: 65247546721714606}
   - component: {fileID: 114350124001407868}
   - component: {fileID: 114758882730974024}
+  - component: {fileID: 95045533549564456}
   m_Layer: 0
   m_Name: chiave_rossa
   m_TagString: Untagged
@@ -453,6 +454,7 @@ GameObject:
   - component: {fileID: 65326102876012046}
   - component: {fileID: 114799474950079340}
   - component: {fileID: 114341347245430216}
+  - component: {fileID: 95344994804225496}
   m_Layer: 0
   m_Name: chiave_verde
   m_TagString: Untagged
@@ -535,6 +537,7 @@ GameObject:
   - component: {fileID: 65269034797342278}
   - component: {fileID: 114590341542620246}
   - component: {fileID: 114141738290679436}
+  - component: {fileID: 95911484865168848}
   m_Layer: 0
   m_Name: chiave_blu
   m_TagString: Untagged
@@ -2362,6 +2365,57 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.19999999, y: 0.02, z: 0.29999998}
   m_Center: {x: 0, y: 0.005, z: 0}
+--- !u!95 &95045533549564456
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1326551036859308}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95344994804225496
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1661833515468668}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95911484865168848
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1789585915534038}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!102 &102020588619913848
 TextMesh:
   serializedVersion: 3
@@ -2475,6 +2529,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a53918f1d0c8c8441a6c0a09a1ebfa93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimatorCtrl: {fileID: 0}
+  ToLeftAnim: 
+  ToRightAnim: 
 --- !u!114 &114341347245430216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2486,6 +2543,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a53918f1d0c8c8441a6c0a09a1ebfa93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimatorCtrl: {fileID: 0}
+  ToLeftAnim: 
+  ToRightAnim: 
 --- !u!114 &114350124001407868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2533,6 +2593,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a53918f1d0c8c8441a6c0a09a1ebfa93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimatorCtrl: {fileID: 0}
+  ToLeftAnim: 
+  ToRightAnim: 
 --- !u!114 &114799474950079340
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -639,7 +639,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 858018632}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.27453583
+  m_Size: 0.17407453
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7404,22 +7404,22 @@ Prefab:
     - target: {fileID: 114202557726360550, guid: a2a57cbdef7ca22469ff6640aea46a14,
         type: 2}
       propertyPath: Multipliers.Array.data[2]
-      value: 5
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 114202557726360550, guid: a2a57cbdef7ca22469ff6640aea46a14,
         type: 2}
       propertyPath: Multipliers.Array.data[3]
-      value: 10
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 114202557726360550, guid: a2a57cbdef7ca22469ff6640aea46a14,
         type: 2}
       propertyPath: Multipliers.Array.data[4]
-      value: 100
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114202557726360550, guid: a2a57cbdef7ca22469ff6640aea46a14,
         type: 2}
       propertyPath: Multipliers.Array.data[5]
-      value: 1000
+      value: 2.33
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a2a57cbdef7ca22469ff6640aea46a14, type: 2}
@@ -8493,6 +8493,11 @@ Prefab:
     - target: {fileID: 4403553160761752, guid: 2cdb840ec284a1a46acaec1d1ea555bc, type: 2}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198662572185751372, guid: 2cdb840ec284a1a46acaec1d1ea555bc,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2cdb840ec284a1a46acaec1d1ea555bc, type: 2}
