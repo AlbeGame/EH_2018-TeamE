@@ -109,6 +109,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1563489881656310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4779457998975424}
+  - component: {fileID: 20604448883316492}
+  - component: {fileID: 124341965176500192}
+  m_Layer: 0
+  m_Name: CamForMapAltimetro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1950086167160216
 GameObject:
   m_ObjectHideFlags: 1
@@ -159,6 +176,7 @@ Transform:
   - {fileID: 4705615481756442}
   - {fileID: 4277099328762320}
   - {fileID: 4259624565537712}
+  - {fileID: 4779457998975424}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -215,6 +233,19 @@ Transform:
   m_Father: {fileID: 4022885027353866}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!4 &4779457998975424
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1563489881656310}
+  m_LocalRotation: {x: -0.0023696695, y: 0.9999949, z: 0.002043205, w: 0.0007962285}
+  m_LocalPosition: {x: -0, y: -0.004, z: 0.291}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4022885027353866}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: -0.23400001, y: 89.909004, z: -0.27100003}
 --- !u!4 &4831462575619678
 Transform:
   m_ObjectHideFlags: 1
@@ -255,6 +286,41 @@ Transform:
   m_Father: {fileID: 4022885027353866}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &20604448883316492
+Camera:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1563489881656310}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.1
+  far clip plane: 1000
+  field of view: 30
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 8400000, guid: e060f44d6d69e7741b07014a4091baa6, type: 2}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!23 &23245564975749048
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -429,9 +495,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 2
   m_Convex: 0
-  m_CookingOptions: 14
+  m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &65505517845644460
@@ -457,8 +523,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa81641d54bf47a40a735a4e2efe7494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Multipliers:
+  - 0.7
+  - 1
+  - 1.3
+  - 1.6
+  - 2
+  - 2.33
   ArrowToMove: {fileID: 1016013705261732}
-  DropSpeed: 1
   MaxAltitude: 720
   currentAltitude: 0
 --- !u!114 &114401680620621070
@@ -494,3 +566,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectionCollider: {fileID: 0}
+--- !u!124 &124341965176500192
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1563489881656310}
+  m_Enabled: 1
