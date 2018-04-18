@@ -2515,6 +2515,7 @@ MonoBehaviour:
     - {fileID: 1661833515468668}
     - {fileID: 1326551036859308}
     Lights: {fileID: 23558751985307734}
+    EmissiveNeutral: {fileID: 2100000, guid: d2cc8808e21737740962726e6daaa2af, type: 2}
     EmissivePositive: {fileID: 2100000, guid: 389021201113423418b16267fd002ac8, type: 2}
     EmissiveNegative: {fileID: 2100000, guid: 46f7dc8ce67ca07469b340759d89072b, type: 2}
     ParticlesGroup: {fileID: 1753954167059120}

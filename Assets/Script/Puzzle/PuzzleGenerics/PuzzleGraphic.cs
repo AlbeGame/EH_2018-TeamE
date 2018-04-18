@@ -62,7 +62,7 @@ public class PuzzleGraphic : MonoBehaviour, ISelectable
             Data.ParticlesGroup.SetActive(false);
 
         Paint(Data.NeutralMat);
-        PaintLights(Data.NeutralMat);
+        PaintLights(Data.EmissiveNeutral);
     }
 
     public void Paint(SelectionState _state)
@@ -99,7 +99,7 @@ public class PuzzleGraphic : MonoBehaviour, ISelectable
             case PuzzleState.Unsolved:;
                 inhibitColorChange = false;
                 if(Data.Lights != null)
-                    PaintLights(Data.NeutralMat);
+                    PaintLights(Data.EmissiveNeutral);
                 if (Data.ParticlesGroup != null)
                     Data.ParticlesGroup.SetActive(false);
                 break;
@@ -170,6 +170,7 @@ public class PuzzleGraphicData
 
     [Header("Puzzle Lights")]
     public MeshRenderer Lights;
+    public Material EmissiveNeutral;
     public Material EmissivePositive;
     public Material EmissiveNegative;
 
