@@ -1,17 +1,16 @@
 fileFormatVersion: 2
-guid: 9438e8ac7faf0174a86c92002a58413c
-timeCreated: 1523545149
+guid: 5b881c344e76c5541a5a1f5f33cfa12e
+timeCreated: 1524128652
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: lambert3
-    2100002: lambert4
+    2100000: lambert2
     2300000: //RootNode
     3300000: //RootNode
-    4300000: chiave_verde
+    4300000: bottone_v04
   externalObjects: {}
   materials:
     importMaterials: 1

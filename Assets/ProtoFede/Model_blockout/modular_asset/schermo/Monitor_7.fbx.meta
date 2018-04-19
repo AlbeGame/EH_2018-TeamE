@@ -1,17 +1,16 @@
 fileFormatVersion: 2
-guid: 9438e8ac7faf0174a86c92002a58413c
-timeCreated: 1523545149
+guid: 7a1c1dd12b48c9045b42cd5f5bfbfc0c
+timeCreated: 1524129332
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: lambert3
-    2100002: lambert4
+    2100000: lambert12
     2300000: //RootNode
     3300000: //RootNode
-    4300000: chiave_verde
+    4300000: Monitor_7
   externalObjects: {}
   materials:
     importMaterials: 1

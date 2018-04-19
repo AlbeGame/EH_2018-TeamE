@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 12f7bec9bb4e7ae459545d3174b2670c
-timeCreated: 1518270958
+guid: e3efec53327694842919764c959925d6
+timeCreated: 1524128614
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -10,7 +10,7 @@ ModelImporter:
     2100000: lambert2
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Base_20x30
+    4300000: bottone_v03
   externalObjects: {}
   materials:
     importMaterials: 1
