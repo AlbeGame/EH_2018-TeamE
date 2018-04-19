@@ -4655,8 +4655,8 @@ MonoBehaviour:
   Text: {fileID: 0}
   IconRenderer: {fileID: 23324625719003756}
   Animator: {fileID: 0}
-  AnimationDownName: 
-  AnimationUpName: 
+  AnimationDownName: Bottoncino_Puzzle_03_Down
+  AnimationUpName: Bottoncino_Puzzle_03_Up
 --- !u!114 &114052196280483032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4764,8 +4764,8 @@ MonoBehaviour:
   Text: {fileID: 0}
   IconRenderer: {fileID: 0}
   Animator: {fileID: 0}
-  AnimationDownName: 
-  AnimationUpName: 
+  AnimationDownName: Bottoncino_Puzzle_03_Down
+  AnimationUpName: Bottoncino_Puzzle_03_Up
 --- !u!114 &114410493551164416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4780,8 +4780,8 @@ MonoBehaviour:
   Text: {fileID: 0}
   IconRenderer: {fileID: 0}
   Animator: {fileID: 0}
-  AnimationDownName: 
-  AnimationUpName: 
+  AnimationDownName: Bottoncino_Puzzle_03_Down
+  AnimationUpName: Bottoncino_Puzzle_03_Up
 --- !u!114 &114454884237002066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4796,8 +4796,8 @@ MonoBehaviour:
   Text: {fileID: 0}
   IconRenderer: {fileID: 0}
   Animator: {fileID: 0}
-  AnimationDownName: 
-  AnimationUpName: 
+  AnimationDownName: Bottoncino_Puzzle_03_Down
+  AnimationUpName: Bottoncino_Puzzle_03_Up
 --- !u!114 &114542598291936746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4843,8 +4843,8 @@ MonoBehaviour:
   Text: {fileID: 0}
   IconRenderer: {fileID: 0}
   Animator: {fileID: 0}
-  AnimationDownName: 
-  AnimationUpName: 
+  AnimationDownName: Bottoncino_Puzzle_03_Down
+  AnimationUpName: Bottoncino_Puzzle_03_Up
 --- !u!114 &114675166659263828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4885,8 +4885,8 @@ MonoBehaviour:
   Text: {fileID: 0}
   IconRenderer: {fileID: 0}
   Animator: {fileID: 0}
-  AnimationDownName: 
-  AnimationUpName: 
+  AnimationDownName: Bottoncino_Puzzle_03_Down
+  AnimationUpName: Bottoncino_Puzzle_03_Up
 --- !u!114 &114723453947076142
 MonoBehaviour:
   m_ObjectHideFlags: 1
