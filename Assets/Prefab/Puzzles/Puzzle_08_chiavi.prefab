@@ -2374,10 +2374,10 @@ Animator:
   m_GameObject: {fileID: 1326551036859308}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46b260d9c2704b948a4fc0b3940f578b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -2391,10 +2391,10 @@ Animator:
   m_GameObject: {fileID: 1661833515468668}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c224a502520e0f040a39f1667821416b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -2408,10 +2408,10 @@ Animator:
   m_GameObject: {fileID: 1789585915534038}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8fcfbbc30d35df94aa85f56aebc844f8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -2531,8 +2531,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AnimatorCtrl: {fileID: 0}
-  ToLeftAnim: 
-  ToRightAnim: 
+  ToLeftAnim: BOFF
+  ToRightAnim: BON
 --- !u!114 &114341347245430216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2545,8 +2545,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AnimatorCtrl: {fileID: 0}
-  ToLeftAnim: 
-  ToRightAnim: 
+  ToLeftAnim: VOFF
+  ToRightAnim: VON
 --- !u!114 &114350124001407868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2595,8 +2595,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AnimatorCtrl: {fileID: 0}
-  ToLeftAnim: 
-  ToRightAnim: 
+  ToLeftAnim: ROFF
+  ToRightAnim: RON
 --- !u!114 &114799474950079340
 MonoBehaviour:
   m_ObjectHideFlags: 1
