@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114706202689358030}
   - component: {fileID: 135125113463663712}
   - component: {fileID: 95211535382715476}
+  - component: {fileID: 114202303350460540}
   m_Layer: 0
   m_Name: Labeled Button 1
   m_TagString: Untagged
@@ -319,6 +320,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114202303350460540
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1249530829360064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionCollider: {fileID: 0}
 --- !u!114 &114706202689358030
 MonoBehaviour:
   m_ObjectHideFlags: 1
