@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
+
 /// <summary>
 /// Basic class that implement the Selection behaviours
 /// She class the API of ISelectable to all the ISelectable she has (each ISelectable on the same GO by default)
@@ -50,8 +52,8 @@ public class SelectableBehaviour : MonoBehaviour
     }
     //Selectables to notify
     List<ISelectable> selectables = new List<ISelectable>();
-    [HideInInspector]
-    public Collider selectionCollider;
+
+    Collider selectionCollider;
 
     #region API
     #region Input hook up
@@ -212,6 +214,7 @@ public class SelectableBehaviour : MonoBehaviour
         switch (_newState)
         {
             case SelectionState.Neutral:
+                ToggleCollider(true);
                 foreach(SelectableBehaviour child in Children)
                     child.State = SelectionState.Passive;
                 break;
@@ -220,6 +223,7 @@ public class SelectableBehaviour : MonoBehaviour
                 break;
 
             case SelectionState.Selected:
+                ToggleCollider(false);
                 foreach (SelectableBehaviour child in Children)
                     child.State = SelectionState.Neutral;
 
@@ -227,8 +231,10 @@ public class SelectableBehaviour : MonoBehaviour
                 break;
 
             case SelectionState.Passive:
-                foreach (SelectableBehaviour child in Children)
-                    child.State = SelectionState.Passive;
+                ToggleCollider(false);
+                if(Children.FirstOrDefault(c => c.State == SelectionState.Selected) == null)
+                    foreach (SelectableBehaviour child in Children)
+                        child.State = SelectionState.Passive;
                 break;
         }
 
@@ -239,6 +245,11 @@ public class SelectableBehaviour : MonoBehaviour
             }
     }
     
+    void ToggleCollider(bool _active)
+    {
+        if(GetRoot() != this)
+            selectionCollider.enabled = _active;
+    }
     // Behaviour than only the Root follows
     #region Root Behaviour
     SelectableBehaviour currentSelected { get; set; }

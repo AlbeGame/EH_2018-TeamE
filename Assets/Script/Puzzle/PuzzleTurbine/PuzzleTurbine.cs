@@ -104,10 +104,6 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
 
     public void OnStateChange(SelectionState _newState)
     {
-        if (_newState == SelectionState.Selected || _newState == SelectionState.Passive)
-            selectable.selectionCollider.enabled = false;
-        else
-            selectable.selectionCollider.enabled = true;
     }
 
     public void OnSelection()
