@@ -6,30 +6,20 @@ using UnityEngine.UI;
 
 public class timer : MonoBehaviour {
 
-    float startTime;
+    float currentTime;
     public Text timerText;
-  
-
-
 	
-	void Start ()
+	void Start()
     {
-       startTime = Time.time;
-       
+       currentTime = 0;
     }
-	
 	
 	void Update ()
     {
-
-        float time = Time.time-startTime;
+        currentTime += Time.deltaTime;
         float minutes = (int)(Time.time / 60f);
         float seconds = (int)(Time.time % 60f);
 
         timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
-
     }
-
-
-
 }
