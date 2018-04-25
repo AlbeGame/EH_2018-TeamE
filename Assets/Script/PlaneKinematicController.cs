@@ -10,9 +10,8 @@ public class PlaneKinematicController : MonoBehaviour {
 
     public void StartFall(float _timeToFall)
     {
-        //Vector3[] fallPts = FallTrajectory.ConvertAll(p => p.position).ToArray();
-        Debug.LogError("Feature non implementata");
-        //fallTwn = transform.DOPath(fallPts, _timeToFall, PathType.CatmullRom);
+        Vector3[] fallPts = FallTrajectory.ConvertAll(p => p.position).ToArray();
+        fallTwn = transform.DOPath(fallPts, _timeToFall, PathType.CatmullRom);
     }
 
     public void UpdateFallTime(float _newFallTime)
