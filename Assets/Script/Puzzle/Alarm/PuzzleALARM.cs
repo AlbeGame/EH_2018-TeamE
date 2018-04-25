@@ -32,7 +32,8 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
 
     List<SelectableButton> allButtons = new List<SelectableButton>();
     public bool IsAlarmActive { get; private set; }
-    int solutionIndex;
+    int solutionIndex { get;
+        set; }
 
     #region IPuzzle
     PuzzleState _solutionState;
@@ -56,8 +57,6 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
 
         //Choosing a Setup between the possibilities
         data = _data as PuzzleALARM_Data;
-        int _setupIndex = Random.Range(0, data.Setups.Count);
-        chosenSetup = data.Setups[_setupIndex];
 
         allButtons.Clear();
         allButtons.AddRange(ButtonsA);
@@ -73,6 +72,11 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
     public void Init()
     {
         SolutionState = PuzzleState.Unsolved;
+
+        int _setupIndex = Random.Range(0, data.Setups.Count);
+        chosenSetup = data.Setups[_setupIndex];
+
+        solutionIndex = 0;
 
         //Initializing lights
         foreach (PuzzleALARM_Light light in Lights)
@@ -205,6 +209,7 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
         if (On)
         {
             IsAlarmActive = true;
+            Init();
         }
         else
         {

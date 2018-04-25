@@ -10,6 +10,8 @@ public class LevelManager : MonoBehaviour, ISelectable
     CameraController camCtrl;
 
     public LevelSettings Setting;
+    public PlaneKinematicController Plane;
+
     int PuzzleNeededToWin { get { return Setting.PuzzlesNeededToWin; } }
     public Altimetro Altimetro;
     public SelectableBehaviour AlarmPuzzle;
@@ -70,6 +72,8 @@ public class LevelManager : MonoBehaviour, ISelectable
         {
             Instantiate(Setting.FillingObjects[Random.Range(0, Setting.FillingObjects.Count)], pos);
         }
+
+        Plane.StartFall(Altimetro.currentAltitude);
     }
 
     private void Update()

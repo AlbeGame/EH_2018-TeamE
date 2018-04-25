@@ -82,6 +82,7 @@ public class PuzzleLockCode : MonoBehaviour, IPuzzle, ISelectable
     public void Init()
     {
         SolutionState = PuzzleState.Unsolved;
+        graphicCtrl.Paint(SolutionState);
         solutionProgression = 0;
     }
 

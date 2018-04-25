@@ -67,6 +67,10 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
     }
 
     public void OnButtonSelect(SelectableButton _button) {
+
+        if (SolutionState != PuzzleState.Unsolved)
+            return;
+
         // Labled Button;
         foreach (var button in LabledButtons) {
             if (button == _button) {

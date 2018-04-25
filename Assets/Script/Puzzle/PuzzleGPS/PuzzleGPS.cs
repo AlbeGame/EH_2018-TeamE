@@ -155,10 +155,8 @@ public class PuzzleGPS : MonoBehaviour, IPuzzle, ISelectable
         Interactables.Latitude.Init(this, new PuzzleGPSMonitorData());
         Interactables.Longitude.Init(this, new PuzzleGPSMonitorData());
 
-        ////DEBUG POURPOSE ONLY
-        //Interactables.Latitude.TypeOn(solutionCoordinates.x.ToString());
-        //Interactables.Longitude.TypeOn(solutionCoordinates.y.ToString());
-        ////---------
+        Interactables.Latitude.TypeOn("");
+        Interactables.Longitude.TypeOn("");
 
         currentSelectedMonitor = Interactables.Latitude;
     }
