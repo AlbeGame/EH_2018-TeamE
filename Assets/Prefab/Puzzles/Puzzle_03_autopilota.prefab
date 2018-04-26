@@ -4923,7 +4923,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1240352525100646}
-  m_Text: ON
+  m_Text: OFF
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -5002,7 +5002,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionCollider: {fileID: 0}
 --- !u!114 &114211336987014788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5066,7 +5065,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionCollider: {fileID: 0}
 --- !u!114 &114380381331591452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5078,7 +5076,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionCollider: {fileID: 0}
 --- !u!114 &114381916778388836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5090,7 +5087,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionCollider: {fileID: 0}
 --- !u!114 &114424797444734898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5116,7 +5112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionCollider: {fileID: 0}
 --- !u!114 &114624272331015770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5158,7 +5153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionCollider: {fileID: 0}
 --- !u!114 &114720088957775494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5205,7 +5199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionCollider: {fileID: 0}
 --- !u!114 &114754053358642990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5265,7 +5258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionCollider: {fileID: 0}
 --- !u!114 &114899464377831314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5277,7 +5269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionCollider: {fileID: 0}
 --- !u!114 &114957634083571190
 MonoBehaviour:
   m_ObjectHideFlags: 1
