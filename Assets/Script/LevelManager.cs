@@ -73,7 +73,7 @@ public class LevelManager : MonoBehaviour, ISelectable
             Instantiate(Setting.FillingObjects[Random.Range(0, Setting.FillingObjects.Count)], pos);
         }
 
-        Plane.StartFall(Altimetro.currentAltitude);
+        //Plane.StartFall(Altimetro.currentAltitude);
     }
 
     private void Update()
