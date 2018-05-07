@@ -61,7 +61,6 @@ public class LevelManager : MonoBehaviour, ISelectable
             positionLeft.RemoveAt(randPos);
 
             IPuzzle randPuzzle = Instantiate(randData.GetIPuzzleGO(), position).GetComponent<IPuzzle>();
-            (randPuzzle as MonoBehaviour).transform.SetParent(transform);
             randPuzzle.Setup(randData);
             randPuzzle.Init();
             puzzles.Add(randPuzzle);
@@ -73,7 +72,7 @@ public class LevelManager : MonoBehaviour, ISelectable
             Instantiate(Setting.FillingObjects[Random.Range(0, Setting.FillingObjects.Count)], pos);
         }
 
-        //Plane.StartFall(Altimetro.currentAltitude);
+        Plane.StartFall(Altimetro.MaxAltitude);
     }
 
     private void Update()
@@ -127,11 +126,13 @@ public class LevelManager : MonoBehaviour, ISelectable
     public void AccelerateAltimeter()
     {
         Altimetro.Accelerate();
+        Plane.UpdateFallTime(Altimetro.currentAltitude / Altimetro.dropSpeed);
     }
 
     public void DecelerateAltimeter(bool goPositive = false)
     {
         Altimetro.Decelerate(goPositive);
+        Plane.UpdateFallTime(Altimetro.currentAltitude / Altimetro.dropSpeed);
     }
 
     public void NotifyAltitudeUpdate(float _maxAltitude, float _currentAltitude)

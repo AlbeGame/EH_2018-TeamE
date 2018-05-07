@@ -7,7 +7,7 @@ public class Altimetro : MonoBehaviour
     public float[] Multipliers = new float[6] { .7f, 1f, 1.3f, 1.6f, 2f, 2.33f };
     int currentMultiplayerIndex = 1;
     public GameObject ArrowToMove;
-    float dropSpeed { get { return 1 * Multipliers[currentMultiplayerIndex]; } }
+    public float dropSpeed { get { return 1 * Multipliers[currentMultiplayerIndex]; } }
     public float MaxAltitude = 1000;
     public float currentAltitude;
     
