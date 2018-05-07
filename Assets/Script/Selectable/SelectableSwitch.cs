@@ -13,7 +13,14 @@ public class SelectableSwitch : MonoBehaviour, IPuzzleInput
         get { return _status; }
         set
         {
-            _status = value;
+            if(_status != value)
+            {
+                _status = value;
+                if (_status)
+                    isPressed = true;
+                else
+                    isPressed = false;
+            }
         }
     }
     SelectableBehaviour selectable;

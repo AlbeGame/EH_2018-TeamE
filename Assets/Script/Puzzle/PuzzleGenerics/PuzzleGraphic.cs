@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class PuzzleGraphic : MonoBehaviour, ISelectable
 {
-    public Transform CameraFocusPoint;
+    public GameObject CameraFocusPoint;
     CameraController camCtrl;
 
     public PuzzleGraphicData Data;
@@ -153,7 +153,7 @@ public class PuzzleGraphic : MonoBehaviour, ISelectable
     void CameraFocusCall()
     {
         if (CameraFocusPoint != null)
-            camCtrl.FocusAt(CameraFocusPoint);
+            camCtrl.FocusAt(CameraFocusPoint.transform);
     }
     #endregion
 }

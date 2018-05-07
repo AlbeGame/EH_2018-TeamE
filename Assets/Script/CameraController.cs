@@ -28,14 +28,15 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    Quaternion originalRotation;
-    Vector3 originalPosition;
+    GameObject origin;
 
     void Start()
     {
         euler = new Vector3(0, 90, 0);
-        originalRotation = transform.rotation;
-        originalPosition = transform.position;
+        origin = new GameObject("CameraStartingPositon");
+        origin.transform.SetParent(transform.parent);
+        origin.transform.localPosition = transform.localPosition;
+        origin.transform.localRotation = transform.localRotation;
     }
 
     void Update()
@@ -75,7 +76,6 @@ public class CameraController : MonoBehaviour
         transform.DORotate(_target.rotation.eulerAngles, MovementSpeed);
         //transform.DORotateQuaternion(_target.rotation, MovementSpeed);
         transform.DOMove(_target.position, MovementSpeed);
-
     }
     /// <summary>
     /// Move the camera toward _targetPosition and rotate it as _forward
@@ -85,9 +85,9 @@ public class CameraController : MonoBehaviour
     {
         canMoveFreeCam = false;
         isMoveFreeCam = false;
-        transform.DORotate(originalRotation.eulerAngles, MovementSpeed);
+        transform.DORotate(origin.transform.rotation.eulerAngles, MovementSpeed);
         //transform.DORotateQuaternion(originalRotation, MovementSpeed);
-        transform.DOMove(_targetPosition, MovementSpeed).OnComplete(()=> { if (_targetPosition == originalPosition) canMoveFreeCam = true; });
+        transform.DOMove(_targetPosition, MovementSpeed).OnComplete(()=> { if (_targetPosition == origin.transform.position) canMoveFreeCam = true; });
     }
     /// <summary>
     /// Move the camera to her original position and orientation
@@ -95,7 +95,7 @@ public class CameraController : MonoBehaviour
     public void FocusReset()
     {
         euler = new Vector3(0, 90, 0);
-        FocusAt(originalPosition, originalRotation);
+        FocusAt(origin.transform.position, origin.transform.rotation);
     }
     #endregion
 }
