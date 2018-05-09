@@ -16,23 +16,11 @@ public class PuzzleLockCode : MonoBehaviour, IPuzzle, ISelectable
 
     int solutionProgression;
 
-    PuzzleState _solutionState;
-    public PuzzleState SolutionState
-    {
-        get
-        {
-            return _solutionState;
-        }
-
-        set
-        {
-            _solutionState = value;
-        }
-    }
+    public PuzzleState SolutionState { get; set; }
 
     public bool CheckIfSolved()
     {
-        if(solutionProgression >= 3)
+        if (solutionProgression >= 3)
         {
             DoWin();
             return true;
@@ -74,9 +62,9 @@ public class PuzzleLockCode : MonoBehaviour, IPuzzle, ISelectable
         chosenMat.mainTexture = chosenSetup.ScreenImage;
         MonitorRend.material = chosenMat;
 
-        Key1st.Init(this, new PuzzleLockCode_KeyData() { keyID = KeyOrder.Key1st });
-        Key2nd.Init(this, new PuzzleLockCode_KeyData() { keyID = KeyOrder.Key2nd });
-        Key3rd.Init(this, new PuzzleLockCode_KeyData() { keyID = KeyOrder.Key3rd });
+        Key1st.Init(this, new KeyData() { keyID = KeyOrder.Key1st });
+        Key2nd.Init(this, new KeyData() { keyID = KeyOrder.Key2nd });
+        Key3rd.Init(this, new KeyData() { keyID = KeyOrder.Key3rd });
     }
 
     public void Init()
@@ -112,7 +100,7 @@ public class PuzzleLockCode : MonoBehaviour, IPuzzle, ISelectable
         {
             case 0:
                 {
-                    if ((_switch.InputData as PuzzleLockCode_KeyData).keyID == chosenSetup.Seq_1st)
+                    if ((_switch.InputData as KeyData).keyID == chosenSetup.Seq_1st)
                     {
                         solutionProgression++;
                     }
@@ -122,7 +110,7 @@ public class PuzzleLockCode : MonoBehaviour, IPuzzle, ISelectable
                 break;
             case 1:
                 {
-                    if ((_switch.InputData as PuzzleLockCode_KeyData).keyID == chosenSetup.Seq_2nd)
+                    if ((_switch.InputData as KeyData).keyID == chosenSetup.Seq_2nd)
                     {
                         solutionProgression++;
                     }
@@ -132,7 +120,7 @@ public class PuzzleLockCode : MonoBehaviour, IPuzzle, ISelectable
                 break;
             case 2:
                 {
-                    if ((_switch.InputData as PuzzleLockCode_KeyData).keyID == chosenSetup.Seq_3rd)
+                    if ((_switch.InputData as KeyData).keyID == chosenSetup.Seq_3rd)
                     {
                         solutionProgression++;
                         CheckIfSolved();
@@ -162,7 +150,7 @@ public class PuzzleLockCode : MonoBehaviour, IPuzzle, ISelectable
         Key3rd
     }
 
-    public class PuzzleLockCode_KeyData: IPuzzleInputData
+    public class KeyData : IPuzzleInputData
     {
         public KeyOrder keyID;
     }

@@ -11,18 +11,9 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
     PuzzlePressureData data;
     public Pressure_IO Interactables;
 
-    public PuzzleState SolutionState
-    {
-        get
-        {
-            throw new System.NotImplementedException();
-        }
+    PuzzlePressureData.Setup currentSetup;
 
-        set
-        {
-            throw new System.NotImplementedException();
-        }
-    }
+    public PuzzleState SolutionState { get; set; }
 
     public bool CheckIfSolved()
     {
@@ -56,7 +47,7 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
 
     public void OnSelection()
     {
-        throw new System.NotImplementedException();
+        Interactables.OutputMonitor.Toggle(true);
     }
 
     public void OnStateChange(SelectionState _state)
@@ -74,9 +65,24 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
         throw new System.NotImplementedException();
     }
 
-    public void Setup(IPuzzleData data)
+    public void Setup(IPuzzleData _data)
     {
-        throw new System.NotImplementedException();
+        selectable = GetComponent<SelectableBehaviour>();
+        graphicCtrl = GetComponent<PuzzleGraphic>();
+
+        //Choosing setups between the possibilities
+        data = _data as PuzzlePressureData;
+
+        Interactables.OutputMonitor.Toggle(false);
+        //Inserire setup IO
+    }
+
+    public void InitOutputMonitor()
+    {
+        int _setupIndex = Random.Range(0, data.Setups.Count);
+        currentSetup = data.Setups[_setupIndex];
+
+        Interactables.OutputMonitor.ImageToDisplay = currentSetup.ImgToDispaly;
     }
 
     [System.Serializable]
@@ -85,7 +91,7 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
         public SelectableButton[] NumericalButtons = new SelectableButton[3];
         public SliderController Slider;
         public TextMesh ErrorText;
-        //Aggiungere monitor di output
+        public PuzzlePressureOutputMonitor OutputMonitor;
     }
 
     public enum ButtonType
@@ -93,5 +99,10 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
         Red = 0,
         Blue = 1,
         Green = 2
+    }
+
+    public class ButtonData : IPuzzleInputData
+    {
+        public ButtonType Type;
     }
 }
