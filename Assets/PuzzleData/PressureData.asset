@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Name: PressureData
   m_EditorClassIdentifier: 
   Prefab: {fileID: 0}
+  Setups:
+  - ImgToDispaly: {fileID: 0}
+    ButtonToPress: 0

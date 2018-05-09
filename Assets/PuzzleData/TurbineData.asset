@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c7244ce0d892b74e9ef9c7fc644cb73, type: 3}
-  m_Name: Turbine
+  m_Name: TurbineData
   m_EditorClassIdentifier: 
   Prefab: {fileID: 1744359725271452, guid: 3ae3b6cc3a63057479d3e2281b9cfa44, type: 2}
   ButtonsValues:
