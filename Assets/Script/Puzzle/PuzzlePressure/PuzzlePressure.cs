@@ -12,6 +12,7 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
     public Pressure_IO Interactables;
 
     PuzzlePressureData.Setup currentSetup;
+    int currentSolutionAmount = 0;
 
     public PuzzleState SolutionState { get; set; }
 
@@ -32,7 +33,8 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
 
     public void Init()
     {
-        throw new System.NotImplementedException();
+        currentSolutionAmount = 0;
+        Interactables.Slider.SetFillAmount(currentSolutionAmount);
     }
 
     public void OnButtonSelect(SelectableButton _button)
@@ -42,17 +44,29 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
 
     public void OnMonitorSelect(SelectableMonitor _monitor)
     {
-        throw new System.NotImplementedException();
+        if (SolutionState != PuzzleState.Unsolved)
+            return;
     }
 
-    public void OnSelection()
-    {
-        Interactables.OutputMonitor.Toggle(true);
-    }
+    public void OnSelection() { }
 
     public void OnStateChange(SelectionState _state)
     {
-        throw new System.NotImplementedException();
+        switch (_state)
+        {
+            case SelectionState.Neutral:
+                Interactables.OutputMonitor.Toggle(false);
+                break;
+            case SelectionState.Highlighted:
+                break;
+            case SelectionState.Selected:
+                Interactables.OutputMonitor.Toggle(true);
+                break;
+            case SelectionState.Passive:
+                break;
+            default:
+                break;
+        }
     }
 
     public void OnSwitchSelect(SelectableSwitch _switch)
@@ -73,8 +87,14 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
         //Choosing setups between the possibilities
         data = _data as PuzzlePressureData;
 
+        //Setup Interactables
         Interactables.OutputMonitor.Toggle(false);
-        //Inserire setup IO
+
+        Interactables.RedButton.Init(this, new ButtonData() { Type = ButtonType.Red });
+        Interactables.BlueButton.Init(this, new ButtonData() { Type = ButtonType.Blue });
+        Interactables.GreenButton.Init(this, new ButtonData() { Type = ButtonType.Green });
+
+        Init();
     }
 
     public void InitOutputMonitor()
@@ -83,12 +103,17 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
         currentSetup = data.Setups[_setupIndex];
 
         Interactables.OutputMonitor.ImageToDisplay = currentSetup.ImgToDispaly;
+
+        Debugger.DebugLogger.Clean();
+        Debugger.DebugLogger.LogText(currentSetup.ButtonToPress.ToString());
     }
 
     [System.Serializable]
     public class Pressure_IO
     {
-        public SelectableButton[] NumericalButtons = new SelectableButton[3];
+        public SelectableButton RedButton;
+        public SelectableButton BlueButton;
+        public SelectableButton GreenButton;
         public SliderController Slider;
         public TextMesh ErrorText;
         public PuzzlePressureOutputMonitor OutputMonitor;

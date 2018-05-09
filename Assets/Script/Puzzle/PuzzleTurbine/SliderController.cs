@@ -19,7 +19,7 @@ public class SliderController : MonoBehaviour {
         lineRenderer.SetPosition(1, LineEnd.localPosition);
     }
 
-    public void SetFillAmount(float _percentage)
+    public void SetFillAmount(float _percentage, bool adaptColor = true)
     {
         Vector3 newLineHead;
 
@@ -27,7 +27,8 @@ public class SliderController : MonoBehaviour {
 
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, newLineHead);
 
-        AdaptMaterial(_percentage);
+        if(adaptColor)
+            AdaptMaterial(_percentage);
     }
 
     void AdaptMaterial(float _percentage)

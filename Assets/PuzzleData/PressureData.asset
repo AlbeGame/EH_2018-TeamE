@@ -11,7 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23815875a3b315847b671e8771a8dcdc, type: 3}
   m_Name: PressureData
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 0}
+  Prefab: {fileID: 1547453210896934, guid: 75c1bddcf99c4b249af3dc0f33dbb991, type: 2}
   Setups:
-  - ImgToDispaly: {fileID: 0}
+  - ImgToDispaly: {fileID: 2100000, guid: b3e40933218bc9c4194195340a422ff6, type: 2}
+    ButtonToPress: 2
+  - ImgToDispaly: {fileID: 2100000, guid: 794f09301a972584dbc825260a50e2c4, type: 2}
+    ButtonToPress: 1
+  - ImgToDispaly: {fileID: 2100000, guid: 30713be2233d7044f86ab9a2e8b9c32a, type: 2}
     ButtonToPress: 0
