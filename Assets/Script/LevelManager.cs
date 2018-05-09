@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour, ISelectable
     public Altimetro Altimetro;
     public SelectableBehaviour AlarmPuzzle;
     PuzzleALARM_Data Alarm_Data { get { return Setting.Alarm_Data; } }
+    public List<SelectableBehaviour> OtherSelectable = new List<SelectableBehaviour>();
 
     List<ScriptableObject> PuzzleDatas { get { return Setting.PuzzleDatas; }}
     List<IPuzzle> puzzles = new List<IPuzzle>();
@@ -65,6 +66,11 @@ public class LevelManager : MonoBehaviour, ISelectable
             randPuzzle.Init();
             puzzles.Add(randPuzzle);
             (randPuzzle as MonoBehaviour).GetComponent<SelectableBehaviour>().Init(selectable);
+        }
+
+        foreach (var item in OtherSelectable)
+        {
+            item.Init(selectable);
         }
 
         foreach (Transform pos in positionLeft)
