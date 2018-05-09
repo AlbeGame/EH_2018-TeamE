@@ -36,7 +36,7 @@ public class MenuPauseController : MonoBehaviour
             PausePanel.SetActive(true);
             VictoryPanel.SetActive(false);
             DefeatPanel.SetActive(false);
-            currentES.SetSelectedGameObject(PausePanel.GetComponentInChildren<Button>().gameObject);
+            //currentES.SetSelectedGameObject(PausePanel.GetComponentInChildren<Button>().gameObject);
         }
     }
 
@@ -49,7 +49,7 @@ public class MenuPauseController : MonoBehaviour
             PausePanel.SetActive(false);
             VictoryPanel.SetActive(true);
             DefeatPanel.SetActive(false);
-            currentES.SetSelectedGameObject(VictoryPanel.GetComponentInChildren<Button>().gameObject);
+            //currentES.SetSelectedGameObject(VictoryPanel.GetComponentInChildren<Button>().gameObject);
         }
     }
 
@@ -62,7 +62,7 @@ public class MenuPauseController : MonoBehaviour
             PausePanel.SetActive(false);
             VictoryPanel.SetActive(false);
             DefeatPanel.SetActive(true);
-            currentES.SetSelectedGameObject(DefeatPanel.GetComponentInChildren<Button>().gameObject);
+            //currentES.SetSelectedGameObject(DefeatPanel.GetComponentInChildren<Button>().gameObject);
         }
     }
 

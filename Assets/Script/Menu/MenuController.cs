@@ -27,7 +27,7 @@ public class MenuController : MonoBehaviour {
         if (!MainMenuPanel.activeSelf)
         {
             MainMenuPanel.SetActive(true);
-            ResetEventSystmSelection(MainMenuPanel.GetComponentInChildren<Button>().gameObject);
+            //ResetEventSystmSelection(MainMenuPanel.GetComponentInChildren<Button>().gameObject);
         }
 
         if (LevelSelectionPanel.activeSelf)
@@ -42,7 +42,7 @@ public class MenuController : MonoBehaviour {
         if (!LevelSelectionPanel.activeSelf)
         {
             LevelSelectionPanel.SetActive(true);
-            ResetEventSystmSelection(LevelSelectionPanel.GetComponentInChildren<Button>().gameObject);
+            //ResetEventSystmSelection(LevelSelectionPanel.GetComponentInChildren<Button>().gameObject);
         }
     }
 
