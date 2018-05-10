@@ -1,12 +1,14 @@
 ﻿using DG.Tweening;
+using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
 public class CameraController : MonoBehaviour
 {
     public float RotSpeed = 2.5F;
-    public float minY = -30.0f;
-    public float maxY = 30.0f;
+    public float minY = -90.0f;
+    public float maxY = 90.0f;
     float RotLeftRight;
     float RotUpDown;
     Vector3 euler;
@@ -45,7 +47,6 @@ public class CameraController : MonoBehaviour
             RotateCamera();
     }
 
-
     void RotateCamera()
     {
 
@@ -71,12 +72,13 @@ public class CameraController : MonoBehaviour
     /// <param name="_target"></param>
     public void FocusAt(Transform _target)
     {
-        //canMoveFreeCam = false;
-        //isMoveFreeCam = false;
+        canMoveFreeCam = false;
+        isMoveFreeCam = false;
         //transform.DORotate(_target.rotation.eulerAngles, MovementSpeed);
         ////transform.DORotateQuaternion(_target.rotation, MovementSpeed);
         //transform.DOMove(_target.position, MovementSpeed);
-        FocusAt(_target.position, _target.rotation);
+        //FocusAt(_target.position, _target.rotation);
+        StartCoroutine(Move(_target));
     }
     /// <summary>
     /// Move the camera toward _targetPosition and rotate it as _forward
@@ -86,17 +88,37 @@ public class CameraController : MonoBehaviour
     {
         canMoveFreeCam = false;
         isMoveFreeCam = false;
-        transform.DORotate(_targetRotation.eulerAngles, MovementSpeed);
+
+        //transform.DORotate(_targetRotation.eulerAngles, MovementSpeed);
         //transform.DORotateQuaternion(originalRotation, MovementSpeed);
-        transform.DOMove(_targetPosition, MovementSpeed).OnComplete(()=> { if (_targetPosition == origin.transform.position) canMoveFreeCam = true; });
+        //transform.DOMove(_targetPosition, MovementSpeed).OnComplete(()=> { if (_targetPosition == origin.transform.position) canMoveFreeCam = true; });
     }
+
     /// <summary>
     /// Move the camera to her original position and orientation
     /// </summary>
     public void FocusReset()
     {
         euler = new Vector3(0, 90, 0);
-        FocusAt(origin.transform.position, origin.transform.rotation);
+        FocusAt(origin.transform);
     }
     #endregion
+
+    IEnumerator Move(Transform _transf)
+    {
+        bool isMoving = true;
+        while (isMoving)
+        {
+            transform.position = Vector3.Lerp(transform.position, _transf.position, 1/MovementSpeed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, _transf.rotation, 1 / MovementSpeed);
+
+            if(Vector3.Distance(transform.position, _transf.position) < Time.deltaTime)
+            {
+                isMoving = false;
+            }
+            yield return null;
+            if (_transf == origin.transform)
+                canMoveFreeCam = true;
+        }
+    }
 }
