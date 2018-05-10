@@ -8,6 +8,8 @@ public class PuzzlePressureData : ScriptableObject, IPuzzleData
     public GameObject Prefab;
 
     public int MaxMisstakes = 3;
+    [Range(0,100)]
+    public float FillingPerStrike = 1;
     public MonitorValues Monitor = new MonitorValues();
     public List<Setup> Setups = new List<Setup>();
 

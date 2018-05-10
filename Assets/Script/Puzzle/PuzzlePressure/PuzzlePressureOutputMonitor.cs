@@ -153,10 +153,14 @@ public class PuzzlePressureOutputMonitor : MonoBehaviour
 
     public void Toggle(bool _active)
     {
+        if (isActive == _active)
+            return;
+
         isActive = _active;
         if (!isActive)
         {
             currentTimer = 0;
+            CurrentState = State.Off;
         }
         else
         {

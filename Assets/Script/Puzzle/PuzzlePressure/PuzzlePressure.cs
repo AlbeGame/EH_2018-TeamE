@@ -12,7 +12,7 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
     public Pressure_IO Interactables;
 
     PuzzlePressureData.Setup currentSetup;
-    int currentSolutionAmount = 0;
+    float currentSolutionAmount = 0;
     int currentMisstakes = 0;
 
     public PuzzleState SolutionState { get; set; }
@@ -32,6 +32,8 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
 
     public void DoWin()
     {
+        Interactables.OutputMonitor.Toggle(false);
+
         SolutionState = PuzzleState.Solved;
         selectable.GetRoot().GetComponent<LevelManager>().NotifyPuzzleSolved(this);
 
@@ -41,6 +43,8 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
     public void Init()
     {
         SolutionState = PuzzleState.Unsolved;
+
+        graphicCtrl.Init(graphicCtrl.Data);
 
         currentSolutionAmount = 0;
         currentMisstakes = 0;
@@ -53,12 +57,21 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
         if (!Interactables.OutputMonitor.isInteractionTime)
         {
             ApplyError();
-            return;
         }
         else
         {
-            //Inserire altri errori e riempimento barra
+            if ((_button.InputData as ButtonData).Type != currentSetup.ButtonToPress)
+            {
+                ApplyError();
+            }
+            else
+            {
+                ApplySucces();
+            }
         }
+
+        if(SolutionState == PuzzleState.Unsolved)
+            selectable.Select();
     }
 
     public void OnMonitorSelect(SelectableMonitor _monitor)
@@ -137,6 +150,18 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
         {
             DoLoose();
         }
+    }
+
+    void ApplySucces()
+    {
+        currentSolutionAmount += data.FillingPerStrike;
+        if (currentSolutionAmount > 100)
+            currentSolutionAmount = 100;
+
+        Interactables.Slider.SetFillAmount(currentSolutionAmount, false);
+
+        if (currentSolutionAmount == 100)
+            DoWin();
     }
 
     [System.Serializable]
