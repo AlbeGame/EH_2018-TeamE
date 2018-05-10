@@ -25,6 +25,7 @@ public class SelectableButton : MonoBehaviour, IPuzzleInput
 
         //selectable behaviour setup
         selectable = GetComponent<SelectableBehaviour>();
+
         selectable.Init((puzzleCtrl as MonoBehaviour).GetComponent<SelectableBehaviour>());
     }
 

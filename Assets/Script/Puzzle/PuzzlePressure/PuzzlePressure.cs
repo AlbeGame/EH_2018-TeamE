@@ -13,6 +13,7 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
 
     PuzzlePressureData.Setup currentSetup;
     int currentSolutionAmount = 0;
+    int currentMisstakes = 0;
 
     public PuzzleState SolutionState { get; set; }
 
@@ -23,23 +24,41 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
 
     public void DoLoose()
     {
-        throw new System.NotImplementedException();
+        SolutionState = PuzzleState.Broken;
+        selectable.GetRoot().GetComponent<LevelManager>().NotifyPuzzleBreakdown(this);
+
+        graphicCtrl.Paint(SolutionState);
     }
 
     public void DoWin()
     {
-        throw new System.NotImplementedException();
+        SolutionState = PuzzleState.Solved;
+        selectable.GetRoot().GetComponent<LevelManager>().NotifyPuzzleSolved(this);
+
+        graphicCtrl.Paint(SolutionState);
     }
 
     public void Init()
     {
+        SolutionState = PuzzleState.Unsolved;
+
         currentSolutionAmount = 0;
+        currentMisstakes = 0;
+        Interactables.ErrorText.text = currentMisstakes.ToString();
         Interactables.Slider.SetFillAmount(currentSolutionAmount);
     }
 
     public void OnButtonSelect(SelectableButton _button)
     {
-        throw new System.NotImplementedException();
+        if (!Interactables.OutputMonitor.isInteractionTime)
+        {
+            ApplyError();
+            return;
+        }
+        else
+        {
+            //Inserire altri errori e riempimento barra
+        }
     }
 
     public void OnMonitorSelect(SelectableMonitor _monitor)
@@ -88,6 +107,7 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
         data = _data as PuzzlePressureData;
 
         //Setup Interactables
+        Interactables.OutputMonitor.Setup(this, data.Monitor);
         Interactables.OutputMonitor.Toggle(false);
 
         Interactables.RedButton.Init(this, new ButtonData() { Type = ButtonType.Red });
@@ -106,6 +126,17 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
 
         Debugger.DebugLogger.Clean();
         Debugger.DebugLogger.LogText(currentSetup.ButtonToPress.ToString());
+    }
+
+    void ApplyError()
+    {
+        currentMisstakes++;
+        Interactables.ErrorText.text = currentMisstakes.ToString();
+
+        if(currentMisstakes >= data.MaxMisstakes)
+        {
+            DoLoose();
+        }
     }
 
     [System.Serializable]

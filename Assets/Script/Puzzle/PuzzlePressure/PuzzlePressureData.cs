@@ -6,11 +6,22 @@ using UnityEngine;
 public class PuzzlePressureData : ScriptableObject, IPuzzleData
 {
     public GameObject Prefab;
+
+    public int MaxMisstakes = 3;
+    public MonitorValues Monitor = new MonitorValues();
     public List<Setup> Setups = new List<Setup>();
 
     public GameObject GetIPuzzleGO()
     {
         return Prefab;
+    }
+
+    [System.Serializable]
+    public class MonitorValues
+    {
+        public float MainImgTime = 5;
+        public float AnimN2Time = 2;
+        public float InteractTime = 3;
     }
 
     [System.Serializable]

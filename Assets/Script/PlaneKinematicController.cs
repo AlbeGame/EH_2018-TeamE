@@ -10,6 +10,16 @@ public class PlaneKinematicController : MonoBehaviour {
     float fallRatio { get { return pathLenght/ timeToCrash; } }
     int currentPathIndex;
 
+    private void Start()
+    {
+        foreach (var item in FallTrajectory)
+        {
+            Renderer rend = item.GetComponent<Renderer>();
+            if (rend)
+                Destroy(rend);
+        }
+    }
+
     public void StartFall(float _timeToFall)
     {
         if(FallTrajectory.Count <= 1)

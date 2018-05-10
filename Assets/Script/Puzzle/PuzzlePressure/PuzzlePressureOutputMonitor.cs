@@ -28,6 +28,16 @@ public class PuzzlePressureOutputMonitor : MonoBehaviour
 
     float currentTimer = 0;
     bool isActive;
+    public bool isInteractionTime
+    {
+        get
+        {
+            if (currentTimer > MainDisplayTime)
+                return true;
+            else
+                return false;
+        }
+    }
 
     private State _currentState = State.Off;
     public State CurrentState
@@ -46,28 +56,28 @@ public class PuzzlePressureOutputMonitor : MonoBehaviour
                     Renderer.enabled = false;
                     break;
                 case State.MainImg:
-                    Renderer.enabled = false;
+                    Renderer.enabled = true;
                     Renderer.material = ImageToDisplay;
                     break;
                 case State.Anim1Img:
-                    Renderer.enabled = false;
+                    Renderer.enabled = true;
                     Renderer.material = Anim1;
                     break;
                 case State.Anim2Img:
-                    Renderer.enabled = false;
+                    Renderer.enabled = true;
                     Renderer.material = Anim2;
                     break;
                 case State.CD1Img:
-                    Renderer.enabled = false;
-                    Renderer.material = CD1;
+                    Renderer.enabled = true;
+                    Renderer.material = CD3;
                     break;
                 case State.CD2Img:
-                    Renderer.enabled = false;
+                    Renderer.enabled = true;
                     Renderer.material = CD2;
                     break;
                 case State.CD3Img:
-                    Renderer.enabled = false;
-                    Renderer.material = CD3;
+                    Renderer.enabled = true;
+                    Renderer.material = CD1;
                     break;
                 default:
                     break;
@@ -152,6 +162,14 @@ public class PuzzlePressureOutputMonitor : MonoBehaviour
         {
             parentPuzzle.InitOutputMonitor();
         }
+    }
+
+    public void Setup(PuzzlePressure _parent, PuzzlePressureData.MonitorValues _values)
+    {
+        parentPuzzle = _parent;
+        MainDisplayTime = _values.MainImgTime;
+        AnimTime = _values.AnimN2Time;
+        CDFullDisplayTime = _values.InteractTime;
     }
 
     public enum State
