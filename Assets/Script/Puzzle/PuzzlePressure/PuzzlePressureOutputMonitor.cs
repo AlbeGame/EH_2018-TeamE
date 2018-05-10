@@ -85,6 +85,11 @@ public class PuzzlePressureOutputMonitor : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        CurrentState = State.Off;
+    }
+
     private void Update()
     {
         if (!isActive)

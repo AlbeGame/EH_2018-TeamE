@@ -109,13 +109,14 @@ public class CameraController : MonoBehaviour
         bool isMoving = true;
         while (isMoving)
         {
-            transform.position = Vector3.Lerp(transform.position, _transf.position, 1/MovementSpeed);
-            transform.rotation = Quaternion.Slerp(transform.rotation, _transf.rotation, 1 / MovementSpeed);
-
-            if(Vector3.Distance(transform.position, _transf.position) < Time.deltaTime)
+            if(Vector3.Distance(transform.position, _transf.position) > Time.deltaTime)
             {
-                isMoving = false;
+                transform.position = Vector3.Lerp(transform.position, _transf.position, 1 / MovementSpeed);
+                transform.rotation = Quaternion.Slerp(transform.rotation, _transf.rotation, 1 / MovementSpeed);
             }
+            else
+                isMoving = false;
+
             yield return null;
             if (_transf == origin.transform)
                 canMoveFreeCam = true;
