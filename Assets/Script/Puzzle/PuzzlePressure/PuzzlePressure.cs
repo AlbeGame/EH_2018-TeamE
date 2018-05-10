@@ -24,6 +24,8 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
 
     public void DoLoose()
     {
+        Interactables.OutputMonitor.Toggle(false);
+
         SolutionState = PuzzleState.Broken;
         selectable.GetRoot().GetComponent<LevelManager>().NotifyPuzzleBreakdown(this);
 

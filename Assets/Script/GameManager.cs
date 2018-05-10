@@ -27,10 +27,7 @@ public class GameManager : MonoBehaviour {
     public void Awake()
     {
         I_GM = this;
-    }
 
-    private void Start()
-    {
         DontDestroyOnLoad(this.gameObject);
 
         ChosenSetting = DefaultDebug;
