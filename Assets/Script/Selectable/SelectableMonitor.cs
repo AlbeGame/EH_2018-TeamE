@@ -47,7 +47,7 @@ public class SelectableMonitor : MonoBehaviour, IPuzzleInput
 
     public void OnSelection()
     {
-        GameManager.I_GM.AudioManager.PlaySound(AudioType.Input);
+        GameManager.I_GM.AudioManager.PlaySound(AudioType.InputClick);
 
         if (puzzleCtrl != null)
             puzzleCtrl.OnMonitorSelect(this);
@@ -64,6 +64,9 @@ public class SelectableMonitor : MonoBehaviour, IPuzzleInput
             else
                 AnimatorCtrl.Play(IdleAnimation);
         }
+
+        if (_newState == SelectionState.Highlighted)
+            GameManager.I_GM.AudioManager.PlaySound(AudioType.InputHover);
     }
 
     public void TypeOn(string _thingsToWrite, bool replaceOldText = true)

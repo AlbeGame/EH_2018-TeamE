@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour, ISelectable
     {
         Setting = GameManager.I_GM.ChosenSetting;
 
-        GameManager.I_GM.AudioManager.PlaySound(AudioType.Ambient);
+        GameManager.I_GM.AudioManager.PlaySound(AudioType.Ambient, false, true);
         
         selectable = GetComponent<SelectableBehaviour>();
         selectable.Init(null, SelectionState.Selected);
@@ -132,13 +132,13 @@ public class LevelManager : MonoBehaviour, ISelectable
     public void AccelerateAltimeter()
     {
         Altimetro.Accelerate();
-        Plane.UpdateFallTime(Altimetro.currentAltitude / Altimetro.dropSpeed);
+        Plane.UpdateFallTime(Altimetro.CurrentAltitude / Altimetro.DropSpeed);
     }
 
     public void DecelerateAltimeter(bool goPositive = false)
     {
         Altimetro.Decelerate(goPositive);
-        Plane.UpdateFallTime(Altimetro.currentAltitude / Altimetro.dropSpeed);
+        Plane.UpdateFallTime(Altimetro.CurrentAltitude / Altimetro.DropSpeed);
     }
 
     public void NotifyAltitudeUpdate(float _maxAltitude, float _currentAltitude)

@@ -74,7 +74,7 @@ public class PuzzleAutopilot : MonoBehaviour, IPuzzle, ISelectable
         selectable.GetRoot().GetComponent<LevelManager>().NotifyPuzzleBreakdown(this);
 
         graphicCtrl.Paint(_solutionState);
-        selectable.GetParent().Select();
+        selectable.GetRoot().Select();
     }
 
     public bool CheckIfSolved()

@@ -832,6 +832,7 @@ GameObject:
   - component: {fileID: 114788818504057896}
   - component: {fileID: 135828782878283048}
   - component: {fileID: 95694860875187980}
+  - component: {fileID: 114496877739048390}
   m_Layer: 0
   m_Name: Labeled Button 2
   m_TagString: Untagged
@@ -867,6 +868,7 @@ GameObject:
   - component: {fileID: 114176809041957578}
   - component: {fileID: 135861975332667696}
   - component: {fileID: 95249851349796972}
+  - component: {fileID: 114969564594244330}
   m_Layer: 0
   m_Name: Labeled Button 2
   m_TagString: Untagged
@@ -920,6 +922,7 @@ GameObject:
   - component: {fileID: 114349980245214840}
   - component: {fileID: 135905480727369988}
   - component: {fileID: 95911549260385578}
+  - component: {fileID: 114331193261474734}
   m_Layer: 0
   m_Name: Labeled Button 2
   m_TagString: Untagged
@@ -3623,9 +3626,9 @@ MonoBehaviour:
     HighlightedMat: {fileID: 2100000, guid: 12f28803ed2e7784288642de0e738aaa, type: 2}
     DoNotPaintItems:
     - {fileID: 1028792219833326}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 1821748455368724}
+    - {fileID: 1709257719860004}
+    - {fileID: 1728985866939334}
     - {fileID: 1237958485080006}
     Lights: {fileID: 23530735308656248}
     EmissiveNeutral: {fileID: 2100000, guid: d2cc8808e21737740962726e6daaa2af, type: 2}
@@ -3646,8 +3649,8 @@ MonoBehaviour:
   Text: {fileID: 102095734940507420}
   IconRenderer: {fileID: 0}
   Animator: {fileID: 0}
-  AnimationDownName: 
-  AnimationUpName: 
+  AnimationDownName: Down
+  AnimationUpName: Up
 --- !u!114 &114238258593794152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3682,6 +3685,17 @@ MonoBehaviour:
     Slider: {fileID: 114469531959537334}
     ErrorText: {fileID: 102774735608552510}
     OutputMonitor: {fileID: 114450241044606834}
+--- !u!114 &114331193261474734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1821748455368724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114337302728196830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3707,8 +3721,8 @@ MonoBehaviour:
   Text: {fileID: 102980126433051846}
   IconRenderer: {fileID: 0}
   Animator: {fileID: 0}
-  AnimationDownName: 
-  AnimationUpName: 
+  AnimationDownName: Down
+  AnimationUpName: Up
 --- !u!114 &114450241044606834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3747,6 +3761,17 @@ MonoBehaviour:
   PositiveColor: {fileID: 2100000, guid: 6b0c076e3e965064fbc27aab65390d03, type: 2}
   NeutralColor: {fileID: 2100000, guid: 25635a94fe2e289419801b1a263db0cf, type: 2}
   NegativeColor: {fileID: 2100000, guid: 3059fe99a3be62544aa67e9d18acf351, type: 2}
+--- !u!114 &114496877739048390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1709257719860004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114788818504057896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3761,8 +3786,19 @@ MonoBehaviour:
   Text: {fileID: 102939307151937830}
   IconRenderer: {fileID: 0}
   Animator: {fileID: 0}
-  AnimationDownName: 
-  AnimationUpName: 
+  AnimationDownName: Down
+  AnimationUpName: Up
+--- !u!114 &114969564594244330
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1728985866939334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b9dd61cf9c2564da25499c0a807e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!120 &120328158503012930
 LineRenderer:
   m_ObjectHideFlags: 1
