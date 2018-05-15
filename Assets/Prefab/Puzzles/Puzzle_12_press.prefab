@@ -99,7 +99,6 @@ GameObject:
   - component: {fileID: 4772687193264690}
   - component: {fileID: 33719458592616186}
   - component: {fileID: 23654784603479014}
-  - component: {fileID: 65007545459586986}
   m_Layer: 0
   m_Name: Base_30x20
   m_TagString: Untagged
@@ -3257,18 +3256,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65007545459586986
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1063601869314158}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.19999999, y: 0.02, z: 0.29999998}
-  m_Center: {x: 0, y: 0.005, z: 0}
 --- !u!65 &65411314242017228
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -3293,7 +3280,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 3389bed8c1857fa48af4d411b1ae148b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -3344,7 +3331,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 3389bed8c1857fa48af4d411b1ae148b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -3395,7 +3382,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 3389bed8c1857fa48af4d411b1ae148b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -3646,8 +3633,8 @@ MonoBehaviour:
   Text: {fileID: 102095734940507420}
   IconRenderer: {fileID: 0}
   Animator: {fileID: 0}
-  AnimationDownName: 
-  AnimationUpName: 
+  AnimationDownName: Down
+  AnimationUpName: Up
 --- !u!114 &114238258593794152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3707,8 +3694,8 @@ MonoBehaviour:
   Text: {fileID: 102980126433051846}
   IconRenderer: {fileID: 0}
   Animator: {fileID: 0}
-  AnimationDownName: 
-  AnimationUpName: 
+  AnimationDownName: Down
+  AnimationUpName: Up
 --- !u!114 &114450241044606834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3761,8 +3748,8 @@ MonoBehaviour:
   Text: {fileID: 102939307151937830}
   IconRenderer: {fileID: 0}
   Animator: {fileID: 0}
-  AnimationDownName: 
-  AnimationUpName: 
+  AnimationDownName: Down
+  AnimationUpName: Up
 --- !u!120 &120328158503012930
 LineRenderer:
   m_ObjectHideFlags: 1
