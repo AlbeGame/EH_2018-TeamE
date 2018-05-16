@@ -771,6 +771,7 @@ GameObject:
   - component: {fileID: 135828782878283048}
   - component: {fileID: 95694860875187980}
   - component: {fileID: 114496877739048390}
+  - component: {fileID: 114964459652160678}
   m_Layer: 0
   m_Name: Labeled Button 2
   m_TagString: Untagged
@@ -807,6 +808,7 @@ GameObject:
   - component: {fileID: 135861975332667696}
   - component: {fileID: 95249851349796972}
   - component: {fileID: 114969564594244330}
+  - component: {fileID: 114911961129530776}
   m_Layer: 0
   m_Name: Labeled Button 2
   m_TagString: Untagged
@@ -844,6 +846,7 @@ GameObject:
   - component: {fileID: 135905480727369988}
   - component: {fileID: 95911549260385578}
   - component: {fileID: 114331193261474734}
+  - component: {fileID: 114067487090857446}
   m_Layer: 0
   m_Name: Labeled Button 2
   m_TagString: Untagged
@@ -3333,6 +3336,30 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278255360
+--- !u!114 &114067487090857446
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1821748455368724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad9400ebd581fd4ea0d0dab38582f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraFocusPoint: {fileID: 0}
+  Data:
+    NeutralMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
+    HighlightedMat: {fileID: 2100000, guid: a4380ade6ec88cd4a9ec010dc170b7a2, type: 2}
+    DoNotPaintItems:
+    - {fileID: 1076226168795062}
+    - {fileID: 1375667970916990}
+    - {fileID: 1965223765748830}
+    Lights: {fileID: 0}
+    EmissiveNeutral: {fileID: 0}
+    EmissivePositive: {fileID: 0}
+    EmissiveNegative: {fileID: 0}
+    ParticlesGroup: {fileID: 0}
 --- !u!114 &114133105831018770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3496,6 +3523,54 @@ MonoBehaviour:
   Animator: {fileID: 0}
   AnimationDownName: Down
   AnimationUpName: Up
+--- !u!114 &114911961129530776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1728985866939334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad9400ebd581fd4ea0d0dab38582f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraFocusPoint: {fileID: 0}
+  Data:
+    NeutralMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
+    HighlightedMat: {fileID: 2100000, guid: a4380ade6ec88cd4a9ec010dc170b7a2, type: 2}
+    DoNotPaintItems:
+    - {fileID: 1115886189013346}
+    - {fileID: 1111777400436556}
+    - {fileID: 1489771834285718}
+    Lights: {fileID: 0}
+    EmissiveNeutral: {fileID: 0}
+    EmissivePositive: {fileID: 0}
+    EmissiveNegative: {fileID: 0}
+    ParticlesGroup: {fileID: 0}
+--- !u!114 &114964459652160678
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1709257719860004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad9400ebd581fd4ea0d0dab38582f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraFocusPoint: {fileID: 0}
+  Data:
+    NeutralMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
+    HighlightedMat: {fileID: 2100000, guid: a4380ade6ec88cd4a9ec010dc170b7a2, type: 2}
+    DoNotPaintItems:
+    - {fileID: 1381574340205792}
+    - {fileID: 1647610749634812}
+    - {fileID: 1694751261000800}
+    Lights: {fileID: 0}
+    EmissiveNeutral: {fileID: 0}
+    EmissivePositive: {fileID: 0}
+    EmissiveNegative: {fileID: 0}
+    ParticlesGroup: {fileID: 0}
 --- !u!114 &114969564594244330
 MonoBehaviour:
   m_ObjectHideFlags: 1
