@@ -5,18 +5,19 @@ using UnityEngine.UI;
 public class Altimetro : MonoBehaviour
 {
     public float[] Multipliers = new float[6] { .7f, 1f, 1.3f, 1.6f, 2f, 2.33f };
+    public int AudioDelay = 2;
     int currentMultiplayerIndex = 1;
     public GameObject ArrowToMove;
-    public float dropSpeed { get { return 1 * Multipliers[currentMultiplayerIndex]; } }
+    public float DropSpeed { get { return 1 * Multipliers[currentMultiplayerIndex]; } }
     public float MaxAltitude = 1000;
-    public float currentAltitude;
+    public float CurrentAltitude { get; private set; }
     
     private int SecondsToMove;
     LevelManager gameController;
 
     private void Start()
     {
-        currentAltitude = MaxAltitude;
+        CurrentAltitude = MaxAltitude;
         if (ArrowToMove == null)
             ArrowToMove = this.gameObject;
 
@@ -30,17 +31,27 @@ public class Altimetro : MonoBehaviour
        // GetMoveArrowSeconds();
     }
 
+    int altitudeMarkPre;
+    int altitudeMarkPost;
     void UpdateAltitude()
     {
-        gameController.NotifyAltitudeUpdate(MaxAltitude, currentAltitude);
+        gameController.NotifyAltitudeUpdate(MaxAltitude, CurrentAltitude);
 
-        if (currentAltitude <= 0)
+        if (CurrentAltitude <= 0)
         {
-            currentAltitude = 0;
+            CurrentAltitude = 0;
             return;
         }
 
-        currentAltitude -= Time.deltaTime * dropSpeed;
+        altitudeMarkPre = (int)CurrentAltitude % AudioDelay;
+
+        CurrentAltitude -= Time.deltaTime * DropSpeed;
+
+        altitudeMarkPost = (int)CurrentAltitude % AudioDelay;
+
+        if (altitudeMarkPost == 0 && altitudeMarkPost != altitudeMarkPre)
+            GameManager.I_GM.AudioManager.PlaySound(AudioType.Altimeter);
+        
     }
     
     public void Accelerate()
@@ -58,8 +69,8 @@ public class Altimetro : MonoBehaviour
     
     void RotateArrow()
     {
-        float currentAngle = (360 * currentAltitude) / MaxAltitude;
-        if (currentAltitude == 0)
+        float currentAngle = (360 * CurrentAltitude) / MaxAltitude;
+        if (CurrentAltitude == 0)
             currentAngle = 0;
 
         ArrowToMove.transform.localRotation = Quaternion.AngleAxis(currentAngle, Vector3.forward);

@@ -47,12 +47,16 @@ public class SelectableSwitch : MonoBehaviour, IPuzzleInput
 
     public void OnSelection()
     {
-        GameManager.I_GM.AudioManager.PlaySound(AudioType.Input);
+        GameManager.I_GM.AudioManager.PlaySound(AudioType.InputClick);
         selectStatus = !selectStatus;
         puzzleCtrl.OnSwitchSelect(this);
     }
 
-    public void OnStateChange(SelectionState _newState){}
+    public void OnStateChange(SelectionState _newState)
+    {
+        if(_newState == SelectionState.Highlighted)
+            GameManager.I_GM.AudioManager.PlaySound(AudioType.InputHover);
+    }
 
     #region Animation
     public Animator AnimatorCtrl;

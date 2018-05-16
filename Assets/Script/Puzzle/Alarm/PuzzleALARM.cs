@@ -191,8 +191,13 @@ public class PuzzleALARM : MonoBehaviour, IPuzzle, ISelectable
         if (currentLBInterval >= LightBlinkInterval)
         {
             if (IsAlarmActive)
+            {
                 foreach (PuzzleALARM_Light light in Lights)
                     light.Pulse();
+
+                GameManager.I_GM.AudioManager.PlaySound(AudioType.Alarm);
+            }
+
 
             currentLBInterval = 0;
         }

@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b278f5eb9cb2c5249b809555835e9ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultDebug: {fileID: 11400000, guid: 138c97b650b65574396bad9fcbe60fcc, type: 2}
+  DefaultDebug: {fileID: 11400000, guid: 689b378d95192384a92a222ff88d8e46, type: 2}
   Easy: {fileID: 11400000, guid: 5ee9888ffbe807246ac05a633b40b808, type: 2}
   Medium: {fileID: 11400000, guid: 138c97b650b65574396bad9fcbe60fcc, type: 2}
   Hard: {fileID: 11400000, guid: 689b378d95192384a92a222ff88d8e46, type: 2}
@@ -96,7 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6e3ccc92d6ffec4bb2d98a332609318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioDatas:
-  - Type: 1
-    Clip: {fileID: 8300000, guid: 29bd5df3e2cb2374285e03d69c82f52b, type: 3}
-  IndipendentChannels: 5
+  InputClick: {fileID: 8300000, guid: f16f066bb2f6530469894b2719f6ce1a, type: 3}
+  InputHover: {fileID: 8300000, guid: e698a398d77d53843a09e7c16b9856b9, type: 3}
+  Ambient: {fileID: 8300000, guid: 2bf3ed22ba22c15409f65a9109e26e52, type: 3}
+  Altimeter: {fileID: 8300000, guid: c741826fef94f0945a9833a504368207, type: 3}
+  Alarm: {fileID: 8300000, guid: d4816b463c7b7be42a58a974b9832b2f, type: 3}
+  FadeTime: 0.5
