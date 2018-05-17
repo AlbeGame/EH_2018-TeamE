@@ -9,9 +9,12 @@ public class GameManager : MonoBehaviour {
         set
         {
             if (_iGM != null && _iGM != value)
-                DestroyImmediate(value);
+                DestroyImmediate(value.gameObject);
             else
+            {
                 _iGM = value;
+                DontDestroyOnLoad(_iGM.gameObject);
+            }
         }
     }
     public LevelSettings DefaultDebug;
@@ -27,9 +30,10 @@ public class GameManager : MonoBehaviour {
     public void Awake()
     {
         I_GM = this;
+    }
 
-        DontDestroyOnLoad(this.gameObject);
-
+    private void Start()
+    {
         ChosenSetting = DefaultDebug;
 
         AudioManager = GetComponentInChildren<AudioManager>();
