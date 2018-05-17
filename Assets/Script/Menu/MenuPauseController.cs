@@ -9,7 +9,7 @@ public class MenuPauseController : MonoBehaviour
     public GameObject VictoryPanel;
     public GameObject DefeatPanel;
     EventSystem currentES;
-    AudioManager audioMng;
+    AudioMng audioMng;
 
     private void Start()
     {

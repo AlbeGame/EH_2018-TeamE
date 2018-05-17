@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour {
 
     public LevelSettings ChosenSetting { get; private set; }
 
-    public AudioManager AudioManager { get; private set; }
+    public AudioMng AudioManager { get; private set; }
 
     public void Awake()
     {
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour {
     {
         ChosenSetting = DefaultDebug;
 
-        AudioManager = GetComponentInChildren<AudioManager>();
+        AudioManager = GetComponentInChildren<AudioMng>();
     }
 
     public void SetDifficultyLevel(DifficoultyLevel _difficoulty)

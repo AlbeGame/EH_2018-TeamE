@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using UnityEditor.SceneManagement;
 
-public class AudioManager : MonoBehaviour
+public class AudioMng : MonoBehaviour
 {
     public AudioClip InputClick;
     public AudioClip InputHover;
@@ -11,8 +10,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip Altimeter;
     public AudioClip Alarm;
     public AudioClip MenuInput;
+    public float FadeTime = 0.5f;
 
-    public float FadeTime = .5f;
     private List<AudioSource> audioSources = new List<AudioSource>();
     #region API
     /// <summary>

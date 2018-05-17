@@ -9,7 +9,7 @@ public class MenuController : MonoBehaviour {
     public GameObject LevelSelectionPanel;
     public GameObject menuVolume;
     EventSystem currentES;
-    AudioManager audioMng;
+    AudioMng audioMng;
 
     private void Start()
     {
