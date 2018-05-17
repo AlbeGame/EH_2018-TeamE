@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour, ISelectable
     public LevelSettings Setting;
     public PlaneKinematicController Plane;
 
+    int puzzleNeededToLoose { get { return Setting.PuzzlesNeededToloose; } }
     int PuzzleNeededToWin { get { return Setting.PuzzlesNeededToWin; } }
     public Altimetro Altimetro;
     public SelectableBehaviour AlarmPuzzle;
@@ -207,6 +208,8 @@ public class LevelManager : MonoBehaviour, ISelectable
 
         AccelerateAltimeter();
         AlarmPuzzle.GetComponent<PuzzleALARM>().Toggle(true);
+
+        UpdateOverallSolution();
     }
 
     public void OnSelection()
@@ -220,11 +223,21 @@ public class LevelManager : MonoBehaviour, ISelectable
     void UpdateOverallSolution()
     {
         int currentSolvedPuzzles = 0;
+        int currentBrokenPuzzles = 0;
 
         foreach (IPuzzle puzzle in puzzles)
         {
             if (puzzle.SolutionState == PuzzleState.Solved)
                 currentSolvedPuzzles++;
+            if (puzzle.SolutionState == PuzzleState.Broken)
+                currentBrokenPuzzles++;
+        }
+
+        //Momentanea Soluzione di sconfitta
+        if (currentBrokenPuzzles >= puzzleNeededToLoose)
+        {
+            FindObjectOfType<MenuPauseController>().ToggleDefeatMenu();
+            selectable.State = SelectionState.Passive;
         }
 
         //Momentanea Soluzione di vittoria

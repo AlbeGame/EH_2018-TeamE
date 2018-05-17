@@ -9,6 +9,9 @@ public class LevelSettings : ScriptableObject {
     public int TotalPuzzles = 3;
     [Range(1,8)][Tooltip("Attenzione: se maggiore di TotalPuzzles, sarà impossibile vincere!")]
     public int PuzzlesNeededToWin = 2;
+    [Range(1, 8)]
+    [Tooltip("Attenzione: se maggiore di TotalPuzzles, sarà impossibile perdere!")]
+    public int PuzzlesNeededToloose = 3;
 
     public PuzzleALARM_Data Alarm_Data;
     public List<ScriptableObject> PuzzleDatas = new List<ScriptableObject>();
