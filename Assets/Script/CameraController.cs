@@ -34,7 +34,9 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        euler = new Vector3(0, 90, 0);
+        childCam = GetComponent<Camera>();
+
+        euler = new Vector3(0, 0, 0);
         origin = new GameObject("CameraStartingPositon");
         origin.transform.SetParent(transform.parent);
         origin.transform.localPosition = transform.localPosition;
@@ -99,8 +101,14 @@ public class CameraController : MonoBehaviour
     /// </summary>
     public void FocusReset()
     {
-        euler = new Vector3(0, 90, 0);
+        euler = new Vector3(0, 0, 0);
         FocusAt(origin.transform);
+    }
+
+    Camera childCam;
+    public void Shake(TweenCallback callback)
+    {
+        childCam.DOShakePosition(1f, .1f).OnComplete(callback);
     }
     #endregion
 
@@ -109,7 +117,7 @@ public class CameraController : MonoBehaviour
         bool isMoving = true;
         while (isMoving)
         {
-            if(Vector3.Distance(transform.position, _transf.position) > Time.deltaTime)
+            if(Vector3.Distance(transform.position, _transf.position) > Time.deltaTime/10)
             {
                 transform.position = Vector3.Lerp(transform.position, _transf.position, 1 / MovementSpeed);
                 transform.rotation = Quaternion.Slerp(transform.rotation, _transf.rotation, 1 / MovementSpeed);

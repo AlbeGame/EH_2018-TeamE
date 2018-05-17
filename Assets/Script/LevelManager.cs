@@ -201,7 +201,8 @@ public class LevelManager : MonoBehaviour, ISelectable
 
     public void NotifyPuzzleBreakdown(IPuzzle _puzzle)
     {
-        //chiamata all'altimetro;
+        camCtrl.Shake(()=> { selectable.Select(); });
+        //selectable.Select();
         _puzzle.SolutionState = PuzzleState.Broken;
 
         AccelerateAltimeter();

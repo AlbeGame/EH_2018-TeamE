@@ -69,7 +69,6 @@ public class PuzzleGPS : MonoBehaviour, IPuzzle, ISelectable
     {
         selectable.GetRoot().GetComponent<LevelManager>().NotifyPuzzleBreakdown(this);
         graphicCtrl.Paint(_solutionState);
-       
     }
 
     public void OnButtonSelect(SelectableButton _button)
