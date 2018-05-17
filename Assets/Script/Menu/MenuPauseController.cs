@@ -9,10 +9,12 @@ public class MenuPauseController : MonoBehaviour
     public GameObject VictoryPanel;
     public GameObject DefeatPanel;
     EventSystem currentES;
+    AudioManager audioMng;
 
     private void Start()
     {
         currentES = FindObjectOfType<EventSystem>();
+        audioMng = GameManager.I_GM.AudioManager;
     }
 
     private void Update()
@@ -22,8 +24,17 @@ public class MenuPauseController : MonoBehaviour
     }
 
 
+    public void PlayClickSound()
+    {
+        audioMng.PlaySound(AudioType.MenuInput);
+    }
+
     public void GoMainMenu(int _sceneIndex = 0)
     {
+        //Audio down
+        audioMng.FadeAll(0);
+        audioMng.Clear();
+
         SceneManager.LoadScene(_sceneIndex);
     }
 
@@ -66,9 +77,12 @@ public class MenuPauseController : MonoBehaviour
         }
     }
 
-
     public void RestartLevel()
     {
+        //Audio down
+        audioMng.FadeAll(0);
+        audioMng.Clear();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

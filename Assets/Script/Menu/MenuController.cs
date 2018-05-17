@@ -9,10 +9,12 @@ public class MenuController : MonoBehaviour {
     public GameObject LevelSelectionPanel;
     public GameObject menuVolume;
     EventSystem currentES;
+    AudioManager audioMng;
 
     private void Start()
     {
         currentES = FindObjectOfType<EventSystem>();
+        audioMng = GameManager.I_GM.AudioManager;
     }
 
     private void Update()
@@ -22,6 +24,11 @@ public class MenuController : MonoBehaviour {
     }
 
     #region API
+    public void PlayClickSound()
+    {
+        audioMng.PlaySound(AudioType.MenuInput);
+    }
+
     public void GoToMainMenu()
     {
         if (!MainMenuPanel.activeSelf)
@@ -46,20 +53,6 @@ public class MenuController : MonoBehaviour {
         }
     }
 
-    //public void GoToMenuVolume()// sto provando
-    //{
-    //    if (LevelSelectionPanel.activeSelf)
-    //        LevelSelectionPanel.SetActive(false);
-
-    //        if (!menuVolume.activeSelf)
-    //        {
-    //            menuVolume.SetActive(true);
-    //            ResetEventSystmSelection(menuVolume.GetComponentInChildren<Button>().gameObject);
-    //        }
-
-
-    //}
-
     public void QuitGame()
     {
         Application.Quit();
@@ -67,6 +60,10 @@ public class MenuController : MonoBehaviour {
 
     public void GoGamePlay(int _sceneIndex)
     {
+        //Audio down
+        audioMng.FadeAll(0);
+        audioMng.Clear();
+
         SceneManager.LoadScene(_sceneIndex);
     }
 

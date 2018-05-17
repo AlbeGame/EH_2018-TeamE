@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEditor.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip Ambient;
     public AudioClip Altimeter;
     public AudioClip Alarm;
+    public AudioClip MenuInput;
 
     public float FadeTime = .5f;
     private List<AudioSource> audioSources = new List<AudioSource>();
@@ -40,14 +42,24 @@ public class AudioManager : MonoBehaviour
             case AudioType.Alarm:
                 sourceToUse.clip = Alarm;
                 break;
+            case AudioType.MenuInput:
+                sourceToUse.clip = MenuInput;
+                break;
 
             default:
                 break;
         }
+        //Fade In for Ambient
+        if (_type == AudioType.Ambient)
+            sourceToUse.volume = 0;
 
-        //sourceToUse.volume = 0;
+        //General clip start
         sourceToUse.Play();
-        //sourceToUse.DOFade(1, FadeTime);
+
+        //Fade In for Ambient
+        if (_type == AudioType.Ambient)
+            sourceToUse.DOFade(1, FadeTime);
+
         if (_loop)
             sourceToUse.loop = true;
     }
@@ -78,14 +90,25 @@ public class AudioManager : MonoBehaviour
             case AudioType.Alarm:
                 sourceToUse.clip = Alarm;
                 break;
+            case AudioType.MenuInput:
+                sourceToUse.clip = MenuInput;
+                break;
 
             default:
                 break;
         }
 
-        //sourceToUse.volume = 0;
+        //Fade In for Ambient
+        if (_type == AudioType.Ambient)
+            sourceToUse.volume = 0;
+
+        //General clip start
         sourceToUse.Play();
-        //sourceToUse.DOFade(1, FadeTime);
+
+        //Fade In for Ambient
+        if (_type == AudioType.Ambient)
+            sourceToUse.DOFade(1, FadeTime);
+
         if (_loop)
             sourceToUse.loop = true;
     }
@@ -105,6 +128,29 @@ public class AudioManager : MonoBehaviour
         //sourceToUse.DOFade(1, FadeTime);
         if (_loop)
             sourceToUse.loop = true;
+    }
+    /// <summary>
+    /// Shout down all the Audio Sources
+    /// </summary>
+    public void Clear()
+    {
+        for (int i = 0; i < audioSources.Count; i++)
+        {
+            Destroy(audioSources[i].gameObject);
+        }
+
+        audioSources.Clear();
+    }
+    /// <summary>
+    /// Fade all the Audio Source to _endValue
+    /// </summary>
+    /// <param name="_endValue"></param>
+    public void FadeAll(int _endValue)
+    {
+        foreach (AudioSource source in audioSources)
+        {
+            source.DOFade(_endValue, 0.1f);
+        }
     }
     #endregion
 
@@ -189,6 +235,7 @@ public enum AudioType
     InputHover,
     Ambient,
     Altimeter,
-    Alarm
+    Alarm,
+    MenuInput
 }
 
