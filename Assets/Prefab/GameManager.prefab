@@ -101,4 +101,5 @@ MonoBehaviour:
   Ambient: {fileID: 8300000, guid: 2bf3ed22ba22c15409f65a9109e26e52, type: 3}
   Altimeter: {fileID: 8300000, guid: c741826fef94f0945a9833a504368207, type: 3}
   Alarm: {fileID: 8300000, guid: d4816b463c7b7be42a58a974b9832b2f, type: 3}
+  MenuInput: {fileID: 8300000, guid: fc4016052ffeab9469e5a774874ebf61, type: 3}
   FadeTime: 0.5
