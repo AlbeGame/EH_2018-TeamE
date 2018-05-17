@@ -13,14 +13,13 @@ public class SelectableSwitch : MonoBehaviour, IPuzzleInput
         get { return _status; }
         set
         {
-            if(_status != value)
+            _status = value;
+            if (_status)
             {
-                _status = value;
-                if (_status)
-                    isPressed = true;
-                else
-                    isPressed = false;
+                isPressed = true;
             }
+            else
+                isPressed = false;
         }
     }
     SelectableBehaviour selectable;
@@ -40,9 +39,9 @@ public class SelectableSwitch : MonoBehaviour, IPuzzleInput
         //selectable behaviour setup
         selectable = GetComponent<SelectableBehaviour>();
         selectable.Init((puzzleCtrl as MonoBehaviour).GetComponent<SelectableBehaviour>());
-        
+
         //starting swtich condition
-        selectStatus = false;
+        //selectStatus = false;
     }
 
     public void OnSelection()
@@ -54,7 +53,7 @@ public class SelectableSwitch : MonoBehaviour, IPuzzleInput
 
     public void OnStateChange(SelectionState _newState)
     {
-        if(_newState == SelectionState.Highlighted)
+        if (_newState == SelectionState.Highlighted)
             GameManager.I_GM.AudioManager.PlaySound(AudioType.InputHover);
     }
 
@@ -63,33 +62,20 @@ public class SelectableSwitch : MonoBehaviour, IPuzzleInput
     public string ToLeftAnim;
     public string ToRightAnim;
     bool _isPressed;
-    bool isPressed {
+    bool isPressed
+    {
         get { return _isPressed; }
         set
         {
-            if (_isPressed == value)
-                return;
-            else
+            _isPressed = value;
+            if (AnimatorCtrl)
             {
-                _isPressed = value;
-                if (AnimatorCtrl)
-                {
-                    if (_isPressed)
-                        AnimatorCtrl.Play(ToRightAnim);
-                    else
-                        AnimatorCtrl.Play(ToLeftAnim);
-                }
+                if (_isPressed)
+                    AnimatorCtrl.Play(ToRightAnim);
+                else
+                    AnimatorCtrl.Play(ToLeftAnim);
             }
         }
-    }
-    private void OnMouseDown()
-    {
-        isPressed = true;
-    }
-
-    private void OnMouseUp()
-    {
-        isPressed = false;
     }
     #endregion
 
