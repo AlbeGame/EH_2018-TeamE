@@ -4457,7 +4457,9 @@ MonoBehaviour:
   Data:
     NeutralMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
     HighlightedMat: {fileID: 2100000, guid: 12f28803ed2e7784288642de0e738aaa, type: 2}
-    DoNotPaintItems: []
+    DoNotPaintItems:
+    - {fileID: 1943260904981064}
+    - {fileID: 1020531762240210}
     Lights: {fileID: 23006609042397782}
     EmissiveNeutral: {fileID: 2100000, guid: d2cc8808e21737740962726e6daaa2af, type: 2}
     EmissivePositive: {fileID: 2100000, guid: 389021201113423418b16267fd002ac8, type: 2}

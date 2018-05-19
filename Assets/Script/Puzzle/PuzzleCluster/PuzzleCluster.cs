@@ -157,8 +157,10 @@ public class PuzzleCluster : MonoBehaviour, IPuzzle, ISelectable
 
     public void Init()
     {
+        PuzzleClusterData.Sequence[] newSeqArr = new PuzzleClusterData.Sequence[data.SequencesAmount];
         List<PuzzleClusterData.Sequence> newSeq = new List<PuzzleClusterData.Sequence>();
-        newSeq = data.Sequences;
+        data.Sequences.CopyTo(newSeqArr);
+        newSeq.AddRange(newSeqArr);
         while (chosenSeq.Count < data.SequencesAmount)
         {
             PuzzleClusterData.Sequence seq = newSeq[Random.Range(0, newSeq.Count)];
