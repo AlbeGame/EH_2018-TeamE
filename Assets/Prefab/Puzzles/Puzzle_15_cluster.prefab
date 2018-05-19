@@ -4355,12 +4355,12 @@ MonoBehaviour:
     B6_Btn: {fileID: 114317089114967300}
     HeatBar: {fileID: 114508766404435246}
     CheckLight: {fileID: 23393641688051088}
-    A1_Screen: {fileID: 23595039026567630}
-    A2_Screen: {fileID: 23823387993570458}
-    A3_Screen: {fileID: 23352545481679182}
-    B4_Screen: {fileID: 23956740606259828}
-    B5_Screen: {fileID: 23938740934147196}
-    B6_Screen: {fileID: 23515191847265562}
+    A1_Screen: {fileID: 23455738718893294}
+    A2_Screen: {fileID: 23565840339828614}
+    A3_Screen: {fileID: 23248102773950730}
+    B4_Screen: {fileID: 23200225939721158}
+    B5_Screen: {fileID: 23164455080530428}
+    B6_Screen: {fileID: 23797717754277468}
 --- !u!114 &114508766404435246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4460,6 +4460,7 @@ MonoBehaviour:
     DoNotPaintItems:
     - {fileID: 1943260904981064}
     - {fileID: 1020531762240210}
+    - {fileID: 1428346733126662}
     Lights: {fileID: 23006609042397782}
     EmissiveNeutral: {fileID: 2100000, guid: d2cc8808e21737740962726e6daaa2af, type: 2}
     EmissivePositive: {fileID: 2100000, guid: 389021201113423418b16267fd002ac8, type: 2}
@@ -4578,7 +4579,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 46f7dc8ce67ca07469b340759d89072b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

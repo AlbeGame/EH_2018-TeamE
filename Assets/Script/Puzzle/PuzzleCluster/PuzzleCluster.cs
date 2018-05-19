@@ -238,21 +238,24 @@ public class PuzzleCluster : MonoBehaviour, IPuzzle, ISelectable
     {
         checkPressed = true;
 
+        Material[] newMaterials = Interactables.CheckLight.materials;
         switch (chosenColor)
         {
             case ClusterColor.Red:
-                Interactables.CheckLight.materials[1] = LightRedMat;
+                newMaterials[1] = LightRedMat;
                 break;
             case ClusterColor.Yellow:
-                Interactables.CheckLight.materials[1] = LightYellowMat;
+                newMaterials[1] = LightYellowMat;
                 break;
             case ClusterColor.Green:
-                Interactables.CheckLight.materials[1] = LightGreenMat;
+                newMaterials[1] = LightGreenMat;
                 break;
             case ClusterColor.Blue:
-                Interactables.CheckLight.materials[1] = LightBlueMat;
+                newMaterials[1] = LightBlueMat;
                 break;
         }
+        Interactables.CheckLight.materials = newMaterials;
+
         SetNewSequence();
 
         Debugger.DebugLogger.LogText(chosenColor.ToString());
