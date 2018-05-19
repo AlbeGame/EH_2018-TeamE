@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour {
 
     private void Start()
     {
-        ChosenSetting = DefaultDebug;
+        ChosenSetting = Instantiate(DefaultDebug);
 
         AudioManager = GetComponentInChildren<AudioMng>();
     }
@@ -44,13 +44,13 @@ public class GameManager : MonoBehaviour {
         switch (_difficoulty)
         {
             case DifficoultyLevel.Easy:
-                ChosenSetting = Easy;
+                ChosenSetting = Instantiate(Easy);
                 break;
             case DifficoultyLevel.Medium:
-                ChosenSetting = Medium;
+                ChosenSetting = Instantiate(Medium);
                 break;
             case DifficoultyLevel.Hard:
-                ChosenSetting = Hard;
+                ChosenSetting = Instantiate(Hard);
                 break;
             default:
                 break;

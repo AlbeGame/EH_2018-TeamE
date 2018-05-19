@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3d7f0ebf70de64086cd803fb6a6dd2, type: 3}
+  m_Name: Setup_DEBUG
+  m_EditorClassIdentifier: 
+  TotalPuzzles: 3
+  PuzzlesNeededToWin: 2
+  PuzzlesNeededToloose: 3
+  Alarm_Data: {fileID: 11400000, guid: f336c269c9069124d80a51b21e117029, type: 2}
+  PuzzleDatas:
+  - {fileID: 0}
+  FillingObjects:
+  - {fileID: 1365229984270544, guid: d938b57acd33d0f46be012a81faf5191, type: 2}

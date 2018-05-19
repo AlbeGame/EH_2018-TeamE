@@ -52,15 +52,7 @@ public class PuzzleLockCode : MonoBehaviour, IPuzzle, ISelectable
         selectable = GetComponent<SelectableBehaviour>();
         graphicCtrl = GetComponent<PuzzleGraphic>();
 
-        //Choosing a Setup between the possibilities
         data = _data as PuzzleLockCodeData;
-        int _setupIndex = Random.Range(0, data.Setups.Count);
-        chosenSetup = data.Setups[_setupIndex];
-
-
-        Material chosenMat = new Material(MonitorRend.material);
-        chosenMat.mainTexture = chosenSetup.ScreenImage;
-        MonitorRend.material = chosenMat;
 
         Key1st.Init(this, new KeyData() { keyID = KeyOrder.Key1st });
         Key2nd.Init(this, new KeyData() { keyID = KeyOrder.Key2nd });
@@ -72,6 +64,14 @@ public class PuzzleLockCode : MonoBehaviour, IPuzzle, ISelectable
         SolutionState = PuzzleState.Unsolved;
         graphicCtrl.Paint(SolutionState);
         solutionProgression = 0;
+
+        //Choosing a Setup between the possibilities
+        int _setupIndex = Random.Range(0, data.Setups.Count);
+        chosenSetup = data.Setups[_setupIndex];
+
+        Material chosenMat = new Material(MonitorRend.material);
+        chosenMat.mainTexture = chosenSetup.ScreenImage;
+        MonitorRend.material = chosenMat;
     }
 
     public void OnButtonSelect(SelectableButton _button)
