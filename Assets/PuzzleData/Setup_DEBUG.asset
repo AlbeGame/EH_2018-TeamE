@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3d7f0ebf70de64086cd803fb6a6dd2, type: 3}
   m_Name: Setup_DEBUG
   m_EditorClassIdentifier: 
-  TotalPuzzles: 3
+  TotalPuzzles: 8
   PuzzlesNeededToWin: 2
-  PuzzlesNeededToloose: 3
+  PuzzlesNeededToloose: 2
   Alarm_Data: {fileID: 11400000, guid: f336c269c9069124d80a51b21e117029, type: 2}
   PuzzleDatas:
   - {fileID: 11400000, guid: 8c9939f833911a04192f79d7e1d3d68b, type: 2}
