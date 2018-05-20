@@ -1,0 +1,261 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52a57607ec50a0e42b4ea7a760bec395, type: 3}
+  m_Name: ClusterData_OLD
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 1486520554477460, guid: 7e792a95f753e4a41925997f05b50d64, type: 2}
+  LightOffMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
+  ScreenOffMat: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  SequenceDuration: 5
+  HeatBarBaseFilling: 1
+  HeatBarErrorFilling: 1
+  SequencesAmount: 6
+  Sequences:
+  - A1_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    A2_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    A3_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B4_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B5_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B6_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    RedSolution: 0300000005000000
+    YellowSolution: 
+    GreenSolution: 
+    BlueSolution: 
+  - A1_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    A2_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    A3_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B4_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B5_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B6_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    RedSolution: 010000000200000003000000
+    YellowSolution: 
+    GreenSolution: 
+    BlueSolution: 
+  - A1_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    A2_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    A3_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B4_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B5_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B6_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    RedSolution: 00000000010000000400000005000000
+    YellowSolution: 
+    GreenSolution: 
+    BlueSolution: 
+  - A1_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    A2_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    A3_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B4_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B5_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B6_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    RedSolution: 
+    YellowSolution: 
+    GreenSolution: 
+    BlueSolution: 
+  - A1_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    A2_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    A3_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B4_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B5_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B6_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    RedSolution: 000000000200000004000000
+    YellowSolution: 
+    GreenSolution: 
+    BlueSolution: 
+  - A1_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    A2_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    A3_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B4_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B5_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B6_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    RedSolution: 05000000
+    YellowSolution: 
+    GreenSolution: 
+    BlueSolution: 
+  - A1_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    A2_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    A3_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B4_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B5_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B6_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    RedSolution: 
+    YellowSolution: 000000000200000004000000
+    GreenSolution: 
+    BlueSolution: 
+  - A1_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    A2_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    A3_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B4_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B5_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B6_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    RedSolution: 
+    YellowSolution: 000000000400000005000000
+    GreenSolution: 
+    BlueSolution: 
+  - A1_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    A2_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    A3_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B4_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B5_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B6_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    RedSolution: 
+    YellowSolution: 01000000020000000300000004000000
+    GreenSolution: 
+    BlueSolution: 
+  - A1_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    A2_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    A3_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B4_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B5_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B6_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    RedSolution: 
+    YellowSolution: 010000000200000003000000
+    GreenSolution: 
+    BlueSolution: 
+  - A1_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    A2_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    A3_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B4_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B5_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B6_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    RedSolution: 
+    YellowSolution: 010000000300000005000000
+    GreenSolution: 
+    BlueSolution: 
+  - A1_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    A2_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    A3_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B4_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B5_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B6_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    RedSolution: 
+    YellowSolution: 00000000020000000300000005000000
+    GreenSolution: 
+    BlueSolution: 
+  - A1_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    A2_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    A3_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B4_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B5_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B6_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    RedSolution: 
+    YellowSolution: 
+    GreenSolution: 
+    BlueSolution: 
+  - A1_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    A2_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    A3_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B4_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B5_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B6_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    RedSolution: 
+    YellowSolution: 
+    GreenSolution: 020000000300000004000000
+    BlueSolution: 
+  - A1_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    A2_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    A3_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B4_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B5_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B6_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    RedSolution: 
+    YellowSolution: 
+    GreenSolution: 00000000010000000400000005000000
+    BlueSolution: 
+  - A1_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    A2_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    A3_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B4_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B5_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B6_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    RedSolution: 
+    YellowSolution: 
+    GreenSolution: 000000000100000005000000
+    BlueSolution: 
+  - A1_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    A2_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    A3_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B4_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B5_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B6_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    RedSolution: 
+    YellowSolution: 
+    GreenSolution: 010000000300000005000000
+    BlueSolution: 
+  - A1_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    A2_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    A3_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B4_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B5_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B6_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    RedSolution: 
+    YellowSolution: 
+    GreenSolution: 00000000020000000300000005000000
+    BlueSolution: 
+  - A1_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    A2_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    A3_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B4_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B5_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B6_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    RedSolution: 
+    YellowSolution: 
+    GreenSolution: 
+    BlueSolution: 010000000300000005000000
+  - A1_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    A2_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    A3_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B4_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B5_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B6_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    RedSolution: 
+    YellowSolution: 
+    GreenSolution: 
+    BlueSolution: 000000000400000005000000
+  - A1_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    A2_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    A3_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B4_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B5_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B6_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    RedSolution: 
+    YellowSolution: 
+    GreenSolution: 
+    BlueSolution: 0100000002000000
+  - A1_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    A2_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    A3_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B4_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B5_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B6_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    RedSolution: 
+    YellowSolution: 
+    GreenSolution: 
+    BlueSolution: 020000000300000004000000
+  - A1_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    A2_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    A3_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B4_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B5_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B6_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    RedSolution: 
+    YellowSolution: 
+    GreenSolution: 
+    BlueSolution: 000000000200000004000000
+  - A1_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    A2_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    A3_Mat: {fileID: 2100000, guid: c33417b8171ffa349b41eeedea0d69cc, type: 2}
+    B4_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    B5_Mat: {fileID: 2100000, guid: 0ab4d2e19a4ba574d8fb2dcf4fdd979c, type: 2}
+    B6_Mat: {fileID: 2100000, guid: d59f017974bcf8145bb706f585800244, type: 2}
+    RedSolution: 
+    YellowSolution: 
+    GreenSolution: 
+    BlueSolution: 00000000020000000300000005000000

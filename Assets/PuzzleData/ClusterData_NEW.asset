@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52a57607ec50a0e42b4ea7a760bec395, type: 3}
-  m_Name: ClusterData
+  m_Name: ClusterData_NEW
   m_EditorClassIdentifier: 
   Prefab: {fileID: 1486520554477460, guid: 7e792a95f753e4a41925997f05b50d64, type: 2}
   LightOffMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
