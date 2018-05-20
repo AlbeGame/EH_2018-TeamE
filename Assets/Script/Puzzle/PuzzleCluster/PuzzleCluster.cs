@@ -157,7 +157,7 @@ public class PuzzleCluster : MonoBehaviour, IPuzzle, ISelectable
 
     public void Init()
     {
-        PuzzleClusterData.Sequence[] newSeqArr = new PuzzleClusterData.Sequence[data.SequencesAmount];
+        PuzzleClusterData.Sequence[] newSeqArr = new PuzzleClusterData.Sequence[data.Sequences.Count];
         List<PuzzleClusterData.Sequence> newSeq = new List<PuzzleClusterData.Sequence>();
         data.Sequences.CopyTo(newSeqArr);
         newSeq.AddRange(newSeqArr);
@@ -258,8 +258,14 @@ public class PuzzleCluster : MonoBehaviour, IPuzzle, ISelectable
 
         SetNewSequence();
 
+        Debugger.DebugLogger.Clean();
         Debugger.DebugLogger.LogText(chosenColor.ToString());
-        Debugger.DebugLogger.LogText(buttonToSolve.ToString());
+        string solution = "";
+        foreach (ClusterButton btn in buttonToSolve)
+        {
+            solution += btn.ToString() + " / ";
+        }
+        Debugger.DebugLogger.LogText(solution);
     }
 
     public enum ClusterColor
