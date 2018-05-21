@@ -13,6 +13,34 @@ public class LevelSettings : ScriptableObject {
     [Tooltip("Attenzione: se maggiore di TotalPuzzles, sarà impossibile perdere!")]
     public int PuzzlesNeededToloose = 3;
 
+    public PuzzleALARM_Data GetAlarmData()
+    {
+        return Instantiate(Alarm_Data);
+    }
+
+    public List<ScriptableObject> GetPuzzleDatas()
+    {
+        List<ScriptableObject> dataInstances = new List<ScriptableObject>();
+
+        foreach (ScriptableObject data in PuzzleDatas)
+        {
+            dataInstances.Add(Instantiate(data));
+        }
+
+        return dataInstances;
+    }
+
+    //public T GetPuzzleData<T>()
+    //{
+    //    foreach (IPuzzleData data in PuzzleDatas)
+    //    {
+    //        if (data.GetType() == typeof(T))
+    //            return Instantiate<T>(data);
+    //    }
+ 
+    //    return default(T);
+    //}
+
     public PuzzleALARM_Data Alarm_Data;
     public List<ScriptableObject> PuzzleDatas = new List<ScriptableObject>();
     public List<GameObject> FillingObjects = new List<GameObject>();

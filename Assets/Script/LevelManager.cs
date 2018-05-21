@@ -16,10 +16,10 @@ public class LevelManager : MonoBehaviour, ISelectable
     int PuzzleNeededToWin { get { return Setting.PuzzlesNeededToWin; } }
     public Altimetro Altimetro;
     public SelectableBehaviour AlarmPuzzle;
-    PuzzleALARM_Data Alarm_Data { get { return Setting.Alarm_Data; } }
+    PuzzleALARM_Data Alarm_Data; 
     public List<SelectableBehaviour> OtherSelectable = new List<SelectableBehaviour>();
 
-    List<ScriptableObject> PuzzleDatas { get { return Setting.PuzzleDatas; }}
+    List<ScriptableObject> PuzzleDatas = new List<ScriptableObject>();
     List<IPuzzle> puzzles = new List<IPuzzle>();
     public List<Transform> PuzzlePositions = new List<Transform>();
 
@@ -31,6 +31,8 @@ public class LevelManager : MonoBehaviour, ISelectable
     public void Init()
     {
         Setting = GameManager.I_GM.ChosenSetting;
+        PuzzleDatas = Setting.GetPuzzleDatas();
+        Alarm_Data = Setting.GetAlarmData();
 
         GameManager.I_GM.AudioManager.PlaySound(AudioType.Ambient, false, true);
         
