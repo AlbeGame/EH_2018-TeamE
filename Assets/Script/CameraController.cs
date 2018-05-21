@@ -11,7 +11,6 @@ public class CameraController : MonoBehaviour
     public float maxY = 90.0f;
     float RotLeftRight;
     float RotUpDown;
-    Vector3 euler;
     public float MovementSpeed = 0.5f;
     bool canMoveFreeCam = true;
     bool _isMoveFreeCam;
@@ -36,7 +35,6 @@ public class CameraController : MonoBehaviour
     {
         childCam = GetComponent<Camera>();
 
-        euler = new Vector3(0, 0, 0);
         origin = new GameObject("CameraStartingPositon");
         origin.transform.SetParent(transform.parent);
         origin.transform.localPosition = transform.localPosition;
@@ -66,7 +64,7 @@ public class CameraController : MonoBehaviour
 
 
     }
-
+    Coroutine motionCoroutine;
     #region API
     /// <summary>
     /// Move the camera toward _target and rotate it as _target.forward
@@ -80,7 +78,10 @@ public class CameraController : MonoBehaviour
         ////transform.DORotateQuaternion(_target.rotation, MovementSpeed);
         //transform.DOMove(_target.position, MovementSpeed);
         //FocusAt(_target.position, _target.rotation);
-        StartCoroutine(Move(_target));
+        if (motionCoroutine != null)
+            StopCoroutine(motionCoroutine);
+
+        motionCoroutine = StartCoroutine(Move(_target));
     }
     /// <summary>
     /// Move the camera toward _targetPosition and rotate it as _forward
@@ -101,7 +102,6 @@ public class CameraController : MonoBehaviour
     /// </summary>
     public void FocusReset()
     {
-        euler = new Vector3(0, 0, 0);
         FocusAt(origin.transform);
     }
 
