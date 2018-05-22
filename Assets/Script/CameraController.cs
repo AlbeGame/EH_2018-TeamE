@@ -47,9 +47,9 @@ public class CameraController : MonoBehaviour
             RotateCamera();
     }
 
+    Vector3 euler = new Vector3(0,90,0);
     void RotateCamera()
     {
-
         transform.localEulerAngles = euler;
         RotLeftRight = Input.GetAxis("Mouse X") * RotSpeed;
         RotUpDown = Input.GetAxis("Mouse Y") * RotSpeed;
@@ -83,19 +83,19 @@ public class CameraController : MonoBehaviour
 
         motionCoroutine = StartCoroutine(Move(_target));
     }
-    /// <summary>
-    /// Move the camera toward _targetPosition and rotate it as _forward
-    /// </summary>
-    /// <param name="_target"></param>
-    public void FocusAt(Vector3 _targetPosition, Quaternion _targetRotation)
-    {
-        canMoveFreeCam = false;
-        isMoveFreeCam = false;
+    ///// <summary>
+    ///// Move the camera toward _targetPosition and rotate it as _forward
+    ///// </summary>
+    ///// <param name="_target"></param>
+    //public void FocusAt(Vector3 _targetPosition, Quaternion _targetRotation)
+    //{
+    //    canMoveFreeCam = false;
+    //    isMoveFreeCam = false;
 
-        //transform.DORotate(_targetRotation.eulerAngles, MovementSpeed);
-        //transform.DORotateQuaternion(originalRotation, MovementSpeed);
-        //transform.DOMove(_targetPosition, MovementSpeed).OnComplete(()=> { if (_targetPosition == origin.transform.position) canMoveFreeCam = true; });
-    }
+    //    //transform.DORotate(_targetRotation.eulerAngles, MovementSpeed);
+    //    //transform.DORotateQuaternion(originalRotation, MovementSpeed);
+    //    //transform.DOMove(_targetPosition, MovementSpeed).OnComplete(()=> { if (_targetPosition == origin.transform.position) canMoveFreeCam = true; });
+    //}
 
     /// <summary>
     /// Move the camera to her original position and orientation
@@ -126,6 +126,7 @@ public class CameraController : MonoBehaviour
                 isMoving = false;
 
             yield return null;
+            euler = new Vector3(0,90,0);
             if (_transf == origin.transform)
                 canMoveFreeCam = true;
         }
