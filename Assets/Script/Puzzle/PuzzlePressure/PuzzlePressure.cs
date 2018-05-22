@@ -56,6 +56,12 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
 
     public void OnButtonSelect(SelectableButton _button)
     {
+        if (SolutionState != PuzzleState.Unsolved)
+        {
+            selectable.Select();
+            return;
+        }
+
         if (!Interactables.OutputMonitor.isInteractionTime)
         {
             ApplyError();
@@ -89,12 +95,14 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
         switch (_state)
         {
             case SelectionState.Neutral:
-                Interactables.OutputMonitor.Toggle(false);
+                if (SolutionState == PuzzleState.Unsolved)
+                    Interactables.OutputMonitor.Toggle(false);
                 break;
             case SelectionState.Highlighted:
                 break;
             case SelectionState.Selected:
-                Interactables.OutputMonitor.Toggle(true);
+                if(SolutionState == PuzzleState.Unsolved)
+                    Interactables.OutputMonitor.Toggle(true);
                 break;
             case SelectionState.Passive:
                 break;
@@ -146,10 +154,11 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
     void ApplyError()
     {
         currentMisstakes++;
-        Interactables.ErrorText.text = currentMisstakes.ToString();
 
         if(currentMisstakes >= data.MaxMisstakes)
         {
+            currentMisstakes = data.MaxMisstakes;
+            Interactables.ErrorText.text = currentMisstakes.ToString();
             DoLoose();
         }
     }
