@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab: {fileID: 1486520554477460, guid: 7e792a95f753e4a41925997f05b50d64, type: 2}
   LightOffMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
-  ScreenOffMat: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  ScreenOffMat: {fileID: 2100000, guid: 3eba06aaf8c12c041951addcde7bbbf2, type: 2}
   SequenceDuration: 5
   HeatBarBaseFilling: 1
   HeatBarErrorFilling: 1

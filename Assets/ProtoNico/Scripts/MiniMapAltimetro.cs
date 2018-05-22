@@ -9,16 +9,12 @@ public class MiniMapAltimetro : MonoBehaviour {
     public GameObject mapAltimeter;
     bool isActiveMap;
 
-
-
-
 	void Start () {
         NotActive();
 	}
 	
-	
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetMouseButtonDown(2))
         {
             if (isActiveMap)
             {
@@ -30,8 +26,6 @@ public class MiniMapAltimetro : MonoBehaviour {
                 ActiveMap();
             }
         }
-        
-      
     }
 
 
