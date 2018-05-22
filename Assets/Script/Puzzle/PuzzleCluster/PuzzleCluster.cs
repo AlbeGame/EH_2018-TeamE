@@ -83,7 +83,6 @@ public class PuzzleCluster : MonoBehaviour, IPuzzle, ISelectable
     #region OnSelection Behaviours
     public void OnButtonSelect(SelectableButton _button)
     {
-
         ClusterButtonData btn = _button.InputData as ClusterButtonData;
 
         if (!checkPressed && btn.BtnType == ClusterButton.Check)
@@ -93,6 +92,29 @@ public class PuzzleCluster : MonoBehaviour, IPuzzle, ISelectable
             if (buttonToSolve.Contains(btn.BtnType))
             {
                 buttonToSolve.Remove(btn.BtnType);
+                switch (btn.BtnType)
+                {
+                    case ClusterButton.A1:
+                        Interactables.A1_Screen.material = data.ScreenOffMat;
+                        break;
+                    case ClusterButton.A2:
+                        Interactables.A2_Screen.material = data.ScreenOffMat;
+                        break;
+                    case ClusterButton.A3:
+                        Interactables.A3_Screen.material = data.ScreenOffMat;
+                        break;
+                    case ClusterButton.B4:
+                        Interactables.B4_Screen.material = data.ScreenOffMat;
+                        break;
+                    case ClusterButton.B5:
+                        Interactables.B5_Screen.material = data.ScreenOffMat;
+                        break;
+                    case ClusterButton.B6:
+                        Interactables.B6_Screen.material = data.ScreenOffMat;
+                        break;
+                    case ClusterButton.Check:
+                        break;
+                }
                 if (buttonToSolve.Count == 0)
                     DoWin();
             }
@@ -231,6 +253,15 @@ public class PuzzleCluster : MonoBehaviour, IPuzzle, ISelectable
                 break;
         }
 
+        Debugger.DebugLogger.Clean();
+        Debugger.DebugLogger.LogText(chosenColor.ToString());
+        string solution = "";
+        foreach (ClusterButton btn in buttonToSolve)
+        {
+            solution += btn.ToString() + " / ";
+        }
+        Debugger.DebugLogger.LogText(solution);
+
         SetScreens(true);
     }
 
@@ -257,15 +288,6 @@ public class PuzzleCluster : MonoBehaviour, IPuzzle, ISelectable
         Interactables.CheckLight.materials = newMaterials;
 
         SetNewSequence();
-
-        Debugger.DebugLogger.Clean();
-        Debugger.DebugLogger.LogText(chosenColor.ToString());
-        string solution = "";
-        foreach (ClusterButton btn in buttonToSolve)
-        {
-            solution += btn.ToString() + " / ";
-        }
-        Debugger.DebugLogger.LogText(solution);
     }
 
     public enum ClusterColor
