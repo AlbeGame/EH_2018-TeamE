@@ -36,7 +36,6 @@ public class PuzzleGPS : MonoBehaviour, IPuzzle, ISelectable
         data = _data as PuzzleGPSData;
         selectable = GetComponent<SelectableBehaviour>();
 
-
         graphicCtrl = GetComponent<PuzzleGraphic>();
 
         GenerateRandomCombination();
@@ -73,15 +72,24 @@ public class PuzzleGPS : MonoBehaviour, IPuzzle, ISelectable
 
     public void OnButtonSelect(SelectableButton _button)
     {
+        if(SolutionState != PuzzleState.Unsolved)
+        {
+            selectable.Select();
+            return;
+        }
+
         PuzzleGPSNumericData data = _button.InputData as PuzzleGPSNumericData;
         PuzzleGPSMonitorData coordinateData = currentSelectedMonitor.InputData as PuzzleGPSMonitorData;
 
         selectable.Select();
         if (data.ActualValue < 10)
         {
-            coordinateData.coordinateValue *= 10;
-            coordinateData.coordinateValue += data.ActualValue;
-            currentSelectedMonitor.TypeOn(coordinateData.coordinateValue.ToString());
+            if(coordinateData.coordinateValue < 9)
+            {
+                coordinateData.coordinateValue *= 10;
+                coordinateData.coordinateValue += data.ActualValue;
+                currentSelectedMonitor.TypeOn(coordinateData.coordinateValue.ToString());
+            }
         }
         else if(data.ActualValue == 10)
         {
