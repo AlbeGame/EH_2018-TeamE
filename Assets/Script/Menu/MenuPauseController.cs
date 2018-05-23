@@ -83,7 +83,7 @@ public class MenuPauseController : MonoBehaviour
         audioMng.FadeAll(0);
         audioMng.Clear();
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(1);
     }
 
     public void Quit()

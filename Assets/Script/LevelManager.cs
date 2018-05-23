@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(SelectableBehaviour))]
 public class LevelManager : MonoBehaviour, ISelectable
@@ -222,6 +223,16 @@ public class LevelManager : MonoBehaviour, ISelectable
 
     public void OnStateChange(SelectionState _newState) { }
 
+    public void GameLost()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void GameWon()
+    {
+        SceneManager.LoadScene(2);
+    }
+
     void UpdateOverallSolution()
     {
         int currentSolvedPuzzles = 0;
@@ -238,15 +249,13 @@ public class LevelManager : MonoBehaviour, ISelectable
         //Momentanea Soluzione di sconfitta
         if (currentBrokenPuzzles >= puzzleNeededToLoose)
         {
-            FindObjectOfType<MenuPauseController>().ToggleDefeatMenu();
-            selectable.State = SelectionState.Passive;
+            GameLost();
         }
 
         //Momentanea Soluzione di vittoria
         if (currentSolvedPuzzles >= PuzzleNeededToWin)
         {
-            FindObjectOfType<MenuPauseController>().ToggleVictoryMenu();
-            selectable.State = SelectionState.Passive;
+            GameWon();
         }
     }
 }
