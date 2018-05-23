@@ -7,7 +7,9 @@ public class MenuController : MonoBehaviour {
 
     public GameObject MainMenuPanel;
     public GameObject LevelSelectionPanel;
-    public GameObject menuVolume;
+    public GameObject CreditsPanel;
+    public GameObject IntroPanel;
+    public GameObject TutorialPanel;
     EventSystem currentES;
     AudioMng audioMng;
 
@@ -53,6 +55,21 @@ public class MenuController : MonoBehaviour {
         }
     }
 
+    public void GoToIntro()
+    {
+        if ((int)GameManager.I_GM.ChosenDifficoulty > 1)
+            GoGamePlay(1);
+        else
+        {
+            GoToTutorial();
+        }
+    }
+
+    public void GoToTutorial()
+    {
+        GoGamePlay(1);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -67,11 +84,16 @@ public class MenuController : MonoBehaviour {
         SceneManager.LoadScene(_sceneIndex);
     }
 
-    public void SetDifficoulty(int difficoulty)
+    public void SetDifficoulty(DifficoultyLevel difficoulty)
     {
-        GameManager.I_GM.SetDifficultyLevel((DifficoultyLevel) difficoulty);
+        GameManager.I_GM.SetDifficultyLevel(difficoulty);
     }
     #endregion
+
+    void ToggleMenu(GameObject _menuObj)
+    {
+
+    }
 
     void ResetEventSystmSelection(GameObject _selection)
     {

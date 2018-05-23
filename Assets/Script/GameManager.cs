@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
     public LevelSettings Medium;
     public LevelSettings Hard;
 
+    public DifficoultyLevel ChosenDifficoulty { get; private set; }
     public LevelSettings ChosenSetting { get; private set; }
 
     public AudioMng AudioManager { get; private set; }
@@ -41,8 +42,12 @@ public class GameManager : MonoBehaviour {
 
     public void SetDifficultyLevel(DifficoultyLevel _difficoulty)
     {
+        ChosenDifficoulty = _difficoulty;
         switch (_difficoulty)
         {
+            case DifficoultyLevel.Default:
+                ChosenSetting = Instantiate(DefaultDebug);
+                break;
             case DifficoultyLevel.Easy:
                 ChosenSetting = Instantiate(Easy);
                 break;
@@ -60,6 +65,7 @@ public class GameManager : MonoBehaviour {
 
 public enum DifficoultyLevel
 {
+    Default = 0,
     Easy = 1,
     Medium,
     Hard
