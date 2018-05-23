@@ -155,7 +155,9 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
     {
         currentMisstakes++;
 
-        if(currentMisstakes >= data.MaxMisstakes)
+        Interactables.ErrorText.text = currentMisstakes.ToString();
+
+        if (currentMisstakes >= data.MaxMisstakes)
         {
             currentMisstakes = data.MaxMisstakes;
             Interactables.ErrorText.text = currentMisstakes.ToString();

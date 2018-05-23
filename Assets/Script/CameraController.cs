@@ -106,14 +106,18 @@ public class CameraController : MonoBehaviour
     }
 
     Camera childCam;
+    Tween shake;
     public void Shake(TweenCallback callback)
     {
-        childCam.DOShakePosition(1f, .1f).OnComplete(callback);
+        shake = childCam.DOShakePosition(1f, .1f).OnComplete(callback);
     }
     #endregion
 
     IEnumerator Move(Transform _transf)
     {
+        if (shake == null || shake.IsPlaying())
+            yield return null;
+
         bool isMoving = true;
         while (isMoving)
         {

@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class MenuPauseController : MonoBehaviour
 {
     public GameObject PausePanel;
+    public GameObject TutorialPanel;
     public GameObject VictoryPanel;
     public GameObject DefeatPanel;
     EventSystem currentES;
     AudioMng audioMng;
+    public bool CanPause = true;
 
     private void Start()
     {
@@ -19,8 +21,12 @@ public class MenuPauseController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
-            TogglePauseMenu();
+        if(CanPause)
+            if (Input.GetButtonDown("Cancel"))
+                TogglePauseMenu();
+
+        if (TutorialPanel.activeSelf && Input.GetMouseButtonDown(1))
+            ToggleTutorial();
     }
 
 
@@ -40,41 +46,28 @@ public class MenuPauseController : MonoBehaviour
 
     public void TogglePauseMenu()
     {
-        if (PausePanel.activeSelf)
-            PausePanel.SetActive(false);
+        if (!PausePanel.activeSelf)
+            ToggleMenu(PausePanel);
         else
-        {
-            PausePanel.SetActive(true);
-            VictoryPanel.SetActive(false);
-            DefeatPanel.SetActive(false);
-            //currentES.SetSelectedGameObject(PausePanel.GetComponentInChildren<Button>().gameObject);
-        }
+            ToggleMenu(null);
     }
 
     public void ToggleVictoryMenu()
     {
-        if (VictoryPanel.activeSelf)
-            VictoryPanel.SetActive(false);
-        else
-        {
-            PausePanel.SetActive(false);
-            VictoryPanel.SetActive(true);
-            DefeatPanel.SetActive(false);
-            //currentES.SetSelectedGameObject(VictoryPanel.GetComponentInChildren<Button>().gameObject);
-        }
+        ToggleMenu(VictoryPanel);
     }
 
     public void ToggleDefeatMenu()
     {
-        if (DefeatPanel.activeSelf)
-            DefeatPanel.SetActive(false);
+        ToggleMenu(DefeatPanel);
+    }
+
+    public void ToggleTutorial()
+    {
+        if (!TutorialPanel.activeSelf)
+            ToggleMenu(TutorialPanel);
         else
-        {
-            PausePanel.SetActive(false);
-            VictoryPanel.SetActive(false);
-            DefeatPanel.SetActive(true);
-            //currentES.SetSelectedGameObject(DefeatPanel.GetComponentInChildren<Button>().gameObject);
-        }
+            ToggleMenu(null);
     }
 
     public void RestartLevel()
@@ -89,5 +82,22 @@ public class MenuPauseController : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    void ToggleMenu(GameObject _menuObj)
+    {
+        //Toggle off all the menues
+        if (PausePanel.activeSelf)
+            PausePanel.SetActive(false);
+        if (VictoryPanel.activeSelf)
+            VictoryPanel.SetActive(false);
+        if (DefeatPanel.activeSelf)
+            DefeatPanel.SetActive(false);
+        if (TutorialPanel.activeSelf)
+            TutorialPanel.SetActive(false);
+
+        //Toggle on only the desired one
+        if(_menuObj)
+            _menuObj.SetActive(true);
     }
 }

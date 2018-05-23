@@ -13,14 +13,20 @@ public class MenuController : MonoBehaviour {
     EventSystem currentES;
     AudioMng audioMng;
 
+    bool isGameStarted;
+
     private void Start()
     {
         currentES = FindObjectOfType<EventSystem>();
         audioMng = GameManager.I_GM.AudioManager;
+        isGameStarted = false;
     }
 
     private void Update()
     {
+        if (isGameStarted)
+            return;
+
         if (Input.GetButtonDown("Cancel"))
             GoToMainMenu();
     }
@@ -33,41 +39,28 @@ public class MenuController : MonoBehaviour {
 
     public void GoToMainMenu()
     {
-        if (!MainMenuPanel.activeSelf)
-        {
-            MainMenuPanel.SetActive(true);
-            //ResetEventSystmSelection(MainMenuPanel.GetComponentInChildren<Button>().gameObject);
-        }
-
-        if (LevelSelectionPanel.activeSelf)
-            LevelSelectionPanel.SetActive(false);
+        ToggleMenu(MainMenuPanel);
     }
 
     public void GoToSelectionMenu()
     {
-        if (MainMenuPanel.activeSelf)
-            MainMenuPanel.SetActive(false);
-
-        if (!LevelSelectionPanel.activeSelf)
-        {
-            LevelSelectionPanel.SetActive(true);
-            //ResetEventSystmSelection(LevelSelectionPanel.GetComponentInChildren<Button>().gameObject);
-        }
+        ToggleMenu(LevelSelectionPanel);
     }
 
     public void GoToIntro()
+    {
+        isGameStarted = true;
+        ToggleMenu(IntroPanel);
+    }
+
+    public void GoToTutorial()
     {
         if ((int)GameManager.I_GM.ChosenDifficoulty > 1)
             GoGamePlay(1);
         else
         {
-            GoToTutorial();
+            ToggleMenu(TutorialPanel);
         }
-    }
-
-    public void GoToTutorial()
-    {
-        GoGamePlay(1);
     }
 
     public void QuitGame()
@@ -84,15 +77,28 @@ public class MenuController : MonoBehaviour {
         SceneManager.LoadScene(_sceneIndex);
     }
 
-    public void SetDifficoulty(DifficoultyLevel difficoulty)
+    public void SetDifficoulty(int difficoulty)
     {
-        GameManager.I_GM.SetDifficultyLevel(difficoulty);
+        GameManager.I_GM.SetDifficultyLevel((DifficoultyLevel)difficoulty);
     }
     #endregion
 
     void ToggleMenu(GameObject _menuObj)
     {
+        //Toggle off all the menues
+        if (MainMenuPanel.activeSelf)
+            MainMenuPanel.SetActive(false);
+        if (LevelSelectionPanel.activeSelf)
+            LevelSelectionPanel.SetActive(false);
+        if (CreditsPanel.activeSelf)
+            CreditsPanel.SetActive(false);
+        if (IntroPanel.activeSelf)
+            IntroPanel.SetActive(false);
+        if (TutorialPanel.activeSelf)
+            TutorialPanel.SetActive(false);
 
+        //Toggle on only the desired one
+        _menuObj.SetActive(true);
     }
 
     void ResetEventSystmSelection(GameObject _selection)
