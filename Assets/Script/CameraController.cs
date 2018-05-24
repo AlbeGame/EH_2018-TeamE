@@ -47,7 +47,7 @@ public class CameraController : MonoBehaviour
             RotateCamera();
     }
 
-    Vector3 euler = new Vector3(0,90,0);
+    Vector3 euler = new Vector3(0,0,0);
     void RotateCamera()
     {
         transform.localEulerAngles = euler;
@@ -130,7 +130,7 @@ public class CameraController : MonoBehaviour
                 isMoving = false;
 
             yield return null;
-            euler = new Vector3(0,90,0);
+            euler = new Vector3(0,0,0);
             if (_transf == origin.transform)
                 canMoveFreeCam = true;
         }

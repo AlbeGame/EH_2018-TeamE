@@ -263,7 +263,7 @@ public class SelectableBehaviour : MonoBehaviour
         if (_newSelected == null)
             GetRoot().State = SelectionState.Neutral;
 
-        if (_newSelected.State != SelectionState.Selected)
+        if (_newSelected.State == SelectionState.Selected)
             return;
 
         if (Parent)

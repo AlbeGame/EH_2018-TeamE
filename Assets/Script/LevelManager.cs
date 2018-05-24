@@ -208,7 +208,10 @@ public class LevelManager : MonoBehaviour, ISelectable
 
     public void NotifyPuzzleBreakdown(IPuzzle _puzzle)
     {
-        camCtrl.Shake(()=> { selectable.Select(); });
+        camCtrl.Shake(()=> 
+        {
+            selectable.Select();
+        });
         //selectable.Select();
         _puzzle.SolutionState = PuzzleState.Broken;
 
