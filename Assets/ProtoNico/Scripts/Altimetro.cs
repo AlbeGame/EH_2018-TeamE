@@ -78,7 +78,7 @@ public class Altimetro : MonoBehaviour
             currentAngle = 0;
 
         AltitudeArrow.transform.localRotation = Quaternion.AngleAxis(currentAngle, -Vector3.right);
-        AltitudeDecimalArrow.transform.localRotation = Quaternion.AngleAxis(currentAngle * 10, -Vector3.right);
+        AltitudeDecimalArrow.transform.localRotation = Quaternion.AngleAxis(currentAngle * 1000, -Vector3.right);
     }
 
     //muove la seconda freccia più sottile al secondo 
