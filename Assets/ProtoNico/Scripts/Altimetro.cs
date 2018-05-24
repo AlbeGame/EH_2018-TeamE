@@ -7,7 +7,8 @@ public class Altimetro : MonoBehaviour
     public float[] Multipliers = new float[6] { .7f, 1f, 1.3f, 1.6f, 2f, 2.33f };
     public int AudioDelay = 2;
     int currentMultiplayerIndex = 1;
-    public GameObject ArrowToMove;
+    public GameObject AltitudeArrow;
+    public GameObject AltitudeDecimalArrow;
     public float DropSpeed { get { return 1 * Multipliers[currentMultiplayerIndex]; } }
     public float MaxAltitude = 1000;
     public float CurrentAltitude { get; private set; }
@@ -15,19 +16,22 @@ public class Altimetro : MonoBehaviour
     private int SecondsToMove;
     LevelManager gameController;
 
-    private void Start()
+    public void Init(LevelManager _lvlMng)
     {
-        CurrentAltitude = MaxAltitude;
-        if (ArrowToMove == null)
-            ArrowToMove = this.gameObject;
+        gameController = _lvlMng;
 
-        gameController = GetComponent<SelectableBehaviour>().GetRoot().GetComponent<LevelManager>();
+        CurrentAltitude = MaxAltitude;
+        if (AltitudeArrow == null)
+            AltitudeArrow = this.gameObject;
     }
 
     private void Update()
     {
+        //if (!gameController)
+        //    return;
+
         UpdateAltitude();
-        RotateArrow();
+        RotateArrows();
        // GetMoveArrowSeconds();
     }
 
@@ -67,13 +71,14 @@ public class Altimetro : MonoBehaviour
             currentMultiplayerIndex -= currentMultiplayerIndex <= 1 ? 0 : 1;
     }
     
-    void RotateArrow()
+    void RotateArrows()
     {
         float currentAngle = (360 * CurrentAltitude) / MaxAltitude;
         if (CurrentAltitude == 0)
             currentAngle = 0;
 
-        ArrowToMove.transform.localRotation = Quaternion.AngleAxis(currentAngle, Vector3.forward);
+        AltitudeArrow.transform.localRotation = Quaternion.AngleAxis(currentAngle, -Vector3.right);
+        AltitudeDecimalArrow.transform.localRotation = Quaternion.AngleAxis(currentAngle * 10, -Vector3.right);
     }
 
     //muove la seconda freccia più sottile al secondo 

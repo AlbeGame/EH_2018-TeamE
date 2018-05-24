@@ -51,7 +51,10 @@ public class LevelManager : MonoBehaviour, ISelectable
         camCtrl.isMoveFreeCam = false;
 
         if (Altimetro)
+        {
             Altimetro.GetComponent<SelectableBehaviour>().Init(selectable);
+            Altimetro.Init(this);
+        }
 
         int randIndex;
         List<Transform> positionLeft = PuzzlePositions;
