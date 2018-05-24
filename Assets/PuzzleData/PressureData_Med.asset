@@ -13,10 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab: {fileID: 1547453210896934, guid: 75c1bddcf99c4b249af3dc0f33dbb991, type: 2}
   MaxMisstakes: 3
-  FillingPerStrike: 1
+  FillingPerStrike: 2
   Monitor:
-    MainImgTime: 7
-    AnimN2Time: 3
+    MainImgTime: 6
+    AnimN2Time: 2
     InteractTime: 3
   Setups:
   - ImgToDispaly: {fileID: 2100000, guid: b3e40933218bc9c4194195340a422ff6, type: 2}
