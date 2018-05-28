@@ -14,7 +14,7 @@ public class MiniMapAltimetro : MonoBehaviour {
 	}
 	
 	void Update () {
-        if (Input.GetMouseButtonDown(2))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             if (isActiveMap)
             {
