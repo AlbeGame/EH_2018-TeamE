@@ -63,6 +63,11 @@ public class MenuController : MonoBehaviour {
         }
     }
 
+    public void GoToCredits()
+    {
+        ToggleMenu(CreditsPanel);
+    }
+
     public void QuitGame()
     {
         Application.Quit();

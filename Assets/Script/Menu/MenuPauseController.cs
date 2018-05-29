@@ -29,7 +29,6 @@ public class MenuPauseController : MonoBehaviour
             ToggleTutorial();
     }
 
-
     public void PlayClickSound()
     {
         audioMng.PlaySound(AudioType.MenuInput);

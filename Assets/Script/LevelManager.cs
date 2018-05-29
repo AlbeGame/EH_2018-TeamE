@@ -160,8 +160,8 @@ public class LevelManager : MonoBehaviour, ISelectable
 
         if(percentage <= 0)
         {
-            FindObjectOfType<MenuPauseController>().ToggleDefeatMenu();
             selectable.State = SelectionState.Passive;
+            GameLost();
         }
 
         if (hasAlarmedAltitude)
@@ -233,7 +233,7 @@ public class LevelManager : MonoBehaviour, ISelectable
 
     public void GameWon()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     void UpdateOverallSolution()
