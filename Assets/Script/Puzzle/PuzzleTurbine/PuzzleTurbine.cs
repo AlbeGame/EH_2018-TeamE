@@ -38,8 +38,8 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
 
         selectable = GetComponent<SelectableBehaviour>();
 
-        buttonHits = 0;
-        GenerateNewPuzzleCombination();
+        graphicCtrl = GetComponent<PuzzleGraphic>();
+        graphicCtrl.Init(graphicCtrl.Data);
     }
 
     public bool CheckIfSolved() {
@@ -57,11 +57,17 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
 
     public void DoWin()
     {
+        SolutionState = PuzzleState.Solved;
         selectable.GetRoot().GetComponent<LevelManager>().NotifyPuzzleSolved(this);
+
+        graphicCtrl.Paint(SolutionState);
     }
 
     public void DoLoose() {
+        SolutionState = PuzzleState.Broken;
         selectable.GetRoot().GetComponent<LevelManager>().NotifyPuzzleBreakdown(this);
+
+        graphicCtrl.Paint(SolutionState);
     }
 
     public void OnButtonSelect(SelectableButton _button) {
@@ -82,8 +88,8 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
         if (_button == resetButton) {
             CheckIfSolved();
         }
-
-        selectable.Select();
+        if(SolutionState == PuzzleState.Unsolved)
+            selectable.Select();
     }
     public void OnSwitchSelect(SelectableSwitch _switch) { }
     public void OnMonitorSelect(SelectableMonitor _monitor) { }
@@ -92,12 +98,12 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
 
     #region Selectable Behaviours
     public void Init() {
+        SolutionState = PuzzleState.Unsolved;
 
-        graphicCtrl = GetComponent<PuzzleGraphic>();
-        graphicCtrl.Init(graphicCtrl.Data);
+        GenerateNewPuzzleCombination();
+        buttonHits = 0;
 
         InitGenricalElement();
-        buttonHits = 0;
     }
 
     void OnSolutionStateChange(PuzzleState _solutionState) {
@@ -141,6 +147,7 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
         newComb.ResetEValues();
         combination = newComb;
     }
+
     TurbineButtonData GetUnchosenButton(List<TurbineButtonData> alreadyChosen) {
         List<TurbineButtonData> possibles = data.ButtonsValues.ToList();
         foreach (var item in alreadyChosen)
@@ -150,6 +157,7 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
 
         return possibles[chosenIndex];
     }
+
     bool IsSolvable(PuzzleCombination _combination, TurbineButtonData newButton) {
         int[] currentEs = _combination.InitialEValues;
 
@@ -168,6 +176,7 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
 
         return true;
     }
+
     private void InitGenricalElement() {
         List<TurbineButtonData> buttonPool = new List<TurbineButtonData>();
         foreach (var item in combination.Solution)
@@ -208,10 +217,14 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
 
         UpdateSliderValues();
     }
+
     void CheckBreackDown() {
         for (int i = 0; i < 4; i++) {
             if (combination.CurrentEValues[i] < 0 || combination.CurrentEValues[i] > 100)
+            {
                 DoLoose();
+                return;
+            }
         }
         if (buttonHits >= 3)
             DoLoose();
