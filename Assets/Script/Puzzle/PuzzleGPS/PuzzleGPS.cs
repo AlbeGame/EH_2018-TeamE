@@ -84,7 +84,7 @@ public class PuzzleGPS : MonoBehaviour, IPuzzle, ISelectable
         selectable.Select();
         if (data.ActualValue < 10)
         {
-            if(coordinateData.coordinateValue < 9)
+            if(coordinateData.coordinateValue < 10)
             {
                 coordinateData.coordinateValue *= 10;
                 coordinateData.coordinateValue += data.ActualValue;
