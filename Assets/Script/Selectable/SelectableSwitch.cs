@@ -17,9 +17,13 @@ public class SelectableSwitch : MonoBehaviour, IPuzzleInput
             if (_status)
             {
                 isPressed = true;
+                ToggleLight(true);
             }
             else
+            {
                 isPressed = false;
+                ToggleLight(false);
+            }
         }
     }
     SelectableBehaviour selectable;
@@ -76,6 +80,23 @@ public class SelectableSwitch : MonoBehaviour, IPuzzleInput
                     AnimatorCtrl.Play(ToLeftAnim);
             }
         }
+    }
+    #endregion
+
+    #region Light
+    public MeshRenderer Light;
+    public Material OnMaterial;
+    public Material OffMaterial;
+
+    public void ToggleLight(bool _active)
+    {
+        if (!Light)
+            return;
+
+        if (_active)
+            Light.material = OnMaterial;
+        else
+            Light.material = OffMaterial;
     }
     #endregion
 

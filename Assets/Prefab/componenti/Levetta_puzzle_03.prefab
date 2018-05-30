@@ -233,7 +233,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4326940557167190}
-  - component: {fileID: 95973796251878350}
   m_Layer: 0
   m_Name: Levetta_puzzle_03
   m_TagString: Untagged
@@ -760,23 +759,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95973796251878350
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1876002343785300}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1cf1245c03f96604bba9ffbb344b17a3, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!102 &102079650019667462
 TextMesh:
   serializedVersion: 3
@@ -854,6 +836,9 @@ MonoBehaviour:
   AnimatorCtrl: {fileID: 0}
   ToLeftAnim: 
   ToRightAnim: 
+  Light: {fileID: 0}
+  OnMaterial: {fileID: 0}
+  OffMaterial: {fileID: 0}
 --- !u!136 &136961305650261636
 CapsuleCollider:
   m_ObjectHideFlags: 1

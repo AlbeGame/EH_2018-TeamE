@@ -20,7 +20,7 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
     [Header("Components")]
     public PuzzleComponents Components;
 
-    List<SelectableSwitch> switches;
+    List<SelectableSwitch> switches = new List<SelectableSwitch>();
 
     int currentLightIndex;
     int currentLightOnAmount = 1;
@@ -50,39 +50,131 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
 
     public bool CheckIfSolved()
     {
-        throw new System.NotImplementedException();
+        CabSwitchData data;
+        List<CableType> connectedCabs = new List<CableType>(chosenSetup.Sol_ConnectedCabs);
+        List<CableType> detachedCabs = new List<CableType>(chosenSetup.Sol_DetachedCables);
+        foreach (SelectableSwitch switchCab in switches)
+        {
+            data = switchCab.InputData as CabSwitchData;
+
+            if(switchCab.selectStatus == true)
+            {
+                //Check right connection
+                if (!connectedCabs.Remove(data.CabType))
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                //Check right detachment
+                if (!detachedCabs.Remove(data.CabType))
+                {
+                    return false;
+                }
+            }
+        }
+
+        if (connectedCabs.Count + detachedCabs.Count != 0)
+            return false;
+        else
+            return true;
     }
 
     public void DoLoose()
     {
-        throw new System.NotImplementedException();
+        SolutionState = PuzzleState.Broken;
+        selectable.GetRoot().GetComponent<LevelManager>().NotifyPuzzleBreakdown(this);
+
+        graphicCtrl.Paint(SolutionState);
     }
 
     public void DoWin()
     {
-        throw new System.NotImplementedException();
+        SolutionState = PuzzleState.Solved;
+        selectable.GetRoot().GetComponent<LevelManager>().NotifyPuzzleSolved(this);
+
+        graphicCtrl.Paint(SolutionState);
     }
 
     public void OnButtonSelect(SelectableButton _button)
     {
-        throw new System.NotImplementedException();
+        if (CheckIfSolved())
+        {
+            DoWin();
+        }
+        else
+        {
+            DoLoose();
+        }
     }
 
     public void OnSelection()
     {
-        throw new System.NotImplementedException();
+        Debugger.DebugLogger.Clean();
+        string toConnectCables = "";
+        string toDetachCables = "";
+
+        foreach (var item in chosenSetup.Sol_ConnectedCabs)
+        {
+            toConnectCables += item.ToString() + " / ";
+        }
+        foreach (var item in chosenSetup.Sol_DetachedCables)
+        {
+            toDetachCables += item.ToString() + " / ";
+        }
+
+        Debugger.DebugLogger.LogText("Connect: " + toConnectCables);
+        Debugger.DebugLogger.LogText("Disconnect: " + toDetachCables);
     }
 
     public void OnStateChange(SelectionState _state)
     {
-        throw new System.NotImplementedException();
     }
 
     public void OnSwitchSelect(SelectableSwitch _switch)
     {
         CabSwitchData data = _switch.InputData as CabSwitchData;
 
+        //Check for light electrocution
+        int lightToCheck = currentLightOnAmount;
+        for (int i = currentLightIndex; i < Components.Lights.Count; i++)
+        {
+            lightToCheck--;
+            if (i == data.CabID)
+            {
+                DoLoose();
+                break;
+            }
 
+            if (lightToCheck == 0)
+                break;
+        }
+        if(lightToCheck > 0)
+            for (int i = 0; i < currentLightIndex; i++)
+            {
+                lightToCheck--;
+                if (i == data.CabID)
+                {
+                    DoLoose();
+                    break;
+                }
+
+                if (lightToCheck == 0)
+                    break;
+            }
+
+        currentLightOnAmount++;
+        if (currentLightOnAmount == Components.Lights.Count)
+            DoLoose();
+        else
+        {
+            currentLightInterval = 0;
+            UpdateLights();
+        }
+
+        if (SolutionState == PuzzleState.Unsolved)
+            selectable.Select();
     }
 
     public void OnMonitorSelect(SelectableMonitor _monitor)
@@ -112,6 +204,8 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
         int setupIndex = Random.Range(0, data.Setups.Count);
         chosenSetup = data.Setups[setupIndex];
 
+        graphicCtrl.Paint(SolutionState);
+
         switches.Clear();
 
         //Setup button
@@ -128,16 +222,23 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
         int toDetachCabs = chosenSetup.DetachedCables.Count;
         int noCab = Components.Cables.Count - toConnectCabs - toDetachCabs;
 
-        List<GameObject> alreadySetCabs = new List<GameObject>();
+        List<int> alreadySetCabs = new List<int>();
         while (toConnectCabs + toDetachCabs + noCab > 0)
         {
             //choose an avaiable cable
             int cabIndex = Random.Range(0, Components.Cables.Count);
             GameObject cab = Components.Cables[cabIndex];
-            if (alreadySetCabs.Contains(cab))
+            if (alreadySetCabs.Contains(cabIndex))
+            {
+                if (alreadySetCabs.Count >= Components.Cables.Count)
+                {
+                    Debug.LogError("Impossible Setup");
+                    return;
+                }
                 continue;
+            }
             else
-                alreadySetCabs.Add(cab);
+                alreadySetCabs.Add(cabIndex);
 
             if (toConnectCabs > 0)
             {
@@ -149,8 +250,9 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
                 cabRenderer.material = GetMaterialByType(cabColor);
 
                 SelectableSwitch cabSwitch = cab.GetComponentInChildren<SelectableSwitch>();
-                cabSwitch.Init(this, new CabSwitchData() { CabType = cabColor });
+                cabSwitch.Init(this, new CabSwitchData() { CabType = cabColor, CabID = cabIndex });
                 cabSwitch.selectStatus = true;
+                switches.Add(cabSwitch);
             }
             else if (toDetachCabs > 0)
             {
@@ -164,6 +266,7 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
                 SelectableSwitch cabSwitch = cab.GetComponentInChildren<SelectableSwitch>();
                 cabSwitch.Init(this, new CabSwitchData() { CabType = cabColor, CabID = cabIndex});
                 cabSwitch.selectStatus = false;
+                switches.Add(cabSwitch);
             }
             else
             {
@@ -175,13 +278,10 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
 
     void InitLights()
     {
-        currentLightIndex = 0;
+        currentLightIndex = Random.Range(0, Components.Lights.Count);
         currentLightOnAmount = 1;
     }
-    //__________________________
-    //Inserisci logica di funzionamento dei bottoni e degli switch
-    //Inserisci doloose e do win, pulisci OnChangeState
-    //______________________________
+ 
     void UpdateLights()
     {
         currentLightIndex++;
@@ -200,7 +300,7 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
                 break;
 
             toLightOn--;
-            Components.Lights[currentLightIndex].materials = lightOn_MatArr;
+            Components.Lights[i].materials = lightOn_MatArr;
         }
 
         if(toLightOn > 0)
@@ -210,7 +310,7 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
                     break;
 
                 toLightOn--;
-                Components.Lights[currentLightIndex].materials = lightOn_MatArr;
+                Components.Lights[i].materials = lightOn_MatArr;
             }
     }
 
