@@ -2815,7 +2815,7 @@ MonoBehaviour:
   CameraFocusPoint: {fileID: 0}
   Data:
     NeutralMat: {fileID: 2100000, guid: 1850de465dafec948a83c47a49c257bd, type: 2}
-    HighlightedMat: {fileID: 0}
+    HighlightedMat: {fileID: 2100000, guid: 1850de465dafec948a83c47a49c257bd, type: 2}
     DoNotPaintItems: []
     Lights: {fileID: 0}
     EmissiveNeutral: {fileID: 0}
