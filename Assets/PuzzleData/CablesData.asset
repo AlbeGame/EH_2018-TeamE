@@ -15,62 +15,62 @@ MonoBehaviour:
   LightInterval: 1
   Setups:
   - StartButton: 0
-    ConnectedCables: 0000000004000000
-    DetachedCables: 01000000
-    Sol_ConnectedCabs: 0000000001000000
+    ConnectedCables: 04000000
+    DetachedCables: 0000000002000000
+    Sol_ConnectedCabs: 0000000002000000
     Sol_DetachedCables: 04000000
   - StartButton: 0
-    ConnectedCables: 020000000300000002000000
-    DetachedCables: 
-    Sol_ConnectedCabs: 03000000
+    ConnectedCables: 03000000
+    DetachedCables: 0100000001000000
+    Sol_ConnectedCabs: 0100000001000000
+    Sol_DetachedCables: 03000000
+  - StartButton: 0
+    ConnectedCables: 02000000
+    DetachedCables: 0000000005000000
+    Sol_ConnectedCabs: 0000000005000000
+    Sol_DetachedCables: 02000000
+  - StartButton: 0
+    ConnectedCables: 0000000003000000
+    DetachedCables: 0000000001000000
+    Sol_ConnectedCabs: 010000000000000000000000
+    Sol_DetachedCables: 03000000
+  - StartButton: 0
+    ConnectedCables: 0200000002000000
+    DetachedCables: 0500000005000000
+    Sol_ConnectedCabs: 0500000005000000
     Sol_DetachedCables: 0200000002000000
   - StartButton: 0
-    ConnectedCables: 00000000
-    DetachedCables: 0200000005000000
-    Sol_ConnectedCabs: 02000000
-    Sol_DetachedCables: 0000000005000000
+    ConnectedCables: 010000000400000004000000
+    DetachedCables: 04000000
+    Sol_ConnectedCabs: 04000000
+    Sol_DetachedCables: 010000000400000004000000
   - StartButton: 0
-    ConnectedCables: 0400000004000000
-    DetachedCables: 0400000001000000
-    Sol_ConnectedCabs: 010000000400000004000000
+    ConnectedCables: 000000000100000004000000
+    DetachedCables: 0200000003000000
+    Sol_ConnectedCabs: 02000000
+    Sol_DetachedCables: 04000000000000000100000003000000
+  - StartButton: 0
+    ConnectedCables: 0300000003000000
+    DetachedCables: 010000000200000005000000
+    Sol_ConnectedCabs: 01000000020000000500000003000000
+    Sol_DetachedCables: 03000000
+  - StartButton: 0
+    ConnectedCables: 0100000005000000
+    DetachedCables: 000000000000000002000000
+    Sol_ConnectedCabs: 000000000000000002000000
+    Sol_DetachedCables: 0100000005000000
+  - StartButton: 0
+    ConnectedCables: 030000000000000000000000
+    DetachedCables: 010000000500000004000000
+    Sol_ConnectedCabs: 0100000005000000030000000000000000000000
     Sol_DetachedCables: 04000000
   - StartButton: 0
-    ConnectedCables: 0000000005000000
-    DetachedCables: 000000000200000001000000
-    Sol_ConnectedCabs: 0100000005000000
-    Sol_DetachedCables: 000000000000000002000000
-  - StartButton: 0
-    ConnectedCables: 010000000500000004000000
-    DetachedCables: 010000000200000002000000
-    Sol_ConnectedCabs: 0100000001000000020000000200000004000000
-    Sol_DetachedCables: 05000000
-  - StartButton: 0
-    ConnectedCables: 010000000300000005000000
-    DetachedCables: 000000000200000004000000
-    Sol_ConnectedCabs: 0100000003000000
-    Sol_DetachedCables: 05000000000000000200000004000000
-  - StartButton: 0
-    ConnectedCables: 010000000500000000000000
-    DetachedCables: 000000000400000003000000
-    Sol_ConnectedCabs: 000000000000000003000000
-    Sol_DetachedCables: 010000000500000004000000
-  - StartButton: 0
-    ConnectedCables: 00000000020000000300000004000000
-    DetachedCables: 01000000
-    Sol_ConnectedCabs: 000000000100000004000000
-    Sol_DetachedCables: 0200000003000000
-  - StartButton: 0
-    ConnectedCables: 
-    DetachedCables: 00000000000000000100000003000000
-    Sol_ConnectedCabs: 0000000003000000
-    Sol_DetachedCables: 0000000001000000
-  - StartButton: 0
-    ConnectedCables: 05000000
-    DetachedCables: 050000000200000002000000
-    Sol_ConnectedCabs: 0200000002000000
-    Sol_DetachedCables: 0500000005000000
-  - StartButton: 0
     ConnectedCables: 0100000003000000
-    DetachedCables: 030000000200000005000000
-    Sol_ConnectedCabs: 0300000003000000
+    DetachedCables: 00000000020000000400000005000000
+    Sol_ConnectedCabs: 000000000400000003000000
     Sol_DetachedCables: 010000000200000005000000
+  - StartButton: 0
+    ConnectedCables: 0100000001000000020000000200000004000000
+    DetachedCables: 05000000
+    Sol_ConnectedCabs: 05000000
+    Sol_DetachedCables: 0100000001000000020000000200000004000000
