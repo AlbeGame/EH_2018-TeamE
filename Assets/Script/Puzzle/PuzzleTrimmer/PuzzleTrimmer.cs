@@ -83,6 +83,8 @@ public class PuzzleTrimmer : MonoBehaviour, IPuzzle,ISelectable {
 
         data = _data as PuzzleTrimmerData;
 
+
+
     }
 
     void Start () {
