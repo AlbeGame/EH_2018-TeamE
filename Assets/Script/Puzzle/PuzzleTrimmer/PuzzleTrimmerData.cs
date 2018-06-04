@@ -1,21 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class PuzzleTrimmerData :ScriptableObject,IPuzzleData {
+[CreateAssetMenu(fileName = "NewTrimmerData", menuName = "PuzzleData/Trimmer")]
+public class PuzzleTrimmerData : ScriptableObject, IPuzzleData {
 
+    public GameObject prefab;
+    public List<PossibleSetup> Setups = new List<PossibleSetup>();
 
     public GameObject GetIPuzzleGO()
     {
-        throw new System.NotImplementedException();
+        return prefab;
     }
 
-    void Start () {
-		
-	}
-	
-	
-	void Update () {
-		
-	}
+    [System.Serializable]
+    public class PossibleSetup
+    {
+        public Texture ScreenImage;
+     
+    }
+
 }
