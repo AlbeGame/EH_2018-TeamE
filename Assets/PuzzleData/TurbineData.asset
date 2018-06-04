@@ -16,60 +16,60 @@ MonoBehaviour:
   - Label: RNYF
     E1Modifier: 0
     E2Modifier: 40
-    E3Modifier: -10
-    E4Modifier: 30
+    E3Modifier: 0
+    E4Modifier: 40
   - Label: LNM5
     E1Modifier: -10
-    E2Modifier: 20
-    E3Modifier: 40
-    E4Modifier: 20
+    E2Modifier: 0
+    E3Modifier: 0
+    E4Modifier: -10
   - Label: E6PB
-    E1Modifier: -30
+    E1Modifier: 10
     E2Modifier: 0
     E3Modifier: 10
-    E4Modifier: -30
+    E4Modifier: 0
   - Label: RH4B
-    E1Modifier: -60
-    E2Modifier: 30
-    E3Modifier: 70
+    E1Modifier: 20
+    E2Modifier: 20
+    E3Modifier: 0
     E4Modifier: 0
   - Label: 9C6M
-    E1Modifier: 50
+    E1Modifier: 0
     E2Modifier: -40
     E3Modifier: 0
-    E4Modifier: -30
+    E4Modifier: -40
   - Label: HC5T
-    E1Modifier: -20
-    E2Modifier: -10
+    E1Modifier: 0
+    E2Modifier: -20
     E3Modifier: -20
-    E4Modifier: 20
+    E4Modifier: 0
   - Label: XHVA
     E1Modifier: 0
-    E2Modifier: -30
-    E3Modifier: -50
-    E4Modifier: 10
-  - Label: KDLV
-    E1Modifier: -10
-    E2Modifier: 20
-    E3Modifier: 30
-    E4Modifier: -20
-  - Label: M2WC
-    E1Modifier: 30
-    E2Modifier: -50
+    E2Modifier: 0
     E3Modifier: -30
-    E4Modifier: -10
+    E4Modifier: -30
+  - Label: KDLV
+    E1Modifier: 0
+    E2Modifier: 10
+    E3Modifier: 0
+    E4Modifier: 10
+  - Label: M2WC
+    E1Modifier: -30
+    E2Modifier: -30
+    E3Modifier: 0
+    E4Modifier: 0
   - Label: A3H8
     E1Modifier: 20
     E2Modifier: 0
-    E3Modifier: -20
-    E4Modifier: 60
-  - Label: 7DNK
-    E1Modifier: -40
-    E2Modifier: 60
     E3Modifier: 0
-    E4Modifier: 40
+    E4Modifier: 20
+  - Label: 7DNK
+    E1Modifier: 40
+    E2Modifier: 0
+    E3Modifier: 40
+    E4Modifier: 0
   - Label: BNH1
-    E1Modifier: 30
-    E2Modifier: 10
-    E3Modifier: -30
-    E4Modifier: -40
+    E1Modifier: 0
+    E2Modifier: -10
+    E3Modifier: -10
+    E4Modifier: 0
