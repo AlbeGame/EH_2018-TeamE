@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Name: TrimmerData
   m_EditorClassIdentifier: 
   prefab: {fileID: 1094403581409636, guid: be9e18a58d807ca42a0a262c863b76e0, type: 2}
+  Setups: []
