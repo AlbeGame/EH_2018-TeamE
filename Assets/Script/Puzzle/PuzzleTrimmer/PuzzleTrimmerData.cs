@@ -15,7 +15,7 @@ public class PuzzleTrimmerData : ScriptableObject, IPuzzleData {
     [System.Serializable]
     public class PossibleSetup
     {
-        public Texture ScreenImage;
+      
      
     }
 
