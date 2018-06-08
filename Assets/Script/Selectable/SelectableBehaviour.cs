@@ -85,6 +85,9 @@ public class SelectableBehaviour : MonoBehaviour
     /// </summary>
     public void Select()
     {
+        if (State == SelectionState.Selected)
+            return;
+
         State = SelectionState.Selected;
         foreach (ISelectable selectable in selectables)
         {
