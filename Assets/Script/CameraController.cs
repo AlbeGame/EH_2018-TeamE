@@ -29,6 +29,12 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    public float ShakeMaxFrequence = 1;
+    public float ShakeMaxForce = 1;
+    public float ShakeFrequence = 1;
+    public float ShakeForce = 1;
+    public int ShakeVibrato = 1;
+
     GameObject origin;
 
     void Start()
@@ -39,6 +45,8 @@ public class CameraController : MonoBehaviour
         origin.transform.SetParent(transform.parent);
         origin.transform.localPosition = transform.localPosition;
         origin.transform.localRotation = transform.localRotation;
+
+        basicShake = transform.DOPunchRotation(Vector3.forward * ShakeForce, ShakeFrequence, ShakeVibrato).SetLoops(-1);
     }
 
     void Update()
@@ -65,6 +73,7 @@ public class CameraController : MonoBehaviour
 
     }
     Coroutine motionCoroutine;
+
     #region API
     /// <summary>
     /// Move the camera toward _target and rotate it as _target.forward
@@ -106,6 +115,7 @@ public class CameraController : MonoBehaviour
     }
 
     Camera childCam;
+    Tween basicShake;
     Tween shake;
     public void Shake(TweenCallback callback)
     {
@@ -117,6 +127,8 @@ public class CameraController : MonoBehaviour
     {
         if (shake == null || shake.IsPlaying())
             yield return null;
+
+        basicShake.Kill();
 
         bool isMoving = true;
         while (isMoving)
@@ -134,5 +146,7 @@ public class CameraController : MonoBehaviour
             if (_transf == origin.transform)
                 canMoveFreeCam = true;
         }
+
+        basicShake = transform.DOPunchRotation(Vector3.forward * ShakeForce, ShakeFrequence, ShakeVibrato).SetLoops(-1);
     }
 }

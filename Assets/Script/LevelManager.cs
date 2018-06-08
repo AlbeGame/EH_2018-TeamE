@@ -155,6 +155,10 @@ public class LevelManager : MonoBehaviour, ISelectable
 
     public void NotifyAltitudeUpdate(float percentage)
     {
+        //Crescita dello shake in relazione all'altitudine
+        camCtrl.ShakeForce = camCtrl.ShakeMaxForce * (1- percentage);
+        camCtrl.ShakeFrequence = camCtrl.ShakeMaxFrequence * percentage;
+
         if (percentage >= 0.5f || selectable.State == SelectionState.Passive)
             return;
 
