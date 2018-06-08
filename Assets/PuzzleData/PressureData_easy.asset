@@ -16,8 +16,8 @@ MonoBehaviour:
   FillingPerStrike: 3
   Monitor:
     MainImgTime: 7
-    AnimN2Time: 2.5
-    InteractTime: 3
+    AnimN2Time: 4.5
+    InteractTime: 1
   Setups:
   - ImgToDispaly: {fileID: 2100000, guid: b3e40933218bc9c4194195340a422ff6, type: 2}
     ButtonToPress: 0
