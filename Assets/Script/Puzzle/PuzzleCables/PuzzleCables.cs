@@ -83,6 +83,9 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
 
     public void DoLoose()
     {
+        if (SolutionState == PuzzleState.Broken)
+            return;
+
         SolutionState = PuzzleState.Broken;
         selectable.GetRoot().GetComponent<LevelManager>().NotifyPuzzleBreakdown(this);
 
@@ -194,6 +197,9 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
 
         data = _data as PuzzleCablesData;
 
+        Components.Cables.Insert(1, new GameObject("FakeCable2"));
+        Components.Cables.Insert(5, new GameObject("FakeCable6"));
+
         lightOff_MatArr = new Material[] { Components.Lights[0].materials[0], LightOff_Mat };
         lightOn_MatArr = new Material[] { Components.Lights[0].materials[0], LightOn_Mat };
     }
@@ -220,9 +226,9 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
     {
         int toConnectCabs = chosenSetup.ConnectedCables.Count;
         int toDetachCabs = chosenSetup.DetachedCables.Count;
-        int noCab = Components.Cables.Count - toConnectCabs - toDetachCabs;
+        int noCab = Components.Cables.Count -2/*Per i cavi virtuali dei posti 1 e 5*/ - toConnectCabs - toDetachCabs;
 
-        List<int> alreadySetCabs = new List<int>();
+        List<int> alreadySetCabs = new List<int>() { 1, 5 };
         while (toConnectCabs + toDetachCabs + noCab > 0)
         {
             //choose an avaiable cable
