@@ -247,8 +247,10 @@ public class SelectableBehaviour : MonoBehaviour
     
     void ToggleCollider(bool _active)
     {
-        if(GetRoot() != this)
+        if (GetRoot() != this)
+        {
             selectionCollider.enabled = _active;
+        }
     }
     // Behaviour than only the Root follows
     #region Root Behaviour

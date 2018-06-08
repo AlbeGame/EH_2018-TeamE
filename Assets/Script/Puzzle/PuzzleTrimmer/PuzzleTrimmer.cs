@@ -79,18 +79,13 @@ public class PuzzleTrimmer : MonoBehaviour, IPuzzle,ISelectable {
     public void Setup(IPuzzleData data)
     {
         _selectable = GetComponent<SelectableBehaviour>();
-        _graphicCtrl = GetComponent<PuzzleGraphic>();
+         _graphicCtrl = GetComponent<PuzzleGraphic>();
 
         data = _data as PuzzleTrimmerData;
 
+
+
     }
 
-    void Start () {
-		
-	}
-	
-	
-	void Update () {
-		
-	}
+   
 }
