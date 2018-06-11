@@ -14,8 +14,8 @@ MonoBehaviour:
   Prefab: {fileID: 1486520554477460, guid: 7e792a95f753e4a41925997f05b50d64, type: 2}
   LightOffMat: {fileID: 2100000, guid: b552f1f04380c2145a56d98eeb7b523d, type: 2}
   ScreenOffMat: {fileID: 2100000, guid: 3eba06aaf8c12c041951addcde7bbbf2, type: 2}
-  SequenceDuration: 3
-  HeatBarBaseFilling: 4
+  SequenceDuration: 4
+  HeatBarBaseFilling: 3
   HeatBarErrorFilling: 2
   SequencesAmount: 6
   Sequences:
