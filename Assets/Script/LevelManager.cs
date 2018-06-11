@@ -47,14 +47,15 @@ public class LevelManager : MonoBehaviour, ISelectable
             AlarmPuzzle.GetComponent<PuzzleALARM>().Init();
         }
 
-        camCtrl = Camera.main.GetComponent<CameraController>();
-        camCtrl.isMoveFreeCam = false;
-
         if (Altimetro)
         {
             Altimetro.GetComponent<SelectableBehaviour>().Init(selectable);
             Altimetro.Init(this);
         }
+
+        camCtrl = Camera.main.GetComponent<CameraController>();
+        camCtrl.isMoveFreeCam = false;
+        camCtrl.Init();
 
         int randIndex;
         List<Transform> positionLeft = PuzzlePositions;

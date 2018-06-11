@@ -37,16 +37,18 @@ public class CameraController : MonoBehaviour
 
     GameObject origin;
 
-    void Start()
+    public void Init()
     {
         childCam = GetComponent<Camera>();
 
         origin = new GameObject("CameraStartingPositon");
-        origin.transform.SetParent(transform.parent);
-        origin.transform.localPosition = transform.localPosition;
-        origin.transform.localRotation = transform.localRotation;
+        origin.transform.position = transform.position;
+        origin.transform.rotation = transform.rotation;
 
-        basicShake = transform.DOPunchRotation(Vector3.forward * ShakeForce, ShakeFrequence, ShakeVibrato).SetLoops(-1);
+        origin.transform.SetParent(transform.parent);
+        transform.SetParent(origin.transform);
+
+        basicShake = origin.transform.DOPunchRotation(Vector3.forward * (ShakeForce + ShakeMaxForce * 0.1f), ShakeFrequence + ShakeMaxFrequence/0.1f, ShakeVibrato).SetLoops(-1);
     }
 
     void Update()
@@ -55,7 +57,7 @@ public class CameraController : MonoBehaviour
             RotateCamera();
     }
 
-    Vector3 euler = new Vector3(0,90,0);
+    Vector3 euler = new Vector3(0,0,0);
     void RotateCamera()
     {
         transform.localEulerAngles = euler;
@@ -69,8 +71,6 @@ public class CameraController : MonoBehaviour
             euler.x = maxY;
         if (euler.x <= minY)
             euler.x = minY;
-
-
     }
     Coroutine motionCoroutine;
 
@@ -142,11 +142,13 @@ public class CameraController : MonoBehaviour
                 isMoving = false;
 
             yield return null;
-            euler = new Vector3(0,90,0);
+            euler = new Vector3(0,0,0);
             if (_transf == origin.transform)
                 canMoveFreeCam = true;
         }
-
-        basicShake = transform.DOPunchRotation(Vector3.forward * ShakeForce, ShakeFrequence, ShakeVibrato).SetLoops(-1);
+        if(_transf == origin.transform)
+            basicShake = origin.transform.DOPunchRotation(Vector3.forward * (ShakeForce + ShakeMaxForce*0.1f), ShakeFrequence + ShakeMaxFrequence / 0.1f, ShakeVibrato).SetLoops(-1);
+        else
+            basicShake = origin.transform.DOPunchPosition(Vector3.right * (ShakeForce + ShakeMaxForce * 0.1f) * .01f, ShakeFrequence + ShakeMaxFrequence / 0.1f).SetLoops(-1);
     }
 }
