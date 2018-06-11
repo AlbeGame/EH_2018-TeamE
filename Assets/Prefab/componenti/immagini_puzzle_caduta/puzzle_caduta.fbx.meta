@@ -1,17 +1,16 @@
 fileFormatVersion: 2
-guid: eef09383016a79a4e8a8b1947a771e35
-timeCreated: 1528564043
+guid: 30429c82b13c53448ab5840d4d5d9812
+timeCreated: 1528710477
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: lambert5
-    2100002: lambert1
+    2100000: lambert1
     2300000: //RootNode
     3300000: //RootNode
-    4300000: polySurface142
+    4300000: puzzle_caduta
   externalObjects: {}
   materials:
     importMaterials: 1
