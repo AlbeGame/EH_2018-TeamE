@@ -182,7 +182,7 @@ public class LevelManager : MonoBehaviour, ISelectable
     public void NotifyPuzzleSolved(IPuzzle puzzle)
     {
         //Parziale comportamento comunque da refactorizzare
-        //selectable.Select();
+        camCtrl.AwarnessLook();
         puzzle.SolutionState = PuzzleState.Solved;
 
         if(puzzle.GetType() == typeof(PuzzleALARM))
@@ -213,6 +213,7 @@ public class LevelManager : MonoBehaviour, ISelectable
 
     public void NotifyPuzzleBreakdown(IPuzzle _puzzle)
     {
+        //camCtrl.AwarnessLook(null);
         camCtrl.Shake(()=> { selectable.Select(); });
         //selectable.Select();
         _puzzle.SolutionState = PuzzleState.Broken;

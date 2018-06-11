@@ -29,6 +29,8 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    float startingFOV;
+
     public float ShakeMaxFrequence = 1;
     public float ShakeMaxForce = 1;
     public float ShakeFrequence = 1;
@@ -41,6 +43,7 @@ public class CameraController : MonoBehaviour
     {
         childCam = GetComponent<Camera>();
 
+        startingFOV = childCam.fieldOfView;
         origin = new GameObject("CameraStartingPositon");
         origin.transform.position = transform.position;
         origin.transform.rotation = transform.rotation;
@@ -48,7 +51,7 @@ public class CameraController : MonoBehaviour
         origin.transform.SetParent(transform.parent);
         transform.SetParent(origin.transform);
 
-        basicShake = origin.transform.DOPunchRotation(Vector3.forward * (ShakeForce + ShakeMaxForce * 0.1f), ShakeFrequence + ShakeMaxFrequence/0.1f, ShakeVibrato).SetLoops(-1);
+        basicShake = origin.transform.DOPunchRotation(Vector3.forward * (ShakeForce + ShakeMaxForce * 0.1f), ShakeFrequence + ShakeMaxFrequence / 0.1f, ShakeVibrato).SetLoops(-1);
     }
 
     void Update()
@@ -57,7 +60,7 @@ public class CameraController : MonoBehaviour
             RotateCamera();
     }
 
-    Vector3 euler = new Vector3(0,0,0);
+    Vector3 euler = new Vector3(0, 0, 0);
     void RotateCamera()
     {
         transform.localEulerAngles = euler;
@@ -117,14 +120,25 @@ public class CameraController : MonoBehaviour
     Camera childCam;
     Tween basicShake;
     Tween shake;
+    Tween focusChange;
     public void Shake(TweenCallback callback)
     {
         shake = childCam.DOShakePosition(1f, .1f).OnComplete(callback);
+    }
+    public void AwarnessLook()
+    {
+        focusChange = childCam.DOFieldOfView(childCam.fieldOfView + 10, 1f);
+        //focusChange.OnComplete(() =>
+        //    {
+        //        focusChange = childCam.DOFieldOfView(childCam.fieldOfView - 10, 1f);
+        //    });
     }
     #endregion
 
     IEnumerator Move(Transform _transf)
     {
+        childCam.fieldOfView = startingFOV;
+
         if (shake == null || shake.IsPlaying())
             yield return null;
 
@@ -133,7 +147,7 @@ public class CameraController : MonoBehaviour
         bool isMoving = true;
         while (isMoving)
         {
-            if(Vector3.Distance(transform.position, _transf.position) > Time.deltaTime/10)
+            if (Vector3.Distance(transform.position, _transf.position) > Time.deltaTime / 10)
             {
                 transform.position = Vector3.Lerp(transform.position, _transf.position, 1 / MovementSpeed);
                 transform.rotation = Quaternion.Slerp(transform.rotation, _transf.rotation, 1 / MovementSpeed);
@@ -142,13 +156,13 @@ public class CameraController : MonoBehaviour
                 isMoving = false;
 
             yield return null;
-            euler = new Vector3(0,0,0);
+            euler = new Vector3(0, 0, 0);
             if (_transf == origin.transform)
                 canMoveFreeCam = true;
         }
-        if(_transf == origin.transform)
-            basicShake = origin.transform.DOPunchRotation(Vector3.forward * (ShakeForce + ShakeMaxForce*0.1f), ShakeFrequence + ShakeMaxFrequence / 0.1f, ShakeVibrato).SetLoops(-1);
+        if (_transf == origin.transform)
+            basicShake = origin.transform.DOPunchRotation(Vector3.forward * (ShakeForce + ShakeMaxForce * 0.1f), ShakeFrequence + ShakeMaxFrequence / 0.1f, ShakeVibrato).SetLoops(-1);
         else
-            basicShake = origin.transform.DOPunchPosition(Vector3.right * (ShakeForce + ShakeMaxForce * 0.1f) * .01f, ShakeFrequence + ShakeMaxFrequence / 0.1f).SetLoops(-1);
+            basicShake = transform.DOPunchRotation(Vector3.forward * (ShakeForce + ShakeMaxForce * 0.1f), ShakeFrequence + ShakeMaxFrequence / 0.1f).SetLoops(-1);
     }
 }
