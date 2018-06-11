@@ -42,8 +42,13 @@ ModelImporter:
     400032: typeMesh3
     400034: typeMesh4
     2100000: lambert1
+    2100002: light_2
+    2100004: light_1
+    2100006: light_3
     2300000: typeMesh4
+    2300002: //RootNode
     3300000: typeMesh4
+    3300002: //RootNode
     4300000: typeMesh4
   externalObjects: {}
   materials:
