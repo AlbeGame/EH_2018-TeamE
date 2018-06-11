@@ -200,8 +200,13 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
 
         data = _data as PuzzleCablesData;
 
-        Components.Cables.Insert(1, new GameObject("FakeCable2"));
-        Components.Cables.Insert(5, new GameObject("FakeCable6"));
+        GameObject fakeCable2 = new GameObject("FakeCable2");
+        fakeCable2.transform.parent = transform;
+        Components.Cables.Insert(1, fakeCable2);
+
+        GameObject fakeCable6 = new GameObject("FakeCable2");
+        fakeCable6.transform.parent = transform;
+        Components.Cables.Insert(5, fakeCable6);
 
         lightOff_MatArr = new Material[] { Components.Lights[0].materials[0], LightOff_Mat };
         lightOn_MatArr = new Material[] { Components.Lights[0].materials[0], LightOn_Mat };

@@ -55,7 +55,7 @@ public class PlaneKinematicController : MonoBehaviour {
         while (currentPathIndex < FallTrajectory.Count)
         {
             transform.position += (FallTrajectory[currentPathIndex].position - transform.position).normalized * fallRatio * Time.deltaTime;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(FallTrajectory[currentPathIndex].position - transform.position), 1/fallRatio);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(FallTrajectory[currentPathIndex].position - transform.position), Time.deltaTime / fallRatio * 10);
             if(Vector3.Distance(transform.position, FallTrajectory[currentPathIndex].position) <= 1)
             {
                 currentPathIndex++;
