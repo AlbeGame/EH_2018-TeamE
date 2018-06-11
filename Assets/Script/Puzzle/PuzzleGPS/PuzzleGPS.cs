@@ -179,8 +179,13 @@ public class PuzzleGPS : MonoBehaviour, IPuzzle, ISelectable
         int randCoordIndex = Random.Range(0, data.PossibleCoordinates.Count);
         solutionCoordinates = data.PossibleCoordinates[randCoordIndex];
 
-        int randOrient = Random.Range(0, 0);
-        solutionOrientation = randOrient * 90;
+        if (data.RandomRotation)
+        {
+            int randOrient = Random.Range(0, 4);
+            solutionOrientation = randOrient * 90;
+        }
+        else
+            solutionOrientation = 0;
     }
 
     [System.Serializable]

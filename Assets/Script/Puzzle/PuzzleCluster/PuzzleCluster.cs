@@ -196,8 +196,14 @@ public class PuzzleCluster : MonoBehaviour, IPuzzle, ISelectable
         checkPressed = false;
         misstakes = 0;
         heatLvl = 0;
-        Interactables.CheckLight.materials[1] = data.LightOffMat;
+
+        Material[] newMaterials = Interactables.CheckLight.materials;
+        newMaterials[1] = data.LightOffMat;
+        Interactables.CheckLight.materials = newMaterials;
+
         SetScreens(false);
+
+        graphicCtrl.Init(graphicCtrl.Data);
     }
 
     void SetScreens(bool _on)

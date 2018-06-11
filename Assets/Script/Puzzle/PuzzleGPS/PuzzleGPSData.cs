@@ -5,6 +5,7 @@ using UnityEngine;
 public class PuzzleGPSData : ScriptableObject, IPuzzleData {
     public GameObject Prefab;
 
+    public bool RandomRotation = false;
     [Header("(Longitude, Latitude)")]
     public List<PossibleCoordinate> PossibleCoordinates = new List<PossibleCoordinate>();
     /// <summary>
@@ -12,6 +13,7 @@ public class PuzzleGPSData : ScriptableObject, IPuzzleData {
     /// </summary>
     /// <returns></returns>
     //public GridData Grid;
+
 
     public GameObject GetIPuzzleGO()
     {

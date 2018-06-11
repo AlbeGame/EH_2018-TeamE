@@ -223,6 +223,8 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
         InitCables();
         //Setup lights
         InitLights();
+
+        graphicCtrl.Init(graphicCtrl.Data);
     }
 
     void InitCables()
