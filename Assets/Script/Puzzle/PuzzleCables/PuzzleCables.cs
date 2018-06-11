@@ -40,6 +40,9 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
         if (!data)
             return;
 
+        if (SolutionState != PuzzleState.Unsolved)
+            return;
+
         currentLightInterval += Time.deltaTime;
         if(currentLightInterval >= data.LightInterval)
         {
@@ -88,7 +91,7 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
 
         SolutionState = PuzzleState.Broken;
         selectable.GetRoot().GetComponent<LevelManager>().NotifyPuzzleBreakdown(this);
-
+        TurnLightsOff();
         graphicCtrl.Paint(SolutionState);
     }
 
@@ -96,7 +99,7 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
     {
         SolutionState = PuzzleState.Solved;
         selectable.GetRoot().GetComponent<LevelManager>().NotifyPuzzleSolved(this);
-
+        TurnLightsOff();
         graphicCtrl.Paint(SolutionState);
     }
 
@@ -295,10 +298,7 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
             currentLightIndex = 0;
 
         int toLightOn = currentLightOnAmount;
-        for (int i = 0; i < Components.Lights.Count; i++)
-        {
-            Components.Lights[i].materials = lightOff_MatArr;
-        }
+        TurnLightsOff();
 
         for (int i = currentLightIndex; i < Components.Lights.Count; i++)
         {
@@ -318,6 +318,14 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
                 toLightOn--;
                 Components.Lights[i].materials = lightOn_MatArr;
             }
+    }
+
+    void TurnLightsOff()
+    {
+        for (int i = 0; i < Components.Lights.Count; i++)
+        {
+            Components.Lights[i].materials = lightOff_MatArr;
+        }
     }
 
     Material GetMaterialByType(CableType _type)
