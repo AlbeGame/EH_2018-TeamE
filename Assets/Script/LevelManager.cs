@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour, ISelectable
     int PuzzleNeededToWin { get { return Setting.PuzzlesNeededToWin; } }
     public Altimetro Altimetro;
     public Error_Panel ErrorPanel;
+    public FallDisplay FallDisplay;
     public SelectableBehaviour AlarmPuzzle;
     PuzzleALARM_Data Alarm_Data; 
     public List<SelectableBehaviour> OtherSelectable = new List<SelectableBehaviour>();
@@ -160,6 +161,8 @@ public class LevelManager : MonoBehaviour, ISelectable
         //Crescita dello shake in relazione all'altitudine
         camCtrl.ShakeForce = camCtrl.ShakeMaxForce * (1- percentage);
         camCtrl.ShakeFrequence = camCtrl.ShakeMaxFrequence * percentage;
+
+        FallDisplay.UpdateLine(percentage);
 
         if (percentage >= 0.5f || selectable.State == SelectionState.Passive)
             return;
