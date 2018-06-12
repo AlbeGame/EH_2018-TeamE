@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 124453362}
   - component: {fileID: 124453361}
   - component: {fileID: 124453360}
+  - component: {fileID: 124453364}
   m_Layer: 5
   m_Name: Credits
   m_TagString: Untagged
@@ -248,6 +249,37 @@ RectTransform:
   m_AnchoredPosition: {x: -0.1000061, y: -0.1000061}
   m_SizeDelta: {x: 0.099975586, y: 0.19999695}
   m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &124453364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 124453359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 753639534}
+          m_MethodName: PlayClipOnce
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: e698a398d77d53843a09e7c16b9856b9,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &137933614
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,6 +291,7 @@ GameObject:
   - component: {fileID: 137933618}
   - component: {fileID: 137933617}
   - component: {fileID: 137933616}
+  - component: {fileID: 137933619}
   m_Layer: 5
   m_Name: Bail Out
   m_TagString: Untagged
@@ -278,7 +311,7 @@ RectTransform:
   m_Children:
   - {fileID: 1334471468}
   m_Father: {fileID: 1604592612}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.791, y: 0.07620863}
   m_AnchorMax: {x: 0.98200005, y: 0.19859713}
@@ -299,7 +332,7 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 1406342512}
+    m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2
@@ -382,6 +415,37 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 137933614}
+--- !u!114 &137933619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 137933614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 753639534}
+          m_MethodName: PlayClipOnce
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: e698a398d77d53843a09e7c16b9856b9,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &148616214
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,6 +531,7 @@ GameObject:
   - component: {fileID: 158411859}
   - component: {fileID: 158411858}
   - component: {fileID: 158411857}
+  - component: {fileID: 158411861}
   m_Layer: 5
   m_Name: Easy
   m_TagString: Untagged
@@ -500,7 +565,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 742609a5c4549b043b4cc81b51d57aab,
+    m_HighlightedSprite: {fileID: 21300000, guid: 5178a5698ccdc7d4f9c5ea2ce138198b,
       type: 3}
     m_PressedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -568,7 +633,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: abe02c48ef774e343964f24ec4c21524, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06de24306f96ceb45823bdd15dba3d95, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -596,11 +661,42 @@ RectTransform:
   m_Father: {fileID: 2023314720}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.80600005, y: 0.33800003}
-  m_AnchorMax: {x: 0.98800004, y: 0.4712087}
-  m_AnchoredPosition: {x: 0.2000122, y: -0.3999939}
-  m_SizeDelta: {x: -0.010009766, y: 0.69999695}
+  m_AnchorMin: {x: 0.5726589, y: 0.46317008}
+  m_AnchorMax: {x: 0.8718369, y: 0.8237649}
+  m_AnchoredPosition: {x: 0, y: 0.62498474}
+  m_SizeDelta: {x: 0, y: -1.25}
   m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &158411861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 158411856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 753639534}
+          m_MethodName: PlayClipOnce
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: e698a398d77d53843a09e7c16b9856b9,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &172683424
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,6 +900,7 @@ GameObject:
   - component: {fileID: 288248104}
   - component: {fileID: 288248103}
   - component: {fileID: 288248102}
+  - component: {fileID: 288248105}
   m_Layer: 5
   m_Name: Gioca
   m_TagString: Untagged
@@ -827,7 +924,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.73300004, y: 0.018000001}
   m_AnchorMax: {x: 0.8964719, y: 0.192}
-  m_AnchoredPosition: {x: 0.000012398, y: -1.06}
+  m_AnchoredPosition: {x: 0, y: -1.0599976}
   m_SizeDelta: {x: -1.8297, y: -14.82}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &288248102
@@ -927,6 +1024,37 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 288248100}
+--- !u!114 &288248105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 288248100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 753639534}
+          m_MethodName: PlayClipOnce
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: e698a398d77d53843a09e7c16b9856b9,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &447275363
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,6 +1066,7 @@ GameObject:
   - component: {fileID: 447275366}
   - component: {fileID: 447275365}
   - component: {fileID: 447275364}
+  - component: {fileID: 447275368}
   m_Layer: 5
   m_Name: Not so Easy
   m_TagString: Untagged
@@ -971,7 +1100,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 4f41d37eb2c81c14fa3476e55c855081,
+    m_HighlightedSprite: {fileID: 21300000, guid: 5dca7e176d786be49934383f2175c15f,
       type: 3}
     m_PressedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -1039,7 +1168,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 92fa465f7a647b24f9e8f8bc6b7c68aa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e52f275c1d382f44d9398838d6cdad93, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1067,11 +1196,42 @@ RectTransform:
   m_Father: {fileID: 2023314720}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.80600005, y: 0.21559714}
-  m_AnchorMax: {x: 0.98800004, y: 0.35238847}
+  m_AnchorMin: {x: 0.6107963, y: 0.31865233}
+  m_AnchorMax: {x: 0.9087738, y: 0.6036207}
   m_AnchoredPosition: {x: 0.6799927, y: -0.1000061}
   m_SizeDelta: {x: -0.41796875, y: -0.33300018}
   m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &447275368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 447275363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 753639534}
+          m_MethodName: PlayClipOnce
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: e698a398d77d53843a09e7c16b9856b9,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &523508598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,7 +1289,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 256c9faab0ee4124e8bd273dad6463d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 690eeb2f2cf7b924299f92419fe238b5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1143,6 +1303,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 523508598}
+--- !u!114 &753639534 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114175537496675634, guid: 2cca9ceab67cdc8408e898e77f752761,
+    type: 2}
+  m_PrefabInternal: {fileID: 278875609}
+  m_Script: {fileID: 11500000, guid: d6e3ccc92d6ffec4bb2d98a332609318, type: 3}
 --- !u!1 &862062664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,6 +1458,7 @@ GameObject:
   - component: {fileID: 896048115}
   - component: {fileID: 896048114}
   - component: {fileID: 896048113}
+  - component: {fileID: 896048117}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -1415,6 +1582,37 @@ RectTransform:
   m_AnchoredPosition: {x: 1.5, y: -0.000015258789}
   m_SizeDelta: {x: 1.5, y: -0.000061035}
   m_Pivot: {x: 1, y: 0.5}
+--- !u!114 &896048117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 896048112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 753639534}
+          m_MethodName: PlayClipOnce
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: e698a398d77d53843a09e7c16b9856b9,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &939754559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,6 +1718,11 @@ MonoBehaviour:
   minY: -30
   maxY: 30
   MovementSpeed: 0.2
+  ShakeMaxFrequence: 1
+  ShakeMaxForce: 1
+  ShakeFrequence: 1
+  ShakeForce: 1
+  ShakeVibrato: 1
 --- !u!81 &1074726152
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1598,6 +1801,7 @@ GameObject:
   - component: {fileID: 1178712970}
   - component: {fileID: 1178712969}
   - component: {fileID: 1178712968}
+  - component: {fileID: 1178712971}
   m_Layer: 5
   m_Name: Avanti
   m_TagString: Untagged
@@ -1721,6 +1925,37 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1178712966}
+--- !u!114 &1178712971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1178712966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 753639534}
+          m_MethodName: PlayClipOnce
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: e698a398d77d53843a09e7c16b9856b9,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1327857469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,6 +1967,7 @@ GameObject:
   - component: {fileID: 1327857473}
   - component: {fileID: 1327857472}
   - component: {fileID: 1327857471}
+  - component: {fileID: 1327857474}
   m_Layer: 5
   m_Name: Bail Out
   m_TagString: Untagged
@@ -1855,6 +2091,37 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1327857469}
+--- !u!114 &1327857474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1327857469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 753639534}
+          m_MethodName: PlayClipOnce
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: e698a398d77d53843a09e7c16b9856b9,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1334471467
 GameObject:
   m_ObjectHideFlags: 0
@@ -1931,140 +2198,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1334471467}
---- !u!1 &1406342511
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1406342515}
-  - component: {fileID: 1406342514}
-  - component: {fileID: 1406342513}
-  - component: {fileID: 1406342512}
-  m_Layer: 5
-  m_Name: Play
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1406342512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1406342511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 4
-    m_SelectOnUp: {fileID: 137933616}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.6705234, g: 0.7794118, b: 0.73886025, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 78a3e255e567c3b47a5e75b7e2cf63c0,
-      type: 3}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1406342513}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2015380216}
-        m_MethodName: PlayClickSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2015380216}
-        m_MethodName: GoToSelectionMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &1406342513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1406342511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: f75657903194ce947b999ae4e2903af5, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &1406342514
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1406342511}
---- !u!224 &1406342515
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1406342511}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9011636, y: 0.9011639, z: 0.9011639}
-  m_Children:
-  - {fileID: 2083856036}
-  m_Father: {fileID: 1604592612}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.80700004, y: 0.32820868}
-  m_AnchorMax: {x: 1, y: 0.45119426}
-  m_AnchoredPosition: {x: -1.5, y: 0.2000122}
-  m_SizeDelta: {x: 9, y: 2.8899999}
-  m_Pivot: {x: 1, y: 0.5}
 --- !u!1 &1495667453
 GameObject:
   m_ObjectHideFlags: 0
@@ -2152,6 +2285,7 @@ GameObject:
   - component: {fileID: 1509644043}
   - component: {fileID: 1509644042}
   - component: {fileID: 1509644041}
+  - component: {fileID: 1509644044}
   m_Layer: 5
   m_Name: Fly Hard
   m_TagString: Untagged
@@ -2173,8 +2307,8 @@ RectTransform:
   m_Father: {fileID: 2023314720}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.7715871, y: 0.09340288}
-  m_AnchorMax: {x: 0.98, y: 0.23}
+  m_AnchorMin: {x: 0.59123963, y: 0.13468783}
+  m_AnchorMax: {x: 0.9837575, y: 0.38030052}
   m_AnchoredPosition: {x: -0.1000061, y: 0.19998169}
   m_SizeDelta: {x: -0.049987793, y: 0.29000854}
   m_Pivot: {x: 0, y: 0.5}
@@ -2204,7 +2338,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 43cf0d5c6e3d31a4da32482f097bb06b,
+    m_HighlightedSprite: {fileID: 21300000, guid: 4e56e066cc2569b4ab6a6448ab694860,
       type: 3}
     m_PressedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -2272,7 +2406,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ae57c2ab9de26924ab648a8e82faca87, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ce0e4cd40c1a2a24abf8eb801d5a8da0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2286,6 +2420,37 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1509644039}
+--- !u!114 &1509644044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1509644039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 753639534}
+          m_MethodName: PlayClipOnce
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: e698a398d77d53843a09e7c16b9856b9,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1604592609
 GameObject:
   m_ObjectHideFlags: 0
@@ -2346,7 +2511,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1406342515}
   - {fileID: 137933615}
   m_Father: {fileID: 2015380215}
   m_RootOrder: 4
@@ -2680,7 +2844,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 43a419a99c2e84149b819eb75451819d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 83391b3246b2c8c45a7752be8b3be8ca, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2839,82 +3003,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2079148530}
---- !u!1 &2083856035
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2083856036}
-  - component: {fileID: 2083856038}
-  - component: {fileID: 2083856037}
-  m_Layer: 5
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &2083856036
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2083856035}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1406342515}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -23.4, y: 12.1}
-  m_SizeDelta: {x: -46.8, y: 24.3}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2083856037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2083856035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 48
-    m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 48
-    m_Alignment: 4
-    m_AlignByGeometry: 1
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Play
-
-'
---- !u!222 &2083856038
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2083856035}
 --- !u!1 &2113944166
 GameObject:
   m_ObjectHideFlags: 0

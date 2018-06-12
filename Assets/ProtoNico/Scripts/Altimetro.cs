@@ -10,7 +10,7 @@ public class Altimetro : MonoBehaviour
     public GameObject AltitudeArrow;
     public GameObject AltitudeDecimalArrow;
     public float DropSpeed { get { return 1 * Multipliers[currentMultiplayerIndex]; } }
-    public float MaxAltitude = 1000;
+    float MaxAltitude = 1000;
     public float CurrentAltitude { get; private set; }
     
     private int SecondsToMove;
@@ -19,6 +19,8 @@ public class Altimetro : MonoBehaviour
     public void Init(LevelManager _lvlMng)
     {
         gameController = _lvlMng;
+
+        MaxAltitude = _lvlMng.Setting.StartingAltitude;
 
         CurrentAltitude = MaxAltitude;
         if (AltitudeArrow == null)

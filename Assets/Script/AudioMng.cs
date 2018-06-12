@@ -151,6 +151,11 @@ public class AudioMng : MonoBehaviour
             source.DOFade(_endValue, 0.1f);
         }
     }
+
+    public void PlayClipOnce(AudioClip _clip)
+    {
+        PlaySound(_clip, false);
+    }
     #endregion
 
     /// <summary>

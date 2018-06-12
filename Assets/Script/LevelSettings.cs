@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewSettingData", menuName = "LevelSetting/NewSetup")]
-public class LevelSettings : ScriptableObject {
-
+public class LevelSettings : ScriptableObject
+{
+    [Tooltip("Ovvero secondi prima di schiantarsi...")]
+    public float StartingAltitude = 720;
     [Range(1,8)]
     public int TotalPuzzles = 3;
     [Range(1,8)][Tooltip("Attenzione: se maggiore di TotalPuzzles, sarà impossibile vincere!")]
