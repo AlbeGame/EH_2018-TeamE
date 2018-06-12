@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour, ISelectable
     int puzzleNeededToLoose { get { return Setting.PuzzlesNeededToloose; } }
     int PuzzleNeededToWin { get { return Setting.PuzzlesNeededToWin; } }
     public Altimetro Altimetro;
+    public Error_Panel ErrorPanel;
     public SelectableBehaviour AlarmPuzzle;
     PuzzleALARM_Data Alarm_Data; 
     public List<SelectableBehaviour> OtherSelectable = new List<SelectableBehaviour>();
@@ -218,6 +219,8 @@ public class LevelManager : MonoBehaviour, ISelectable
         //selectable.Select();
         _puzzle.SolutionState = PuzzleState.Broken;
 
+        hasAlarmedOnce = true;
+
         AccelerateAltimeter();
         AlarmPuzzle.GetComponent<PuzzleALARM>().Toggle(true);
 
@@ -254,6 +257,8 @@ public class LevelManager : MonoBehaviour, ISelectable
             if (puzzle.SolutionState == PuzzleState.Broken)
                 currentBrokenPuzzles++;
         }
+
+        ErrorPanel.TurnLights(currentBrokenPuzzles);
 
         //Momentanea Soluzione di sconfitta
         if (currentBrokenPuzzles >= puzzleNeededToLoose)
