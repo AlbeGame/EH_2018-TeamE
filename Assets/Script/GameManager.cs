@@ -31,13 +31,13 @@ public class GameManager : MonoBehaviour {
     public void Awake()
     {
         I_GM = this;
+        ChosenSetting = Instantiate(DefaultDebug);
+        AudioManager = GetComponentInChildren<AudioMng>();
     }
 
     private void Start()
     {
-        ChosenSetting = Instantiate(DefaultDebug);
 
-        AudioManager = GetComponentInChildren<AudioMng>();
     }
 
     public void SetDifficultyLevel(DifficoultyLevel _difficoulty)
