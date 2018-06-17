@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3d7f0ebf70de64086cd803fb6a6dd2, type: 3}
   m_Name: LV_Hard
   m_EditorClassIdentifier: 
+  StartingAltitude: 480
   TotalPuzzles: 8
   PuzzlesNeededToWin: 6
   PuzzlesNeededToloose: 3

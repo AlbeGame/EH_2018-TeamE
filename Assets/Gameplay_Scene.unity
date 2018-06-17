@@ -649,7 +649,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 858018632}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.18127301
+  m_Size: 0.26746425
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -26075,8 +26075,8 @@ MonoBehaviour:
   minY: -60
   maxY: 90
   MovementSpeed: 5
-  ShakeMaxFrequence: 0.5
-  ShakeMaxForce: 1
+  ShakeMaxFrequence: 0.05
+  ShakeMaxForce: 5
   ShakeFrequence: 1
   ShakeForce: 1
-  ShakeVibrato: 5
+  ShakeVibrato: 3
