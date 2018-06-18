@@ -648,7 +648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4480132411983670}
   m_Layer: 0
-  m_Name: Puizzle_13_radio
+  m_Name: Puzzle_13_radio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

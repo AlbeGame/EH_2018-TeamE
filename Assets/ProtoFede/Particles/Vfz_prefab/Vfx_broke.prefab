@@ -905,7 +905,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 84.7
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4266,7 +4266,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 119.1
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -7627,7 +7627,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 12
+      scalar: 94.78
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -10988,7 +10988,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 72.1
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -14349,7 +14349,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 82.8
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -17150,7 +17150,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 926820357
+  randomSeed: -1146551910
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -17710,7 +17710,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 89.5
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -21071,7 +21071,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 81.9
       minScalar: 10
       maxCurve:
         serializedVersion: 2
