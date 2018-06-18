@@ -42,8 +42,6 @@ public class PuzzleTrimmer : MonoBehaviour, IPuzzle,ISelectable {
         SolutionState = PuzzleState.Unsolved;
         _graphicCtrl.Paint(SolutionState);
         _solutionProgression = 0;
-
-
     }
 
     public void OnButtonSelect(SelectableButton _button)

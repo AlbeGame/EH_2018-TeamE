@@ -204,6 +204,7 @@ public class PuzzleCluster : MonoBehaviour, IPuzzle, ISelectable
         SetScreens(false);
 
         graphicCtrl.Init(graphicCtrl.Data);
+        graphicCtrl.Paint(SolutionState);
     }
 
     void SetScreens(bool _on)

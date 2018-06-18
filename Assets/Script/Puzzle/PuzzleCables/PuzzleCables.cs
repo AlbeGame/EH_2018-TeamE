@@ -218,6 +218,7 @@ public class PuzzleCables : MonoBehaviour, IPuzzle, ISelectable
         int setupIndex = Random.Range(0, data.Setups.Count);
         chosenSetup = data.Setups[setupIndex];
 
+        SolutionState = PuzzleState.Unsolved;
         graphicCtrl.Paint(SolutionState);
 
         switches.Clear();

@@ -47,6 +47,7 @@ public class PuzzlePressure : MonoBehaviour, IPuzzle, ISelectable
         SolutionState = PuzzleState.Unsolved;
 
         graphicCtrl.Init(graphicCtrl.Data);
+        graphicCtrl.Paint(SolutionState);
 
         currentSolutionAmount = 0;
         currentMisstakes = 0;

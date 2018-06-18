@@ -99,6 +99,7 @@ public class PuzzleTurbine : MonoBehaviour, IPuzzle, ISelectable
     #region Selectable Behaviours
     public void Init() {
         SolutionState = PuzzleState.Unsolved;
+        graphicCtrl.Paint(SolutionState);
 
         GenerateNewPuzzleCombination();
         buttonHits = 0;

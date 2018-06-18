@@ -138,6 +138,7 @@ public class PuzzleAutopilot : MonoBehaviour, IPuzzle, ISelectable
     #region Selectable Behaviours
     public void Init()
     {
+        SolutionState = PuzzleState.Unsolved;
         graphicCtrl.Init(graphicCtrl.Data);
 
         //Inizializza gli elementi di Input

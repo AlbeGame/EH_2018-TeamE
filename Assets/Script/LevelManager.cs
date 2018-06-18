@@ -202,8 +202,8 @@ public class LevelManager : MonoBehaviour, ISelectable
             {
                 brokenPuzzles.Shuffle();
                 IPuzzle randPuzz = brokenPuzzles[Random.Range(0, brokenPuzzles.Count)];
-                randPuzz.Init();
                 randPuzz.SolutionState = PuzzleState.Unsolved;
+                randPuzz.Init();
                 DecelerateAltimeter();
             }
             else
