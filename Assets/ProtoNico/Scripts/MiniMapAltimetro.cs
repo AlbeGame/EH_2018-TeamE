@@ -7,38 +7,33 @@ using UnityEngine.UI;
 public class MiniMapAltimetro : MonoBehaviour {
 
     public GameObject mapAltimeter;
-    bool isActiveMap;
 
 	void Start () {
         NotActive();
 	}
 	
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
-            if (isActiveMap)
-            {
-                NotActive();
-            }
-
-            else
-            {
-                ActiveMap();
-            }
+            ActiveMap();
+        }
+        else
+        {
+            NotActive();
         }
     }
 
 
     void ActiveMap()
     {
-        isActiveMap = true;
-        mapAltimeter.SetActive(true);
+        if(!mapAltimeter.activeSelf)
+            mapAltimeter.SetActive(true);
     }
 
     void NotActive()
     {
-        isActiveMap = false;
-        mapAltimeter.SetActive(false);
+        if (mapAltimeter.activeSelf)
+            mapAltimeter.SetActive(false);
     }
 
 }

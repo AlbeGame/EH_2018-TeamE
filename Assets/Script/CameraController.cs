@@ -125,24 +125,26 @@ public class CameraController : MonoBehaviour
     {
         shake = childCam.DOShakePosition(1f, .1f).OnComplete(callback);
     }
-    public void AwarnessLook()
+    public void AwarnessLook(TweenCallback _callback)
     {
-        focusChange = childCam.DOFieldOfView(childCam.fieldOfView + 10, 1f);
+        focusChange = childCam.DOFieldOfView(childCam.fieldOfView + 10, 0.5f).OnComplete(_callback);
         //focusChange.OnComplete(() =>
         //    {
         //        focusChange = childCam.DOFieldOfView(childCam.fieldOfView - 10, 1f);
         //    });
     }
     #endregion
-
     IEnumerator Move(Transform _transf)
     {
         childCam.fieldOfView = startingFOV;
 
+        if (Vector3.Distance(transform.position, _transf.position) < Time.deltaTime / 10)
+            yield break;
+
         if (shake == null || shake.IsPlaying())
             yield return null;
 
-        basicShake.Kill();
+        basicShake.Kill(true);
 
         bool isMoving = true;
         while (isMoving)
@@ -161,8 +163,8 @@ public class CameraController : MonoBehaviour
                 canMoveFreeCam = true;
         }
         if (_transf == origin.transform)
-            basicShake = origin.transform.DOPunchRotation(Vector3.forward * (ShakeForce + ShakeMaxForce * 0.1f), ShakeFrequence + ShakeMaxFrequence / 0.1f, ShakeVibrato).SetLoops(-1);
+            basicShake = origin.transform.DOPunchRotation(Vector3.forward * (ShakeForce + ShakeMaxForce * 0.05f), ShakeFrequence + ShakeMaxFrequence / 0.1f, ShakeVibrato).SetLoops(-1);
         else
-            basicShake = transform.DOPunchRotation(Vector3.forward * (ShakeForce + ShakeMaxForce * 0.1f), ShakeFrequence + ShakeMaxFrequence / 0.1f).SetLoops(-1);
+            basicShake = transform.DOPunchRotation(Vector3.forward * (ShakeForce + ShakeMaxForce * 0.05f), ShakeFrequence + ShakeMaxFrequence / 0.1f).SetLoops(-1);
     }
 }
