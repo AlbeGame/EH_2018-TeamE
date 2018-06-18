@@ -13,9 +13,12 @@ public class MenuPauseController : MonoBehaviour
     AudioMng audioMng;
     public bool CanPause = true;
 
+    FadeController fadeCtrl;
+
     private void Start()
     {
         currentES = FindObjectOfType<EventSystem>();
+        fadeCtrl = GetComponentInChildren<FadeController>();
         audioMng = GameManager.I_GM.AudioManager;
     }
 
@@ -40,7 +43,7 @@ public class MenuPauseController : MonoBehaviour
         audioMng.FadeAll(0);
         audioMng.Clear();
 
-        SceneManager.LoadScene(_sceneIndex);
+        fadeCtrl.FadeIn(() => { SceneManager.LoadScene(_sceneIndex); });
     }
 
     public void TogglePauseMenu()
@@ -75,12 +78,12 @@ public class MenuPauseController : MonoBehaviour
         audioMng.FadeAll(0);
         audioMng.Clear();
 
-        SceneManager.LoadScene(1);
+        fadeCtrl.FadeIn(()=> { SceneManager.LoadScene(1); });
     }
 
     public void Quit()
     {
-        Application.Quit();
+        fadeCtrl.FadeIn(()=> { Application.Quit(); });
     }
 
     void ToggleMenu(GameObject _menuObj)
@@ -98,5 +101,7 @@ public class MenuPauseController : MonoBehaviour
         //Toggle on only the desired one
         if(_menuObj)
             _menuObj.SetActive(true);
+
+        fadeCtrl.FadeOut();
     }
 }

@@ -240,12 +240,12 @@ public class LevelManager : MonoBehaviour, ISelectable
 
     public void GameLost()
     {
-        SceneManager.LoadScene(2);
+        FindObjectOfType<FadeController>().FadeIn(()=> { SceneManager.LoadScene(2); });
     }
 
     public void GameWon()
     {
-        SceneManager.LoadScene(3);
+        FindObjectOfType<FadeController>().FadeIn(() => { SceneManager.LoadScene(3); });
     }
 
     void UpdateOverallSolution()

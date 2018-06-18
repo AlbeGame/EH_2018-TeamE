@@ -12,12 +12,15 @@ public class MenuController : MonoBehaviour {
     public GameObject TutorialPanel;
     EventSystem currentES;
     AudioMng audioMng;
+    FadeController fadeCtrl;
+
 
     bool isGameStarted;
 
     private void Start()
     {
         currentES = FindObjectOfType<EventSystem>();
+        fadeCtrl = GetComponentInChildren<FadeController>();
         audioMng = GameManager.I_GM.AudioManager;
         isGameStarted = false;
     }
@@ -50,7 +53,7 @@ public class MenuController : MonoBehaviour {
     public void GoToIntro()
     {
         isGameStarted = true;
-        ToggleMenu(IntroPanel);
+        fadeCtrl.FadeIn(() => { ToggleMenu(IntroPanel); });
     }
 
     public void GoToTutorial()
@@ -65,12 +68,12 @@ public class MenuController : MonoBehaviour {
 
     public void GoToCredits()
     {
-        ToggleMenu(CreditsPanel);
+        fadeCtrl.FadeIn(() => { ToggleMenu(CreditsPanel); });
     }
 
     public void QuitGame()
     {
-        Application.Quit();
+        fadeCtrl.FadeIn(() => { Application.Quit(); });
     }
 
     public void GoGamePlay(int _sceneIndex)
@@ -78,8 +81,7 @@ public class MenuController : MonoBehaviour {
         //Audio down
         audioMng.FadeAll(0);
         audioMng.Clear();
-
-        SceneManager.LoadScene(_sceneIndex);
+        fadeCtrl.FadeIn(() => { SceneManager.LoadScene(_sceneIndex); });
     }
 
     public void SetDifficoulty(int difficoulty)
@@ -104,6 +106,8 @@ public class MenuController : MonoBehaviour {
 
         //Toggle on only the desired one
         _menuObj.SetActive(true);
+
+        fadeCtrl.FadeOut();
     }
 
     void ResetEventSystmSelection(GameObject _selection)
