@@ -23,7 +23,7 @@ public class AudioMng : MonoBehaviour
     /// <param name="_loop"></param>
     public void PlaySound(AudioType _type, bool _loop = false) 
     {
-        AudioSource sourceToUse = GetFirstAvaibleSource();
+        AudioSource sourceToUse = GetFirstSourceByType(_type);
 
         switch (_type)
         {
@@ -45,7 +45,9 @@ public class AudioMng : MonoBehaviour
             case AudioType.MenuInput:
                 sourceToUse.clip = MenuInput;
                 break;
-
+            case AudioType.PuzzleSolved:
+                sourceToUse.clip = PuzzleSolved;
+                break;
             default:
                 break;
         }
@@ -93,7 +95,9 @@ public class AudioMng : MonoBehaviour
             case AudioType.MenuInput:
                 sourceToUse.clip = MenuInput;
                 break;
-
+            case AudioType.PuzzleSolved:
+                sourceToUse.clip = PuzzleSolved;
+                break;
             default:
                 break;
         }
@@ -222,7 +226,7 @@ public class AudioMng : MonoBehaviour
 
         foreach (AudioSource source in audioSources)
         {
-            if (source.clip = referenceClip)
+            if (source.clip == referenceClip)
             {
                 sourceByType = source;
                 break;

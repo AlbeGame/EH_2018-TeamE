@@ -189,8 +189,9 @@ public class LevelManager : MonoBehaviour, ISelectable
         camCtrl.AwarnessLook(()=>
         {
             selectable.Select();
-            GameManager.I_GM.AudioManager.PlaySound(AudioType.PuzzleSolved);
         });
+
+        GameManager.I_GM.AudioManager.PlaySound(AudioType.PuzzleSolved);
         puzzle.SolutionState = PuzzleState.Solved;
 
         if(puzzle.GetType() == typeof(PuzzleALARM))
