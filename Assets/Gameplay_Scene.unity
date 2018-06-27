@@ -649,7 +649,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 858018632}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.35542732
+  m_Size: 0.18717657
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -26821,6 +26821,11 @@ Prefab:
       propertyPath: AudioDatas.Array.data[0].Clip
       value: 
       objectReference: {fileID: 8300000, guid: 29bd5df3e2cb2374285e03d69c82f52b, type: 3}
+    - target: {fileID: 114175537496675634, guid: 2cca9ceab67cdc8408e898e77f752761,
+        type: 2}
+      propertyPath: PuzzleSolved
+      value: 
+      objectReference: {fileID: 8300000, guid: 95600c775e199c549a4f6a6a9f0f6983, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2cca9ceab67cdc8408e898e77f752761, type: 2}
   m_IsPrefabParent: 0

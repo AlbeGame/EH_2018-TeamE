@@ -186,7 +186,11 @@ public class LevelManager : MonoBehaviour, ISelectable
     public void NotifyPuzzleSolved(IPuzzle puzzle)
     {
         //Parziale comportamento comunque da refactorizzare
-        camCtrl.AwarnessLook(()=> { selectable.Select(); });
+        camCtrl.AwarnessLook(()=>
+        {
+            selectable.Select();
+            GameManager.I_GM.AudioManager.PlaySound(AudioType.PuzzleSolved);
+        });
         puzzle.SolutionState = PuzzleState.Solved;
 
         if(puzzle.GetType() == typeof(PuzzleALARM))

@@ -10,6 +10,7 @@ public class AudioMng : MonoBehaviour
     public AudioClip Altimeter;
     public AudioClip Alarm;
     public AudioClip MenuInput;
+    public AudioClip PuzzleSolved;
     public float FadeTime = 0.5f;
 
     private List<AudioSource> audioSources = new List<AudioSource>();
@@ -212,6 +213,9 @@ public class AudioMng : MonoBehaviour
             case AudioType.Alarm:
                 referenceClip = Alarm;
                 break;
+            case AudioType.PuzzleSolved:
+                referenceClip = PuzzleSolved;
+                break;
             default:
                 break;
         }
@@ -240,6 +244,7 @@ public enum AudioType
     Ambient,
     Altimeter,
     Alarm,
-    MenuInput
+    MenuInput,
+    PuzzleSolved
 }
 
