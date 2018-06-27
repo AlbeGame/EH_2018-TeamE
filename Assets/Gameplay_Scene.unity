@@ -649,7 +649,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 858018632}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.18717657
+  m_Size: 0.26746425
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9746,15 +9746,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: a4bbddc7b56b0e04997876b096842c98, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.36
+      value: 0.384
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a4bbddc7b56b0e04997876b096842c98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.547
+      value: -0.522
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a4bbddc7b56b0e04997876b096842c98, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.688
+      value: 1.722
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a4bbddc7b56b0e04997876b096842c98, type: 3}
       propertyPath: m_LocalRotation.x
