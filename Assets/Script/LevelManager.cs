@@ -222,10 +222,19 @@ public class LevelManager : MonoBehaviour, ISelectable
         //selectable.Select();
         _puzzle.SolutionState = PuzzleState.Broken;
 
-        hasAlarmedOnce = true;
-
+        //Altimeter
         AccelerateAltimeter();
-        AlarmPuzzle.GetComponent<PuzzleALARM>().Toggle(true);
+        //Alarm
+        if (!hasAlarmedOnce)
+        {
+            ActivateAlarm(true);
+        }
+        else
+        {
+            int activationChance = Random.Range(0, 100);
+            if (activationChance < 50)
+                ActivateAlarm(true);
+        }
 
         UpdateOverallSolution();
     }
