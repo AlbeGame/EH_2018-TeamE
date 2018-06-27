@@ -249,11 +249,13 @@ public class LevelManager : MonoBehaviour, ISelectable
 
     public void GameLost()
     {
+        GameManager.I_GM.AudioManager.Clear();
         FindObjectOfType<FadeController>().FadeIn(()=> { SceneManager.LoadScene(2); });
     }
 
     public void GameWon()
     {
+        GameManager.I_GM.AudioManager.Clear();
         FindObjectOfType<FadeController>().FadeIn(() => { SceneManager.LoadScene(3); });
     }
 
