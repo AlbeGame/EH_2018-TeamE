@@ -18,7 +18,7 @@ MonoBehaviour:
   - {fileID: 114519384390996486}
   m_FixedDuration: 0
   m_EditorSettings:
-    fps: 60
+    m_Framerate: 60
   m_DurationMode: 0
 --- !u!114 &114207635530064346
 MonoBehaviour:
@@ -42,7 +42,7 @@ MonoBehaviour:
     m_ClipIn: 0
     m_Asset: {fileID: 114341540590701974}
     m_UnderlyingAsset: {fileID: 0}
-    m_Duration: 5
+    m_Duration: 10.083333333333334
     m_TimeScale: 1
     m_ParentTrack: {fileID: 114207635530064346}
     m_EaseInDuration: 0
@@ -148,11 +148,11 @@ MonoBehaviour:
   m_Parent: {fileID: 11400000}
   m_Children: []
   m_Clips:
-  - m_Start: 0.9833333333333333
+  - m_Start: 4.5
     m_ClipIn: 0
     m_Asset: {fileID: 114228822481356404}
     m_UnderlyingAsset: {fileID: 0}
-    m_Duration: 6
+    m_Duration: 5.166666666666667
     m_TimeScale: 1
     m_ParentTrack: {fileID: 114519384390996486}
     m_EaseInDuration: 0
