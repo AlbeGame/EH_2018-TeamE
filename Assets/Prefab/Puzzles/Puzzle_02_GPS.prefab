@@ -5805,10 +5805,12 @@ MonoBehaviour:
     HighlightedMat: {fileID: 2100000, guid: a4380ade6ec88cd4a9ec010dc170b7a2, type: 2}
     DoNotPaintItems: []
     Lights: {fileID: 0}
+    OffMaterial: {fileID: 0}
     EmissiveNeutral: {fileID: 0}
     EmissivePositive: {fileID: 0}
     EmissiveNegative: {fileID: 0}
     ParticlesGroup: {fileID: 0}
+  LightBlinkInterval: 0.5
 --- !u!114 &114008257540742032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5880,10 +5882,12 @@ MonoBehaviour:
     HighlightedMat: {fileID: 2100000, guid: a4380ade6ec88cd4a9ec010dc170b7a2, type: 2}
     DoNotPaintItems: []
     Lights: {fileID: 0}
+    OffMaterial: {fileID: 0}
     EmissiveNeutral: {fileID: 0}
     EmissivePositive: {fileID: 0}
     EmissiveNegative: {fileID: 0}
     ParticlesGroup: {fileID: 0}
+  LightBlinkInterval: 0.5
 --- !u!114 &114145439501390146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5901,10 +5905,12 @@ MonoBehaviour:
     HighlightedMat: {fileID: 2100000, guid: a4380ade6ec88cd4a9ec010dc170b7a2, type: 2}
     DoNotPaintItems: []
     Lights: {fileID: 0}
+    OffMaterial: {fileID: 0}
     EmissiveNeutral: {fileID: 0}
     EmissivePositive: {fileID: 0}
     EmissiveNegative: {fileID: 0}
     ParticlesGroup: {fileID: 0}
+  LightBlinkInterval: 0.5
 --- !u!114 &114169956623431806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5922,10 +5928,12 @@ MonoBehaviour:
     HighlightedMat: {fileID: 2100000, guid: a4380ade6ec88cd4a9ec010dc170b7a2, type: 2}
     DoNotPaintItems: []
     Lights: {fileID: 0}
+    OffMaterial: {fileID: 0}
     EmissiveNeutral: {fileID: 0}
     EmissivePositive: {fileID: 0}
     EmissiveNegative: {fileID: 0}
     ParticlesGroup: {fileID: 0}
+  LightBlinkInterval: 0.5
 --- !u!114 &114173902070656688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5943,10 +5951,12 @@ MonoBehaviour:
     HighlightedMat: {fileID: 2100000, guid: a4380ade6ec88cd4a9ec010dc170b7a2, type: 2}
     DoNotPaintItems: []
     Lights: {fileID: 0}
+    OffMaterial: {fileID: 0}
     EmissiveNeutral: {fileID: 0}
     EmissivePositive: {fileID: 0}
     EmissiveNegative: {fileID: 0}
     ParticlesGroup: {fileID: 0}
+  LightBlinkInterval: 0.5
 --- !u!114 &114180819304718774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5976,10 +5986,12 @@ MonoBehaviour:
     DoNotPaintItems:
     - {fileID: 1764506753967536}
     Lights: {fileID: 23711005772816992}
+    OffMaterial: {fileID: 2100000, guid: bf984e787326e7f4eac256db0165aef6, type: 2}
     EmissiveNeutral: {fileID: 2100000, guid: d2cc8808e21737740962726e6daaa2af, type: 2}
     EmissivePositive: {fileID: 2100000, guid: 389021201113423418b16267fd002ac8, type: 2}
     EmissiveNegative: {fileID: 2100000, guid: 46f7dc8ce67ca07469b340759d89072b, type: 2}
     ParticlesGroup: {fileID: 1432917148065196}
+  LightBlinkInterval: 0.5
 --- !u!114 &114219448690479174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6058,10 +6070,12 @@ MonoBehaviour:
     HighlightedMat: {fileID: 2100000, guid: a4380ade6ec88cd4a9ec010dc170b7a2, type: 2}
     DoNotPaintItems: []
     Lights: {fileID: 0}
+    OffMaterial: {fileID: 0}
     EmissiveNeutral: {fileID: 0}
     EmissivePositive: {fileID: 0}
     EmissiveNegative: {fileID: 0}
     ParticlesGroup: {fileID: 0}
+  LightBlinkInterval: 0.5
 --- !u!114 &114334150930622704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6079,10 +6093,12 @@ MonoBehaviour:
     HighlightedMat: {fileID: 2100000, guid: a4380ade6ec88cd4a9ec010dc170b7a2, type: 2}
     DoNotPaintItems: []
     Lights: {fileID: 0}
+    OffMaterial: {fileID: 0}
     EmissiveNeutral: {fileID: 0}
     EmissivePositive: {fileID: 0}
     EmissiveNegative: {fileID: 0}
     ParticlesGroup: {fileID: 0}
+  LightBlinkInterval: 0.5
 --- !u!114 &114354225043658846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6116,10 +6132,12 @@ MonoBehaviour:
     HighlightedMat: {fileID: 2100000, guid: a4380ade6ec88cd4a9ec010dc170b7a2, type: 2}
     DoNotPaintItems: []
     Lights: {fileID: 0}
+    OffMaterial: {fileID: 0}
     EmissiveNeutral: {fileID: 0}
     EmissivePositive: {fileID: 0}
     EmissiveNegative: {fileID: 0}
     ParticlesGroup: {fileID: 0}
+  LightBlinkInterval: 0.5
 --- !u!114 &114415431418869582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6202,10 +6220,12 @@ MonoBehaviour:
     HighlightedMat: {fileID: 2100000, guid: a4380ade6ec88cd4a9ec010dc170b7a2, type: 2}
     DoNotPaintItems: []
     Lights: {fileID: 0}
+    OffMaterial: {fileID: 0}
     EmissiveNeutral: {fileID: 0}
     EmissivePositive: {fileID: 0}
     EmissiveNegative: {fileID: 0}
     ParticlesGroup: {fileID: 0}
+  LightBlinkInterval: 0.5
 --- !u!114 &114603368465644584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6287,10 +6307,12 @@ MonoBehaviour:
     HighlightedMat: {fileID: 2100000, guid: a4380ade6ec88cd4a9ec010dc170b7a2, type: 2}
     DoNotPaintItems: []
     Lights: {fileID: 0}
+    OffMaterial: {fileID: 0}
     EmissiveNeutral: {fileID: 0}
     EmissivePositive: {fileID: 0}
     EmissiveNegative: {fileID: 0}
     ParticlesGroup: {fileID: 0}
+  LightBlinkInterval: 0.5
 --- !u!114 &114702931860255612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6319,10 +6341,12 @@ MonoBehaviour:
     HighlightedMat: {fileID: 2100000, guid: a4380ade6ec88cd4a9ec010dc170b7a2, type: 2}
     DoNotPaintItems: []
     Lights: {fileID: 0}
+    OffMaterial: {fileID: 0}
     EmissiveNeutral: {fileID: 0}
     EmissivePositive: {fileID: 0}
     EmissiveNegative: {fileID: 0}
     ParticlesGroup: {fileID: 0}
+  LightBlinkInterval: 0.5
 --- !u!114 &114709416562788188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6356,10 +6380,12 @@ MonoBehaviour:
     HighlightedMat: {fileID: 2100000, guid: a4380ade6ec88cd4a9ec010dc170b7a2, type: 2}
     DoNotPaintItems: []
     Lights: {fileID: 0}
+    OffMaterial: {fileID: 0}
     EmissiveNeutral: {fileID: 0}
     EmissivePositive: {fileID: 0}
     EmissiveNegative: {fileID: 0}
     ParticlesGroup: {fileID: 0}
+  LightBlinkInterval: 0.5
 --- !u!114 &114774273861437616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6391,10 +6417,12 @@ MonoBehaviour:
     HighlightedMat: {fileID: 2100000, guid: a4380ade6ec88cd4a9ec010dc170b7a2, type: 2}
     DoNotPaintItems: []
     Lights: {fileID: 0}
+    OffMaterial: {fileID: 0}
     EmissiveNeutral: {fileID: 0}
     EmissivePositive: {fileID: 0}
     EmissiveNegative: {fileID: 0}
     ParticlesGroup: {fileID: 0}
+  LightBlinkInterval: 0.5
 --- !u!114 &114790508477356068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6507,10 +6535,12 @@ MonoBehaviour:
     HighlightedMat: {fileID: 2100000, guid: a4380ade6ec88cd4a9ec010dc170b7a2, type: 2}
     DoNotPaintItems: []
     Lights: {fileID: 0}
+    OffMaterial: {fileID: 0}
     EmissiveNeutral: {fileID: 0}
     EmissivePositive: {fileID: 0}
     EmissiveNegative: {fileID: 0}
     ParticlesGroup: {fileID: 0}
+  LightBlinkInterval: 0.5
 --- !u!114 &114978327814511882
 MonoBehaviour:
   m_ObjectHideFlags: 1

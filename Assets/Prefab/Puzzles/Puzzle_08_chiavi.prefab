@@ -2641,10 +2641,12 @@ MonoBehaviour:
     - {fileID: 1847488902300000}
     - {fileID: 1887146223313800}
     Lights: {fileID: 0}
+    OffMaterial: {fileID: 0}
     EmissiveNeutral: {fileID: 0}
     EmissivePositive: {fileID: 0}
     EmissiveNegative: {fileID: 0}
     ParticlesGroup: {fileID: 0}
+  LightBlinkInterval: 0.5
 --- !u!114 &114090590473707872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2681,10 +2683,12 @@ MonoBehaviour:
     - {fileID: 1661833515468668}
     - {fileID: 1326551036859308}
     Lights: {fileID: 23171049702288952}
+    OffMaterial: {fileID: 2100000, guid: bf984e787326e7f4eac256db0165aef6, type: 2}
     EmissiveNeutral: {fileID: 2100000, guid: d2cc8808e21737740962726e6daaa2af, type: 2}
     EmissivePositive: {fileID: 2100000, guid: 389021201113423418b16267fd002ac8, type: 2}
     EmissiveNegative: {fileID: 2100000, guid: 46f7dc8ce67ca07469b340759d89072b, type: 2}
     ParticlesGroup: {fileID: 1764871991843792}
+  LightBlinkInterval: 0.5
 --- !u!114 &114141738290679436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2761,10 +2765,12 @@ MonoBehaviour:
     - {fileID: 1859070855832958}
     - {fileID: 1388061618656946}
     Lights: {fileID: 0}
+    OffMaterial: {fileID: 0}
     EmissiveNeutral: {fileID: 0}
     EmissivePositive: {fileID: 0}
     EmissiveNegative: {fileID: 0}
     ParticlesGroup: {fileID: 0}
+  LightBlinkInterval: 0.5
 --- !u!114 &114706252374688560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2796,10 +2802,12 @@ MonoBehaviour:
     - {fileID: 1261736960115956}
     - {fileID: 1871818819789250}
     Lights: {fileID: 0}
+    OffMaterial: {fileID: 0}
     EmissiveNeutral: {fileID: 0}
     EmissivePositive: {fileID: 0}
     EmissiveNegative: {fileID: 0}
     ParticlesGroup: {fileID: 0}
+  LightBlinkInterval: 0.5
 --- !u!114 &114758882730974024
 MonoBehaviour:
   m_ObjectHideFlags: 1
