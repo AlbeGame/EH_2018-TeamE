@@ -649,7 +649,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 858018632}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.26746425
+  m_Size: 0.18717657
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10226,7 +10226,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1
-  m_CookingOptions: 15
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300310, guid: a6cd92dd6f7ac604788a2903487eedcf, type: 3}
 --- !u!114 &693693205
@@ -27088,7 +27088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotSpeed: 2.5
   minY: -60
-  maxY: 90
+  maxY: 45
   MovementSpeed: 5
   ShakeMaxFrequence: 0.5
   ShakeMaxForce: 2

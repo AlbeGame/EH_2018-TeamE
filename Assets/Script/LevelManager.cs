@@ -164,7 +164,7 @@ public class LevelManager : MonoBehaviour, ISelectable
 
         FallDisplay.UpdateLine(percentage);
 
-        if (percentage >= 0.5f || selectable.State == SelectionState.Passive)
+        if (percentage >= 0.5f)
             return;
 
         if(percentage <= 0)
