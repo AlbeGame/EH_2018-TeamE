@@ -20,6 +20,22 @@ public class PuzzleGraphic : MonoBehaviour, ISelectable
             Init(Data);
     }
 
+    public float LightBlinkInterval = .5f;
+    float currentLBInterval = 0;
+    bool isPulsing = true;
+    private void Update()
+    {
+        if (!isPulsing)
+            return;
+
+        currentLBInterval += Time.deltaTime;
+        if (currentLBInterval >= LightBlinkInterval)
+        {
+            Pulse();
+            currentLBInterval = 0;
+        }
+    }
+
     #region API
     #region ISelectable
     public void OnSelection()
@@ -96,7 +112,8 @@ public class PuzzleGraphic : MonoBehaviour, ISelectable
 
         switch (_state)
         {
-            case PuzzleState.Unsolved:;
+            case PuzzleState.Unsolved:
+                isPulsing = true;
                 inhibitColorChange = false;
                 if(Data.Lights != null)
                     PaintLights(Data.EmissiveNeutral);
@@ -104,6 +121,7 @@ public class PuzzleGraphic : MonoBehaviour, ISelectable
                     Data.ParticlesGroup.SetActive(false);
                 break;
             case PuzzleState.Broken:
+                isPulsing = false;
                 inhibitColorChange = true;
                 if (Data.Lights != null)
                     PaintLights(Data.EmissiveNegative);
@@ -111,6 +129,7 @@ public class PuzzleGraphic : MonoBehaviour, ISelectable
                     Data.ParticlesGroup.SetActive(true);
                 break;
             case PuzzleState.Solved:
+                isPulsing = false;
                 inhibitColorChange = true;
                 if (Data.ParticlesGroup != null)
                     Data.ParticlesGroup.SetActive(false);
@@ -150,12 +169,23 @@ public class PuzzleGraphic : MonoBehaviour, ISelectable
         }
     }
 
+    #endregion
+    bool blinkOn = false;
+    void Pulse()
+    {
+        blinkOn = !blinkOn;
+
+        if (blinkOn)
+            PaintLights(Data.EmissiveNeutral);
+        else
+            PaintLights(Data.OffMaterial);
+    }
+
     void CameraFocusCall()
     {
         if (CameraFocusPoint != null)
             camCtrl.FocusAt(CameraFocusPoint.transform);
     }
-    #endregion
 }
 
 [System.Serializable]
@@ -170,6 +200,7 @@ public class PuzzleGraphicData
 
     [Header("Puzzle Lights")]
     public MeshRenderer Lights;
+    public Material OffMaterial;
     public Material EmissiveNeutral;
     public Material EmissivePositive;
     public Material EmissiveNegative;
