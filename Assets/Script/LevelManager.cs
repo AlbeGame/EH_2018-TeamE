@@ -59,34 +59,12 @@ public class LevelManager : MonoBehaviour, ISelectable
         camCtrl.isMoveFreeCam = false;
         camCtrl.Init();
 
-        int randIndex;
-        List<Transform> positionLeft = PuzzlePositions;
-
-        for (int i = 0; i < Setting.TotalPuzzles; i++)
-        {
-            randIndex = Random.Range(0, PuzzleDatas.Count);
-            IPuzzleData randData = PuzzleDatas[randIndex] as IPuzzleData;
-
-            int randPos = Random.Range(0, positionLeft.Count);
-            Transform position = positionLeft[randPos];
-            positionLeft.RemoveAt(randPos);
-
-            IPuzzle randPuzzle = Instantiate(randData.GetIPuzzleGO(), position).GetComponent<IPuzzle>();
-            randPuzzle.Setup(randData);
-            randPuzzle.Init();
-            puzzles.Add(randPuzzle);
-            (randPuzzle as MonoBehaviour).GetComponent<SelectableBehaviour>().Init(selectable);
-        }
-
         foreach (var item in OtherSelectable)
         {
             item.Init(selectable);
         }
-
-        foreach (Transform pos in positionLeft)
-        {
-            Instantiate(Setting.FillingObjects[Random.Range(0, Setting.FillingObjects.Count)], pos);
-        }
+        //Sceglie i puzzle tra quelli possibili trai i dati ricevuti
+        CreateNewPuzzleSet();
 
         Plane.StartFall(Setting.StartingAltitude);
     }
@@ -262,6 +240,45 @@ public class LevelManager : MonoBehaviour, ISelectable
     {
         GameManager.I_GM.AudioManager.Clear();
         FindObjectOfType<FadeController>().FadeIn(() => { SceneManager.LoadScene(3); });
+    }
+
+    /// <summary>
+    /// Sceglie, posiziona e inizializza i puzzle
+    /// </summary>
+    void CreateNewPuzzleSet()
+    {
+        int randIndex;
+        List<Transform> positionLeft = PuzzlePositions;
+        List<IPuzzleData> _puzzleDatas = new List<IPuzzleData>();
+
+        foreach (IPuzzleData item in PuzzleDatas)
+        {
+            //Creo il doppio delle copie di ogni puzzle data
+            _puzzleDatas.Add(item);
+            _puzzleDatas.Add(item);
+        }
+
+        for (int i = 0; i < Setting.TotalPuzzles; i++)
+        {
+            randIndex = Random.Range(0, _puzzleDatas.Count);
+            IPuzzleData randData = _puzzleDatas[randIndex];
+
+            int randPos = Random.Range(0, positionLeft.Count);
+            Transform position = positionLeft[randPos];
+            positionLeft.RemoveAt(randPos);
+
+            IPuzzle randPuzzle = Instantiate(randData.GetIPuzzleGO(), position).GetComponent<IPuzzle>();
+            randPuzzle.Setup(randData);
+            randPuzzle.Init();
+            puzzles.Add(randPuzzle);
+            (randPuzzle as MonoBehaviour).GetComponent<SelectableBehaviour>().Init(selectable);
+            _puzzleDatas.RemoveAt(randIndex);
+        }
+
+        foreach (Transform pos in positionLeft)
+        {
+            Instantiate(Setting.FillingObjects[Random.Range(0, Setting.FillingObjects.Count)], pos);
+        }
     }
 
     void UpdateOverallSolution()

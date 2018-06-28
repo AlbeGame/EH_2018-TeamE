@@ -37,7 +37,7 @@ public class Debugger : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F12))
+        if ((Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.LeftControl)) && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && Input.GetKeyDown(KeyCode.F12))
             view.gameObject.SetActive(!view.gameObject.activeSelf);
     }
 
