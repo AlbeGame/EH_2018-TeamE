@@ -138,6 +138,9 @@ public class CameraController : MonoBehaviour
     {
         childCam.fieldOfView = startingFOV;
 
+        if (_transf == origin.transform)
+            canMoveFreeCam = true;
+
         if (Vector3.Distance(transform.position, _transf.position) < Time.deltaTime / 10)
             yield break;
 
@@ -159,8 +162,6 @@ public class CameraController : MonoBehaviour
 
             yield return null;
             euler = new Vector3(0, 0, 0);
-            if (_transf == origin.transform)
-                canMoveFreeCam = true;
         }
         if (_transf == origin.transform)
             basicShake = origin.transform.DOPunchRotation(Vector3.forward * (ShakeForce + ShakeMaxForce * 0.05f), ShakeFrequence + ShakeMaxFrequence / 0.1f, ShakeVibrato).SetLoops(-1);
