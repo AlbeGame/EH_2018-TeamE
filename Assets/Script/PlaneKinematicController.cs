@@ -36,7 +36,7 @@ public class PlaneKinematicController : MonoBehaviour {
             pathLenght += Vector3.Distance(FallTrajectory[i].position, FallTrajectory[i+1].position);
         }
 
-
+        GameManager.I_GM.AudioManager.PlayAmbient(currentPathIndex);
         StartCoroutine(Fall());
     }
 
@@ -58,7 +58,9 @@ public class PlaneKinematicController : MonoBehaviour {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(FallTrajectory[currentPathIndex].position - transform.position), Time.deltaTime / fallRatio * 10);
             if(Vector3.Distance(transform.position, FallTrajectory[currentPathIndex].position) <= 1)
             {
+
                 currentPathIndex++;
+                GameManager.I_GM.AudioManager.PlayAmbient(currentPathIndex);
             }
 
             yield return null;

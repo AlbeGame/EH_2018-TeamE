@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 
@@ -6,11 +7,12 @@ public class AudioMng : MonoBehaviour
 {
     public AudioClip InputClick;
     public AudioClip InputHover;
-    public AudioClip Ambient;
     public AudioClip Altimeter;
     public AudioClip Alarm;
     public AudioClip MenuInput;
     public AudioClip PuzzleSolved;
+    public List<AudioClip> Ambient = new List<AudioClip>();
+    public List<AudioClip> AmbientTransitions = new List<AudioClip>();
     public float FadeTime = 0.5f;
 
     private List<AudioSource> audioSources = new List<AudioSource>();
@@ -34,7 +36,7 @@ public class AudioMng : MonoBehaviour
                 sourceToUse.clip = InputHover;
                 break;
             case AudioType.Ambient:
-                sourceToUse.clip = Ambient;
+                PlayAmbient();
                 break;
             case AudioType.Altimeter:
                 sourceToUse.clip = Altimeter;
@@ -59,7 +61,7 @@ public class AudioMng : MonoBehaviour
         sourceToUse.Play();
 
         //Fade In for Ambient
-        if (_type == AudioType.Ambient)
+        if (sourceToUse.volume == 0)
             sourceToUse.DOFade(1, FadeTime);
 
         if (_loop)
@@ -84,7 +86,7 @@ public class AudioMng : MonoBehaviour
                 sourceToUse.clip = InputHover;
                 break;
             case AudioType.Ambient:
-                sourceToUse.clip = Ambient;
+                PlayAmbient();
                 break;
             case AudioType.Altimeter:
                 sourceToUse.clip = Altimeter;
@@ -110,7 +112,7 @@ public class AudioMng : MonoBehaviour
         sourceToUse.Play();
 
         //Fade In for Ambient
-        if (_type == AudioType.Ambient)
+        if (sourceToUse.volume == 0)
             sourceToUse.DOFade(1, FadeTime);
 
         if (_loop)
@@ -142,8 +144,15 @@ public class AudioMng : MonoBehaviour
         {
             Destroy(audioSources[i].gameObject);
         }
+        for (int i = 0; i < ambientSources.Count; i++)
+        {
+            if(ambientSources[i] != null)
+                Destroy(ambientSources[i].gameObject);
+        }
 
+        ambientSources.Clear();
         audioSources.Clear();
+        StopAllCoroutines();
     }
     /// <summary>
     /// Fade all the Audio Source to _endValue
@@ -157,12 +166,89 @@ public class AudioMng : MonoBehaviour
         }
     }
 
+    int ambientIndex = 0;
+    List<AudioSource> ambientSources = new List<AudioSource>();
+    public void PlayAmbient(int _specific = -1)
+    {
+        AudioSource newSource = GetNewSource();
+
+        foreach (AudioSource source in ambientSources)
+        {
+            if(source != null)
+                source.DOFade(0, FadeTime).OnComplete(()=> { Destroy(source.gameObject); });
+            audioSources.Remove(source);
+        }
+
+        ambientSources.Add(newSource);
+
+        newSource.volume = 0;
+        newSource.loop = true;
+
+        if (_specific >= 0 && _specific < Ambient.Count)
+        {
+            ambientIndex = _specific;
+            newSource.clip = Ambient[ambientIndex];
+        }
+        else
+        {
+            if (ambientIndex == 0)
+            {
+                PlayAmbient(0);
+                return;
+            }
+            else if (ambientIndex == 1)
+            {
+                PlayAmbient(1);
+                return;
+            }
+            else if (ambientIndex == 2)
+            {
+                newSource.clip = AmbientTransitions[0];
+                StartCoroutine(PlayAmbientPostTransition(0));
+                return;
+            }
+            else if (ambientIndex == 3)
+            {
+                newSource.clip = AmbientTransitions[1];
+                StartCoroutine(PlayAmbientPostTransition(1));
+                return;
+            }
+            else if (ambientIndex == 4)
+            {
+                newSource.clip = AmbientTransitions[2];
+                StartCoroutine(PlayAmbientPostTransition(2));
+                return;
+            }
+        }
+
+        newSource.DOFade(1, FadeTime);
+        newSource.Play();
+    }
+
     public void PlayClipOnce(AudioClip _clip)
     {
         PlaySound(_clip, false);
     }
     #endregion
 
+    IEnumerator PlayAmbientPostTransition(int _transitionID)
+    {
+        yield return new WaitForSeconds(AmbientTransitions[_transitionID].length);
+        PlayAmbient(_transitionID + 2);
+    }
+    /// <summary>
+    /// Create a new source
+    /// </summary>
+    /// <returns></returns>
+    AudioSource GetNewSource()
+    {
+        AudioSource newSource = null;
+
+        newSource = Instantiate(new GameObject("Source_" + audioSources.Count), transform).AddComponent<AudioSource>();
+        audioSources.Add(newSource);
+
+        return newSource;
+    }
     /// <summary>
     /// Return the first Avaiable AudioSource.
     /// It creates a new one if none foun.
@@ -183,8 +269,7 @@ public class AudioMng : MonoBehaviour
         //If none found it creates a new one;
         if (firstFreeSource == null)
         {
-            firstFreeSource = Instantiate(new GameObject("Source_" + audioSources.Count), transform).AddComponent<AudioSource>();
-            audioSources.Add(firstFreeSource);
+            firstFreeSource = GetNewSource();
         }
 
         return firstFreeSource;
@@ -195,7 +280,7 @@ public class AudioMng : MonoBehaviour
     /// </summary>
     /// <param name="_type"></param>
     /// <returns></returns>
-    AudioSource GetFirstSourceByType(AudioType _type)
+    AudioSource GetFirstSourceByType(AudioType _type, bool _returnNull = false)
     {
         AudioSource sourceByType = null;
 
@@ -207,9 +292,6 @@ public class AudioMng : MonoBehaviour
                 break;
             case AudioType.InputHover:
                 referenceClip = InputHover;
-                break;
-            case AudioType.Ambient:
-                referenceClip = Ambient;
                 break;
             case AudioType.Altimeter:
                 referenceClip = Altimeter;
@@ -231,11 +313,18 @@ public class AudioMng : MonoBehaviour
                 sourceByType = source;
                 break;
             }
+
+            if(_type == AudioType.Ambient)
+                if (Ambient.Contains(source.clip) || AmbientTransitions.Contains(source.clip))
+                {
+                    sourceByType = source;
+                    break;
+                }
         }
 
-        if(sourceByType == null)
-            sourceByType = GetFirstAvaibleSource();
-
+        if(!_returnNull)
+            if(sourceByType == null)
+                sourceByType = GetFirstAvaibleSource();
 
         return sourceByType;
     }

@@ -36,8 +36,6 @@ public class LevelManager : MonoBehaviour, ISelectable
         Setting = GameManager.I_GM.ChosenSetting;
         PuzzleDatas = Setting.GetPuzzleDatas();
         Alarm_Data = Setting.GetAlarmData();
-
-        GameManager.I_GM.AudioManager.PlaySound(AudioType.Ambient, false, true);
         
         selectable = GetComponent<SelectableBehaviour>();
         selectable.Init(null, SelectionState.Selected);
