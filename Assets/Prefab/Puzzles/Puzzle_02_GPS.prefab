@@ -5312,7 +5312,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1829922219524542}
-  m_Text: O - - NO - - N - - NE - - E
+  m_Text: W - - NW - - N - - NE - - E
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -5438,7 +5438,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1252275167419616}
-  m_Text: LONGITUDINE
+  m_Text: LONGITUDE
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -5711,7 +5711,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1281212699472024}
-  m_Text: LATITUDINE
+  m_Text: LATITUDE
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
