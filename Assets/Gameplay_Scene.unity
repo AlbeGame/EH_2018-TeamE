@@ -649,7 +649,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 858018632}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.18717657
+  m_Size: 0.25091344
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2923,8 +2923,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CameraFocusPoint: {fileID: 0}
   Data:
-    NeutralMat: {fileID: 2100000, guid: 1850de465dafec948a83c47a49c257bd, type: 2}
-    HighlightedMat: {fileID: 2100000, guid: e9fe9b4713d3c1e43bdc5726d615fd35, type: 2}
+    NeutralMat: {fileID: 2100000, guid: cd4d3920e9bee26438eb8846132d25ef, type: 2}
+    HighlightedMat: {fileID: 2100000, guid: dc38306f008489c4fab8d46b31e48774, type: 2}
     DoNotPaintItems: []
     Lights: {fileID: 0}
     OffMaterial: {fileID: 0}
@@ -8161,6 +8161,31 @@ Prefab:
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 198393052458354642, guid: 15cc08424c37eb04698b913361103f5b,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198393052458354642, guid: 15cc08424c37eb04698b913361103f5b,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198393052458354642, guid: 15cc08424c37eb04698b913361103f5b,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198393052458354642, guid: 15cc08424c37eb04698b913361103f5b,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198393052458354642, guid: 15cc08424c37eb04698b913361103f5b,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15cc08424c37eb04698b913361103f5b, type: 2}
   m_IsPrefabParent: 0
@@ -10304,8 +10329,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CameraFocusPoint: {fileID: 1739068316}
   Data:
-    NeutralMat: {fileID: 2100000, guid: 0a5103e4cb0705149a9a64533009fb68, type: 2}
-    HighlightedMat: {fileID: 2100000, guid: 344290532ba4ff24a85031d78e908e0b, type: 2}
+    NeutralMat: {fileID: 2100000, guid: 5f833611d89bd2e439f050a28077b1f6, type: 2}
+    HighlightedMat: {fileID: 2100000, guid: 596ec1ec690f94848ab3cf42aca7b56d, type: 2}
     DoNotPaintItems: []
     Lights: {fileID: 0}
     OffMaterial: {fileID: 0}
@@ -18378,6 +18403,31 @@ Prefab:
         type: 2}
       propertyPath: ShapeModule.radius.value
       value: 7.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 198662572185751372, guid: 2cdb840ec284a1a46acaec1d1ea555bc,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198662572185751372, guid: 2cdb840ec284a1a46acaec1d1ea555bc,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198662572185751372, guid: 2cdb840ec284a1a46acaec1d1ea555bc,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198662572185751372, guid: 2cdb840ec284a1a46acaec1d1ea555bc,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198662572185751372, guid: 2cdb840ec284a1a46acaec1d1ea555bc,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 198662572185751372, guid: 2cdb840ec284a1a46acaec1d1ea555bc,
         type: 2}
