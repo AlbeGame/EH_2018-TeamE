@@ -649,7 +649,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 858018632}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.25091344
+  m_Size: 0.3015076
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15452,7 +15452,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0000007729977, y: -0.000030517578}
+  m_AnchoredPosition: {x: -0.0000007729977, y: -0.00000006394251}
   m_SizeDelta: {x: 0, y: 246}
   m_Pivot: {x: 0.0000000018626451, y: 0.9999999}
 --- !u!1 &1296620400
@@ -27124,6 +27124,11 @@ Prefab:
       propertyPath: Ambient.Array.data[4]
       value: 
       objectReference: {fileID: 8300000, guid: f7e032a555f8b9f4e99d91abf004153d, type: 3}
+    - target: {fileID: 114175537496675634, guid: 2cca9ceab67cdc8408e898e77f752761,
+        type: 2}
+      propertyPath: Alarm
+      value: 
+      objectReference: {fileID: 8300000, guid: 95f5b02d81651e84baf06f2e3da091bc, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2cca9ceab67cdc8408e898e77f752761, type: 2}
   m_IsPrefabParent: 0
