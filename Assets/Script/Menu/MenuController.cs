@@ -30,7 +30,7 @@ public class MenuController : MonoBehaviour {
         if (isGameStarted)
             return;
 
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("Cancel") || Input.GetMouseButtonDown(1))
             GoToMainMenu();
     }
 
